@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- 9
+- 10
+- 12
+matrix:
+  allow_failures:
+  - node_js: 12
+os:
+- linux
+- macosx
+cache:
+  directories:
+  - node_modules
+install:
+- npm i
+after_script:
+- npm run build
+# jobs:
+#   include:
+#   - stage: deploy
+#     if: branch = master
+#     node_js: lts/*
+#     deploy:
+#       provider: script
+#       skip_cleanup: true
+#       script:
+#       - scripts/deploy-travis.sh
