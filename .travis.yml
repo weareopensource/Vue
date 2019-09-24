@@ -16,13 +16,6 @@ install:
 - npm i
 after_script:
 - npm run build
-# jobs:
-#   include:
-#   - stage: deploy
-#     if: branch = master
-#     node_js: lts/*
-#     deploy:
-#       provider: script
-#       skip_cleanup: true
-#       script:
-#       - scripts/deploy-travis.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_06a00f58bbdd_key -iv $encrypted_06a00f58bbdd_iv
+  -in deploy_rsa_vue.enc -out ../.ssh/deploy_rsa_vue -d
