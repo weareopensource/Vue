@@ -1,0 +1,86 @@
+{
+  "name": "waosVue",
+  "description": "Node - Boilerplate Back : Express, Jwt, Mongo, Sequelize (Beta)  (Based on meanjs and riess.js)",
+  "version": "0.1.0",
+  "keywords": [
+    "vue",
+    "vuex",
+    "vuetify",
+    "jwt",
+    "jest",
+    "stack",
+    "boilerplate"
+  ],
+  "private": false,
+  "author": "https://github.com/weareopensource/Vue/graphs/contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weareopensource/Vue.git"
+  },
+  "engines": {
+    "node": ">=10.16.3",
+    "npm": ">=6.11.3"
+  },
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect",
+    "commit": "npx git-cz",
+    "release": "standard-version"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.1",
+    "axios": "^0.19.0",
+    "core-js": "^2.6.5",
+    "lodash": "^4.17.15",
+    "register-service-worker": "^1.6.2",
+    "snyk": "^1.228.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuetify": "^2.0.18",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-e2e-cypress": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-pwa": "^3.11.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "commitizen": "^4.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.5",
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "standard-version": "^7.0.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.2.2",
+    "waos-conventional-changelog": "^1.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/waos-conventional-changelog"
+    }
+  },
+  "snyk": true
+}
