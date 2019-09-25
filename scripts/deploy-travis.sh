@@ -12,6 +12,7 @@ ssh -p $sshPort $sshUser@$sshHost -o StrictHostKeyChecking=no "$( cat <<EOT
   nvm install '${depNode}'
   nvm use '${depNode}'
   git pull
+  rm package-lock.json
   npm i
   NODE_ENV=production npm run build
   echo "$(date -u) Deploy ${depProject} on node $(node -v) with npm $(npm -v)"  >> ./deploy.log
