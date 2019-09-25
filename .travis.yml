@@ -14,7 +14,7 @@ cache:
   - node_modules
 install:
 - npm i
-after_script:
+before_script:
 - npm run build
 jobs:
   include:
