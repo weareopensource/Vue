@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
-import config from '@/config/default';
+import config from '@/config';
 
 Vue.use(Vuetify);
 

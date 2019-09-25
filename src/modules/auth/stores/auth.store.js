@@ -27,7 +27,7 @@ const actions = {
   signin: ({ commit }, user) => new Promise((resolve, reject) => {
     commit('auth_request');
     axios({
-      url: 'http://localhost:8080/api/auth/signin',
+      url: 'http://localhost:3000/api/auth/signin',
       data: user,
       method: 'POST',
       withCredentials: true,
@@ -50,7 +50,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       commit('auth_request');
       axios({
-        url: 'http://localhost:8080/api/auth/signup',
+        url: 'http://localhost:3000/api/auth/signup',
         data: user,
         method: 'POST',
         withCredentials: true,

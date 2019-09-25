@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import config from '@/config/default';
+import config from '@/config';
 
 /**
  * State

@@ -72,25 +72,35 @@ $ npm i
 ## Running Your Application
 
 ### Development
-* `npm start` or `npm run serve` to run a dev server with hot-reloads. Available at `http://localhost:8080/`.
+* `npm start` to run a dev server with hot-reloads. Available at `http://localhost:8080/`.
 
 ### Production
 * `npm run build` to build a prod server.
 
 ### others 
 
+* vue:serve : `npm vue:serve` -> be careful, this bypass config generation of the stack 
+* vue:build : `npm vue:build` -> be careful, this bypass config generation of the stack 
 * test : `npm test`
 * test e2e : `npm run test:e2e`
 * test unit : `npm run test:unit`
 * lint : `npm run lint`
 * commit : `npm run commit`
 * release : `npm run release`
+* generateConfig : `npm run generateConfig`
 
 ### Configuration
 
-The default configuration is : 'config/default.js' 
+The default configuration is : `src/config/defaults/development.js`
+The other configurations : `src/config/defaults/*.js` overwrite the default configuration, you can create your own. 
 
-WIP
+We take into account all system environment variables defined under the form WAOS_VUE_<path_toVariable>. A pre-build npm script turns under the hood those system environment variables into an object, infering paths from the varialbles name, merged to the configuration defined on `src/config/defaults` to regenerate the file used `src/config/index.js`.
+
+So configuration avalable on `src/config/defaults/development` file are overidable. You can for instance define the app name by defining those system environment variables :
+
+```
+WAOS_VUE_app_name='my app =)'
+```
 
 ## [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
 
