@@ -7,10 +7,10 @@
             <v-form ref="form" v-model="valid">
               <v-container>
                 <v-row>
-                  <v-col cols="12" md="4">
+                  <v-col sm="12">
                     <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="4">
+                  <v-col sm="12">
                     <v-text-field :type="'password'" v-model="password" label="Password" required></v-text-field>
                   </v-col>
                 </v-row>
@@ -20,6 +20,7 @@
                 </v-row>
               </v-container>
             </v-form>
+            <router-link to="/signup">SignUp</router-link> if you have no account yet :) !
           </v-card>
         </v-row>
       </v-col>
@@ -36,12 +37,12 @@ export default {
   data() {
     return {
       valid: false,
-      email: 'seeduser@localhost.com',
+      email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      password: 'zHwJKWk6z5Hp7tWFD143EK',
+      password: '',
     };
   },
   methods: {

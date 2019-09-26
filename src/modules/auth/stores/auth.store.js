@@ -52,6 +52,7 @@ const actions = {
   signup({ commit }, user) {
     return new Promise((resolve, reject) => {
       commit('auth_request');
+      console.log(user);
       axios({
         url: `${api}/${config.api.endPoints.auth}/signup`,
         data: user,
