@@ -2,6 +2,9 @@
  * Module dependencies.
  */
 import axios from 'axios';
+import config from '@/config';
+
+const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 
 /**
  * State
@@ -27,7 +30,7 @@ const actions = {
   signin: ({ commit }, user) => new Promise((resolve, reject) => {
     commit('auth_request');
     axios({
-      url: 'http://localhost:3000/api/auth/signin',
+      url: `${api}/${config.api.endPoints.auth}/signin`,
       data: user,
       method: 'POST',
       withCredentials: true,
@@ -50,7 +53,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       commit('auth_request');
       axios({
-        url: 'http://localhost:3000/api/auth/signup',
+        url: `${api}/${config.api.endPoints.auth}/signup`,
         data: user,
         method: 'POST',
         withCredentials: true,
