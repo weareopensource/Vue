@@ -4,13 +4,6 @@
 import config from '@/config';
 
 /**
- * State
- */
-const state = {
-  drawer: config.vuetify.drawer.model,
-};
-
-/**
  * Getters: get state
  */
 const getters = {
@@ -24,6 +17,13 @@ const mutations = {
   setDrawer(state, data) {
     state.drawer = data;
   },
+};
+
+/**
+ * State
+ */
+const state = {
+  drawer: config.vuetify.drawer.model,
 };
 
 /**

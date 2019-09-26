@@ -61,7 +61,9 @@ export default {
         const { email } = this;
         const { password } = this;
         this.$store
-          .dispatch('signup', { email, password, firstName, lastName })
+          .dispatch('signup', {
+            email, password, firstName, lastName,
+          })
           .then(() => this.$router.push('/'))
           .catch(err => console.log(err));
       }

@@ -1,6 +1,6 @@
 <template>
 
-  <v-app id="inspire">
+  <v-app id="app">
     <waosNav/>
     <waosHeader/>
 

@@ -7,15 +7,6 @@ import config from '@/config';
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 
 /**
- * State
- */
-const state = {
-  status: '',
-  cookieExpire: localStorage.getItem('CookieExpire') || 0,
-  user: {},
-};
-
-/**
  * Getters: get state
  */
 const getters = {
@@ -37,7 +28,7 @@ const actions = {
     })
       .then((resp) => {
         const cookieExpire = resp.data.tokenExpiresIn;
-        const user = resp.data.user;
+        const { user } = resp.data;
         localStorage.setItem('CookieExpire', cookieExpire);
         // axios.defaults.headers.common.Authorization = token;
         commit('auth_success', cookieExpire, user);
@@ -61,7 +52,7 @@ const actions = {
       })
         .then((resp) => {
           const cookieExpire = resp.data.tokenExpiresIn;
-          const user = resp.data.user;
+          const { user } = resp.data;
           localStorage.setItem('CookieExpire', cookieExpire);
           //  axios.defaults.headers.common.Authorization = token;
           commit('auth_success', cookieExpire, user);
@@ -102,6 +93,15 @@ const mutations = {
     state.status = '';
     state.cookieExpire = 0;
   },
+};
+
+/**
+ * State
+ */
+const state = {
+  status: '',
+  cookieExpire: localStorage.getItem('CookieExpire') || 0,
+  user: {},
 };
 
 /**
