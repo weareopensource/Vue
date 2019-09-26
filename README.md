@@ -2,7 +2,7 @@
  [![Dependencies Status](https://david-dm.org/weareopensource/vue.svg?style=flat-square)](https://david-dm.org/weareopensource/vue) [![Dependabot badge](https://badges.weareopensource.me/badge/Dependabot-enabled-2768cf.svg?style=flat-square)](https://dependabot.com)
  [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue)
 
-# [WeAreOpenSource](https://weareopensource.me) Vue
+# [WeAreOpenSource](https://weareopensource.me) Vue 4.x
 
 ## Presentation
 
@@ -17,7 +17,7 @@ You can have more informations about us in our [global repo](https://github.com/
 
 Our stack Vue is actually in Alpha. 
 
-# Vue / Vuetify / Jwt
+# Vue 4.x / Vuetify / Jwt
 
 * [**Wiki**](#) - wip
 * [**Knowledges JS**](https://github.com/weareopensource/weareopensource.github.io/wiki/Knowledges-JS)
