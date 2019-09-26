@@ -21,7 +21,7 @@ Our stack Vue is actually in Alpha.
 
 * [**Wiki**](#) - wip
 * [**Knowledges JS**](https://github.com/weareopensource/weareopensource.github.io/wiki/Knowledges-JS)
-* [**Demo**](#) - wip
+* [**Demo**](https://vue.weareopensource.me) (working with [Node](https://github.com/weareopensource/Node) stack, email: *test@waos.me*, password: *TestWaos@2019*)
 
 ## Technology Overview
 
@@ -53,8 +53,6 @@ Our stack Vue is actually in Alpha.
 * RGPD conpliance 
 * oAuth(microsoft, google)
 * profile management (update, avatar upload ...)
-
-## [Demo](#) WIP
 
 ## Prerequisites
 Make sure you have installed all of the following prerequisites on your development machine:
