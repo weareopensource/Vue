@@ -74,6 +74,8 @@ $ npm i
 ### Development
 * `npm start` to run a dev server with hot-reloads. Available at `http://localhost:8080/`.
 
+/!\ in order to launch Vue with our node stack, node need to accept CORS. You can specify it in config or like it `WAOS_NODE_cors_origin=['http://localhost:8080'] npm start` when you starting node.
+
 ### Production
 * `npm run build` to build a prod server.
 
