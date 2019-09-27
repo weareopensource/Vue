@@ -64,6 +64,7 @@ Make sure you have installed all of the following prerequisites on your developm
 It's straightforward (you can use yarn if you want)
 ```bash
 $ git clone https://github.com/weareopensource/vue.git && cd Vue
+$ npm install -g @vue/cli@v4.0.0-rc.4
 $ npm i 
 ```
 
