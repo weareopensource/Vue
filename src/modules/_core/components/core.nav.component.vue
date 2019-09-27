@@ -11,7 +11,7 @@
     >
       <v-list dense>
         <!--<v-subheader class="mt-4 grey--text text--darken-1">Navigation</v-subheader>-->
-        <v-list-item v-for="item in sidenav" :key="item.text" :to="item.path">
+        <v-list-item v-for="item in nav" :key="item.text" :to="item.path">
           <v-list-item-action>
             <v-icon>fa-{{ item.meta.icon }}</v-icon>
           </v-list-item-action>
@@ -46,30 +46,22 @@ export default {
     ...mapGetters(['isLoggedIn']),
     drawer: {
       get() { return this.$store.getters.drawer; },
-      set(v) { return this.$store.commit('setDrawer', v); },
+      set(v) { return this.$store.commit('set_drawer', v); },
     },
-    sidenav() {
-      return this._.pickBy(this.nav, (i) => {
-        if (i.meta.display !== false) { // hidden item
-          if (!('auth' in i.meta)) return i; // auth undefined, always displayed
-          if (!i.meta.auth && !this.isLoggedIn) return i; // auth false, not logged
-          if (i.meta.auth && this.isLoggedIn) return i; // auth true and logged
-        }
-      });
+    nav: {
+      get() { return this.$store.getters.nav; },
     },
   },
   methods: {
     signout() {
       this.$store.dispatch('signout').then(() => {
-        this.$router.push('/');
+        this.$store.dispatch('refreshNav');
+        if (this.$route.path !== '/') this.$router.push('/home');
       });
     },
   },
   created() {
-    this.$router.options.routes.forEach(route => this.nav.push(route));
+    this.$store.dispatch('refreshNav');
   },
-  data: () => ({
-    nav: [],
-  }),
 };
 </script>

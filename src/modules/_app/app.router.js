@@ -9,16 +9,18 @@ import home from '@/modules/home/router/home.router';
 import auth from '@/modules/auth/router/auth.router';
 import secure from '@/modules/secure/router/secure.router';
 
-Vue.use(Router);
+const routes = [].concat(home, auth, secure);
 
 /**
  * Router configuration
  */
-const baseRoutes = [];
+Vue.use(Router);
+Vue.prototype.$routes = routes;
+
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: baseRoutes.concat(home, auth, secure),
+  routes,
 });
 
 router.beforeEach((to, from, next) => {
