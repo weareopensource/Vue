@@ -18,52 +18,37 @@ const getters = {
  * Actions
  */
 const actions = {
-  signin: ({ commit }, user) => new Promise((resolve, reject) => {
-    commit('auth_request');
-    axios({
-      url: `${api}/${config.api.endPoints.auth}/signin`,
-      data: user,
-      method: 'POST',
-      withCredentials: true,
-    })
-      .then((resp) => {
-        const cookieExpire = resp.data.tokenExpiresIn;
-        const { user } = resp.data;
-        localStorage.setItem('CookieExpire', cookieExpire);
-        // axios.defaults.headers.common.Authorization = token;
-        commit('auth_success', cookieExpire, user);
-        resolve(resp);
-      })
-      .catch((err) => {
-        commit('auth_error');
-        localStorage.removeItem('token');
-        reject(err);
-      });
-  }),
-  signup({ commit }, user) {
-    return new Promise((resolve, reject) => {
-      commit('auth_request');
-      console.log(user);
-      axios({
-        url: `${api}/${config.api.endPoints.auth}/signup`,
-        data: user,
+  signin: async ({ commit, dispatch }, params) => {
+    try {
+      const res = await axios({
+        url: `${api}/${config.api.endPoints.auth}/signin`,
+        data: params,
         method: 'POST',
         withCredentials: true,
-      })
-        .then((resp) => {
-          const cookieExpire = resp.data.tokenExpiresIn;
-          const { user } = resp.data;
-          localStorage.setItem('CookieExpire', cookieExpire);
-          //  axios.defaults.headers.common.Authorization = token;
-          commit('auth_success', cookieExpire, user);
-          resolve(resp);
-        })
-        .catch((err) => {
-          commit('auth_error', err);
-          localStorage.removeItem('CookieExpire');
-          reject(err);
-        });
-    });
+      });
+      localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
+      commit('auth_success', res.data);
+      dispatch('refreshNav');
+    } catch (err) {
+      localStorage.removeItem('token');
+      commit('auth_error');
+    }
+  },
+  signup: async ({ commit, dispatch }, params) => {
+    try {
+      const res = await axios({
+        url: `${api}/${config.api.endPoints.auth}/signup`,
+        data: params,
+        method: 'POST',
+        withCredentials: true,
+      });
+      localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
+      commit('auth_success', res.data);
+      dispatch('refreshNav');
+    } catch (err) {
+      localStorage.removeItem('token');
+      commit('auth_error');
+    }
   },
   signout({ commit }) {
     return new Promise((resolve) => {
@@ -81,10 +66,10 @@ const mutations = {
   auth_request(state) {
     state.status = 'loading';
   },
-  auth_success(state, cookie, cookieExpire, user) {
+  auth_success(state, data) {
     state.status = 'success';
-    state.cookieExpire = cookieExpire;
-    state.user = user;
+    state.cookieExpire = data.tokenExpiresIn;
+    state.user = data.user;
   },
   auth_error(state) {
     state.status = 'error';

@@ -8,7 +8,7 @@ import 'vuetify/dist/vuetify.min.css';
 import Vue from 'vue';
 import App from '@/modules/_app/app.vue';
 import store from '@/modules/_app/app.store';
-import router from '@/modules/_core/router/core.router';
+import router from '@/modules/_app/app.router';
 import vuetify from '@/lib/plugins/vuetify';
 
 // Vuetify

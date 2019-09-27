@@ -23,7 +23,7 @@ export default {
     ...mapGetters(['isLoggedIn']),
     drawer: {
       get() { return this.$store.getters.drawer; },
-      set(v) { return this.$store.commit('setDrawer', v); },
+      set(v) { return this.$store.commit('set_drawer', v); },
     },
   },
   data: () => ({
