@@ -8,8 +8,9 @@ import store from '@/modules/_app/app.store';
 import home from '@/modules/home/router/home.router';
 import auth from '@/modules/auth/router/auth.router';
 import secure from '@/modules/secure/router/secure.router';
+import tasks from '@/modules/tasks/router/tasks.router';
 
-const routes = [].concat(home, auth, secure);
+const routes = [].concat(home, auth, secure, tasks);
 
 /**
  * Router configuration

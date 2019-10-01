@@ -43,13 +43,10 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'waosNav',
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(['isLoggedIn', 'nav']),
     drawer: {
       get() { return this.$store.getters.drawer; },
       set(v) { return this.$store.commit('set_drawer', v); },
-    },
-    nav: {
-      get() { return this.$store.getters.nav; },
     },
   },
   methods: {
