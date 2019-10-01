@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout wrap align-content-space-around text-xs-center>
+    <v-layout class="ma-4" wrap align-content-space-around text-xs-center>
       <task
         v-for="(item, index) in tasks"
         v-bind:item="item"
@@ -10,7 +10,7 @@
       <v-row v-if="!tasks.length">
         <v-col cols="12">
           <v-row align="start" justify="center">
-            <v-card class="ma-4 pa-8" outlined tile width="100%">
+            <v-card class="mx-6 pa-8" outlined tile width="100%">
               <h2 class="text-center">No Tasks found :( !</h2>
             </v-card>
           </v-row>

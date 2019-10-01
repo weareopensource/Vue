@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row>
+    <v-row class="mx-3">
       <v-col cols="12">
         <v-row align="start" justify="center">
           <v-card class="ma-4 pa-8" outlined tile width="100%">
