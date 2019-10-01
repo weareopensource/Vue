@@ -1,18 +1,15 @@
 <template>
   <v-container fluid>
-    <v-row>
-      <v-col cols="12">
-        <v-row align="start" justify="center">
-          <v-card class="ma-4 pa-8" outlined tile>
-            <v-img :src="require('@/assets/logo.svg')" class="my-4" contain height="200"></v-img>
-            <h1 class="display-1 mb-3">{{ this.config.app.title }}</h1>
-            <p class="subheading font-weight-regular">
-              {{ this.config.app.description }}<br />
-              <a href="https://weareopensource.me" target="_blank" >We Are Open Source</a>
-            </p>
-          </v-card>
-        </v-row>
-      </v-col>
-    </v-row>
+    <v-col cols="12" sm="12" md="12" lg="12" xl="12">
+      <v-card class="ma-4 pa-8" :flat="true" :outlined="true">
+        <v-img :src="require('@/assets/logo.svg')" class="my-4" contain height="200"></v-img>
+        <v-card-title class="justify-center">{{ this.config.app.title }}</v-card-title>
+        <center>
+          <v-card-text class="justify-center">{{ this.config.app.description }}</v-card-text>
+          <br />
+          <a href="https://weareopensource.me" target="_blank">We Are Open Source</a>
+        </center>
+      </v-card>
+    </v-col>
   </v-container>
 </template>
