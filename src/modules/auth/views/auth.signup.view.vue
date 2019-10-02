@@ -8,16 +8,16 @@
               <v-container>
                 <v-row>
                   <v-col md="6" sm="12">
-                    <v-text-field v-model="firstName" label="Firstname" required></v-text-field>
+                    <v-text-field v-model="firstName" :rules="firstNameRules" label="Firstname" required></v-text-field>
                   </v-col>
                   <v-col md="6" sm="12">
-                    <v-text-field v-model="lastName" label="Lastname" required></v-text-field>
+                    <v-text-field v-model="lastName" :rules="lastNameRules" label="Lastname" required></v-text-field>
                   </v-col>
                   <v-col md="12" sm="12">
                     <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                   </v-col>
                   <v-col md="12" sm="12">
-                    <v-text-field :type="'password'" v-model="password" label="Password" required></v-text-field>
+                    <v-text-field :type="'password'" v-model="password" :rules="passwordRules" label="Password" required></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -46,11 +46,20 @@ export default {
       firstName: '',
       lastName: '',
       email: '',
+      password: '',
+      firstNameRules: [
+        v => !!v || 'Firstname is required',
+      ],
+      lastNameRules: [
+        v => !!v || 'Lastname is required',
+      ],
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      password: '',
+      passwordRules: [
+        v => !!v || 'Password is required',
+      ],
     };
   },
   methods: {
