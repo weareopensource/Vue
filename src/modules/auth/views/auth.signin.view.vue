@@ -11,7 +11,7 @@
                     <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                   </v-col>
                   <v-col sm="12">
-                    <v-text-field :type="'password'" v-model="password" label="Password" required></v-text-field>
+                    <v-text-field :type="'password'" :rules="passwordRules" v-model="password" label="Password" required></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -38,11 +38,14 @@ export default {
     return {
       valid: false,
       email: '',
+      password: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      password: '',
+      passwordRules: [
+        v => !!v || 'Password is required',
+      ],
     };
   },
   methods: {

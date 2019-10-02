@@ -22,7 +22,6 @@ export default [
     name: 'Signup',
     component: signup,
     meta: {
-      icon: 'arrow-right',
       display: false, // hide any time
     },
   },
