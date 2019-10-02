@@ -7,13 +7,11 @@
         v-bind:index="index"
         v-bind:key="item.id"
       ></task>
-      <v-row v-if="!tasks.length">
+      <v-row v-if="!tasks.length" align="start" justify="center">
         <v-col cols="12">
-          <v-row align="start" justify="center">
-            <v-card class="mx-6 pa-8" outlined tile width="100%">
-              <h2 class="text-center">No Tasks found :( !</h2>
-            </v-card>
-          </v-row>
+          <v-card class="mx-3 pa-8" outlined tile>
+            <h2 class="text-center">No Tasks found :( !</h2>
+          </v-card>
         </v-col>
       </v-row>
     </v-layout>
