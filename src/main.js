@@ -14,12 +14,6 @@ import vuetify from '@/lib/plugins/vuetify';
 // Vuetify
 Vue.config.productionTip = false;
 
-// auth
-const token = localStorage.getItem('token');
-if (token) {
-  Vue.prototype.$http.defaults.headers.common.Authorization = token;
-}
-
 new Vue({
   router,
   store,

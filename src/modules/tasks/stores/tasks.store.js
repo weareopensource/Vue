@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import axios from 'axios';
+import Vue from 'vue';
 import config from '@/config';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
@@ -19,7 +19,7 @@ const getters = {
 const actions = {
   getTasks: async ({ commit }) => {
     try {
-      const res = await axios({
+      const res = await Vue.prototype.axios({
         url: `${api}/${config.api.endPoints.tasks}/`,
         method: 'GET',
         withCredentials: true,
