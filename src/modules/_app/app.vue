@@ -31,7 +31,7 @@ export default {
   },
   created() {
     // auth
-    this.$http.interceptors.response.use(
+    this.axios.interceptors.response.use(
       undefined,
       err => new Promise(() => {
         if (

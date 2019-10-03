@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import axios from 'axios';
+import Vue from 'vue';
 import config from '@/config';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
@@ -20,11 +20,10 @@ const getters = {
 const actions = {
   signin: async ({ commit, dispatch }, params) => {
     try {
-      const res = await axios({
+      const res = await Vue.prototype.axios({
         url: `${api}/${config.api.endPoints.auth}/signin`,
         data: params,
         method: 'POST',
-        withCredentials: true,
       });
       localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
       commit('auth_success', res.data);
@@ -36,11 +35,10 @@ const actions = {
   },
   signup: async ({ commit, dispatch }, params) => {
     try {
-      const res = await axios({
+      const res = await Vue.prototype.axios({
         url: `${api}/${config.api.endPoints.auth}/signup`,
         data: params,
         method: 'POST',
-        withCredentials: true,
       });
       localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
       commit('auth_success', res.data);
