@@ -75,7 +75,7 @@
     "sass": "^1.23.0",
     "sass-loader": "^8.0.0",
     "standard-version": "^7.0.0",
-    "vue-cli-plugin-vuetify": "^1.0.0",
+    "vue-cli-plugin-vuetify": "^1.0.1",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.3.0",
     "waos-conventional-changelog": "^1.8.0"
