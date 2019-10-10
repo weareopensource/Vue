@@ -4,7 +4,7 @@
       v-if="this.config.vuetify.drawer.type !== 'permanent'"
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
-    <v-toolbar-title>Application</v-toolbar-title>
+    <v-toolbar-title><b>{{ this.config.app.title }}</b></v-toolbar-title>
   </v-app-bar>
 </template>
 
