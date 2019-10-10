@@ -5,7 +5,7 @@
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
-      <router-link to="/">Application</router-link>
+      <router-link to="/">{{ this.config.app.title }}</router-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn v-if="!isLoggedIn" icon>
