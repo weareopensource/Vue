@@ -3,24 +3,31 @@
     <v-row class="mx-3">
       <v-col cols="12">
         <v-row align="start" justify="center">
-          <v-card class="ma-4 pa-8" outlined tile width="100%">
-            <v-form ref="form" v-model="valid">
-              <v-container>
+          <v-card class="ma-4" outlined tile width="100%">
+            <v-container class="pa-10">
+              <v-form ref="form" v-model="valid">
                 <v-row>
                   <v-col sm="12">
                     <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                   </v-col>
                   <v-col sm="12">
-                    <v-text-field :type="'password'" :rules="passwordRules" v-model="password" label="Password" required></v-text-field>
+                    <v-text-field
+                      :type="'password'"
+                      :rules="passwordRules"
+                      v-model="password"
+                      label="Password"
+                      required
+                    ></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
                   <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
                 </v-row>
-              </v-container>
-            </v-form>
-            <router-link to="/signup">SignUp</router-link> if you have no account yet :) !
+              </v-form>
+              <br />
+              <router-link to="/signup">SignUp</router-link> if you have no account yet :) !
+            </v-container>
           </v-card>
         </v-row>
       </v-col>
@@ -43,9 +50,7 @@ export default {
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      passwordRules: [
-        v => !!v || 'Password is required',
-      ],
+      passwordRules: [v => !!v || 'Password is required'],
     };
   },
   methods: {
