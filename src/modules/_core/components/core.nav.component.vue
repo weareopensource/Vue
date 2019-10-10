@@ -19,14 +19,6 @@
             <v-list-item-title>{{ item.name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-if="isLoggedIn" @click="signout">
-          <v-list-item-action>
-            <v-icon>fa-arrow-left</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Sign out</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 </template>
@@ -43,18 +35,10 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'waosNav',
   computed: {
-    ...mapGetters(['isLoggedIn', 'nav']),
+    ...mapGetters(['nav']),
     drawer: {
       get() { return this.$store.getters.drawer; },
       set(v) { return this.$store.commit('set_drawer', v); },
-    },
-  },
-  methods: {
-    signout() {
-      this.$store.dispatch('signout').then(() => {
-        this.$store.dispatch('refreshNav');
-        if (this.$route.path !== '/') this.$router.push('/home');
-      });
     },
   },
   created() {

@@ -15,6 +15,9 @@ module.exports = {
       tasks: 'tasks',
     },
   },
+  theme: {
+    navIfLogged: false, // show nav only if user is logged (easy for one page site)
+  },
   vuetify: {
     theme: {
       dark: true,

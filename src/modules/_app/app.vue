@@ -1,8 +1,8 @@
 <template>
 
   <v-app id="app">
-    <waosNav/>
     <waosHeader/>
+    <waosNav v-if="!config.theme.navIfLogged || isLoggedIn"/>
 
     <v-content>
       <router-view />
@@ -16,6 +16,7 @@
 /**
  * Module dependencies.
  */
+import { mapGetters } from 'vuex';
 import waosHeader from '@/modules/_core/components/core.header.component.vue';
 import waosNav from '@/modules/_core/components/core.nav.component.vue';
 import waosFooter from '@/modules/_core/components/core.footer.component.vue';
@@ -28,6 +29,9 @@ export default {
     waosHeader,
     waosNav,
     waosFooter,
+  },
+  computed: {
+    ...mapGetters(['isLoggedIn']),
   },
   created() {
     // auth
