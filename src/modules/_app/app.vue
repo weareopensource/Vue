@@ -20,6 +20,7 @@ import { mapGetters } from 'vuex';
 import waosHeader from '@/modules/_core/components/core.header.component.vue';
 import waosNav from '@/modules/_core/components/core.nav.component.vue';
 import waosFooter from '@/modules/_core/components/core.footer.component.vue';
+import router from '@/modules/_app/app.router';
 
 /**
  * Export default
@@ -36,14 +37,15 @@ export default {
   created() {
     // auth
     this.axios.interceptors.response.use(
-      undefined,
+      response => response,
       err => new Promise(() => {
         if (
-          err.status === 401
+          err.response.status === 401
             && err.config
             && !err.config.__isRetryRequest
         ) {
           this.$store.dispatch('signout');
+          router.push('signin');
         }
         throw err;
       }),
