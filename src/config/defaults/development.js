@@ -4,6 +4,7 @@ module.exports = {
     description: 'Vue - Boilerplate Front : Vuetify, Axios, Jest, Cypress (Alpha) ',
     keywords: 'vue, vuetify, axios, jest, cypress',
   },
+  port: 8080, // only available for dev env
   api: {
     protocol: 'http',
     host: 'localhost',
