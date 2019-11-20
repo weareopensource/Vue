@@ -11,8 +11,8 @@ const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${co
  * Getters: get state
  */
 const getters = {
-  tasks: state => state.tasks,
-  task: state => state.task,
+  tasks: (state) => state.tasks,
+  task: (state) => state.task,
 };
 
 /**
