@@ -37,8 +37,8 @@ export default {
   created() {
     // auth
     this.axios.interceptors.response.use(
-      response => response,
-      err => new Promise(() => {
+      (response) => response,
+      (err) => new Promise(() => {
         if (
           err.response.status === 401
             && err.config

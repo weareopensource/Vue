@@ -69,8 +69,8 @@ export default {
       save: false,
       // Description
       valid: false,
-      rulesTitle: [v => !!v || 'Title is required'],
-      rulesDescription: [v => !!v || 'Description is required'],
+      rulesTitle: [(v) => !!v || 'Title is required'],
+      rulesDescription: [(v) => !!v || 'Description is required'],
       // request
       loading: false,
     };
@@ -110,7 +110,7 @@ export default {
             console.log(this.task);
             this.$router.push(`/task/${this.task.id}`);
           })
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       }
     },
     update() {
@@ -129,7 +129,7 @@ export default {
           .then(() => {
             this.save = false;
           })
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       }
     },
     remove() {
@@ -139,7 +139,7 @@ export default {
           .then(() => {
             this.$router.push('/tasks');
           })
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       }
     },
     load() {
@@ -158,7 +158,7 @@ export default {
         .then(() => {
           this.loading = false;
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     },
     mergeRequest(value) {
       this.request = value.request;
@@ -170,7 +170,7 @@ export default {
       this.$store.commit('task_reset');
       this.$store
         .dispatch('getTask', this.id)
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     } else {
       this.$store.commit('task_reset');
     }
