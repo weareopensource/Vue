@@ -15,6 +15,7 @@
         </v-col>
       </v-row>
       <v-speed-dial
+        v-if="isLoggedIn"
         v-model="fab"
         :top="top"
         :bottom="bottom"
@@ -66,7 +67,7 @@ export default {
     taskComponent,
   },
   computed: {
-    ...mapGetters(['tasks']),
+    ...mapGetters(['isLoggedIn', 'tasks']),
   },
   created() {
     this.$store.dispatch('getTasks');

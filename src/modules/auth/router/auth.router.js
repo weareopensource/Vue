@@ -15,7 +15,6 @@ export default [
     meta: {
       icon: 'user',
       display: false, // hide any time
-      // auth: false, // show in side menu but hide when logged
     },
   },
   {

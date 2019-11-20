@@ -21,6 +21,7 @@ export default [
     component: task,
     meta: {
       display: false, // hide any time
+      requiresAuth: true,
     },
   }, {
     path: '/task/:id',
@@ -28,6 +29,7 @@ export default [
     component: task,
     meta: {
       display: false, // hide any time
+      requiresAuth: true,
     },
   },
 ];
