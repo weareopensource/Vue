@@ -21,9 +21,9 @@ const actions = {
   refreshNav: ({ commit, rootGetters }) => {
     const nav = _.pickBy(Vue.prototype.$routes, (i) => {
       if (i.meta.display !== false) { // hidden item
-        if (!('auth' in i.meta)) return i; // auth undefined, always displayed
-        if (!i.meta.auth && !rootGetters.isLoggedIn) return i; // auth false, not logged
-        if (i.meta.auth && rootGetters.isLoggedIn) return i; // auth true and logged
+        if (!('requiresAuth' in i.meta)) return i; // auth undefined, always displayed
+        if (!i.meta.requiresAuth && !rootGetters.isLoggedIn) return i; // auth false, not logged
+        if (i.meta.requiresAuth && rootGetters.isLoggedIn) return i; // auth true and logged
       }
     });
     commit('set_nav', nav);

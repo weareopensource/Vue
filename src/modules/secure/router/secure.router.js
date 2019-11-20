@@ -13,7 +13,7 @@ export default [
     component: secure,
     meta: {
       icon: 'lock',
-      auth: true, // protected
+      requiresAuth: true, // protected
     },
   },
 ];
