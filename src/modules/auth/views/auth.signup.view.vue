@@ -64,13 +64,13 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      firstNameRules: [v => !!v || 'Firstname is required'],
-      lastNameRules: [v => !!v || 'Lastname is required'],
+      firstNameRules: [(v) => !!v || 'Firstname is required'],
+      lastNameRules: [(v) => !!v || 'Lastname is required'],
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      passwordRules: [v => !!v || 'Password is required'],
+      passwordRules: [(v) => !!v || 'Password is required'],
     };
   },
   methods: {
@@ -88,7 +88,7 @@ export default {
             lastName,
           })
           .then(() => this.$router.push('/'))
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       }
     },
     reset() {

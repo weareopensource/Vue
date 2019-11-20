@@ -37,15 +37,15 @@ export default {
   created() {
     // auth
     this.axios.interceptors.response.use(
-      response => response,
-      err => new Promise(() => {
+      (response) => response,
+      (err) => new Promise(() => {
         if (
           err.response.status === 401
             && err.config
             && !err.config.__isRetryRequest
         ) {
           this.$store.dispatch('signout');
-          router.push('signin');
+          router.push('/signin');
         }
         throw err;
       }),

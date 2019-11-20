@@ -10,8 +10,8 @@ import config from '@/config';
  * Getters: get state
  */
 const getters = {
-  drawer: state => state.drawer,
-  nav: state => state.nav,
+  drawer: (state) => state.drawer,
+  nav: (state) => state.nav,
 };
 
 /**
