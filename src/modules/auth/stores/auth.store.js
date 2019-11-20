@@ -25,7 +25,7 @@ const actions = {
         data: params,
         method: 'POST',
       });
-      localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
+      localStorage.setItem(`${config.cookie.prefix}CookieExpire`, res.data.tokenExpiresIn);
       commit('auth_success', res.data);
       dispatch('refreshNav');
     } catch (err) {
@@ -40,7 +40,7 @@ const actions = {
         data: params,
         method: 'POST',
       });
-      localStorage.setItem('CookieExpire', res.data.tokenExpiresIn);
+      localStorage.setItem(`${config.cookie.prefix}CookieExpire`, res.data.tokenExpiresIn);
       commit('auth_success', res.data);
       dispatch('refreshNav');
     } catch (err) {
@@ -51,7 +51,7 @@ const actions = {
   signout({ commit }) {
     return new Promise((resolve) => {
       commit('auth_logout');
-      localStorage.removeItem('CookieExpire');
+      localStorage.removeItem(`${config.cookie.prefix}CookieExpire`);
       resolve();
     });
   },
@@ -83,7 +83,7 @@ const mutations = {
  */
 const state = {
   status: '',
-  cookieExpire: localStorage.getItem('CookieExpire') || 0,
+  cookieExpire: localStorage.getItem(`${config.cookie.prefix}CookieExpire`) || 0,
   user: {},
 };
 

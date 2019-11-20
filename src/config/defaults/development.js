@@ -16,6 +16,9 @@ module.exports = {
       tasks: 'tasks',
     },
   },
+  cookie: {
+    prefix: 'waos',
+  },
   theme: {
     navIfLogged: false, // show nav only if user is logged (easy for one page site)
   },

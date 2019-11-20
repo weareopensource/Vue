@@ -45,7 +45,7 @@ export default {
             && !err.config.__isRetryRequest
         ) {
           this.$store.dispatch('signout');
-          router.push('signin');
+          router.push('/signin');
         }
         throw err;
       }),
