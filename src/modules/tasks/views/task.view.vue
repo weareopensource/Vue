@@ -6,13 +6,8 @@
         <v-icon class="mr-5">fa-check</v-icon>
         <b>1. Description</b>
       </v-subheader>
-<<<<<<< Updated upstream
-      <div class="flex-grow-1"></div>
-      <v-btn v-if="id" color="red lighten-3" @click="remove" icon>
-=======
       <v-spacer></v-spacer>
       <v-btn v-if="this.task.id" color="red lighten-3" @click="remove" icon>
->>>>>>> Stashed changes
         <v-icon>fa-trash</v-icon>
       </v-btn>
       <v-btn v-if="this.task.id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
