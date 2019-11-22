@@ -22,10 +22,10 @@
             <v-form ref="form" v-model="valid">
               <v-row>
                 <v-col sm="12">
-                  <v-text-field v-model="title" :rules="rulesTitle" label="Title" required></v-text-field>
+                  <v-text-field v-model="title" :rules="rulesRequired" label="Title" required></v-text-field>
                   <v-text-field
                     v-model="description"
-                    :rules="rulesDescription"
+                    :rules="rulesRequired"
                     label="Description"
                     required
                   ></v-text-field>
@@ -69,8 +69,7 @@ export default {
       save: false,
       // Description
       valid: false,
-      rulesTitle: [(v) => !!v || 'Title is required'],
-      rulesDescription: [(v) => !!v || 'Description is required'],
+      rulesRequired: [(v) => !!v || 'Input is required'],
       // request
       loading: false,
     };
