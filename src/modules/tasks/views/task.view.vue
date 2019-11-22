@@ -6,11 +6,16 @@
         <v-icon class="mr-5">fa-check</v-icon>
         <b>1. Description</b>
       </v-subheader>
+<<<<<<< Updated upstream
       <div class="flex-grow-1"></div>
       <v-btn v-if="id" color="red lighten-3" @click="remove" icon>
+=======
+      <v-spacer></v-spacer>
+      <v-btn v-if="this.task.id" color="red lighten-3" @click="remove" icon>
+>>>>>>> Stashed changes
         <v-icon>fa-trash</v-icon>
       </v-btn>
-      <v-btn v-if="id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
+      <v-btn v-if="this.task.id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
         <v-icon>fa-save</v-icon>
       </v-btn>
     </v-row>
@@ -31,7 +36,7 @@
                   ></v-text-field>
                 </v-col>
               </v-row>
-              <v-row v-if="!id">
+              <v-row v-if="!this.task.id">
                 <v-btn
                   :disabled="!valid"
                   color="success"
@@ -108,6 +113,7 @@ export default {
           .then(() => {
             console.log(this.task);
             this.$router.push(`/task/${this.task.id}`);
+            this.save = false;
           })
           .catch((err) => console.log(err));
       }
