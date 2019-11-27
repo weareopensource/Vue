@@ -44,7 +44,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "axios": "^0.19.0",
-    "core-js": "^3.4.2",
+    "core-js": "^3.4.4",
     "lodash": "^4.17.15",
     "snyk": "^1.251.1",
     "vue": "^2.6.10",
