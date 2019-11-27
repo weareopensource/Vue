@@ -77,7 +77,7 @@
     "standard-version": "^7.0.1",
     "vue-cli-plugin-vuetify": "^2.0.2",
     "vue-template-compiler": "^2.6.10",
-    "vuetify-loader": "^1.4.1",
+    "vuetify-loader": "^1.4.2",
     "waos-conventional-changelog": "^1.9.0"
   },
   "config": {
