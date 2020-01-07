@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/config-conventional": "^8.3.4",
     "@vue/cli-plugin-babel": "^4.1.2",
     "@vue/cli-plugin-e2e-cypress": "^4.0.5",
     "@vue/cli-plugin-babel": "^4.1.1",
