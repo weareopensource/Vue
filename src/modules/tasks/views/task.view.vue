@@ -160,10 +160,6 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    mergeRequest(value) {
-      this.request = value.request;
-      this.settings = value.settings;
-    },
   },
   created() {
     if (this.id) {
