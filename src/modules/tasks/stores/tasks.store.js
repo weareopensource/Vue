@@ -24,7 +24,7 @@ const actions = {
       const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.tasks}/`);
       commit('tasks_set', res.data.data);
     } catch (err) {
-      commit('task_error');
+      commit('task_error', err);
     }
   },
   getTask: async ({ commit }, params) => {
@@ -32,7 +32,7 @@ const actions = {
       const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.tasks}/${params}`);
       commit('task_set', res.data.data);
     } catch (err) {
-      commit('task_error');
+      commit('task_error', err);
     }
   },
   createTask: async ({ commit }, params) => {
@@ -41,7 +41,7 @@ const actions = {
       const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.tasks}/`, params);
       commit('task_set', res.data.data);
     } catch (err) {
-      commit('task_error');
+      commit('task_error', err);
     }
   },
   updateTask: async ({ commit, state }, params) => {
@@ -50,7 +50,7 @@ const actions = {
       const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, _.pick(_.merge(state.task, params), model));
       commit('task_update', res.data.data);
     } catch (err) {
-      commit('task_error');
+      commit('task_error', err);
     }
   },
   deleteTask: async ({ commit }, params) => {
@@ -58,7 +58,7 @@ const actions = {
       await Vue.prototype.axios.delete(`${api}/${config.api.endPoints.tasks}/${params.id}`);
       commit('task_reset');
     } catch (err) {
-      commit('task_error');
+      commit('task_error', err);
     }
   },
 };
@@ -68,21 +68,18 @@ const actions = {
  */
 const mutations = {
   // global
-  task_error(state) {
-    state.status = 'error';
+  task_error(state, err) {
+    console.log(err);
   },
   // scraps
   tasks_set(state, data) {
-    state.status = 'success';
     state.tasks = data;
   },
   // scrap
   task_set(state, data) {
-    state.status = 'success';
     state.task = data;
   },
   task_update(state, data) {
-    state.status = 'success';
     _.merge(state.task, data);
   },
   task_reset(state) {
@@ -94,7 +91,6 @@ const mutations = {
  * State
  */
 const state = {
-  status: '',
   task: {
     title: '',
     description: '',
