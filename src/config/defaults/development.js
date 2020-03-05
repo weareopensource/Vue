@@ -21,6 +21,10 @@ module.exports = {
   },
   theme: {
     navIfLogged: false, // show nav only if user is logged (easy for one page site)
+    snackbar: { // kind of notifications on requests
+      status: true, // activate for error
+      methods: ['post', 'put'], // show on sucess depends of methods
+    },
   },
   vuetify: {
     theme: {

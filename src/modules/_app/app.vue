@@ -1,14 +1,26 @@
 <template>
-
   <v-app id="app">
-    <waosHeader/>
-    <waosNav v-if="!config.theme.navIfLogged || isLoggedIn"/>
+    <v-snackbar
+      v-if="config.theme.snackbar.status"
+      v-model="snackbar.status"
+      :top="true"
+      :right="true"
+      :timeout="snackbar.timeout"
+      :color="snackbar.color"
+    >
+      {{ snackbar.text }}
+      <v-btn dark text @click="snackbar.status = false"> <v-icon>fa-times</v-icon> </v-btn>
+    </v-snackbar>
+
+    <waosHeader />
+
+    <waosNav v-if="!config.theme.navIfLogged || isLoggedIn" />
 
     <v-content>
       <router-view />
     </v-content>
 
-    <waosFooter/>
+    <waosFooter />
   </v-app>
 </template>
 
@@ -26,6 +38,16 @@ import router from '@/modules/_app/app.router';
  * Export default
  */
 export default {
+  data() {
+    return {
+      snackbar: {
+        status: false,
+        color: 'error',
+        timeout: 4000,
+        text: 'toto',
+      },
+    };
+  },
   components: {
     waosHeader,
     waosNav,
@@ -37,15 +59,23 @@ export default {
   created() {
     // auth
     this.axios.interceptors.response.use(
-      (response) => response,
+      (response) => {
+        if (this.config.theme.snackbar.status && response.config && this.config.theme.snackbar.methods.indexOf(response.config.method) > -1) {
+          this.snackbar.text = `${response.data.type}: ${response.data.message}`;
+          this.snackbar.color = 'primary';
+          this.snackbar.status = true;
+        }
+        return response;
+      },
       (err) => new Promise(() => {
-        if (
-          err.response.status === 401
-            && err.config
-            && !err.config.__isRetryRequest
-        ) {
+        if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
           this.$store.dispatch('signout');
           router.push('/signin');
+        }
+        if (this.config.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
+          this.snackbar.text = err.response.data.description;
+          this.snackbar.color = 'error';
+          this.snackbar.status = true;
         }
         throw err;
       }),
