@@ -17,7 +17,7 @@ export default [
     },
   }, {
     path: '/task',
-    name: 'task',
+    name: 'task create',
     component: task,
     meta: {
       display: false, // hide any time
