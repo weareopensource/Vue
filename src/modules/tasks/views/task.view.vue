@@ -142,24 +142,6 @@ export default {
           .catch((err) => console.log(err));
       }
     },
-    load() {
-      this.loading = true;
-      const { request } = this;
-      const { settings } = this;
-      this.$store
-        .dispatch('loadTask', {
-          save: this.save.req,
-          task: {
-            id: this.id,
-            request,
-            settings,
-          },
-        })
-        .then(() => {
-          this.loading = false;
-        })
-        .catch((err) => console.log(err));
-    },
   },
   created() {
     if (this.id) {

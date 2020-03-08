@@ -37,8 +37,8 @@ const actions = {
   },
   createTask: async ({ commit }, params) => {
     try {
-      console.log(params);
-      const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.tasks}/`, params);
+      const obj = _.pickBy(params, _.identity);
+      const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.tasks}/`, obj);
       commit('task_set', res.data.data);
     } catch (err) {
       commit('task_error', err);
@@ -47,7 +47,8 @@ const actions = {
   updateTask: async ({ commit, state }, params) => {
     const model = ['title', 'description'];
     try {
-      const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, _.pick(_.merge(state.task, params), model));
+      const obj = _.pickBy(_.pick(_.merge(state.criter, params), model), _.identity);
+      const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
       commit('task_update', res.data.data);
     } catch (err) {
       commit('task_error', err);
