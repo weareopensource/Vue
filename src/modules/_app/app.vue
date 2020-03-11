@@ -16,7 +16,7 @@
 
     <waosNav v-if="!config.theme.navIfLogged || isLoggedIn" />
 
-    <v-content>
+    <v-content :style="{background: this.config.vuetify.theme.themes[theme].background}">
       <router-view />
     </v-content>
 
@@ -54,7 +54,7 @@ export default {
     waosFooter,
   },
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(['isLoggedIn', 'theme']),
   },
   created() {
     // auth

@@ -18,7 +18,7 @@
     <v-row class="mx-7">
       <v-col cols="12" sm="12" md="6" lg="8" xl="9">
         <v-row align="start" justify="center">
-          <v-card outlined tile width="100%" class="px-10 pa-6">
+          <v-card outlined tile width="100%" class="px-10 pa-6" :style="{background: this.config.vuetify.theme.themes[theme].surface}" :flat="this.config.vuetify.theme.flat">
             <v-form ref="form" v-model="valid">
               <v-row>
                 <v-col sm="12">
@@ -78,7 +78,7 @@ export default {
     taskComponent,
   },
   computed: {
-    ...mapGetters(['task', 'result']),
+    ...mapGetters(['theme', 'task', 'result']),
     title: {
       get() {
         return this.task.title;

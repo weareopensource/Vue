@@ -1,5 +1,9 @@
 <template>
-  <v-app-bar :clipped-left="this.config.vuetify.drawer.clipped" app>
+  <v-app-bar
+  :clipped-left="this.config.vuetify.drawer.clipped"
+  :style="{background: this.config.vuetify.theme.themes[theme].primary}"
+  :flat="this.config.vuetify.theme.flat"
+  app>
     <v-app-bar-nav-icon
       v-if="this.config.vuetify.drawer.type !== 'permanent' && (!config.theme.navIfLogged || isLoggedIn)"
       @click.stop="drawer = !drawer"
@@ -30,7 +34,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'waosHeader',
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(['theme', 'isLoggedIn']),
     drawer: {
       get() {
         return this.$store.getters.drawer;
@@ -55,5 +59,8 @@ export default {
 .v-application a {
     text-decoration: none !important;
     color: var(--v-primary-base)!important;
+}
+.v-card {
+  border: none !important;
 }
 </style>

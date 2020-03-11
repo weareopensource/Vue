@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" sm="12" md="6" lg="4" xl="3">
-    <v-card class="mx-auto" :flat="true" :outlined="true">
+    <v-card class="mx-auto" :outlined="true" :style="{background: this.config.vuetify.theme.themes[theme].surface}" :flat="this.config.vuetify.theme.flat">
       <v-card-title>{{item.title}}</v-card-title>
       <v-card-text>{{item.description}}</v-card-text>
       <v-card-actions v-if="isLoggedIn">
@@ -25,7 +25,7 @@ export default {
   name: 'taskComponent',
   props: ['item'],
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(['isLoggedIn', 'theme']),
   },
 };
 </script>

@@ -6,6 +6,7 @@
       :mini-variant="this.config.vuetify.drawer.mini"
       :permanent="this.config.vuetify.drawer.type === 'permanent'"
       :temporary="this.config.vuetify.drawer.type === 'temporary'"
+      :style="{background: this.config.vuetify.theme.themes[theme].primary}"
       app
       overflow
     >
@@ -35,7 +36,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'waosNav',
   computed: {
-    ...mapGetters(['nav']),
+    ...mapGetters(['theme', 'nav']),
     drawer: {
       get() { return this.$store.getters.drawer; },
       set(v) { return this.$store.commit('set_drawer', v); },
