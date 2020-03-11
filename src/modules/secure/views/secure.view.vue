@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12">
           <v-row align="start" justify="center">
-            <v-card class="pa-8" outlined tile width="100%" :style="{background: this.config.vuetify.theme.themes[theme].surface}" :flat="this.config.vuetify.theme.flat">
+            <v-card class="pa-8" outlined tile width="100%" :style="{background: config.vuetify.theme.themes[theme].surface}" :flat="config.vuetify.theme.flat">
               <h2 class="text-center">This page is protected by auth</h2>
             </v-card>
           </v-row>

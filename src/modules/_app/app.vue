@@ -16,11 +16,11 @@
 
     <waosNav v-if="!config.theme.navIfLogged || isLoggedIn" />
 
-    <v-content :style="{background: this.config.vuetify.theme.themes[theme].background}">
+    <v-content :style="{background: config.vuetify.theme.themes[theme].background}">
       <router-view />
     </v-content>
 
-    <waosFooter v-if="this.config.vuetify.theme.footer" />
+    <waosFooter v-if="config.vuetify.theme.footer" />
   </v-app>
 </template>
 

@@ -1,19 +1,19 @@
 <template>
   <v-app-bar
-  :clipped-left="this.config.vuetify.drawer.clipped"
-  :style="{background: this.config.vuetify.theme.themes[theme].primary}"
-  :flat="this.config.vuetify.theme.flat"
+  :clipped-left="config.vuetify.drawer.clipped"
+  :style="{background: config.vuetify.theme.themes[theme].primary}"
+  :flat="config.vuetify.theme.flat"
   app>
     <v-app-bar-nav-icon
-      v-if="this.config.vuetify.drawer.type !== 'permanent' && this.config.vuetify.drawer.type !== 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
+      v-if="config.vuetify.drawer.type !== 'permanent' && config.vuetify.drawer.type !== 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
-      v-if="this.config.vuetify.drawer.type === 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
+      v-if="config.vuetify.drawer.type === 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
       @click.stop="mini = !mini"
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
-      <router-link to="/">{{ this.config.app.title }}</router-link>
+      <router-link to="/">{{ config.app.title }}</router-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn v-if="!isLoggedIn" icon>
