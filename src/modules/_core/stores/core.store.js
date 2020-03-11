@@ -11,6 +11,7 @@ import config from '@/config';
  */
 const getters = {
   drawer: (state) => state.drawer,
+  mini: (state) => state.mini,
   theme: (state) => state.theme,
   nav: (state) => state.nav,
 };
@@ -38,6 +39,9 @@ const mutations = {
   set_drawer(state, data) {
     state.drawer = data;
   },
+  set_mini(state, data) {
+    state.mini = data;
+  },
   set_nav(state, data) {
     state.nav = data;
   },
@@ -48,6 +52,7 @@ const mutations = {
  */
 const state = {
   drawer: config.vuetify.drawer.model,
+  mini: config.vuetify.drawer.mini,
   theme: config.vuetify.theme.dark ? 'dark' : 'light',
   nav: [],
 };

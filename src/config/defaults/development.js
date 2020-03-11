@@ -29,13 +29,17 @@ module.exports = {
   vuetify: {
     theme: {
       dark: true,
-      border: false,
       flat: true,
+      footer: false,
+      navigation: {
+        background: undefined, // url / undefined
+        selectBorder: 'secondary', // color / undefined
+      },
       themes: {
         dark: {
           primary: '#282A2E',
-          secondary: '#16A085',
-          background: '#1E1F21',
+          secondary: '#e67e22',
+          background: '#1F1F1F',
           surface: '#282A2E',
           error: '#CF6679',
           onPrimary: '#FFFFFF',
@@ -45,8 +49,8 @@ module.exports = {
           onError: '#000000',
         },
         light: {
-          primary: '#282A2E',
-          secondary: '#1ABC9C',
+          primary: '#FFFFFF',
+          secondary: '#e67e22',
           background: '#F9F9F9',
           surface: '#FFFFFF',
           error: '#B00020',
@@ -63,10 +67,10 @@ module.exports = {
     },
     drawer: {
       model: null,
-      type: 'default',
+      type: 'mini', // default / permanent / temporary / mini
       clipped: true,
       floating: true,
-      mini: false,
+      mini: true,
     },
   },
 };
