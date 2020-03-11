@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
     <v-snackbar
-      v-if="config.theme.snackbar.status"
+      v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
       :top="true"
       :right="true"
@@ -14,7 +14,7 @@
 
     <waosHeader />
 
-    <waosNav v-if="!config.theme.navIfLogged || isLoggedIn" />
+    <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
 
     <v-content :style="{background: config.vuetify.theme.themes[theme].background}">
       <router-view />
@@ -60,9 +60,9 @@ export default {
     // auth
     this.axios.interceptors.response.use(
       (response) => {
-        if (this.config.theme.snackbar.status && response.config && this.config.theme.snackbar.methods.indexOf(response.config.method) > -1) {
+        if (this.config.vuetify.theme.snackbar.status && response.config && this.config.vuetify.theme.snackbar.methods.indexOf(response.config.method) > -1) {
           this.snackbar.text = `${response.data.type}: ${response.data.message}`;
-          this.snackbar.color = 'primary';
+          this.snackbar.color = this.config.vuetify.theme.snackbar.sucessColor;
           this.snackbar.status = true;
         }
         return response;
@@ -72,9 +72,9 @@ export default {
           this.$store.dispatch('signout');
           router.push('/signin');
         }
-        if (this.config.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
+        if (this.config.vuetify.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
           this.snackbar.text = err.response.data.description;
-          this.snackbar.color = 'error';
+          this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
           this.snackbar.status = true;
         }
         throw err;

@@ -24,7 +24,7 @@ export default [
       requiresAuth: true,
     },
   }, {
-    path: '/task/:id',
+    path: '/tasks/:id',
     name: 'task',
     component: task,
     meta: {

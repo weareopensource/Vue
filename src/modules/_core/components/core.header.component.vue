@@ -5,11 +5,11 @@
   :flat="config.vuetify.theme.flat"
   app>
     <v-app-bar-nav-icon
-      v-if="config.vuetify.drawer.type !== 'permanent' && config.vuetify.drawer.type !== 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
+      v-if="config.vuetify.drawer.type !== 'permanent' && config.vuetify.drawer.type !== 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn)"
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
-      v-if="config.vuetify.drawer.type === 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
+      v-if="config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn)"
       @click.stop="mini = !mini"
     ></v-app-bar-nav-icon>
     <v-toolbar-title>

@@ -19,19 +19,19 @@ module.exports = {
   cookie: {
     prefix: 'waos',
   },
-  theme: {
-    navIfLogged: false, // show nav only if user is logged (easy for one page site)
-    snackbar: { // kind of notifications on requests
-      status: true, // activate for error
-      methods: ['post', 'put'], // show on sucess depends of methods
-    },
-  },
   vuetify: {
     theme: {
-      dark: true,
-      flat: true,
-      footer: false,
+      dark: true, // dark theme
+      flat: true, // flat by default
+      footer: false, // display footer
+      snackbar: { // kind of notifications on requests
+        status: true, // activate for error
+        methods: ['post', 'put'], // show on sucess depends of methods
+        sucessColor: 'secondary',
+        errorColor: 'error',
+      },
       navigation: {
+        displayIfLogged: false, // show nav only if user is logged (easy for one page site)
         background: undefined, // url / undefined
         selectBorder: 'secondary', // color / undefined
       },
@@ -68,9 +68,9 @@ module.exports = {
     drawer: {
       model: null,
       type: 'mini', // default / permanent / temporary / mini
-      clipped: true,
+      clipped: true, // fixed
       floating: true,
-      mini: true,
+      mini: true, // mini or full
     },
   },
 };
