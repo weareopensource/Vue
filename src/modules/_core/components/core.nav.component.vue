@@ -16,14 +16,14 @@
         v-for="item in nav"
         :key="item.text"
         :to="item.path"
-        :style="(config.vuetify.theme.navigation.selectBorder && item.path === $route.path) ? `border-left: 4px solid ${config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]};` : 'border-left: 4px solid transparent;'">
+        :style="(config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)) ? `border-left: 4px solid ${config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]};` : 'border-left: 4px solid transparent;'">
           <v-list-item-action
-          :style="(config.vuetify.theme.navigation.selectBorder && item.path === $route.path) ? 'margin-left: -4px;' : 'margin-left: -4px;'"
+          :style="(config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)) ? 'margin-left: -4px;' : 'margin-left: -4px;'"
           >
             <v-icon>fa-{{ item.meta.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
+            <v-list-item-title>{{ item.name }} {{ item.name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -55,6 +55,11 @@ export default {
     mini: {
       get() { return this.$store.getters.mini; },
       set(v) { return this.$store.commit('set_mini', v); },
+    },
+  },
+  methods: {
+    testRoute(path, route) {
+      return route.split('/').includes(path.substr(1));
     },
   },
   created() {
