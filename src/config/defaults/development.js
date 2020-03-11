@@ -29,11 +29,29 @@ module.exports = {
   vuetify: {
     theme: {
       dark: true,
+      flat: true,
+      footer: false,
+      navigation: {
+        background: undefined, // url / undefined
+        selectBorder: 'secondary', // color / undefined
+      },
       themes: {
         dark: {
-          primary: '#21CFF3',
-          secondary: '#03DAC6',
-          background: '#FFFFFF',
+          primary: '#282A2E',
+          secondary: '#e67e22',
+          background: '#1F1F1F',
+          surface: '#282A2E',
+          error: '#CF6679',
+          onPrimary: '#FFFFFF',
+          onSecondary: '#000000',
+          onBackground: '#FFFFFF',
+          onSurface: '#FEFEFE',
+          onError: '#000000',
+        },
+        light: {
+          primary: '#FFFFFF',
+          secondary: '#e67e22',
+          background: '#F9F9F9',
           surface: '#FFFFFF',
           error: '#B00020',
           onPrimary: '#FFFFFF',
@@ -42,18 +60,6 @@ module.exports = {
           onSurface: '#000000',
           onError: '#FFFFFF',
         },
-        light: {
-          primary: '#1976D2',
-          secondary: '#03DAC6',
-          background: '#121212',
-          surface: '#121212',
-          error: '#CF6679',
-          onPrimary: '#000000',
-          onSecondary: '#000000',
-          onBackground: '#FFFFFF',
-          onSurface: '#FFFFFF',
-          onError: '#000000',
-        },
       },
     },
     icons: {
@@ -61,10 +67,10 @@ module.exports = {
     },
     drawer: {
       model: null,
-      type: 'default',
+      type: 'mini', // default / permanent / temporary / mini
       clipped: true,
       floating: true,
-      mini: false,
+      mini: true,
     },
   },
 };

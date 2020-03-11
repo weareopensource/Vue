@@ -1,8 +1,16 @@
 <template>
-  <v-app-bar :clipped-left="this.config.vuetify.drawer.clipped" app>
+  <v-app-bar
+  :clipped-left="this.config.vuetify.drawer.clipped"
+  :style="{background: this.config.vuetify.theme.themes[theme].primary}"
+  :flat="this.config.vuetify.theme.flat"
+  app>
     <v-app-bar-nav-icon
-      v-if="this.config.vuetify.drawer.type !== 'permanent' && (!config.theme.navIfLogged || isLoggedIn)"
+      v-if="this.config.vuetify.drawer.type !== 'permanent' && this.config.vuetify.drawer.type !== 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
       @click.stop="drawer = !drawer"
+    ></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon
+      v-if="this.config.vuetify.drawer.type === 'mini' && (!config.theme.navIfLogged || isLoggedIn)"
+      @click.stop="mini = !mini"
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
       <router-link to="/">{{ this.config.app.title }}</router-link>
@@ -30,14 +38,14 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'waosHeader',
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(['theme', 'isLoggedIn']),
     drawer: {
-      get() {
-        return this.$store.getters.drawer;
-      },
-      set(v) {
-        return this.$store.commit('set_drawer', v);
-      },
+      get() { return this.$store.getters.drawer; },
+      set(v) { return this.$store.commit('set_drawer', v); },
+    },
+    mini: {
+      get() { return this.$store.getters.mini; },
+      set(v) { return this.$store.commit('set_mini', v); },
     },
   },
   methods: {
@@ -50,10 +58,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.v-application a {
-    text-decoration: none !important;
-    color: var(--v-primary-base)!important;
-}
-</style>

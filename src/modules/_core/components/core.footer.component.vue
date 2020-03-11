@@ -1,5 +1,5 @@
 <template>
-    <v-footer app>
+    <v-footer :style="{background: this.config.vuetify.theme.themes[theme].surface}" app>
       <div class="flex-grow-1"></div>
       <div>&copy; 2019 <a href="https://weareopensource.me">We Are Open Source</a></div>
     </v-footer>
@@ -7,9 +7,16 @@
 
 <script>
 /**
+ * Module dependencies.
+ */
+import { mapGetters } from 'vuex';
+/**
  * Export default
  */
 export default {
   name: 'waosFooter',
+  computed: {
+    ...mapGetters(['theme']),
+  },
 };
 </script>

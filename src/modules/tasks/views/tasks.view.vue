@@ -9,7 +9,7 @@
       ></taskComponent>
       <v-row v-if="!tasks || !tasks.length" align="start" justify="center">
         <v-col cols="12">
-          <v-card class="mx-3 pa-8" outlined tile>
+          <v-card class="mx-3 pa-8" outlined tile :style="{background: this.config.vuetify.theme.themes[theme].surface}" :flat="this.config.vuetify.theme.flat">
             <h2 class="text-center">No Tasks found :( !</h2>
           </v-card>
         </v-col>
@@ -67,7 +67,7 @@ export default {
     taskComponent,
   },
   computed: {
-    ...mapGetters(['isLoggedIn', 'tasks']),
+    ...mapGetters(['theme', 'isLoggedIn', 'tasks']),
   },
   created() {
     this.$store.dispatch('getTasks');

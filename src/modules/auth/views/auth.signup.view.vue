@@ -3,7 +3,7 @@
     <v-row class="mx-3">
       <v-col cols="12">
         <v-row align="start" justify="center">
-          <v-card class="ma-4" outlined tile width="100%">
+          <v-card class="ma-4" outlined tile width="100%" :style="{background: this.config.vuetify.theme.themes[theme].surface}" :flat="this.config.vuetify.theme.flat">
             <v-container class="pa-10">
               <v-form ref="form" v-model="valid">
                 <v-row>
@@ -54,6 +54,10 @@
 
 <script>
 /**
+ * Module dependencies.
+ */
+import { mapGetters } from 'vuex';
+/**
  * Export default
  */
 export default {
@@ -72,6 +76,9 @@ export default {
       ],
       passwordRules: [(v) => !!v || 'Password is required'],
     };
+  },
+  computed: {
+    ...mapGetters(['theme']),
   },
   methods: {
     validate() {
