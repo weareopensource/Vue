@@ -5,7 +5,7 @@
       <v-card-text>{{item.description}}</v-card-text>
       <v-card-actions v-if="isLoggedIn">
         <div class="flex-grow-1"></div>
-        <v-btn v-if="item.id" :to="`/task/${item.id}`" icon>
+        <v-btn v-if="item.id" :to="`/tasks/${item.id}`" icon>
           <v-icon>fa-eye</v-icon>
         </v-btn>
       </v-card-actions>
