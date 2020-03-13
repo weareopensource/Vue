@@ -102,11 +102,9 @@ export default {
   methods: {
     create() {
       if (this.$refs.form.validate()) {
-        console.log(this.task);
         this.$store
           .dispatch('createTask', this.task)
           .then(() => {
-            console.log(this.task);
             this.$router.push(`/task/${this.task.id}`);
             this.save = false;
           })
