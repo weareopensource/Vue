@@ -37,8 +37,8 @@ module.exports = {
       },
       themes: {
         dark: {
-          primary: '#282A2E',
-          secondary: '#e67e22',
+          primary: '#FFFFFF',
+          secondary: '#3498db',
           background: '#1F1F1F',
           surface: '#282A2E',
           error: '#CF6679',
@@ -49,7 +49,7 @@ module.exports = {
           onError: '#000000',
         },
         light: {
-          primary: '#FFFFFF',
+          primary: '#000000',
           secondary: '#e67e22',
           background: '#F9F9F9',
           surface: '#FFFFFF',

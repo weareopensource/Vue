@@ -6,7 +6,7 @@
       :mini-variant="mini"
       :permanent="config.vuetify.drawer.type === 'permanent'"
       :temporary="config.vuetify.drawer.type === 'temporary'"
-      :style="{background: config.vuetify.theme.themes[theme].primary}"
+      :style="{background: config.vuetify.theme.themes[theme].surface}"
       :src="config.vuetify.theme.navigation.background"
       app
     >

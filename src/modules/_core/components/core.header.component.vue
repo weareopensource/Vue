@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     :clipped-left="config.vuetify.drawer.clipped"
-    :style="{background: config.vuetify.theme.themes[theme].primary}"
+    :style="{background: config.vuetify.theme.themes[theme].surface}"
     :flat="config.vuetify.theme.flat"
     app
   >
