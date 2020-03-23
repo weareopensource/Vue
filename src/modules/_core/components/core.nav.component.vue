@@ -23,7 +23,7 @@
             <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-{{ item.meta.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title :style="{color: config.vuetify.theme.themes[theme].onPrimary}">{{ item.name }} {{ item.name }}</v-list-item-title>
+            <v-list-item-title :style="{color: config.vuetify.theme.themes[theme].onPrimary}">{{ item.name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
