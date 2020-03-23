@@ -33,6 +33,7 @@ import waosHeader from '@/modules/_core/components/core.header.component.vue';
 import waosNav from '@/modules/_core/components/core.nav.component.vue';
 import waosFooter from '@/modules/_core/components/core.footer.component.vue';
 import router from '@/modules/_app/app.router';
+import theme from '@/lib/helpers/theme';
 
 /**
  * Export default
@@ -80,8 +81,11 @@ export default {
         throw err;
       }),
     );
+    // set base theme
+    this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
   },
 };
+
 </script>
 
 

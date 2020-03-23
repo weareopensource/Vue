@@ -21,7 +21,7 @@ module.exports = {
   },
   vuetify: {
     theme: {
-      dark: true, // dark theme
+      dark: 'auto', // dark theme true / false / auto (based on prefers-color-scheme)
       flat: true, // flat by default
       footer: false, // display footer
       snackbar: { // kind of notifications on requests
@@ -37,7 +37,7 @@ module.exports = {
       },
       themes: {
         dark: {
-          primary: '#FFFFFF',
+          primary: '#34495e',
           secondary: '#3498db',
           background: '#1F1F1F',
           surface: '#282A2E',
@@ -49,10 +49,10 @@ module.exports = {
           onError: '#000000',
         },
         light: {
-          primary: '#000000',
+          primary: '#bdc3c7',
           secondary: '#e67e22',
-          background: '#F9F9F9',
-          surface: '#FFFFFF',
+          background: '#f3f3f6',
+          surface: '#ffffff',
           error: '#B00020',
           onPrimary: '#FFFFFF',
           onSecondary: '#000000',

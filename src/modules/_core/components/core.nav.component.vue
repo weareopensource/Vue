@@ -6,7 +6,7 @@
       :mini-variant="mini"
       :permanent="config.vuetify.drawer.type === 'permanent'"
       :temporary="config.vuetify.drawer.type === 'temporary'"
-      :style="{background: config.vuetify.theme.themes[theme].surface}"
+      :style="{background: config.vuetify.theme.themes[theme].primary}"
       :src="config.vuetify.theme.navigation.background"
       app
     >
@@ -20,15 +20,15 @@
           <v-list-item-action
           :style="(config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)) ? 'margin-left: -4px;' : 'margin-left: -4px;'"
           >
-            <v-icon>fa-{{ item.meta.icon }}</v-icon>
+            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-{{ item.meta.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{ item.name }} {{ item.name }}</v-list-item-title>
+            <v-list-item-title :style="{color: config.vuetify.theme.themes[theme].onPrimary}">{{ item.name }} {{ item.name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
       <template v-slot:append v-if="!config.vuetify.theme.footer">
-        <div class="pa-2 caption">
+        <div class="pa-2 caption" :style="{color: config.vuetify.theme.themes[theme].onPrimary}">
           <center>&copy; <a href="https://weareopensource.me">WAOS</a></center>
         </div>
       </template>
