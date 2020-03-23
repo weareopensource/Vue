@@ -4,6 +4,7 @@
 // import _ from 'lodash';
 import Vue from 'vue';
 import _ from 'lodash';
+import theme from '@/lib/helpers/theme';
 import config from '@/config';
 
 /**
@@ -53,7 +54,7 @@ const mutations = {
 const state = {
   drawer: config.vuetify.drawer.model,
   mini: config.vuetify.drawer.mini,
-  theme: config.vuetify.theme.dark ? 'dark' : 'light',
+  theme: theme.isDark(config.vuetify.theme.dark) ? 'dark' : 'light',
   nav: [],
 };
 

@@ -1,19 +1,22 @@
 <template>
   <v-app-bar
     :clipped-left="config.vuetify.drawer.clipped"
-    :style="{background: config.vuetify.theme.themes[theme].surface}"
+    :style="{background: config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary}"
     :flat="config.vuetify.theme.flat"
     app
   >
     <v-app-bar-nav-icon
+      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
       v-if="config.vuetify.drawer.type !== 'permanent' && config.vuetify.drawer.type !== 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn)"
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
+      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
       v-if="config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && !this.$vuetify.breakpoint.mdAndDown"
       @click.stop="mini = !mini;"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
+      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
       v-if="config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && this.$vuetify.breakpoint.mdAndDown"
       @click.stop="drawer = !drawer; mini = false;"
     ></v-app-bar-nav-icon>
@@ -22,12 +25,12 @@
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn v-if="!isLoggedIn" icon>
-      <router-link to="/signin">
-        <v-icon>fa-user</v-icon>
+      <router-link to="/signin" >
+        <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
       </router-link>
     </v-btn>
     <v-btn v-else @click="signout" icon>
-      <v-icon>fa-arrow-right</v-icon>
+      <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
