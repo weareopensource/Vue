@@ -47,7 +47,7 @@ const actions = {
   updateTask: async ({ commit, state }, params) => {
     const model = ['title', 'description'];
     try {
-      const obj = _.pickBy(_.pick(_.merge(state.criter, params), model), _.identity);
+      const obj = _.pickBy(_.pick(_.merge(state.task, params), model), _.identity);
       const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
       commit('task_update', res.data.data);
     } catch (err) {
