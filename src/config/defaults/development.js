@@ -54,7 +54,7 @@ module.exports = {
           background: '#f3f3f6',
           surface: '#ffffff',
           error: '#B00020',
-          onPrimary: '#1d1d1f',
+          onPrimary: '#ffffff',
           onSecondary: '#1d1d1f',
           onBackground: '#1d1d1f',
           onSurface: '#1d1d1f',
