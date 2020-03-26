@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    :style="{background: this.config.vuetify.theme.themes[theme].surface, color: config.vuetify.theme.themes[theme].onPrimary}"
+    :style="{background: this.config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary}"
     app
   >
     <div class="flex-grow-1"></div>

@@ -66,7 +66,7 @@
               <v-theme-provider dark>
                 <div>
                   <v-avatar color="primary" size="88">
-                    <v-icon large v-text="icon"></v-icon>
+                    <v-icon large>fa-{{ icon }}</v-icon>
                   </v-avatar>
                 </div>
               </v-theme-provider>
@@ -78,7 +78,7 @@
       </v-container>
     </section>
 
-    <section id="stats">
+    <section id="stats" class="black">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
         src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
@@ -115,7 +115,7 @@
 
     <v-sheet
       id="contact"
-      :style="{background: config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary}"
+      dark
       tag="section"
       class="py-12"
       tile
@@ -173,19 +173,19 @@ export default {
       featuresTitle: 'Vuetify features',
       features: [
         {
-          icon: 'mdi-account-group-outline',
+          icon: 'users',
           title: 'Vibrant Community',
           text:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
         },
         {
-          icon: 'mdi-update',
+          icon: 'cloud-upload-alt',
           title: 'Frequent Updates',
           text:
             'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
         },
         {
-          icon: 'mdi-shield-outline',
+          icon: 'history',
           title: 'Long-term Support',
           text:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
