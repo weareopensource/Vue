@@ -1,8 +1,14 @@
 <template>
-    <v-footer :style="{background: this.config.vuetify.theme.themes[theme].surface, color: config.vuetify.theme.themes[theme].onPrimary}" app>
-      <div class="flex-grow-1"></div>
-      <div>&copy; 2019 <a href="https://weareopensource.me">We Are Open Source</a></div>
-    </v-footer>
+  <v-footer
+    :style="{background: this.config.vuetify.theme.themes[theme].surface, color: config.vuetify.theme.themes[theme].onPrimary}"
+    app
+  >
+    <div class="flex-grow-1"></div>
+    <div>
+      &copy; 2019
+      <a href="https://weareopensource.me">We Are Open Source</a>
+    </div>
+  </v-footer>
 </template>
 
 <script>

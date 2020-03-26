@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    title: 'WeAreOpenSource Vue - Development Environment',
+    title: 'WAOS Dev',
     description: 'Vue - Boilerplate Front : Vuetify, Axios, Jest, Cypress (Alpha) ',
     keywords: 'vue, vuetify, axios, jest, cypress',
   },
@@ -49,7 +49,7 @@ module.exports = {
           onError: '#000000',
         },
         light: {
-          primary: '#bdc3c7',
+          primary: '#34495e',
           secondary: '#e67e22',
           background: '#f3f3f6',
           surface: '#ffffff',

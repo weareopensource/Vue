@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <!-- Header -->
-    <v-row class="mt-5 mx-5">
+    <v-row class="mt-3 mx-3">
       <v-subheader>
         <v-icon class="mr-5">fa-check</v-icon>
         <b>1. Description</b>
@@ -10,15 +10,29 @@
       <v-btn v-if="this.task.id" color="red lighten-3" @click="remove" icon>
         <v-icon>fa-trash</v-icon>
       </v-btn>
-      <v-btn v-if="this.task.id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
+      <v-btn
+        v-if="this.task.id"
+        class="mr-5"
+        color="blue lighten-2"
+        @click="update()"
+        :disabled="!save"
+        icon
+      >
         <v-icon>fa-save</v-icon>
       </v-btn>
     </v-row>
     <!-- First Form -->
-    <v-row class="mx-7">
+    <v-row class="mx-3">
       <v-col cols="12" sm="12" md="6" lg="8" xl="9">
         <v-row align="start" justify="center">
-          <v-card outlined tile width="100%" class="px-10 pa-6" :style="{background: config.vuetify.theme.themes[theme].surface}" :flat="config.vuetify.theme.flat">
+          <v-card
+            outlined
+            tile
+            width="100%"
+            class="px-10 pa-6"
+            :style="{background: config.vuetify.theme.themes[theme].surface}"
+            :flat="config.vuetify.theme.flat"
+          >
             <v-form ref="form" v-model="valid">
               <v-row>
                 <v-col sm="12">
@@ -32,20 +46,13 @@
                 </v-col>
               </v-row>
               <v-row v-if="!this.task.id">
-                <v-btn
-                  :disabled="!valid"
-                  color="success"
-                  class="mr-4"
-                  @click="create"
-                >Validate</v-btn>
+                <v-btn :disabled="!valid" color="success" class="mr-4" @click="create">Validate</v-btn>
               </v-row>
             </v-form>
           </v-card>
         </v-row>
       </v-col>
-      <taskComponent
-        v-bind:item="{ title, description }"
-      ></taskComponent>
+      <taskComponent v-bind:item="{ title, description }"></taskComponent>
     </v-row>
   </v-container>
 </template>
@@ -144,9 +151,7 @@ export default {
   created() {
     if (this.id) {
       this.$store.commit('task_reset');
-      this.$store
-        .dispatch('getTask', this.id)
-        .catch((err) => console.log(err));
+      this.$store.dispatch('getTask', this.id).catch((err) => console.log(err));
     } else {
       this.$store.commit('task_reset');
     }
