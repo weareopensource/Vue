@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout class="ma-4" wrap align-content-space-around text-xs-center>
+    <v-layout wrap align-content-space-around text-xs-center>
       <taskComponent
         v-for="(item, index) in tasks"
         v-bind:item="item"
@@ -9,7 +9,13 @@
       ></taskComponent>
       <v-row v-if="!tasks || !tasks.length" align="start" justify="center">
         <v-col cols="12">
-          <v-card class="mx-3 pa-8" outlined tile :style="{background: config.vuetify.theme.themes[theme].surface}" :flat="config.vuetify.theme.flat">
+          <v-card
+            class="mx-3 pa-8"
+            outlined
+            tile
+            :style="{background: config.vuetify.theme.themes[theme].surface}"
+            :flat="config.vuetify.theme.flat"
+          >
             <h2 class="text-center">No Tasks found :( !</h2>
           </v-card>
         </v-col>

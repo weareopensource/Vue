@@ -25,7 +25,7 @@
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn v-if="!isLoggedIn" icon>
-      <router-link to="/signin" >
+      <router-link to="/signin">
         <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
       </router-link>
     </v-btn>

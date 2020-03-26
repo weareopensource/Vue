@@ -9,7 +9,9 @@
       :color="snackbar.color"
     >
       {{ snackbar.text }}
-      <v-btn dark text @click="snackbar.status = false"> <v-icon>fa-times</v-icon> </v-btn>
+      <v-btn dark text @click="snackbar.status = false">
+        <v-icon>fa-times</v-icon>
+      </v-btn>
     </v-snackbar>
 
     <waosHeader />
@@ -61,7 +63,13 @@ export default {
     // auth
     this.axios.interceptors.response.use(
       (response) => {
-        if (this.config.vuetify.theme.snackbar.status && response.config && this.config.vuetify.theme.snackbar.methods.indexOf(response.config.method) > -1) {
+        if (
+          this.config.vuetify.theme.snackbar.status
+          && response.config
+          && this.config.vuetify.theme.snackbar.methods.indexOf(
+            response.config.method,
+          ) > -1
+        ) {
           this.snackbar.text = `${response.data.type}: ${response.data.message}`;
           this.snackbar.color = this.config.vuetify.theme.snackbar.sucessColor;
           this.snackbar.status = true;
@@ -69,11 +77,20 @@ export default {
         return response;
       },
       (err) => new Promise(() => {
-        if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
+        if (
+          err.response.status === 401
+            && err.config
+            && !err.config.__isRetryRequest
+        ) {
           this.$store.dispatch('signout');
           router.push('/signin');
         }
-        if (this.config.vuetify.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
+        if (
+          this.config.vuetify.theme.snackbar.status
+            && err.response
+            && err.response.data
+            && err.response.data.description
+        ) {
           this.snackbar.text = err.response.data.description;
           this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
           this.snackbar.status = true;
@@ -85,14 +102,13 @@ export default {
     this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
   },
 };
-
 </script>
 
 
 <style>
 .v-application a {
-    text-decoration: none !important;
-    color: var(--v-primary-base)!important;
+  text-decoration: none !important;
+  color: var(--v-primary-base) !important;
 }
 .v-card {
   border: none !important;
