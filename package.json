@@ -49,7 +49,7 @@
     "snyk": "^1.305.1",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
-    "vuetify": "^2.2.21",
+    "vuetify": "^2.2.22",
     "vuex": "^3.1.3"
   },
   "devDependencies": {
