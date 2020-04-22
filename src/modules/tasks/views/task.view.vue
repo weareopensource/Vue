@@ -112,7 +112,7 @@ export default {
         this.$store
           .dispatch('createTask', this.task)
           .then(() => {
-            this.$router.push(`/task/${this.task.id}`);
+            this.$router.push(`/tasks/${this.task.id}`);
             this.save = false;
           })
           .catch((err) => console.log(err));
