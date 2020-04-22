@@ -4,8 +4,10 @@
 import Vue from 'vue';
 import _ from 'lodash';
 import config from '@/config';
+import model from '@/lib/middlewares/model';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
+const whitelists = ['title', 'description'];
 
 /**
  * Getters: get state
@@ -37,7 +39,7 @@ const actions = {
   },
   createTask: async ({ commit }, params) => {
     try {
-      const obj = _.pickBy(params, _.identity);
+      const obj = model.clean(params, whitelists);
       const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.tasks}/`, obj);
       commit('task_set', res.data.data);
     } catch (err) {
@@ -45,9 +47,8 @@ const actions = {
     }
   },
   updateTask: async ({ commit, state }, params) => {
-    const model = ['title', 'description'];
     try {
-      const obj = _.pickBy(_.pick(_.merge(state.task, params), model), _.identity);
+      const obj = model.clean(_.merge(state.task, params), whitelists);
       const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
       commit('task_update', res.data.data);
     } catch (err) {
