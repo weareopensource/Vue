@@ -37,7 +37,6 @@ Our stack Vue is actually in Alpha.
 | CI  | [Travis CI](https://travis-ci.org/weareopensource/Node)
 | Developer  | [Coveralls](https://coveralls.io/github/weareopensource/Vue) - [Code Climate](https://codeclimate.com/github/weareopensource/Vue) - [Dependency status](https://david-dm.org/weareopensource/vue) - [Dependabot](https://dependabot.com/) - [Snyk](https://snyk.io/test/github/weareopensource/vue) <br> [standard-version](https://github.com/conventional-changelog/standard-version) - [commitlint](https://github.com/conventional-changelog/commitlint) - [commitizen](https://github.com/commitizen/cz-cli) - [waos-conventional-changelog](https://github.com/WeAreOpenSourceProjects/waos-conventional-changelog)
 | Dependencies  | [npm](https://www.npmjs.com)
-| **Being released** |
 | Deliver | Docker & Docker-compose
 | **In reflexion** |
 | WIP  | wip
@@ -96,6 +95,19 @@ npm i
 * commit : `npm run commit`
 * release : `npm run release`
 * generateConfig : `npm run generateConfig`
+
+## Docker Way
+
+### docker
+
+* `docker build -t waosvue .`
+* `docker run  --rm -p 8080:80 waosvue`
+
+### docker-compose (example with [Node](https://github.com/weareopensource/Node) stack as api)
+
+* `docker build -t waosnode .`
+* `docker build -t waosvue .`
+* `docker-compose up`
 
 ### Configuration
 
