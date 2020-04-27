@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+
+  waosvue:
+    container_name: waosvue
+    image: waosvue:latest
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - waosvue:/data
+    networks:
+      - frontend
+    depends_on:
+      - waosnode
+    environment:
+      - "WAOS_VUE_api_host=waosnode"
+
+  waosnode:
+    container_name: waosnode
+    image: waosnode:latest
+    restart: always
+    volumes:
+      - waosnode:/data
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mongo
+    environment:
+      - "WAOS_NODE_db_uri=mongodb://mongo:27017/WaosNodeDev"
+      - "WAOS_NODE_host=0.0.0.0"
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo:/data
+    networks:
+      - backend
+      
+networks:
+    frontend:
+      driver: bridge
+    backend:
+      driver: bridge
+
+volumes:
+  waosvue:
+  waosnode:
+  mongo:
