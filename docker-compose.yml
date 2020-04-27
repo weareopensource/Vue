@@ -2,27 +2,29 @@ version: '3'
 
 services:
 
-  waosvue:
-    container_name: waosvue
-    image: waosvue:latest
+  weareopensourceVue:
+    container_name: weareopensourceVue
+    image: weareopensource/vue:latest
     restart: always
     ports:
       - 8080:80
     volumes:
-      - waosvue:/data
+      - weareopensourceVue:/data
     networks:
       - frontend
     depends_on:
-      - waosnode
+      - weareopensourceNode
     environment:
       - "WAOS_VUE_api_host=waosnode"
 
-  waosnode:
-    container_name: waosnode
-    image: waosnode:latest
+  weareopensourceNode:
+    container_name: weareopensourceNode
+    image: weareopensource/node:latest
     restart: always
+    ports:
+      - 3000:3000
     volumes:
-      - waosnode:/data
+      - weareopensourceNode:/data
     networks:
       - frontend
       - backend
@@ -48,6 +50,6 @@ networks:
       driver: bridge
 
 volumes:
-  waosvue:
-  waosnode:
+  weareopensourceVue:
+  weareopensourceNode:
   mongo:

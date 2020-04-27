@@ -100,13 +100,13 @@ npm i
 
 ### docker
 
-* `docker build -t waosvue .`
-* `docker run  --rm -p 8080:80 waosvue`
+* `docker build -t weareopensource/vue .`
+* `docker run  --rm -p 8080:80 weareopensource/vue`
 
 ### docker-compose (example with [Node](https://github.com/weareopensource/Node) stack as api)
 
-* `docker build -t waosnode .`
-* `docker build -t waosvue .`
+* `docker build -t weareopensource/node .`
+* `docker build -t weareopensource/vue .`
 * `docker-compose up`
 
 ### Configuration
