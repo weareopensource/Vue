@@ -2,9 +2,9 @@
  [![Dependencies Status](https://david-dm.org/weareopensource/vue.svg?style=flat-square)](https://david-dm.org/weareopensource/vue) [![Dependabot badge](https://badges.weareopensource.me/badge/Dependabot-enabled-2768cf.svg?style=flat-square)](https://dependabot.com)
  [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue)
 
-# [WeAreOpenSource](https://weareopensource.me) Vue 4.x
+# :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 4.x
 
-## Presentation
+## :book: Presentation
 
 This project is a Vue stack that can be ran as a standalone FrontEnd. Or in a fullstack with another repo of your choice (ex: [Node](https://github.com/weareopensource/Node), [Swift](https://github.com/weareopensource/Swift)).
 
@@ -19,13 +19,13 @@ Quick links :
 
 Our stack Vue is actually in Alpha.
 
-# Vue 4.x / Vuetify / Jwt
+# :computer: Vue 4.x / Vuetify / Jwt
 
 * [**Wiki**](#) - wip
 * [**Knowledges JS**](https://github.com/weareopensource/weareopensource.github.io/wiki/Knowledges-JS)
 * [**Demo**](https://vue.weareopensource.me) (working with [Node](https://github.com/weareopensource/Node) stack, email: *test@waos.me*, password: *TestWaos@2019*)
 
-## Technology Overview
+## :package: Technology Overview
 
 | Subject | Informations
 | ------- | --------
@@ -41,7 +41,7 @@ Our stack Vue is actually in Alpha.
 | **In reflexion** |
 | WIP  | wip
 
-## Features Overview
+## :tada: Features Overview
 
 #### Available
 
@@ -55,14 +55,14 @@ Our stack Vue is actually in Alpha.
 * oAuth(microsoft, google)
 * profile management (update, avatar upload ...)
 
-## Prerequisites
+## :pushpin: Prerequisites
 
 Make sure you have installed all of the following prerequisites on your development machine:
 
 * Git - [Download & Install Git](https://git-scm.com/downloads)
 * Node.js (10.x) - [Download & Install Node.js](https://nodejs.org/en/download/)
 
-## Installation
+## :boom: Installation
 
 It's straightforward (you can use yarn if you want)
 
@@ -72,7 +72,7 @@ npm install -g @vue/cli@v4.0.0-rc.4
 npm i
 ```
 
-## Running Your Application
+## :runner: Running Your Application
 
 ### Development
 
@@ -96,7 +96,7 @@ npm i
 * release : `npm run release`
 * generateConfig : `npm run generateConfig`
 
-## Docker Way
+## :whale: Docker Way
 
 ### docker
 
@@ -122,22 +122,22 @@ So configuration avalable on `src/config/defaults/development` file are overidab
 WAOS_VUE_app_name='my app =)'
 ```
 
-## [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
+## :pencil2: [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
 
-## History
+## :scroll: History
 
 This work is based on [MEAN.js](http://meanjs.org) and more precisely on a fork of the developers named [Riess.js](https://github.com/lirantal/Riess.js). The work being stopped we wished to take it back, we want to create updated stack with same mindset "simple", "easy to use". The toolbox needed to start projects, but not only with Node and Angular ...
 
-## [We Are Open Source, Who we are ?](https://weareopensource.me)
+## :globe_with_meridians: [We Are Open Source, Who we are ?](https://weareopensource.me)
 
 Today, we dreams to create Backs/Fronts, aligns on feats, in multiple languages, in order to allow anyone to compose fullstack on demand (React, Angular, VusJS, Node, Nest, Swift, Go).
 Feel free to discuss, share other kind of bricks, and invite whoever you want with this mindset to come help us.
 
-## Licence
+## :clipboard: Licence
 
 [![Packagist](https://badges.weareopensource.me/packagist/l/doctrine/orm.svg?style=flat-square)](/LICENSE.md)
 
-## Dev
+## :family: Main Team
 
 Pierre
 
