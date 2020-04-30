@@ -62,7 +62,7 @@ Make sure you have installed all of the following prerequisites on your developm
 * Git - [Download & Install Git](https://git-scm.com/downloads)
 * Node.js (10.x) - [Download & Install Node.js](https://nodejs.org/en/download/)
 
-## :shipit: Installation
+## :boom: Installation
 
 It's straightforward (you can use yarn if you want)
 
@@ -122,7 +122,7 @@ So configuration avalable on `src/config/defaults/development` file are overidab
 WAOS_VUE_app_name='my app =)'
 ```
 
-## :octocat: [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
+## :pencil2: [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
 
 ## :scroll: History
 
