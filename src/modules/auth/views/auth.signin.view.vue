@@ -12,10 +12,10 @@
         <v-container class="pa-10">
           <v-form ref="form" v-model="valid">
             <v-row>
-              <v-col sm="12">
+              <v-col cols="12">
                 <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
               </v-col>
-              <v-col sm="12">
+              <v-col cols="12">
                 <v-text-field
                   :type="'password'"
                   :rules="passwordRules"
