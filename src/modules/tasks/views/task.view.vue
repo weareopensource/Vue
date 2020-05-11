@@ -35,7 +35,7 @@
           >
             <v-form ref="form" v-model="valid">
               <v-row>
-                <v-col sm="12">
+                <v-col cols="12">
                   <v-text-field v-model="title" :rules="rulesRequired" label="Title" required></v-text-field>
                   <v-text-field
                     v-model="description"
