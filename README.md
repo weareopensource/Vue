@@ -1,6 +1,6 @@
 [![Build Status](https://badges.weareopensource.me/travis/weareopensource/Vue.svg?style=flat-square)](https://travis-ci.org/weareopensource/Vue) [![Coveralls Status](https://badges.weareopensource.me/coveralls/github/weareopensource/Vue.svg?style=flat-square)](https://coveralls.io/github/weareopensource/Vue) [![Code Climate](https://badges.weareopensource.me/codeclimate/maintainability-percentage/weareopensource/Vue.svg?style=flat-square)](https://codeclimate.com/github/weareopensource/Vue/maintainability)
  [![Dependencies Status](https://david-dm.org/weareopensource/vue.svg?style=flat-square)](https://david-dm.org/weareopensource/vue) [![Dependabot badge](https://badges.weareopensource.me/badge/Dependabot-enabled-2768cf.svg?style=flat-square)](https://dependabot.com)
- [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue)
+ [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue) [![Docker Build Status](https://badges.weareopensource.me/docker/cloud/build/weareopensource/vue.svg?style=flat-square)](https://hub.docker.com/repository/docker/weareopensource/vue)
 
 # :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 4.x
 
