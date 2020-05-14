@@ -1,3 +1,61 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 0.1.0 (2020-05-14)
+
+
+### Features
+
+* **all:** init ✨ ([8e1e976](https://github.com/weareopensource/Vue/commit/8e1e9768111622bfb9998c09a4850db453d536b0))
+* **app:** add notifications based on request status ✨ ([4f91b52](https://github.com/weareopensource/Vue/commit/4f91b5291e60b26c6a1a399aedc1ab9163bab804))
+* **auth:** add signup ✨ ([0b0b6b2](https://github.com/weareopensource/Vue/commit/0b0b6b238a848244bac281f1c1cf3c3c8514d00e))
+* **auth:** imrpove auth rules ✨ ([44bc194](https://github.com/weareopensource/Vue/commit/44bc194bc2e4d86cd990badac9c5b7a026d63d31))
+* **config:** add api in configuration ✨ ([3884fea](https://github.com/weareopensource/Vue/commit/3884fead2f808292f3064195963f4f7e5ddfc2e0))
+* **config:** add port management for dev env ✨ ([b18712e](https://github.com/weareopensource/Vue/commit/b18712e81dd44ef94f4555512ea47ce94db2ec47))
+* **config, helpers, core, app:** auto theme dark light ✨ ([a280655](https://github.com/weareopensource/Vue/commit/a280655d18ec48d66fd5e140538e9be2afa9ba3e))
+* **core:** add option to display nav or not only if user is logged ✨ ([ec9b0ab](https://github.com/weareopensource/Vue/commit/ec9b0ab253d3f3c41bcd6378345a8f8555240800))
+* **dependencies:** fix package lock ✨ ([53da080](https://github.com/weareopensource/Vue/commit/53da08022fafa3de4e3f61782abc4270040721a0))
+* **deps:** clean deps package ✨ ([ea18144](https://github.com/weareopensource/Vue/commit/ea18144f07aff8445084b7c93a70bfa3629ffbce))
+* **docker:** init examples ✨ ([dd88eea](https://github.com/weareopensource/Vue/commit/dd88eea331c9e43f8e89442afc9bff7d79c20a13))
+* **global:** add demo ✨ ([92c9940](https://github.com/weareopensource/Vue/commit/92c9940917d536bcc6344f48135755d6d75d6e1d))
+* **global:** add home page example ✨ ([1fdd24d](https://github.com/weareopensource/Vue/commit/1fdd24db741854a33bc5b0aa4cd410eadea19f3d))
+* **global:** upgrade all dependencies :D ✨ ([60826e6](https://github.com/weareopensource/Vue/commit/60826e60bdaf864f4bf8baee8d7985adbbdee430))
+* **global:** upgrade eslint ✨ ([266098e](https://github.com/weareopensource/Vue/commit/266098e7bafff945ffc217e4eb0f67b74311ae34))
+* **middlewares:** fix and add model middleware to clean post put ✨ ([72abdc1](https://github.com/weareopensource/Vue/commit/72abdc13023423db8be51e50bd449160baa1d551))
+* **tasks:** add post/put check to remove null value before request ✨ ([f3cfbf8](https://github.com/weareopensource/Vue/commit/f3cfbf8bd5a128225727dd7b4054e5792d27579f))
+* **tasks:** init add/update/delete ✨ ([306625d](https://github.com/weareopensource/Vue/commit/306625d7189488318541b0258badb68262c5f28c))
+* **tasks:** init tasks list :) ✨ ([7459d8a](https://github.com/weareopensource/Vue/commit/7459d8a5185fcf4fe50ea4fee5bb80d055b168d3))
+* **tasks:** simplify example ✨ ([3b83f72](https://github.com/weareopensource/Vue/commit/3b83f72337214c3204222f251b9d146d3aff5e8d))
+
+
+### Bug Fixes
+
+* package.json, package-lock.json & .snyk to reduce vulnerabilities ([0265838](https://github.com/weareopensource/Vue/commit/0265838b9ed596b2ad32a7c9bcf0239553b4e0ac))
+* package.json, package-lock.json & .snyk to reduce vulnerabilities ([8f924f6](https://github.com/weareopensource/Vue/commit/8f924f660602e78739008245167b1d6175bfb5bb))
+* package.json, package-lock.json & .snyk to reduce vulnerabilities ([e96ff6e](https://github.com/weareopensource/Vue/commit/e96ff6e551549058b78a23ff8d17aee0ca00d40c))
+* **app:** fix interceptors to redirect if 401 🐛 ([98357b6](https://github.com/weareopensource/Vue/commit/98357b68da3e0a5363f2306428a928aba3a0f8b8))
+* **build:** config 🐛 ([a48f514](https://github.com/weareopensource/Vue/commit/a48f51484b261cf99e92c6c0653d79ff986caaee))
+* **build:** fix no console error on build (disable for the moment) 🐛 ([baa5c8a](https://github.com/weareopensource/Vue/commit/baa5c8a8bedc8ce27c48be147658bfa858a25808))
+* **config, core:** fix design colors 🐛 ([309675e](https://github.com/weareopensource/Vue/commit/309675e36f5153e1a33079fee98e700b4a06c2a9))
+* **core:** fix navigation duplicate$ 🐛 ([3d4779f](https://github.com/weareopensource/Vue/commit/3d4779f83990edf915fa76b1292f4316370c3dd4))
+* **core, home, config:** fix home page displays 🐛 ([64f584b](https://github.com/weareopensource/Vue/commit/64f584ba5c77faf929f659ce69aef381b4fd15ea))
+* **dependencies:** fix package lock 🐛 ([b84db5c](https://github.com/weareopensource/Vue/commit/b84db5c132a54c993a514cfe21f36c9ad86d058c))
+* **gitignore:** ignore generated conf 🐛 ([4be0db9](https://github.com/weareopensource/Vue/commit/4be0db94231cf90f74b3d387537a2f1ec46efe95))
+* **global:** delete useless files 🐛 ([4dfede1](https://github.com/weareopensource/Vue/commit/4dfede12f7c71e898211efd24b94bcd69836ab08))
+* **global:** fix Readme 🐛 ([a93aa9f](https://github.com/weareopensource/Vue/commit/a93aa9f295a7407f570380181a47785d8c999552))
+* **tasks:** fix length test 🐛 ([6a6a3dc](https://github.com/weareopensource/Vue/commit/6a6a3dc3bc665ce8d2ca9add25f337265ec94f6f))
+* **tasks:** fix merge 🐛 ([e3eeefa](https://github.com/weareopensource/Vue/commit/e3eeefa1daab64fa3e64f8728449135d6b049688))
+* **tasks:** fix missing mapGetters 🐛 ([326f851](https://github.com/weareopensource/Vue/commit/326f8517845ac7474dbbc92ad1c6ee845f85d6e7))
+* **tasks:** fix switch from create to edit mode 🐛 ([6ac7000](https://github.com/weareopensource/Vue/commit/6ac70000324605162b86133f7962cbf7b66df500))
+* **tasks:** fix update 🐛 ([01da760](https://github.com/weareopensource/Vue/commit/01da7604c32427ea7bdf78d1ac7366065d9db1d4))
+* **tasks:** remove old console log 🐛 ([b1aeb58](https://github.com/weareopensource/Vue/commit/b1aeb5880ce14ce1b5b08cea371a67bcb4ec7213))
+* **tasks:** remove useless code 🐛 ([a28704b](https://github.com/weareopensource/Vue/commit/a28704bcab3ed12b46b7287eb9d7bed65d60c209))
+* **tasks:** warning router 🐛 ([ee6a455](https://github.com/weareopensource/Vue/commit/ee6a4553c9ee7fd85af6077b6449030172393f8b))
+* package.json & package-lock.json to reduce vulnerabilities ([a11f1b5](https://github.com/weareopensource/Vue/commit/a11f1b5e4a3d0f08c370e97006cc4e46284e7fcc))
+* package.json & package-lock.json to reduce vulnerabilities ([4eecc65](https://github.com/weareopensource/Vue/commit/4eecc65854431f1c6d7e15270924fab7c75f45db))
+* package.json, package-lock.json & .snyk to reduce vulnerabilities ([e5b7bf8](https://github.com/weareopensource/Vue/commit/e5b7bf8b4e93404b8ddf3857a1be511a45c11d29))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
