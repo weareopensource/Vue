@@ -31,13 +31,14 @@ Our stack Vue is actually in Alpha.
 | ------- | --------
 | **Available** |
 | Architecture | Layered Architecture : everything is separated in layers, and the upper layers are abstractions of the lower ones, that's why every layer should only reference the immediate lower layer (vertical modules architecture)
-| Testing |  [Jest](https://github.com/facebook/jest) WIP
-| Linter  | [ESLint](https://github.com/eslint/eslint) ecmaVersion 10 (2019)
 | Security | JWT Stateless - have a look on [Node](https://github.com/weareopensource/Node) stack for more informations
 | CI  | [Travis CI](https://travis-ci.org/weareopensource/Node)
+| Linter  | [ESLint](https://github.com/eslint/eslint) ecmaVersion 10 (2019)
 | Developer  | [Coveralls](https://coveralls.io/github/weareopensource/Vue) - [Code Climate](https://codeclimate.com/github/weareopensource/Vue) - [Dependency status](https://david-dm.org/weareopensource/vue) - [Dependabot](https://dependabot.com/) - [Snyk](https://snyk.io/test/github/weareopensource/vue) <br> [standard-version](https://github.com/conventional-changelog/standard-version) - [commitlint](https://github.com/conventional-changelog/commitlint) - [commitizen](https://github.com/commitizen/cz-cli) - [waos-conventional-changelog](https://github.com/WeAreOpenSourceProjects/waos-conventional-changelog)
 | Dependencies  | [npm](https://www.npmjs.com)
 | Deliver | Docker & Docker-compose
+| **Being released** |
+| Testing |  [Jest](https://github.com/facebook/jest) WIP
 | **In reflexion** |
 | WIP  | wip
 
