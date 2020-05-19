@@ -107,8 +107,6 @@ if you want to build yourself : `docker build -t weareopensource/vue .` *--build
 
 ### docker-compose (example with [Node](https://github.com/weareopensource/Node) stack as api)
 
-* `docker build -t weareopensource/node .`
-* `docker build -t weareopensource/vue .`
 * `docker-compose up`
 
 ### Configuration
