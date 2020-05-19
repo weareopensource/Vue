@@ -101,13 +101,12 @@ npm i
 
 ### docker
 
-* `docker build -t weareopensource/vue .`
-* `docker run  --rm -p 8080:80 weareopensource/vue`
+* `docker run --rm -p 8080:80 weareopensource/vue`
+
+if you want to build yourself : `docker build -t weareopensource/vue .` *--build-arg WAOS_VUE_api_port=4000*
 
 ### docker-compose (example with [Node](https://github.com/weareopensource/Node) stack as api)
 
-* `docker build -t weareopensource/node .`
-* `docker build -t weareopensource/vue .`
 * `docker-compose up`
 
 ### Configuration
@@ -120,7 +119,7 @@ We take into account all system environment variables defined under the form WAO
 So configuration avalable on `src/config/defaults/development` file are overidable. You can for instance define the app name by defining those system environment variables :
 
 ```
-WAOS_VUE_app_name='my app =)'
+WAOS_VUE_app_title='my app =)'
 ```
 
 ## :pencil2: [Contribute](https://github.com/weareopensource/weareopensource.github.io/blob/master/CONTRIBUTE.md)
