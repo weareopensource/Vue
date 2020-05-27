@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -t $IMAGE_NAME --build-arg WAOS_VUE_app_title=$WAOS_VUE_app_title WAOS_VUE_api_protocol=$WAOS_VUE_api_protocol WAOS_VUE_api_host=$WAOS_VUE_api_host ENV WAOS_VUE_api_port=$WAOS_VUE_api_port WAOS_VUE_api_base=$WAOS_VUE_api_base WAOS_VUE_cookie=$WAOS_VUE_cookie .

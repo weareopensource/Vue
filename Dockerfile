@@ -6,11 +6,17 @@ WORKDIR /app
 
 # args
 ARG WAOS_VUE_app_title='WAOS Docker'
+ENV WAOS_VUE_app_title $WAOS_VUE_app_title
 ARG WAOS_VUE_api_protocol='http'
+ENV WAOS_VUE_api_protocol $WAOS_VUE_api_protocol
 ARG WAOS_VUE_api_host='localhost'
+ENV WAOS_VUE_api_host $WAOS_VUE_api_host
 ARG WAOS_VUE_api_port='3000'
+ENV WAOS_VUE_api_port $WAOS_VUE_api_port
 ARG WAOS_VUE_api_base='api'
+ENV WAOS_VUE_api_base $WAOS_VUE_api_base
 ARG WAOS_VUE_cookie='waos'
+ENV WAOS_VUE_cookie $WAOS_VUE_cookie
 
 # Install app dependencies & build
 COPY package*.json ./
