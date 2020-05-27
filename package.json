@@ -49,19 +49,19 @@
     "snyk": "^1.327.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuetify": "^2.2.29",
+    "vuetify": "^2.2.30",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-babel": "^4.4.1",
     "@vue/cli-plugin-e2e-cypress": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.4.1",
     "@vue/cli-plugin-router": "^4.3.1",
     "@vue/cli-plugin-unit-jest": "^4.4.1",
-    "@vue/cli-plugin-vuex": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-plugin-vuex": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/test-utils": "1.0.3",
     "babel-eslint": "^10.1.0",
@@ -77,7 +77,7 @@
     "standard-version": "^8.0.0",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.4.3",
+    "vuetify-loader": "^1.4.4",
     "waos-conventional-changelog": "^1.10.0"
   },
   "config": {
