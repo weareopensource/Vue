@@ -18,4 +18,4 @@ ARGS=(
  --build-arg WAOS_VUE_cookie=$WAOS_VUE_cookie
 )
 
-docker build -t $IMAGE_NAME ${ARGS[@]} .
+docker build ${ARGS[@]} -t $IMAGE_NAME .
