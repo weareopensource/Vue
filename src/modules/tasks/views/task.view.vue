@@ -105,7 +105,6 @@ export default {
       },
     },
   },
-
   methods: {
     create() {
       if (this.$refs.form.validate()) {

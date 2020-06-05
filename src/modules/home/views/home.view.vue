@@ -4,7 +4,7 @@
       <v-row no-gutters>
         <v-img
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          src="http://waos.ovh/content/backgrounds/waos-catalina/16.jpg"
+          :src="'https://weareopensource.me/content/images/2020/06/' + hour() + '.jpg'"
         >
           <v-theme-provider dark>
             <v-container fill-height>
@@ -226,6 +226,11 @@ export default {
   },
   computed: {
     ...mapGetters(['theme']),
+  },
+  methods: {
+    hour() {
+      return new Date().getHours();
+    },
   },
 };
 </script>
