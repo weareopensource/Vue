@@ -4,6 +4,7 @@
       <v-row no-gutters>
         <v-img
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+          :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
           :src="background || defaultBackground()"
         >
           <v-theme-provider dark>
