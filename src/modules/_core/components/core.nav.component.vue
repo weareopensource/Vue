@@ -21,9 +21,15 @@
         <v-list-item-action
           :style="(config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)) ? 'margin-left: -4px;' : 'margin-left: -4px;'"
         >
-          <v-icon
-            :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
-          >fa-{{ item.meta.icon }}</v-icon>
+          <v-tooltip right>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                v-bind="attrs" v-on="on"
+                :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
+              >fa-{{ item.meta.icon }}</v-icon>
+            </template>
+            <span>{{item.name}}</span>
+          </v-tooltip>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title
