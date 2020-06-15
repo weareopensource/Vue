@@ -36,24 +36,26 @@
       <span>{{title}}</span>
     </v-tooltip>
     <!-- user menu -->
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn v-if="!isLoggedIn" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
-          <router-link to="/signin">
-            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
-          </router-link>
-        </v-btn>
-      </template>
-      <span>Sign In</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn v-if="isLoggedIn" @click="signout" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
-          <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
-        </v-btn>
-      </template>
-      <span>Sign Out</span>
-    </v-tooltip>
+    <span v-if="config.vuetify.theme.signin">
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-if="!isLoggedIn" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
+            <router-link to="/signin">
+              <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
+            </router-link>
+          </v-btn>
+        </template>
+        <span>Sign In</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-if="isLoggedIn" @click="signout" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
+            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
+          </v-btn>
+        </template>
+        <span>Sign Out</span>
+      </v-tooltip>
+    </span>
   </v-app-bar>
 </template>
 <script>

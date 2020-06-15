@@ -5,6 +5,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /app
 
 # args
+ARG NODE_ENV='development'
 ARG WAOS_VUE_app_title='WAOS Docker'
 ARG WAOS_VUE_api_protocol='http'
 ARG WAOS_VUE_api_host='localhost'

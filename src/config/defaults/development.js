@@ -24,6 +24,8 @@ module.exports = {
       dark: 'auto', // dark theme true / false / auto (based on prefers-color-scheme)
       flat: true, // flat by default
       footer: false, // display footer
+      signin: true, // display signin link
+      signup: true, // display signup link
       snackbar: { // kind of notifications on requests
         status: true, // activate for error
         methods: ['post', 'put'], // show on sucess depends of methods
