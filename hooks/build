@@ -2,6 +2,7 @@
 
 : "${IMAGE_NAME:=waosdocker}"
 
+: "${NODE_ENV:=development}"
 : "${WAOS_VUE_app_title:=WAOS-Docker}"
 : "${WAOS_VUE_api_protocol:=http}"
 : "${WAOS_VUE_api_host:=localhost}"
@@ -10,6 +11,7 @@
 : "${WAOS_VUE_cookie:=waos}"
 
 ARGS=(
+ --build-arg NODE_ENV=$NODE_ENV
  --build-arg WAOS_VUE_app_title=$WAOS_VUE_app_title
  --build-arg WAOS_VUE_api_protocol=$WAOS_VUE_api_protocol
  --build-arg WAOS_VUE_api_host=$WAOS_VUE_api_host
