@@ -12,14 +12,14 @@
               <v-row align="center" class="white--text mx-auto" justify="center">
                 <v-col class="white--text text-center" cols="12" tag="h1">
                   <span
-                    class="font-weight-light"
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']"
-                  >WELCOME TO</span>
-                  <br />
-                  <span
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                     class="font-weight-black"
                   >{{config.app.title}}</span>
+                  <br />
+                  <span
+                    class="font-weight-light"
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1']"
+                  >{{config.app.subtitle}}</span>
                 </v-col>
                 <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#about-me')">
                   <v-icon>fa-angle-down</v-icon>
