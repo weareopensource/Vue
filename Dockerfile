@@ -17,7 +17,7 @@ ARG WAOS_VUE_cookie='waos'
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN NODE_ENV=$NODE_ENV npm run build
 
 # prod step
 FROM nginx:stable-alpine as production-stage
