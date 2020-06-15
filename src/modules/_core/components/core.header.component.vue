@@ -24,14 +24,16 @@
       <router-link to="/">{{ config.app.title }}</router-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
-    <v-btn v-if="!isLoggedIn" icon>
-      <router-link to="/signin">
-        <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
-      </router-link>
-    </v-btn>
-    <v-btn v-else @click="signout" icon>
-      <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
-    </v-btn>
+    <span v-if="config.vuetify.theme.signin">
+      <v-btn v-if="!isLoggedIn" icon>
+        <router-link to="/signin">
+          <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
+        </router-link>
+      </v-btn>
+      <v-btn v-else @click="signout" icon>
+        <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
+      </v-btn>
+    </span>
   </v-app-bar>
 </template>
 <script>
