@@ -31,7 +31,7 @@
             </v-row>
           </v-form>
           <br />
-          <router-link to="/signup">SignUp</router-link>if you have no account yet :) !
+          <p v-if="config.vuetify.theme.signup"><b><router-link to="/signup">Sign up</router-link></b> if you have no account yet :) !</p>
         </v-container>
       </v-card>
     </v-row>
