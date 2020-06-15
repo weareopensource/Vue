@@ -4,7 +4,7 @@
       <v-row no-gutters>
         <v-img
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          :src="'https://weareopensource.me/content/images/2020/06/' + hour() + '.jpg'"
+          :src="background || defaultBackground()"
         >
           <v-theme-provider dark>
             <v-container fill-height>
@@ -160,6 +160,7 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
+      background: null,
       abouts: [
         {
           title: 'About Us',
@@ -228,8 +229,8 @@ export default {
     ...mapGetters(['theme']),
   },
   methods: {
-    hour() {
-      return new Date().getHours();
+    defaultBackground() {
+      return `https://weareopensource.me/content/images/2020/06/${new Date().getHours()}.jpg`;
     },
   },
 };
