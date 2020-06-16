@@ -44,7 +44,7 @@ module.exports = ${
     .replace(/"/g, '\'')
     .replace(/\n|\r/g, ',\n')
     .replace(/{,/g, '{')
-    .replace('[,', '[')
+    .replace(/\[,/g, '[')
     .replace(/,,/g, ',')};
 `;
   fs.writeSync(fd, envConfigFile);
