@@ -58,12 +58,12 @@
       </v-container>
     </section>
 
-    <section id="features" class="grey lighten-3 py-12">
+    <section id="features" class="py-12" :style="{background: config.vuetify.theme.themes[theme].surface}">
       <v-container class="text-center">
         <h2 class="display-2 font-weight-bold mb-3 pb-8">{{ featuresTitle }}</h2>
         <v-row>
           <v-col v-for="({ icon, title, text }, i) in features" :key="i" cols="12" md="4">
-            <v-card class="py-12 px-4" color="grey lighten-5" :flat="config.vuetify.theme.flat">
+            <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat">
               <v-theme-provider dark>
                 <div>
                   <v-avatar color="primary" size="88">
@@ -82,11 +82,11 @@
     <section id="stats" class="black">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-        src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        :src="stats.background"
       >
         <v-container fill-height>
           <v-row class="mx-auto">
-            <v-col v-for="[value, title] of stats" :key="title" cols="12" md="3">
+            <v-col v-for="[value, title] of stats.data" :key="title" cols="12" md="3">
               <div class="text-center">
                 <div class="display-3 font-weight-black mb-4" v-text="value"></div>
                 <div class="title font-weight-regular text-uppercase" v-text="title"></div>
@@ -97,7 +97,7 @@
       </v-parallax>
     </section>
 
-    <section id="blog" class="py-12">
+    <section id="blog" class="py-12" :style="{background: config.vuetify.theme.themes[theme].surface}">
       <v-container>
         <h2
           class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8"
@@ -114,13 +114,7 @@
       </v-container>
     </section>
 
-    <v-sheet
-      id="contact"
-      dark
-      tag="section"
-      class="py-12"
-      tile
-    >
+    <section id="contact" class="py-12">
       <v-container>
         <h2
           class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8"
@@ -145,7 +139,7 @@
           </v-row>
         </v-theme-provider>
       </v-container>
-    </v-sheet>
+    </section>
   </div>
 </template>
 
@@ -218,12 +212,15 @@ export default {
         },
       ],
       contactTitle: 'Contact Us',
-      stats: [
-        ['24k', 'Github Stars'],
-        ['330+', 'Releases'],
-        ['1m', 'Downloads/mo'],
-        ['5m', 'Total Downloads'],
-      ],
+      stats: {
+        background: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+        data: [
+          ['24k', 'Github Stars'],
+          ['330+', 'Releases'],
+          ['1m', 'Downloads/mo'],
+          ['5m', 'Total Downloads'],
+        ],
+      },
     };
   },
   computed: {
