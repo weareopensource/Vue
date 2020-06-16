@@ -231,7 +231,7 @@ export default {
   },
   methods: {
     defaultBackground() {
-      return `https://weareopensource.me/content/images/2020/06/${new Date().getHours()}.jpg`;
+      return `https://weareopensource.me/content/images/2020/06/${(`0${new Date().getHours()}`).slice(-2)}.jpg`;
     },
   },
 };
