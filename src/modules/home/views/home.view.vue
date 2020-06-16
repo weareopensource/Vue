@@ -5,7 +5,7 @@
         <v-img
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
           :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          :src="config.home.background || defaultBackground()"
+          :src="temporal ? temporalBackground : require('@/assets/images/background.jpg')"
         >
           <v-theme-provider dark>
             <v-container fill-height>
@@ -153,8 +153,8 @@ export default {
     ...mapGetters(['theme']),
   },
   methods: {
-    defaultBackground() {
-      return `https://weareopensource.me/content/images/2020/06/${(`0${new Date().getHours()}`).slice(-2)}.jpg`;
+    temporalBackground() {
+      return `${this.config.home.temporalBackground}/${(`0${new Date().getHours()}`).slice(-2)}.jpg`;
     },
   },
 };

@@ -111,7 +111,7 @@ module.exports = {
     ],
   },
   home: {
-    background: null, // url or  require('@/assets/background.jpg'),
+    temporalBackground: 'https://weareopensource.me/content/images/2020/06', // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
     abouts: [
       {
         title: 'About Us',
