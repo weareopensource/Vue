@@ -30,7 +30,6 @@
         </v-img>
       </v-row>
     </section>
-
     <section id="about-me">
       <v-container class="text-center pb-12">
         <v-row align="center" justify="center">
@@ -46,11 +45,11 @@
               max-width="720"
               v-text="text"
             ></v-responsive>
-            <v-avatar class="elevation-12 mb-12" size="128">
+            <v-avatar v-if="image" class="elevation-12 mb-12" size="128">
               <v-img :src="image"></v-img>
             </v-avatar>
-            <br />
-            <v-btn color="grey" :href="link" outlined large>
+            <br v-if="link" />
+            <v-btn v-if="link" color="grey" :href="link" outlined large>
               <span class="grey--text text--darken-1 font-weight-bold" v-text="button"></span>
             </v-btn>
           </v-col>
