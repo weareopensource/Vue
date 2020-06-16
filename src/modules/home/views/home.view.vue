@@ -62,14 +62,12 @@
         <h2 class="display-2 font-weight-bold mb-3 pb-8">{{ features.title }}</h2>
         <v-row>
           <v-col v-for="({ icon, title, text }, i) in features.data" :key="i" cols="12" md="4">
-            <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat">
-              <v-theme-provider dark>
+            <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat" :style="{background: config.vuetify.theme.themes[theme].background}">
                 <div>
                   <v-avatar color="primary" size="88">
-                    <v-icon large>fa-{{ icon }}</v-icon>
+                    <v-icon dark large>fa-{{ icon }}</v-icon>
                   </v-avatar>
                 </div>
-              </v-theme-provider>
               <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
               <v-card-text class="subtitle-1" v-text="text"></v-card-text>
             </v-card>
