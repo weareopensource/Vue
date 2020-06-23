@@ -55,7 +55,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@vue/cli-plugin-babel": "^4.4.4",
+    "@vue/cli-plugin-babel": "^4.4.5",
     "@vue/cli-plugin-e2e-cypress": "^4.4.5",
     "@vue/cli-plugin-eslint": "^4.4.5",
     "@vue/cli-plugin-router": "^4.4.5",
