@@ -36,26 +36,39 @@
       <span>{{title}}</span>
     </v-tooltip>
     <!-- user menu -->
-    <span v-if="config.vuetify.theme.signin">
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-if="!isLoggedIn" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
-            <router-link to="/signin">
-              <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
-            </router-link>
-          </v-btn>
-        </template>
-        <span>Sign In</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-if="isLoggedIn" @click="signout" v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
-            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
-          </v-btn>
-        </template>
-        <span>Sign Out</span>
-      </v-tooltip>
-    </span>
+    <v-tooltip v-if="!isLoggedIn && config.vuetify.theme.signin" bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-on="on"
+          v-bind="attrs"
+          min-width="50"
+          min-height="50"
+          x-small
+          icon
+        >
+          <router-link to="/signin">
+            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
+          </router-link>
+        </v-btn>
+      </template>
+      <span>Sign In</span>
+    </v-tooltip>
+    <v-tooltip v-if="isLoggedIn && config.vuetify.theme.signin" bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-on="on"
+          v-bind="attrs"
+          @click="signout"
+          min-width="50"
+          min-height="50"
+          x-small
+          icon
+        >
+          <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
+        </v-btn>
+      </template>
+      <span>Sign Out</span>
+    </v-tooltip>
   </v-app-bar>
 </template>
 <script>
@@ -95,7 +108,8 @@ export default {
         {
           icon: 'fab fa-slack',
           title: 'Slack',
-          link: 'https://join.slack.com/t/weareopensource/shared_invite/zt-62p1qxna-PEQn289qx6mmHobzKW8QFw',
+          link:
+            'https://join.slack.com/t/weareopensource/shared_invite/zt-62p1qxna-PEQn289qx6mmHobzKW8QFw',
         },
         {
           icon: 'fab fa-twitter',
