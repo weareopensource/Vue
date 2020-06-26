@@ -104,7 +104,6 @@ export default {
 };
 </script>
 
-
 <style>
 .v-application a {
   text-decoration: none !important;
