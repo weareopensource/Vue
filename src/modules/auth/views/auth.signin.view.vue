@@ -38,7 +38,6 @@
   </v-container>
 </template>
 
-
 <script>
 /**
  * Module dependencies.
