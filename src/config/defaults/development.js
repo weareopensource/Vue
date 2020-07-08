@@ -64,6 +64,9 @@ module.exports = {
           onError: '#FFFFFF',
         },
       },
+      options: {
+        customProperties: true,
+      },
     },
     icons: {
       iconfont: 'fa',

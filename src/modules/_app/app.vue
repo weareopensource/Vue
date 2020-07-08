@@ -105,8 +105,13 @@ export default {
 </script>
 
 <style>
-.v-application a {
+.v-application a header, .v-application a nav{
   text-decoration: none !important;
+  color: var(--v-onPrimary-base) !important;
+}
+.v-application main a {
+  text-decoration: none !important;
+  font-weight: 400;
   color: var(--v-primary-base) !important;
 }
 .v-card {
