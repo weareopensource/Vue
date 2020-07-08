@@ -1,3 +1,6 @@
+/**
+ * Module dependencies.
+ */
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 import config from '@/config';
