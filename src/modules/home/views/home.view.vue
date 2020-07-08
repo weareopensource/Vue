@@ -21,7 +21,7 @@
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1']"
                   >{{config.app.subtitle}}</span>
                 </v-col>
-                <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#about-me')">
+                <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#about-me')"  data-aos="fade-up">
                   <v-icon>fa-angle-down</v-icon>
                 </v-btn>
               </v-row>
@@ -67,7 +67,7 @@
             <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat" :style="{background: config.vuetify.theme.themes[theme].background}">
                 <div>
                   <v-avatar color="primary" size="88">
-                    <v-icon dark large>fa-{{ icon }}</v-icon>
+                    <v-icon dark large data-aos="fade-up">fa-{{ icon }}</v-icon>
                   </v-avatar>
                 </div>
               <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
@@ -87,7 +87,7 @@
           <v-row class="mx-auto">
             <v-col v-for="[value, title] of stats.data" :key="title" cols="12" md="3">
               <div class="text-center">
-                <div class="display-3 font-weight-black mb-4" v-text="value"></div>
+                <div class="display-3 font-weight-black mb-4" v-text="value" data-aos="fade"></div>
                 <div class="title font-weight-regular text-uppercase" v-text="title"></div>
               </div>
             </v-col>
@@ -143,6 +143,8 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import VueMarkdown from 'vue-markdown'; // production
 
 /**
@@ -216,6 +218,7 @@ export default {
       },
     };
   },
+  created() { AOS.init({ disable: 'phone' }); },
   components: {
     VueMarkdown,
   },
