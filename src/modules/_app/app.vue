@@ -105,7 +105,7 @@ export default {
 </script>
 
 <style>
-.v-application a header, .v-application a nav{
+.v-application header a, .v-application nav a{
   text-decoration: none !important;
   color: var(--v-onPrimary-base) !important;
 }

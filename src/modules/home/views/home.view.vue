@@ -81,7 +81,7 @@
     <section id="stats" class="black">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-        :src="stats.background"
+        :src="stats.background || require('@/assets/images/backgroundParalax.jpg')"
       >
         <v-container fill-height>
           <v-row class="mx-auto">
@@ -218,12 +218,14 @@ export default {
       },
     };
   },
-  created() { AOS.init({ disable: 'phone' }); },
   components: {
     VueMarkdown,
   },
   computed: {
     ...mapGetters(['theme']),
+  },
+  created() {
+    AOS.init({ disable: 'phone' });
   },
   methods: {
     generateTemporalBackground() {
