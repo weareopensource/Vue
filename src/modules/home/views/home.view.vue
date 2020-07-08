@@ -155,7 +155,7 @@ export default {
       abouts: [
         {
           title: 'About Us',
-          text: 'Today, we dreams to create Backs/Fronts, **aligns on feats**, in **multiple languages**, in order to allow anyone to **compose fullstack on demand** (React, Angular, VusJS, Node, Nest, Swift, Go). Feel free to discuss, share other kind of bricks, and invite whoever you want with this mindset to come help us. There are so many innovations possible, starting a clean test should be simple.',
+          text: 'Today, we dreams to create Backs/Fronts, **aligns on feats**, in **multiple languages**, in order to allow anyone to **compose fullstack on demand** (React, Angular, VusJS, Node, Nest, Swift, Go). Feel free to discuss, share other kind of bricks, and invite whoever you want with this mindset to come [help us](https://github.com/weareopensource/). There are so many innovations possible, starting a clean test should be simple.',
           image: 'https://avatars3.githubusercontent.com/u/8588816?s=200&v=4',
           button: 'Github',
           link: 'https://github.com/weareopensource',
