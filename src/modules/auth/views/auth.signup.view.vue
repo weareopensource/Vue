@@ -6,7 +6,7 @@
         outlined
         tile
         width="100%"
-        :style="{background: config.vuetify.theme.themes[theme].surface}"
+        :style="{ background: config.vuetify.theme.themes[theme].surface }"
         :flat="config.vuetify.theme.flat"
       >
         <v-container class="pa-10">
@@ -15,34 +15,46 @@
               <v-col md="6" sm="12">
                 <v-text-field
                   v-model="firstName"
-                  :rules="firstNameRules"
+                  :rules="[rules.firstName]"
                   label="Firstname"
                   required
                 ></v-text-field>
               </v-col>
               <v-col md="6" sm="12">
-                <v-text-field v-model="lastName" :rules="lastNameRules" label="Lastname" required></v-text-field>
+                <v-text-field
+                  v-model="lastName"
+                  :rules="[rules.lastName]"
+                  label="Lastname"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col md="12" sm="12">
-                <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                <v-text-field
+                  v-model="email"
+                  :rules="[rules.required, rules.mail]"
+                  label="E-mail"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col md="12" sm="12">
                 <v-text-field
                   :type="'password'"
                   v-model="password"
-                  :rules="passwordRules"
+                  :rules="[rules.password]"
                   label="Password"
                   required
                 ></v-text-field>
               </v-col>
             </v-row>
             <v-row>
-              <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
+              <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"
+                >Validate</v-btn
+              >
               <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
             </v-row>
           </v-form>
           <br />
-          <router-link to="/signin">SignIn</router-link>if you already have an account :) !
+          <router-link to="/signin">Sign In</router-link> if you already have an account :) !
         </v-container>
       </v-card>
     </v-row>
@@ -65,13 +77,13 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      firstNameRules: [(v) => !!v || 'Firstname is required'],
-      lastNameRules: [(v) => !!v || 'Lastname is required'],
-      emailRules: [
-        (v) => !!v || 'E-mail is required',
-        (v) => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
-      passwordRules: [(v) => !!v || 'Password is required'],
+      rules: {
+        firstName: (v) => !!v || 'Firstname is required',
+        lastName: (v) => !!v || 'Lastname is required',
+        required: (v) => !!v || 'Required',
+        mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
+        password: (v) => !!v || 'Password is required',
+      },
     };
   },
   computed: {

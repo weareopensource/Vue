@@ -15,6 +15,7 @@ module.exports = {
       auth: 'auth',
       users: 'users',
       tasks: 'tasks',
+      subscriptions: 'subscriptions',
     },
   },
   cookie: {
@@ -80,6 +81,7 @@ module.exports = {
     },
   },
   home: {
+    subscriptions: true, // disbale / enable
     temporalBackground: 'https://weareopensource.me/content/images/2020/06', // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
     abouts: [
       {
