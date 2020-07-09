@@ -279,9 +279,9 @@ export default {
 };
 </script>
 
-<style scoped>
-.centered-input >>> input {
-  text-align: center;
-  font-size: 20px;
-}
+<style>
+  .centered-input >>> input {
+    text-align: center;
+    font-size: 20px;
+  }
 </style>
