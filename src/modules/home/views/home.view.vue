@@ -97,7 +97,7 @@
                 class="justify-center font-weight-black text-uppercase"
                 v-text="title"
               ></v-card-title>
-              <v-card-text class="subtitle-1"><vue-markdown :source="text"/></v-card-text>
+              <v-card-text class="subtitle-1 text--secondary"><vue-markdown :source="text"/></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -134,9 +134,9 @@
         <v-row>
           <v-col v-for="({ image, text, title, link }, i) in news" :key="i" cols="12" md="4">
             <v-img :src="image" class="mb-4" height="275" max-width="100%"></v-img>
-            <h3 class="font-weight-black mb-4" v-text="title"></h3>
-            <div class="title font-weight-light mb-5"><vue-markdown :source="text" /></div>
-            <v-btn class="ml-n4 font-weight-black" href="link" target="_blank" text
+            <h3 class="mb-4 text--primary" v-text="title"></h3>
+            <div class="subtitle-1 text--secondary"><vue-markdown :source="text" /></div>
+            <v-btn class="ml-n5 font-weight-black" href="link" target="_blank" text
               >Continue Reading</v-btn
             >
           </v-col>

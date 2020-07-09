@@ -44,7 +44,7 @@ const mutations = {
   news_error(err) {
     console.log(err);
   },
-  // scraps
+  // news
   news_set(state, data) {
     state.news = data;
   },
