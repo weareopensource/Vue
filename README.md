@@ -44,17 +44,14 @@ Our stack Vue is actually in Alpha.
 
 ## :tada: Features Overview
 
-#### Available
+### Core
 
 * **User** : classic register / auth
 
-#### In reflexion
+### Examples
 
-* **Tasks** : list tasks - add tasks - edit tasks - delete tasks
-* **Admin** : list users - edit user - delete user
-* RGPD conpliance
-* oAuth(microsoft, google)
-* profile management (update, avatar upload ...)
+* **Tasks** : list - add - edit - delete
+* **Mails Subscriptions** : add
 
 ## :pushpin: Prerequisites
 

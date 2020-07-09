@@ -2,15 +2,19 @@
  * Module dependencies.
  */
 import Vue from 'vue';
+import _ from 'lodash';
 import config from '@/config';
+import model from '@/lib/middlewares/model';
 
-// const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
+const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
+const whitelists = ['email', 'news'];
 
 /**
  * Getters: get state
  */
 const getters = {
   news: (state) => state.news,
+  subscription: (state) => state.subscription,
 };
 
 /**
@@ -34,19 +38,38 @@ const actions = {
       commit('news_error', err);
     }
   },
+  createSubscription: async ({ commit }, params) => {
+    try {
+      const obj = model.clean(params, whitelists);
+      obj.news = true;
+      const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.subscriptions}/`, obj);
+      commit('subscription_set', res.data.data);
+    } catch (err) {
+      commit('subscription_error', err);
+    }
+  },
 };
 
 /**
  * Mutation: change state in a Vuex store is by committing a mutation
  */
 const mutations = {
-  // global
+  // news
   news_error(err) {
     console.log(err);
   },
-  // news
   news_set(state, data) {
     state.news = data;
+  },
+  // mail
+  subscription_error(err) {
+    console.log(err);
+  },
+  subscription_set(state, data) {
+    state.subscription = data;
+  },
+  subscription_update(state, data) {
+    _.merge(state.subscription, data);
   },
 };
 
@@ -55,6 +78,7 @@ const mutations = {
  */
 const state = {
   news: {},
+  subscription: {},
 };
 
 /**

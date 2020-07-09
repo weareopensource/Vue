@@ -27,15 +27,46 @@
                     >{{ config.app.subtitle }}</span
                   >
                 </v-col>
-                <v-btn
-                  class="align-self-end"
-                  fab
-                  outlined
-                  @click="$vuetify.goTo('#about-me')"
+                <v-col class="white--text text-center" cols="12">
+                  <v-btn
+                    class="align-self-end"
+                    fab
+                    outlined
+                    @click="$vuetify.goTo('#about-me')"
+                    data-aos="fade-up"
+                  >
+                    <v-icon>fa-angle-down</v-icon>
+                  </v-btn>
+                </v-col>
+                <v-col
+                  align="center"
+                  class="white--text text-center"
+                  cols="11"
+                  xs="10"
+                  sm="9"
+                  md="7"
+                  lg="6"
+                  xl="5"
+                  style="bottom: 15%; position: absolute; opacity:75%;"
                   data-aos="fade-up"
+                  v-if="config.home.subscriptions"
                 >
-                  <v-icon>fa-angle-down</v-icon>
-                </v-btn>
+                  <v-text-field
+                    v-model="email"
+                    :flat="config.vuetify.theme.flat"
+                    :rules="[rules.email]"
+                    :append-icon="'fa-envelope'"
+                    @click:append="create"
+                    @keydown.enter="create"
+                    height="55"
+                    name="Mail"
+                    placeholder="Stay informed by email."
+                    class="centered-input"
+                    solo
+                    rounded
+                    light
+                  ></v-text-field>
+                </v-col>
               </v-row>
             </v-container>
           </v-theme-provider>
@@ -75,7 +106,12 @@
       v-if="config.home.features.data.length > 0"
     >
       <v-container class="text-center">
-        <h2 class="display-1 font-weight-bold mb-3 pb-8 text-uppercase" v-if="config.home.features.title">{{ config.home.features.title }}</h2>
+        <h2
+          class="display-1 font-weight-bold mb-3 pb-8 text-uppercase"
+          v-if="config.home.features.title"
+        >
+          {{ config.home.features.title }}
+        </h2>
         <v-row>
           <v-col
             v-for="({ icon, title, text }, i) in config.home.features.data"
@@ -97,7 +133,9 @@
                 class="justify-center font-weight-black text-uppercase"
                 v-text="title"
               ></v-card-title>
-              <v-card-text class="subtitle-1 text--secondary"><vue-markdown :source="text"/></v-card-text>
+              <v-card-text class="subtitle-1 text--secondary"
+                ><vue-markdown :source="text"
+              /></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -128,7 +166,12 @@
       :style="{ background: config.vuetify.theme.themes[theme].surface }"
     >
       <v-container>
-        <h2 class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase" v-if="config.home.blog.title">{{ config.home.blog.title }}</h2>
+        <h2
+          class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase"
+          v-if="config.home.blog.title"
+        >
+          {{ config.home.blog.title }}
+        </h2>
         <v-row>
           <v-col v-for="({ image, text, title, link }, i) in news" :key="i" cols="12" md="4">
             <v-img :src="image" class="mb-4" height="275" max-width="100%"></v-img>
@@ -144,7 +187,12 @@
 
     <section id="contact" class="py-12">
       <v-container>
-        <h2 class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase" v-if="config.home.contact.title">{{ config.home.contact.title }}</h2>
+        <h2
+          class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase"
+          v-if="config.home.contact.title"
+        >
+          {{ config.home.contact.title }}
+        </h2>
         <v-theme-provider light>
           <form enctype="text/plain" method="GET" :action="config.home.contact.mail">
             <v-row>
@@ -188,11 +236,29 @@ import VueMarkdown from 'vue-markdown'; // production
  * Export default
  */
 export default {
+  data() {
+    return {
+      valid: false,
+      password: 'Password',
+      rules: {
+        email: (v) => /\S+@\S+\.\S+/.test(v) || '',
+      },
+    };
+  },
   components: {
     VueMarkdown,
   },
   computed: {
-    ...mapGetters(['theme', 'news']),
+    ...mapGetters(['theme', 'news', 'subscription']),
+    email: {
+      get() {
+        return this.subscription.email;
+      },
+      set(email) {
+        this.save = true;
+        this.$store.commit('subscription_update', { email });
+      },
+    },
   },
   created() {
     AOS.init();
@@ -202,6 +268,20 @@ export default {
     generateTemporalBackground() {
       return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
     },
+    create() {
+      if (this.rules.email(this.subscription.email)) {
+        this.$store
+          .dispatch('createSubscription', this.subscription)
+          .catch((err) => console.log(err));
+      }
+    },
   },
 };
 </script>
+
+<style scoped>
+.centered-input >>> input {
+  text-align: center;
+  font-size: 20px;
+}
+</style>
