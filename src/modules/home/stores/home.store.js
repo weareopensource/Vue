@@ -5,6 +5,7 @@ import Vue from 'vue';
 import _ from 'lodash';
 import config from '@/config';
 import model from '@/lib/middlewares/model';
+import GhostContentAPI from '@tryghost/content-api';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 const whitelists = ['email', 'news'];
@@ -23,17 +24,13 @@ const getters = {
 const actions = {
   getNews: async ({ commit }) => {
     try {
-      const data = await Vue.prototype.rss.parseURL(config.home.blog.url);
-      let news = data.items.slice(0, 3);
-      const rex = /<img[^>]+src="(https:\/\/[^">]+)"/;
-      news = news.map((item) => ({
-        test: item['content:encoded'],
-        title: item.title,
-        image: rex.exec(item['content:encoded'])[1],
-        text: item.contentSnippet,
-        link: item.link,
-      }));
-      commit('news_set', news);
+      const ghost = new GhostContentAPI({
+        url: config.home.blog.url,
+        key: config.home.blog.key,
+        version: 'v3',
+      });
+      const res = await ghost.posts.browse({ limit: 3 });
+      commit('news_set', res);
     } catch (err) {
       commit('news_error', err);
     }
@@ -77,7 +74,7 @@ const mutations = {
  * State
  */
 const state = {
-  news: {},
+  news: [],
   subscription: {},
 };
 

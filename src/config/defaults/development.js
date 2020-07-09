@@ -121,9 +121,10 @@ module.exports = {
         ['5m', 'Total Downloads'],
       ],
     },
-    blog: {
+    blog: { // actually dev for Ghost Blog
       title: 'Blog',
-      url: 'https://weareopensource.me/rss', // actually dev for Ghost https://ghost.org/ check home store
+      url: 'https://weareopensource.me',
+      key: '0415f48774e7c49c713204f787',
     },
     contact: {
       title: 'Contact Us',
