@@ -79,4 +79,53 @@ module.exports = {
       mini: true, // mini or full
     },
   },
+  home: {
+    temporalBackground: 'https://weareopensource.me/content/images/2020/06', // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
+    abouts: [
+      {
+        title: 'About Us',
+        text: 'Today, we dreams to create Backs/Fronts, **aligns on feats**, in **multiple languages**, in order to allow anyone to **compose fullstack on demand** (React, Angular, VusJS, Node, Nest, Swift, Go). Feel free to discuss, share other kind of bricks, and invite whoever you want with this mindset to come [help us](https://github.com/weareopensource/). There are so many innovations possible, starting a clean test should be simple.',
+        image: 'https://avatars3.githubusercontent.com/u/8588816?s=200&v=4',
+        button: 'Github',
+        link: 'https://github.com/weareopensource',
+      },
+    ],
+    features: {
+      title: 'Vuetify features',
+      data: [
+        {
+          icon: 'users',
+          title: 'Vibrant Community',
+          text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+        },
+        {
+          icon: 'cloud-upload-alt',
+          title: 'Frequent Updates',
+          text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+        },
+        {
+          icon: 'history',
+          title: 'Long-term Support',
+          text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+        },
+      ],
+    },
+    stats: {
+      background: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+      data: [
+        ['24k', 'Github Stars'],
+        ['330+', 'Releases'],
+        ['1m', 'Downloads/mo'],
+        ['5m', 'Total Downloads'],
+      ],
+    },
+    blog: {
+      title: 'Blog',
+      url: 'https://weareopensource.me/rss', // actually dev for Ghost https://ghost.org/ check home store
+    },
+    contact: {
+      title: 'Contact Us',
+      mail: 'mailto:pierre@weareopensource.me',
+    },
+  },
 };

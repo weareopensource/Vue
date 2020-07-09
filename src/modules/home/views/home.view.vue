@@ -5,23 +5,35 @@
         <v-img
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
           :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          :src="temporalBackground ? generateTemporalBackground() : require('@/assets/images/background.jpg')"
+          :src="
+            config.home.temporalBackground
+              ? generateTemporalBackground()
+              : require('@/assets/images/background.jpg')
+          "
         >
           <v-theme-provider dark>
             <v-container fill-height>
               <v-row align="center" class="white--text mx-auto" justify="center">
                 <v-col class="white--text text-center" cols="12" tag="h1">
                   <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4']"
                     class="font-weight-black"
-                  >{{config.app.title}}</span>
+                    >{{ config.app.title }}</span
+                  >
                   <br />
                   <span
                     class="font-weight-light"
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1']"
-                  >{{config.app.subtitle}}</span>
+                    >{{ config.app.subtitle }}</span
+                  >
                 </v-col>
-                <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#about-me')"  data-aos="fade-up">
+                <v-btn
+                  class="align-self-end"
+                  fab
+                  outlined
+                  @click="$vuetify.goTo('#about-me')"
+                  data-aos="fade-up"
+                >
                   <v-icon>fa-angle-down</v-icon>
                 </v-btn>
               </v-row>
@@ -31,21 +43,18 @@
       </v-row>
     </section>
 
-    <section id="about-me">
+    <section id="about-me" v-if="config.home.abouts.length > 0">
       <v-container class="text-center pb-12">
         <v-row align="center" justify="center">
           <v-col
-            v-for="({ title, text, image, button, link }, i) in abouts"
+            v-for="({ title, text, image, button, link }, i) in config.home.abouts"
             :key="i"
             cols="12"
             md="6"
           >
             <h2 class="display-2 font-weight-bold mb-3 py-8" v-text="title"></h2>
-            <v-responsive
-              class="mx-auto title font-weight-light mb-8"
-              max-width="720"
-            >
-              <vue-markdown :source=text />
+            <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
+              <vue-markdown :source="text" />
             </v-responsive>
             <v-avatar v-if="image" class="elevation-12 mb-12" size="128">
               <v-img :src="image"></v-img>
@@ -59,33 +68,50 @@
       </v-container>
     </section>
 
-    <section id="features" class="py-12" :style="{background: config.vuetify.theme.themes[theme].surface}">
+    <section
+      id="features"
+      class="py-12"
+      :style="{ background: config.vuetify.theme.themes[theme].surface }"
+      v-if="config.home.features.data.length > 0"
+    >
       <v-container class="text-center">
-        <h2 class="display-2 font-weight-bold mb-3 pb-8">{{ features.title }}</h2>
+        <h2 class="display-2 font-weight-bold mb-3 pb-8" v-if="config.home.features.title">{{ config.home.features.title }}</h2>
         <v-row>
-          <v-col v-for="({ icon, title, text }, i) in features.data" :key="i" cols="12" md="4">
-            <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat" :style="{background: config.vuetify.theme.themes[theme].background}">
-                <div>
-                  <v-avatar color="primary" size="88">
-                    <v-icon dark large data-aos="fade-up">fa-{{ icon }}</v-icon>
-                  </v-avatar>
-                </div>
-              <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
-              <v-card-text class="subtitle-1"><vue-markdown :source=text /></v-card-text>
+          <v-col
+            v-for="({ icon, title, text }, i) in config.home.features.data"
+            :key="i"
+            cols="12"
+            md="4"
+          >
+            <v-card
+              class="py-12 px-4"
+              :flat="config.vuetify.theme.flat"
+              :style="{ background: config.vuetify.theme.themes[theme].background }"
+            >
+              <div>
+                <v-avatar color="primary" size="88">
+                  <v-icon dark large data-aos="fade-up">fa-{{ icon }}</v-icon>
+                </v-avatar>
+              </div>
+              <v-card-title
+                class="justify-center font-weight-black text-uppercase"
+                v-text="title"
+              ></v-card-title>
+              <v-card-text class="subtitle-1"><vue-markdown :source="text"/></v-card-text>
             </v-card>
           </v-col>
         </v-row>
       </v-container>
     </section>
 
-    <section id="stats" class="black">
+    <section id="stats" class="black" v-if="config.home.stats.data.length > 0">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-        :src="stats.background || require('@/assets/images/backgroundParalax.jpg')"
+        :src="config.home.stats.background || require('@/assets/images/backgroundParalax.jpg')"
       >
         <v-container fill-height>
           <v-row class="mx-auto">
-            <v-col v-for="[value, title] of stats.data" :key="title" cols="12" md="3">
+            <v-col v-for="[value, title] of config.home.stats.data" :key="title" cols="12" md="3">
               <div class="text-center">
                 <div class="display-3 font-weight-black mb-4" v-text="value" data-aos="fade"></div>
                 <div class="title font-weight-regular text-uppercase" v-text="title"></div>
@@ -96,18 +122,23 @@
       </v-parallax>
     </section>
 
-    <section id="blog" class="py-12" :style="{background: config.vuetify.theme.themes[theme].surface}">
+    <section
+      id="blog"
+      class="py-12"
+      :style="{ background: config.vuetify.theme.themes[theme].surface }"
+    >
       <v-container>
-        <h2
-          class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8"
-        >{{ articles.title }}</h2>
+        <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8">
+          {{ config.home.blog.title }}
+        </h2>
         <v-row>
-          <v-col v-for="({ image, text, title }, i) in articles.data" :key="i" cols="12" md="4">
+          <v-col v-for="({ image, text, title, link }, i) in news" :key="i" cols="12" md="4">
             <v-img :src="image" class="mb-4" height="275" max-width="100%"></v-img>
-            <h3 class="font-weight-black mb-4 text-uppercase" v-text="title"></h3>
-
-            <div class="title font-weight-light mb-5"><vue-markdown :source=text /></div>
-            <v-btn class="ml-n4 font-weight-black" text>Continue Reading</v-btn>
+            <h3 class="font-weight-black mb-4" v-text="title"></h3>
+            <div class="title font-weight-light mb-5"><vue-markdown :source="text" /></div>
+            <v-btn class="ml-n4 font-weight-black" href="link" target="_blank" text
+              >Continue Reading</v-btn
+            >
           </v-col>
         </v-row>
       </v-container>
@@ -115,22 +146,32 @@
 
     <section id="contact" class="py-12">
       <v-container>
-        <h2
-          class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8"
-        >{{ contact.title }}</h2>
+        <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center py-8">
+          {{ config.home.contact.title }}
+        </h2>
         <v-theme-provider light>
-         <form enctype="text/plain" method="GET" :action="contact.mail">
-          <v-row>
-            <v-col cols="12">
-              <v-text-field :flat="config.vuetify.theme.flat" name="subject" label="Subject*" solo></v-text-field>
-            </v-col>
-            <v-col cols="12">
-              <v-textarea :flat="config.vuetify.theme.flat" name="body" label="Message*" solo></v-textarea>
-            </v-col>
-            <v-col class="mx-auto" cols="auto">
-              <v-btn color="accent" type="submit" x-large>Send</v-btn>
-            </v-col>
-          </v-row>
+          <form enctype="text/plain" method="GET" :action="config.home.contact.mail">
+            <v-row>
+              <v-col cols="12">
+                <v-text-field
+                  :flat="config.vuetify.theme.flat"
+                  name="subject"
+                  label="Subject*"
+                  solo
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-textarea
+                  :flat="config.vuetify.theme.flat"
+                  name="body"
+                  label="Message*"
+                  solo
+                ></v-textarea>
+              </v-col>
+              <v-col class="mx-auto" cols="auto">
+                <v-btn color="accent" type="submit" x-large>Send</v-btn>
+              </v-col>
+            </v-row>
           </form>
         </v-theme-provider>
       </v-container>
@@ -151,85 +192,19 @@ import VueMarkdown from 'vue-markdown'; // production
  * Export default
  */
 export default {
-  data() {
-    return {
-      temporalBackground: 'https://weareopensource.me/content/images/2020/06', // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
-      abouts: [
-        {
-          title: 'About Us',
-          text: 'Today, we dreams to create Backs/Fronts, **aligns on feats**, in **multiple languages**, in order to allow anyone to **compose fullstack on demand** (React, Angular, VusJS, Node, Nest, Swift, Go). Feel free to discuss, share other kind of bricks, and invite whoever you want with this mindset to come [help us](https://github.com/weareopensource/). There are so many innovations possible, starting a clean test should be simple.',
-          image: 'https://avatars3.githubusercontent.com/u/8588816?s=200&v=4',
-          button: 'Github',
-          link: 'https://github.com/weareopensource',
-        },
-      ],
-      features: {
-        title: 'Vuetify features',
-        data: [
-          {
-            icon: 'users',
-            title: 'Vibrant Community',
-            text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-          },
-          {
-            icon: 'cloud-upload-alt',
-            title: 'Frequent Updates',
-            text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
-          },
-          {
-            icon: 'history',
-            title: 'Long-term Support',
-            text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-          },
-        ],
-      },
-      articles: {
-        title: 'Blog',
-        data: [
-          {
-            image: 'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-            title: 'Mobile first & Responsive',
-            text: '**Phasellus** lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.',
-          },
-          {
-            image: 'https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-            title: 'Think outside the box',
-            text: '**Nam** ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.',
-          },
-          {
-            image: 'https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80',
-            title: 'Small changes, big difference',
-            text: '**Vestibulum** in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.',
-          },
-        ],
-      },
-      contact: {
-        title: 'Contact Us',
-        mail: 'mailto:pierre@weareopensource.me',
-      },
-      stats: {
-        background: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-        data: [
-          ['24k', 'Github Stars'],
-          ['330+', 'Releases'],
-          ['1m', 'Downloads/mo'],
-          ['5m', 'Total Downloads'],
-        ],
-      },
-    };
-  },
   components: {
     VueMarkdown,
   },
   computed: {
-    ...mapGetters(['theme']),
+    ...mapGetters(['theme', 'news']),
   },
   created() {
-    AOS.init({ disable: 'phone' });
+    AOS.init();
+    this.$store.dispatch('getNews');
   },
   methods: {
     generateTemporalBackground() {
-      return `${this.temporalBackground}/${(`0${new Date().getHours()}`).slice(-2)}.jpg`;
+      return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
     },
   },
 };
