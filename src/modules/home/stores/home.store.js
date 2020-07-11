@@ -16,6 +16,7 @@ const whitelists = ['email', 'news'];
 const getters = {
   news: (state) => state.news,
   subscription: (state) => state.subscription,
+  contact: (state) => state.contact,
 };
 
 /**
@@ -68,6 +69,16 @@ const mutations = {
   subscription_update(state, data) {
     _.merge(state.subscription, data);
   },
+  // mail
+  contact_error(err) {
+    console.log(err);
+  },
+  contact_set(state, data) {
+    state.contact = data;
+  },
+  contact_update(state, data) {
+    _.merge(state.contact, data);
+  },
 };
 
 /**
@@ -76,6 +87,7 @@ const mutations = {
 const state = {
   news: [],
   subscription: {},
+  contact: {},
 };
 
 /**
