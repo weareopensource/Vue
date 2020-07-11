@@ -56,8 +56,8 @@
                     :flat="config.vuetify.theme.flat"
                     :rules="[rules.email]"
                     :append-icon="'fa-envelope'"
-                    @click:append="create"
-                    @keydown.enter="create"
+                    @click:append="createSubscription"
+                    @keydown.enter="createSubscription"
                     height="55"
                     name="Mail"
                     placeholder="Stay informed by email."
@@ -194,10 +194,10 @@
           {{ config.home.contact.title }}
         </h2>
         <v-theme-provider light>
-          <form enctype="text/plain" method="GET" :action="config.home.contact.mail">
             <v-row>
               <v-col cols="12">
                 <v-text-field
+                  v-model="subject"
                   :flat="config.vuetify.theme.flat"
                   name="subject"
                   label="Subject*"
@@ -206,18 +206,17 @@
               </v-col>
               <v-col cols="12">
                 <v-textarea
+                  v-model="body"
                   :flat="config.vuetify.theme.flat"
-                  name="body"
                   label="Message*"
                   solo
                 ></v-textarea>
               </v-col>
               <v-col class="mx-auto" cols="auto">
-                <v-btn color="accent" type="submit" x-large>Send</v-btn>
+                <v-btn @click="sendMail()" color="accent" type="submit" x-large>Send</v-btn>
               </v-col>
             </v-row>
-          </form>
-        </v-theme-provider>
+z        </v-theme-provider>
       </v-container>
     </section>
   </div>
@@ -249,7 +248,7 @@ export default {
     VueMarkdown,
   },
   computed: {
-    ...mapGetters(['theme', 'news', 'subscription']),
+    ...mapGetters(['theme', 'news', 'subscription', 'contact']),
     email: {
       get() {
         return this.subscription.email;
@@ -257,6 +256,24 @@ export default {
       set(email) {
         this.save = true;
         this.$store.commit('subscription_update', { email });
+      },
+    },
+    subject: {
+      get() {
+        return this.contact.subject;
+      },
+      set(subject) {
+        this.save = true;
+        this.$store.commit('contact_update', { subject });
+      },
+    },
+    body: {
+      get() {
+        return this.contact.body;
+      },
+      set(body) {
+        this.save = true;
+        this.$store.commit('contact_update', { body });
       },
     },
   },
@@ -268,12 +285,15 @@ export default {
     generateTemporalBackground() {
       return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
     },
-    create() {
+    createSubscription() {
       if (this.rules.email(this.subscription.email)) {
         this.$store
           .dispatch('createSubscription', this.subscription)
           .catch((err) => console.log(err));
       }
+    },
+    sendMail() {
+      window.location.href = `${this.config.home.contact.mail}?subject=${this.contact.subject}&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
     },
   },
 };
