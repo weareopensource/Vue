@@ -173,7 +173,12 @@
           {{ config.home.blog.title }}
         </h2>
         <v-row>
-          <v-col v-for="({ feature_image, excerpt, title, url }, i) in news" :key="i" cols="12" md="4">
+          <v-col
+            v-for="({ feature_image, excerpt, title, url }, i) in news"
+            :key="i"
+            cols="12"
+            md="4"
+          >
             <v-img :src="feature_image" class="mb-4" height="275" max-width="100%"></v-img>
             <h3 class="mb-4 text--primary" v-text="title"></h3>
             <div class="subtitle-1 text--secondary"><vue-markdown :source="excerpt" /></div>
@@ -194,6 +199,7 @@
           {{ config.home.contact.title }}
         </h2>
         <v-theme-provider light>
+          <v-form ref="form">
             <v-row>
               <v-col cols="12">
                 <v-text-field
@@ -213,10 +219,11 @@
                 ></v-textarea>
               </v-col>
               <v-col class="mx-auto" cols="auto">
-                <v-btn @click="sendMail()" color="accent" type="submit" x-large>Send</v-btn>
+                <v-btn @click="sendMail()" color="accent" x-large>Send</v-btn>
               </v-col>
             </v-row>
-z        </v-theme-provider>
+          </v-form>
+        </v-theme-provider>
       </v-container>
     </section>
   </div>
@@ -294,14 +301,15 @@ export default {
     },
     sendMail() {
       window.location.href = `${this.config.home.contact.mail}?subject=${this.contact.subject}&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
+      this.$refs.form.reset();
     },
   },
 };
 </script>
 
 <style>
-  .centered-input >>> input {
-    text-align: center;
-    font-size: 20px;
-  }
+.centered-input >>> input {
+  text-align: center;
+  font-size: 20px;
+}
 </style>
