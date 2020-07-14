@@ -80,7 +80,7 @@
     "standard-version": "^8.0.0",
     "vue-cli-plugin-vuetify": "^2.0.6",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.5.0",
+    "vuetify-loader": "^1.6.0",
     "waos-conventional-changelog": "^1.10.0"
   },
   "config": {
