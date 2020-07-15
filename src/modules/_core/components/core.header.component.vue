@@ -25,7 +25,7 @@
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <!-- custom menu -->
-    <v-tooltip v-for="({ icon, title, link }, i) in links" :key="i" bottom>
+    <v-tooltip v-for="({ icon, title, link }, i) in config.header.links" :key="i" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
           <a :href="link">
@@ -82,43 +82,6 @@ import { mapGetters } from 'vuex';
  */
 export default {
   name: 'waosHeader',
-  data() {
-    return {
-      links: [
-        {
-          icon: 'fab fa-github',
-          title: 'Github',
-          link: 'https://github.com/weareopensource/',
-        },
-        {
-          icon: 'fab fa-docker',
-          title: 'Docker Hub',
-          link: 'https://hub.docker.com/orgs/weareopensource/repositories',
-        },
-        {
-          icon: 'fab fa-github-alt',
-          title: 'Github projects',
-          link: 'https://github.com/WeAreOpenSourceProjects',
-        },
-        {
-          icon: 'fab fa-discord',
-          title: 'Discord',
-          link: 'https://discord.gg/U2a2vVm',
-        },
-        {
-          icon: 'fab fa-slack',
-          title: 'Slack',
-          link:
-            'https://join.slack.com/t/weareopensource/shared_invite/zt-62p1qxna-PEQn289qx6mmHobzKW8QFw',
-        },
-        {
-          icon: 'fab fa-twitter',
-          title: 'Twitter',
-          link: 'https://twitter.com/waos_io',
-        },
-      ],
-    };
-  },
   computed: {
     ...mapGetters(['theme', 'isLoggedIn']),
     drawer: {

@@ -80,6 +80,15 @@ module.exports = {
       mini: true, // mini or full
     },
   },
+  header: {
+    links: [
+      {
+        icon: 'fab fa-github',
+        title: 'Github',
+        link: 'https://github.com/weareopensource/',
+      },
+    ],
+  },
   home: {
     subscriptions: true, // disbale / enable
     temporalBackground: 'https://weareopensource.me/content/images/2020/06', // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
