@@ -170,7 +170,7 @@
           class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase"
           v-if="config.home.blog.title"
         >
-          {{ config.home.blog.title }}
+          <a :href="config.home.blog.url" style="font-weight:inherit; color:inherit !important;">{{ config.home.blog.title }}</a>
         </h2>
         <v-row>
           <v-col
