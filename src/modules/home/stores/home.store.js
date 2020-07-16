@@ -17,6 +17,7 @@ const getters = {
   news: (state) => state.news,
   subscription: (state) => state.subscription,
   contact: (state) => state.contact,
+  statistics: (state) => state.statistics,
 };
 
 /**
@@ -44,6 +45,18 @@ const actions = {
       commit('subscription_set', res.data.data);
     } catch (err) {
       commit('subscription_error', err);
+    }
+  },
+  getStatistics: async ({ commit }) => {
+    try {
+      const tasks = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.tasks}/stats`);
+      const users = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.users}/stats`);
+      commit('statistics_set', {
+        tasks: tasks.data.data,
+        users: users.data.data,
+      });
+    } catch (err) {
+      commit('statistics_error', err);
     }
   },
 };
@@ -79,6 +92,13 @@ const mutations = {
   contact_update(state, data) {
     _.merge(state.contact, data);
   },
+  // statistics
+  statistics_error(err) {
+    console.log(err);
+  },
+  statistics_set(state, data) {
+    state.statistics = data;
+  },
 };
 
 /**
@@ -88,6 +108,7 @@ const state = {
   news: [],
   subscription: {},
   contact: {},
+  statistics: {},
 };
 
 /**

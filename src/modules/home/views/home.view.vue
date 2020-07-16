@@ -255,7 +255,7 @@ export default {
     VueMarkdown,
   },
   computed: {
-    ...mapGetters(['theme', 'news', 'subscription', 'contact']),
+    ...mapGetters(['theme', 'news', 'subscription', 'contact', 'statistics']),
     email: {
       get() {
         return this.subscription.email;
@@ -286,7 +286,15 @@ export default {
   },
   created() {
     AOS.init();
-    this.$store.dispatch('getNews');
+    this.$store.dispatch('getStatistics').then(() => {
+      this.$store.dispatch('getNews');
+      this.config.home.stats.data = [
+        [this.statistics.tasks, 'Tasks'],
+        ['330+', 'Releases'],
+        [this.statistics.users, 'Users'],
+        ['5m', 'Total Downloads'],
+      ];
+    });
   },
   methods: {
     generateTemporalBackground() {
