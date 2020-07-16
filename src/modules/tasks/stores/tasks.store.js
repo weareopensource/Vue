@@ -69,15 +69,13 @@ const actions = {
  * Mutation: change state in a Vuex store is by committing a mutation
  */
 const mutations = {
-  // global
+  // tasks
   task_error(state, err) {
     console.log(err);
   },
-  // scraps
   tasks_set(state, data) {
     state.tasks = data;
   },
-  // scrap
   task_set(state, data) {
     state.task = data;
   },
