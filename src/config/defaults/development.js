@@ -139,5 +139,31 @@ module.exports = {
       title: 'Contact Us',
       mail: 'mailto:pierre@weareopensource.me',
     },
+    links: [
+      {
+        title: 'Useful',
+        items: [{
+          label: 'Blog',
+          icon: 'fa-rss',
+          url: 'https://weareopensource.me',
+        }],
+      },
+      {
+        title: 'About',
+        items: [{
+          label: 'GDPR / RGPD',
+          icon: 'fa-lock',
+          url: 'https://weareopensource.me',
+        }],
+      },
+      {
+        title: 'Others',
+        items: [{
+          label: 'Twitter',
+          icon: 'fab fa-twitter',
+          url: 'https://weareopensource.me',
+        }],
+      },
+    ],
   },
 };
