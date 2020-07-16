@@ -124,9 +124,9 @@ module.exports = {
     stats: {
       background: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
       data: [
-        ['24k', 'Github Stars'],
+        ['0', 'Tasks'],
         ['330+', 'Releases'],
-        ['1m', 'Downloads/mo'],
+        ['0', 'Users'],
         ['5m', 'Total Downloads'],
       ],
     },
