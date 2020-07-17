@@ -253,9 +253,11 @@
                     :key="i"
                   >
                     <v-list-item-content>
+                      <a :href="item.url" target="_blank">
                       <v-list-item-title class="text-center">
                         <v-icon class="pr-2" small>{{ item.icon }}</v-icon> {{item.label}}
                       </v-list-item-title>
+                      </a>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>
