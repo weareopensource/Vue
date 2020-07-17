@@ -1,53 +1,75 @@
 <template>
   <v-app-bar
     :clipped-left="config.vuetify.drawer.clipped"
-    :style="{background: config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary}"
+    :style="{
+      background: config.vuetify.theme.themes[theme].primary,
+      color: config.vuetify.theme.themes[theme].onPrimary
+    }"
     :flat="config.vuetify.theme.flat"
     app
   >
     <v-app-bar-nav-icon
-      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
-      v-if="config.vuetify.drawer.type !== 'permanent' && config.vuetify.drawer.type !== 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn)"
+      :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+      v-if="
+        config.vuetify.drawer.type !== 'permanent' &&
+          config.vuetify.drawer.type !== 'mini' &&
+          (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn)
+      "
       @click.stop="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
-      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
-      v-if="config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && !this.$vuetify.breakpoint.mdAndDown"
-      @click.stop="mini = !mini;"
+      :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+      v-if="
+        config.vuetify.drawer.type === 'mini' &&
+          (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) &&
+          !this.$vuetify.breakpoint.mdAndDown
+      "
+      @click.stop="mini = !mini"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
-      :style="{color: config.vuetify.theme.themes[theme].onPrimary}"
-      v-if="config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && this.$vuetify.breakpoint.mdAndDown"
-      @click.stop="drawer = !drawer; mini = false;"
+      :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+      v-if="
+        config.vuetify.drawer.type === 'mini' &&
+          (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) &&
+          this.$vuetify.breakpoint.mdAndDown
+      "
+      @click.stop="
+        drawer = !drawer;
+        mini = false;
+      "
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
       <router-link to="/">{{ config.app.title }}</router-link>
+      <router-link
+        v-for="({ title, url }, i) in config.header.links"
+        :key="i"
+        :to="url"
+        class="ml-6"
+        >{{ title }}</router-link
+      >
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <!-- custom menu -->
-    <v-tooltip v-for="({ icon, title, link }, i) in config.header.links" :key="i" bottom>
+    <v-tooltip v-for="({ icon, title, url }, i) in config.header.socials" :key="i" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
-          <a :href="link">
-            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">{{icon}}</v-icon>
+          <a :href="url">
+            <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">{{
+              icon
+            }}</v-icon>
           </a>
         </v-btn>
       </template>
-      <span>{{title}}</span>
+      <span>{{ title }}</span>
     </v-tooltip>
     <!-- user menu -->
     <v-tooltip v-if="!isLoggedIn && config.vuetify.theme.signin" bottom>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          v-on="on"
-          v-bind="attrs"
-          min-width="50"
-          min-height="50"
-          x-small
-          icon
-        >
+        <v-btn v-on="on" v-bind="attrs" min-width="50" min-height="50" x-small icon>
           <router-link to="/signin">
-            <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-user</v-icon>
+            <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+              >fa-user</v-icon
+            >
           </router-link>
         </v-btn>
       </template>
@@ -64,7 +86,9 @@
           x-small
           icon
         >
-          <v-icon :style="{color: config.vuetify.theme.themes[theme].onPrimary}">fa-arrow-right</v-icon>
+          <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+            >fa-arrow-right</v-icon
+          >
         </v-btn>
       </template>
       <span>Sign Out</span>
