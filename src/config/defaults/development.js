@@ -81,11 +81,17 @@ module.exports = {
     },
   },
   header: {
-    links: [
+    links: [ // top left
+      {
+        title: 'Blog',
+        url: 'https://weareopensource.me',
+      },
+    ],
+    socials: [ // top right icons
       {
         icon: 'fab fa-github',
         title: 'Github',
-        link: 'https://github.com/weareopensource/',
+        url: 'https://github.com/weareopensource/',
       },
     ],
   },
