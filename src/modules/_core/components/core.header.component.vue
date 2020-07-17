@@ -40,13 +40,9 @@
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
       <router-link to="/">{{ config.app.title }}</router-link>
-      <router-link
-        v-for="({ title, url }, i) in config.header.links"
-        :key="i"
-        :to="url"
-        class="ml-6"
-        >{{ title }}</router-link
-      >
+      <a v-for="({ title, url }, i) in config.header.links" :key="i" :href="url" class="ml-6">{{
+        title
+      }}</a>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <!-- custom menu -->
