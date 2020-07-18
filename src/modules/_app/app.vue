@@ -83,6 +83,9 @@ export default {
             && !err.config.__isRetryRequest
         ) {
           this.$store.dispatch('signout');
+          this.snackbar.text = 'Signin failed';
+          this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
+          this.snackbar.status = true;
           router.push('/signin');
         }
         if (
