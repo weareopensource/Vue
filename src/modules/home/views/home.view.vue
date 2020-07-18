@@ -1,78 +1,10 @@
 <template>
   <div>
-    <section id="hero">
-      <v-row no-gutters>
-        <v-img
-          :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          :src="
-            config.home.temporalBackground
-              ? generateTemporalBackground()
-              : require('@/assets/images/background.jpg')
-          "
-        >
-          <v-theme-provider dark>
-            <v-container fill-height>
-              <v-row align="center" class="white--text mx-auto" justify="center">
-                <v-col class="white--text text-center" cols="12" tag="h1">
-                  <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4']"
-                    class="font-weight-black"
-                    >{{ config.app.title }}</span
-                  >
-                  <br />
-                  <span
-                    class="font-weight-light"
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1']"
-                    >{{ config.app.subtitle }}</span
-                  >
-                </v-col>
-                <v-col class="white--text text-center" cols="12">
-                  <v-btn
-                    class="align-self-end"
-                    fab
-                    outlined
-                    @click="$vuetify.goTo('#about-me')"
-                    data-aos="fade-up"
-                  >
-                    <v-icon>fa-angle-down</v-icon>
-                  </v-btn>
-                </v-col>
-                <v-col
-                  align="center"
-                  class="white--text text-center"
-                  cols="11"
-                  xs="10"
-                  sm="9"
-                  md="7"
-                  lg="6"
-                  xl="5"
-                  style="bottom: 10%; position: absolute; opacity:75%;"
-                  data-aos="fade-up"
-                  v-if="config.home.subscriptions"
-                >
-                  <v-text-field
-                    v-model="email"
-                    :flat="config.vuetify.theme.flat"
-                    :rules="[rules.email]"
-                    :append-icon="'fa-envelope'"
-                    @click:append="createSubscription"
-                    @keydown.enter="createSubscription"
-                    height="55"
-                    name="Mail"
-                    placeholder="Stay informed by email."
-                    class="centered-input"
-                    solo
-                    rounded
-                    light
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-theme-provider>
-        </v-img>
-      </v-row>
-    </section>
+    <homeBannerComponent
+      v-bind:ratio="1"
+      v-bind:subscribe="true"
+      v-bind:app="config.app"
+    ></homeBannerComponent>
 
     <section id="about-me" v-if="config.home.abouts.length > 0">
       <v-container class="text-center pb-12">
@@ -236,43 +168,7 @@
       </v-container>
     </section>
 
-    <section
-      id="features"
-      class="py-12"
-      :style="{ background: config.vuetify.theme.themes[theme].surface }"
-      v-if="config.home.links.length > 0"
-    >
-      <v-container>
-        <v-row>
-          <v-col
-            v-for="({ items, title }, i) in config.home.links.filter(section => section.items)"
-            :key="i"
-            cols="12"
-            :md="12 / config.home.links.filter(section => section.items).length"
-          >
-            <v-card
-              :flat="config.vuetify.theme.flat"
-              :style="{ background: config.vuetify.theme.themes[theme].surface }"
-            >
-              <v-card-title class="justify-center text--secondary" v-text="title"></v-card-title>
-              <v-list dense :style="{ background: config.vuetify.theme.themes[theme].surface }">
-                <v-list-item-group color="primary">
-                  <v-list-item v-for="(item, i) in items" :key="i">
-                    <v-list-item-content>
-                      <a :href="item.url" target="_blank">
-                        <v-list-item-title class="text-center">
-                          <v-icon class="pr-2" small>{{ item.icon }}</v-icon> {{ item.label }}
-                        </v-list-item-title>
-                      </a>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </section>
+    <homeLinksComponent v-bind:links="config.home.links"></homeLinksComponent>
   </div>
 </template>
 
@@ -284,6 +180,8 @@ import { mapGetters } from 'vuex';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import VueMarkdown from 'vue-markdown'; // production
+import homeBannerComponent from '../components/home.banner.component.vue';
+import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -300,18 +198,11 @@ export default {
   },
   components: {
     VueMarkdown,
+    homeBannerComponent,
+    homeLinksComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'news', 'subscription', 'contact', 'statistics']),
-    email: {
-      get() {
-        return this.subscription.email;
-      },
-      set(email) {
-        this.save = true;
-        this.$store.commit('subscription_update', { email });
-      },
-    },
+    ...mapGetters(['theme', 'news', 'contact', 'statistics']),
     subject: {
       get() {
         return this.contact.subject;
@@ -337,28 +228,23 @@ export default {
       this.$store.dispatch('getNews');
       this.config.home.stats.data = [
         [this.statistics.tasks, 'Tasks'],
-        ['330+', 'Releases'],
+        [this.sumReleases(this.statistics.releases), 'Releases'],
         [this.statistics.users, 'Users'],
         ['5m', 'Total Downloads'],
       ];
     });
   },
   methods: {
-    generateTemporalBackground() {
-      return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
-    },
-    createSubscription() {
-      if (this.rules.email(this.subscription.email)) {
-        this.$store
-          .dispatch('createSubscription', this.subscription)
-          .catch((err) => console.log(err));
-      }
-    },
     sendMail() {
       window.location.href = `${this.config.home.contact.mail}?subject=${
         this.contact.subject
       }&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
       this.$refs.form.reset();
+    },
+    sumReleases(releases) {
+      return this._.sum(
+        this._.flatten(releases.map((release) => release.list[0].name.split('.'))).map((x) => +x),
+      );
     },
   },
 };

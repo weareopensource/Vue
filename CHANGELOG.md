@@ -4,7 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 0.1.0 (2020-05-14)
 
-
 ### Features
 
 * **all:** init ✨ ([8e1e976](https://github.com/weareopensource/Vue/commit/8e1e9768111622bfb9998c09a4850db453d536b0))
@@ -27,7 +26,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **tasks:** init add/update/delete ✨ ([306625d](https://github.com/weareopensource/Vue/commit/306625d7189488318541b0258badb68262c5f28c))
 * **tasks:** init tasks list :) ✨ ([7459d8a](https://github.com/weareopensource/Vue/commit/7459d8a5185fcf4fe50ea4fee5bb80d055b168d3))
 * **tasks:** simplify example ✨ ([3b83f72](https://github.com/weareopensource/Vue/commit/3b83f72337214c3204222f251b9d146d3aff5e8d))
-
 
 ### Bug Fixes
 
@@ -55,7 +53,3 @@ All notable changes to this project will be documented in this file. See [standa
 * package.json & package-lock.json to reduce vulnerabilities ([a11f1b5](https://github.com/weareopensource/Vue/commit/a11f1b5e4a3d0f08c370e97006cc4e46284e7fcc))
 * package.json & package-lock.json to reduce vulnerabilities ([4eecc65](https://github.com/weareopensource/Vue/commit/4eecc65854431f1c6d7e15270924fab7c75f45db))
 * package.json, package-lock.json & .snyk to reduce vulnerabilities ([e5b7bf8](https://github.com/weareopensource/Vue/commit/e5b7bf8b4e93404b8ddf3857a1be511a45c11d29))
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
