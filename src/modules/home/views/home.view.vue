@@ -236,10 +236,10 @@
       <v-container>
         <v-row>
           <v-col
-            v-for="({ items, title }, i) in config.home.links"
+            v-for="({ items, title }, i) in config.home.links.filter(section => section.items.length > 0)"
             :key="i"
             cols="12"
-            md="4"
+            :md="12 / config.home.links.filter(section => section.items.length > 0).length"
           >
             <v-card :flat="config.vuetify.theme.flat">
               <v-card-title
