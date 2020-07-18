@@ -243,7 +243,7 @@ export default {
     },
     sumReleases(releases) {
       return this._.sum(
-        this._.flatten(releases.map((release) => release.list[0].name.split('.'))).map((x) => +x),
+        this._.flatten(releases.map((release) => (release.list[0].name[0] === 'v' ? release.list[0].name.substr(1).split('.') : release.list[0].name.split('.')))).map((x) => +x),
       );
     },
   },
