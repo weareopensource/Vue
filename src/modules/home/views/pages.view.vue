@@ -22,7 +22,7 @@
             :value="'tab-' + content.title"
           >
             <v-card flat tile :style="{ background: config.vuetify.theme.themes[theme].surface }">
-              <v-card-text>
+              <v-card-text class="pa-10">
                 <vue-markdown :source="content.markdown" class="sinlink" />
               </v-card-text>
             </v-card>
