@@ -83,14 +83,14 @@ module.exports = {
   header: {
     links: [ // top left
       {
-        title: 'Blog',
+        label: 'Blog',
         url: 'https://weareopensource.me',
       },
     ],
     socials: [ // top right icons
       {
         icon: 'fab fa-github',
-        title: 'Github',
+        label: 'Github',
         url: 'https://github.com/weareopensource/',
       },
     ],
