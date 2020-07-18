@@ -12,6 +12,7 @@ module.exports = {
     port: '3000',
     base: 'api',
     endPoints: {
+      core: 'core',
       auth: 'auth',
       users: 'users',
       tasks: 'tasks',
@@ -156,10 +157,10 @@ module.exports = {
       },
       {
         title: 'About',
-        items: [{
-          label: 'GDPR / RGPD',
-          icon: 'fa-lock',
-          url: 'https://weareopensource.me',
+        items: [{ // set null to hide
+          label: 'Changelogs',
+          icon: 'fa-clipboard-list',
+          url: '/changelogs',
         }],
       },
       {

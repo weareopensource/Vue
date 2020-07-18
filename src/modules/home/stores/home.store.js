@@ -14,6 +14,7 @@ const whitelists = ['email', 'news'];
  * Getters: get state
  */
 const getters = {
+  contents: (state) => state.contents,
   news: (state) => state.news,
   subscription: (state) => state.subscription,
   contact: (state) => state.contact,
@@ -24,6 +25,17 @@ const getters = {
  * Actions
  */
 const actions = {
+  getChangelogs: async ({ commit }) => {
+    try {
+      const changelogs = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.core}/changelogs`);
+      commit('contents_set', changelogs.data.data.map((item) => ({
+        title: item.title,
+        markdown: decodeURIComponent(Array.prototype.map.call(atob(item.data.content), (c) => `%${(`00${c.charCodeAt(0).toString(16)}`).slice(-2)}`).join('')),
+      })));
+    } catch (err) {
+      commit('error', err);
+    }
+  },
   getNews: async ({ commit }) => {
     try {
       const ghost = new GhostContentAPI({
@@ -34,7 +46,7 @@ const actions = {
       const res = await ghost.posts.browse({ limit: 3 });
       commit('news_set', res);
     } catch (err) {
-      commit('news_error', err);
+      commit('error', err);
     }
   },
   createSubscription: async ({ commit }, params) => {
@@ -44,19 +56,21 @@ const actions = {
       const res = await Vue.prototype.axios.post(`${api}/${config.api.endPoints.subscriptions}/`, obj);
       commit('subscription_set', res.data.data);
     } catch (err) {
-      commit('subscription_error', err);
+      commit('error', err);
     }
   },
   getStatistics: async ({ commit }) => {
     try {
       const tasks = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.tasks}/stats`);
+      const releases = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.core}/releases`);
       const users = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.users}/stats`);
       commit('statistics_set', {
         tasks: tasks.data.data,
+        releases: releases.data.data,
         users: users.data.data,
       });
     } catch (err) {
-      commit('statistics_error', err);
+      commit('error', err);
     }
   },
 };
@@ -65,17 +79,18 @@ const actions = {
  * Mutation: change state in a Vuex store is by committing a mutation
  */
 const mutations = {
-  // news
-  news_error(err) {
+  error(err) {
     console.log(err);
   },
+  // news
+  contents_set(state, data) {
+    state.contents = data;
+  },
+  // news
   news_set(state, data) {
     state.news = data;
   },
   // mail
-  subscription_error(err) {
-    console.log(err);
-  },
   subscription_set(state, data) {
     state.subscription = data;
   },
@@ -83,9 +98,6 @@ const mutations = {
     _.merge(state.subscription, data);
   },
   // mail
-  contact_error(err) {
-    console.log(err);
-  },
   contact_set(state, data) {
     state.contact = data;
   },
@@ -93,9 +105,6 @@ const mutations = {
     _.merge(state.contact, data);
   },
   // statistics
-  statistics_error(err) {
-    console.log(err);
-  },
   statistics_set(state, data) {
     state.statistics = data;
   },
@@ -105,6 +114,7 @@ const mutations = {
  * State
  */
 const state = {
+  contents: [],
   news: [],
   subscription: {},
   contact: {},
