@@ -115,7 +115,7 @@ export default {
 .v-application main a {
   text-decoration: none !important;
   font-weight: 400;
-  color: var(--v-primary-base) !important;
+  color: var(--v-secondary-base) !important;
 }
 .v-card {
   border: none !important;

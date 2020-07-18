@@ -241,12 +241,12 @@
             cols="12"
             :md="12 / config.home.links.filter(section => section.items).length"
           >
-            <v-card :flat="config.vuetify.theme.flat">
+            <v-card :flat="config.vuetify.theme.flat" :style="{ background: config.vuetify.theme.themes[theme].surface }">
               <v-card-title
                 class="justify-center text--secondary"
                 v-text="title"
               ></v-card-title>
-              <v-list dense>
+              <v-list dense :style="{ background: config.vuetify.theme.themes[theme].surface }">
                 <v-list-item-group color="primary">
                   <v-list-item
                     v-for="(item, i) in items"
