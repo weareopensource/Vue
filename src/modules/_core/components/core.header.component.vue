@@ -71,7 +71,7 @@
       </template>
       <span>Sign In</span>
     </v-tooltip>
-    <v-tooltip v-if="isLoggedIn && config.vuetify.theme.signin" bottom>
+    <v-tooltip v-if="isLoggedIn" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-on="on"
