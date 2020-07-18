@@ -40,13 +40,13 @@
     ></v-app-bar-nav-icon>
     <v-toolbar-title>
       <router-link to="/">{{ config.app.title }}</router-link>
-      <a v-for="({ title, url }, i) in config.header.links" :key="i" :href="url" class="ml-6">{{
-        title
+      <a v-for="({ label, url }, i) in config.header.links" :key="i" :href="url" class="ml-6">{{
+        label
       }}</a>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <!-- custom menu -->
-    <v-tooltip v-for="({ icon, title, url }, i) in config.header.socials" :key="i" bottom>
+    <v-tooltip v-for="({ icon, label, url }, i) in config.header.socials" :key="i" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" min-width="50" min-height="50" x-small icon>
           <a :href="url">
@@ -56,7 +56,7 @@
           </a>
         </v-btn>
       </template>
-      <span>{{ title }}</span>
+      <span>{{ label }}</span>
     </v-tooltip>
     <!-- user menu -->
     <v-tooltip v-if="!isLoggedIn && config.vuetify.theme.signin" bottom>
