@@ -148,7 +148,7 @@ module.exports = {
     links: [
       {
         title: 'Useful',
-        items: [{ // set empty array to hide
+        items: [{ // set null to hide
           label: 'Blog',
           icon: 'fa-rss',
           url: 'https://weareopensource.me',
