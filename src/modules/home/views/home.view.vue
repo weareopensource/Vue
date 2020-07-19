@@ -58,7 +58,7 @@
             >
               <div>
                 <v-avatar color="primary" size="88">
-                  <v-icon dark large data-aos="fade-up">fa-{{ icon }}</v-icon>
+                  <v-icon dark large data-aos="fade-up">{{ icon }}</v-icon>
                 </v-avatar>
               </div>
               <v-card-title
