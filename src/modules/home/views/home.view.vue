@@ -226,12 +226,6 @@ export default {
     AOS.init();
     this.$store.dispatch('getStatistics').then(() => {
       this.$store.dispatch('getNews');
-      this.config.home.stats.data = [
-        [this.statistics.tasks, 'Tasks'],
-        [this.sumReleases(this.statistics.releases), 'Releases'],
-        [this.statistics.users, 'Users'],
-        ['5m', 'Total Downloads'],
-      ];
     });
   },
   methods: {
@@ -240,11 +234,6 @@ export default {
         this.contact.subject
       }&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
       this.$refs.form.reset();
-    },
-    sumReleases(releases) {
-      return this._.sum(
-        this._.flatten(releases.map((release) => (release.list[0].name[0] === 'v' ? release.list[0].name.substr(1).split('.') : release.list[0].name.split('.')))).map((x) => +x),
-      );
     },
   },
 };
