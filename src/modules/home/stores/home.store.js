@@ -107,6 +107,11 @@ const mutations = {
   // statistics
   statistics_set(state, data) {
     state.statistics = data;
+    config.home.stats.data[0] = [state.statistics.tasks, 'Tasks'];
+    config.home.stats.data[1] = [_.sum(
+      _.flatten(state.statistics.releases.map((release) => (release.list[0].name[0] === 'v' ? release.list[0].name.substr(1).split('.') : release.list[0].name.split('.')))).map((x) => +x),
+    ), 'Releases'];
+    config.home.stats.data[2] = [state.statistics.users, 'Users'];
   },
 };
 
