@@ -9,6 +9,8 @@
     <homeStatsComponent v-bind:statistics="statistics"></homeStatsComponent>
 
     <homeBlogComponent
+      v-bind:title="config.home.blog.title"
+      v-bind:url="config.home.blog.url"
       v-bind:news="news"
       v-bind:custom="{ section : { background: config.vuetify.theme.themes[theme].surface }}"
     ></homeBlogComponent>
