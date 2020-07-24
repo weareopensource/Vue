@@ -107,9 +107,10 @@ const mutations = {
   // statistics
   statistics_set(state, data) {
     state.statistics[0].value = data.tasks;
-    state.statistics[1].value = _.sum(
-      _.flatten(data.releases.map((release) => (release.list[0].name[0] === 'v' ? release.list[0].name.substr(1).split('.') : release.list[0].name.split('.')))).map((x) => +x),
-    );
+    state.statistics[1].value = _.sum(_.flatten(data.releases.map((release) => {
+      if (release.list.length) return release.list[0].name[0] === 'v' ? release.list[0].name.substr(1).split('.') : release.list[0].name.split('.');
+      return 0;
+    })).map((x) => +x));
     state.statistics[2].value = data.users;
   },
 };
