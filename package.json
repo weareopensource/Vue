@@ -95,6 +95,7 @@
       }
     ],
     "ci": false,
+    "repositoryUrl": "https://github.com/weareopensource/Vue.git",
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
