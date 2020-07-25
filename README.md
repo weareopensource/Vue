@@ -2,7 +2,7 @@
   [![Dependabot badge](https://badges.weareopensource.me/badge/Dependabot-enabled-2768cf.svg?style=flat-square)](https://dependabot.com)
  [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue) [![Docker Pulls](https://badges.weareopensource.me/docker/pulls/weareopensource/vue?style=flat-square)](https://hub.docker.com/repository/docker/weareopensource/vue)
 
-# :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 4.x
+# :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 4.x - Alpha
 
 ## :book: Presentation
 
