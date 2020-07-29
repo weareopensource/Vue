@@ -2,7 +2,7 @@ module.exports = {
   app: {
     title: 'WAOS Dev',
     logo: 'logo.png', // null to use title by default
-    subtitle: 'welcome to demo. welcome to demo. welcome to demo.',
+    subtitle: 'welcome to demo.',
     description: 'Vue - Boilerplate Front : Vuetify, Axios, Jest, Cypress (Alpha) ',
     keywords: 'vue, vuetify, axios, jest, cypress',
   },
@@ -166,13 +166,7 @@ module.exports = {
           icon: 'fa-cloud-upload-alt',
           title: 'Frequent Updates',
           // text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80',
-          icon: 'fa-history',
-          title: 'Long-term Support',
-          // text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-        },
+        }
       ],
     },
     stats: {
