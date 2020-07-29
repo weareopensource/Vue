@@ -6,6 +6,14 @@
       v-bind:features="config.home.features"
       v-bind:custom="{ section : { background: config.vuetify.theme.themes[theme].surface }, card: { background: config.vuetify.theme.themes[theme].background }}"
     ></homeFeaturesComponent>
+    <homeSlideshowComponent
+      v-bind:slides="config.home.slideshow"
+      v-bind:custom="null"
+      v-bind:height="350"
+      v-bind:mdImage="8"
+      v-bind:mdText="4"
+      v-bind:full="false"
+    ></homeSlideshowComponent>
     <homeStatsComponent v-bind:statistics="statistics"></homeStatsComponent>
     <homeBlogComponent
       v-bind:title="config.home.blog.title"
@@ -31,6 +39,7 @@ import 'aos/dist/aos.css';
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeAboutsComponent from '../components/home.abouts.component.vue';
 import homeFeaturesComponent from '../components/home.features.component.vue';
+import homeSlideshowComponent from '../components/home.slideshow.component.vue';
 import homeStatsComponent from '../components/home.stats.component.vue';
 import homeBlogComponent from '../components/home.blog.component.vue';
 import homeContactComponent from '../components/home.contact.component.vue';
@@ -44,6 +53,7 @@ export default {
     homeBannerComponent,
     homeAboutsComponent,
     homeFeaturesComponent,
+    homeSlideshowComponent,
     homeStatsComponent,
     homeBlogComponent,
     homeContactComponent,
