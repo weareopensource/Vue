@@ -139,7 +139,7 @@ module.exports = {
           icon: 'fa-users',
           title: 'Vibrant Community',
           text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-                    // color: 'red' background color option
+          // color: 'red' background color option
         },
         {
           icon: 'fa-cloud-upload-alt',
