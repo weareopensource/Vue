@@ -103,7 +103,7 @@ export default {
             firstName,
             lastName,
           })
-          .then(() => this.$router.push('/'))
+          .then(() => this.$router.push(this.config.sign.route))
           .catch((err) => console.log(err));
       }
     },
