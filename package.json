@@ -70,7 +70,7 @@
     "@vue/cli-plugin-vuex": "^4.5.4",
     "@vue/cli-service": "^4.5.3",
     "@vue/eslint-config-airbnb": "^5.1.0",
-    "@vue/test-utils": "1.0.3",
+    "@vue/test-utils": "1.0.4",
     "@weareopensource/conventional-changelog": "^1.7.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
