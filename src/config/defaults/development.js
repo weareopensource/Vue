@@ -164,6 +164,7 @@ module.exports = {
           icon: 'fa-users',
           title: 'Vibrant Community',
           text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint ...',
+          // color: 'red'
           // position: 'end', start / center / end text position for full slideshow only
           // dark: true, start / center / end text position for full slideshow only dark / light option for image => 01-dark.jpg 01-light.jpg
         },
@@ -171,6 +172,7 @@ module.exports = {
           img: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           icon: 'fa-cloud-upload-alt',
           title: 'Frequent Updates',
+          // color: 'red'
           // text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
         }
       ],
