@@ -50,7 +50,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "snyk": "^1.381.2",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^3.13.5-0",
     "vue-router": "^3.4.3",
@@ -85,7 +85,7 @@
     "semantic-release": "^17.1.1",
     "standard-version": "^9.0.0",
     "vue-cli-plugin-vuetify": "^2.0.7",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.6.0"
   },
   "release": {
