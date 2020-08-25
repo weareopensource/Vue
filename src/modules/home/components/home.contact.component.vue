@@ -50,21 +50,21 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
 export default {
-  name: "homeContactComponent",
+  name: 'homeContactComponent',
   computed: {
-    ...mapGetters(["theme", "contact"]),
+    ...mapGetters(['theme', 'contact']),
     subject: {
       get() {
         return this.contact.subject;
       },
       set(subject) {
         this.save = true;
-        this.$store.commit("contact_update", { subject });
+        this.$store.commit('contact_update', { subject });
       },
     },
     body: {
@@ -73,7 +73,7 @@ export default {
       },
       set(body) {
         this.save = true;
-        this.$store.commit("contact_update", { body });
+        this.$store.commit('contact_update', { body });
       },
     },
   },
@@ -81,7 +81,7 @@ export default {
     sendMail() {
       window.location.href = `${this.config.home.contact.mail}?subject=${
         this.contact.subject
-      }&body=${this.contact.body.replace(/\n/g, "%0D%0A")}`;
+      }&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
       this.$refs.form.reset();
     },
   },

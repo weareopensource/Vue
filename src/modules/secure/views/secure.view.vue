@@ -23,13 +23,13 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
 export default {
   computed: {
-    ...mapGetters(["theme"]),
+    ...mapGetters(['theme']),
   },
 };
 </script>

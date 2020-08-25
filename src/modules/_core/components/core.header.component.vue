@@ -160,21 +160,21 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 /**
  * Export default
  */
 export default {
-  name: "waosHeader",
+  name: 'waosHeader',
   computed: {
-    ...mapGetters(["theme", "isLoggedIn"]),
+    ...mapGetters(['theme', 'isLoggedIn']),
     drawer: {
       get() {
         return this.$store.getters.drawer;
       },
       set(v) {
-        return this.$store.commit("set_drawer", v);
+        return this.$store.commit('set_drawer', v);
       },
     },
     mini: {
@@ -182,15 +182,15 @@ export default {
         return this.$store.getters.mini;
       },
       set(v) {
-        return this.$store.commit("set_mini", v);
+        return this.$store.commit('set_mini', v);
       },
     },
   },
   methods: {
     signout() {
-      this.$store.dispatch("signout").then(() => {
-        this.$store.dispatch("refreshNav");
-        if (this.$route.path !== "/") this.$router.push("/home");
+      this.$store.dispatch('signout').then(() => {
+        this.$store.dispatch('refreshNav');
+        if (this.$route.path !== '/') this.$router.push('/home');
       });
     },
   },

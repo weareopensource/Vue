@@ -58,7 +58,7 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
@@ -66,17 +66,17 @@ export default {
   data() {
     return {
       valid: false,
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       rules: {
-        required: (v) => !!v || "Required",
-        mail: (v) => /\S+@\S+\.\S+/.test(v) || "E-mail must be valid",
-        password: (v) => !!v || "Password is required",
+        required: (v) => !!v || 'Required',
+        mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
+        password: (v) => !!v || 'Password is required',
       },
     };
   },
   computed: {
-    ...mapGetters(["theme"]),
+    ...mapGetters(['theme']),
   },
   methods: {
     validate() {
@@ -84,7 +84,7 @@ export default {
         const { email } = this;
         const { password } = this;
         this.$store
-          .dispatch("signin", { email, password })
+          .dispatch('signin', { email, password })
           .then(() => this.$router.push(this.config.sign.route))
           .catch((err) => console.log(err));
       }

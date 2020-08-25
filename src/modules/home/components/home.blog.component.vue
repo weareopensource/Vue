@@ -48,13 +48,13 @@
 /**
  * Module dependencies.
  */
-import VueMarkdown from "vue-markdown";
+import VueMarkdown from 'vue-markdown';
 /**
  * Export default
  */
 export default {
-  name: "homeBlogComponent",
-  props: ["title", "url", "news", "custom"],
+  name: 'homeBlogComponent',
+  props: ['title', 'url', 'news', 'custom'],
   components: {
     VueMarkdown,
   },

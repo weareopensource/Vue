@@ -48,17 +48,17 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import homeBannerComponent from "../components/home.banner.component.vue";
-import homeAboutsComponent from "../components/home.abouts.component.vue";
-import homeFeaturesComponent from "../components/home.features.component.vue";
-import homeSlideshowComponent from "../components/home.slideshow.component.vue";
-import homeStatsComponent from "../components/home.stats.component.vue";
-import homeBlogComponent from "../components/home.blog.component.vue";
-import homeContactComponent from "../components/home.contact.component.vue";
-import homeLinksComponent from "../components/home.links.component.vue";
+import { mapGetters } from 'vuex';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import homeBannerComponent from '../components/home.banner.component.vue';
+import homeAboutsComponent from '../components/home.abouts.component.vue';
+import homeFeaturesComponent from '../components/home.features.component.vue';
+import homeSlideshowComponent from '../components/home.slideshow.component.vue';
+import homeStatsComponent from '../components/home.stats.component.vue';
+import homeBlogComponent from '../components/home.blog.component.vue';
+import homeContactComponent from '../components/home.contact.component.vue';
+import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -75,12 +75,12 @@ export default {
     homeLinksComponent,
   },
   computed: {
-    ...mapGetters(["theme", "news", "statistics"]),
+    ...mapGetters(['theme', 'news', 'statistics']),
   },
   created() {
     AOS.init();
-    this.$store.dispatch("getStatistics").then(() => {
-      this.$store.dispatch("getNews");
+    this.$store.dispatch('getStatistics').then(() => {
+      this.$store.dispatch('getNews');
     });
   },
 };

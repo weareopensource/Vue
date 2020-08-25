@@ -96,31 +96,31 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
 export default {
-  name: "homeBannerComponent",
-  props: ["ratio", "subscribe", "app"],
+  name: 'homeBannerComponent',
+  props: ['ratio', 'subscribe', 'app'],
   data() {
     return {
       valid: false,
-      password: "Password",
+      password: 'Password',
       rules: {
-        email: (v) => /\S+@\S+\.\S+/.test(v) || "",
+        email: (v) => /\S+@\S+\.\S+/.test(v) || '',
       },
     };
   },
   computed: {
-    ...mapGetters(["subscription"]),
+    ...mapGetters(['subscription']),
     email: {
       get() {
         return this.subscription.email;
       },
       set(email) {
         this.save = true;
-        this.$store.commit("subscription_update", { email });
+        this.$store.commit('subscription_update', { email });
       },
     },
   },
@@ -133,7 +133,7 @@ export default {
     createSubscription() {
       if (this.rules.email(this.subscription.email)) {
         this.$store
-          .dispatch("createSubscription", this.subscription)
+          .dispatch('createSubscription', this.subscription)
           .catch((err) => console.log(err));
       }
     },

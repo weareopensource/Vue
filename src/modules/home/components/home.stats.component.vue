@@ -38,7 +38,7 @@
  * Export default
  */
 export default {
-  name: "homeStatsComponent",
-  props: ["statistics"],
+  name: 'homeStatsComponent',
+  props: ['statistics'],
 };
 </script>

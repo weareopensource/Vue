@@ -22,14 +22,14 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
 export default {
-  name: "waosFooter",
+  name: 'waosFooter',
   computed: {
-    ...mapGetters(["theme"]),
+    ...mapGetters(['theme']),
   },
 };
 </script>

@@ -153,24 +153,24 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
-import VueMarkdown from "vue-markdown";
+import { mapGetters } from 'vuex';
+import VueMarkdown from 'vue-markdown';
 /**
  * Export default
  */
 export default {
-  name: "homeSlideshowComponent",
+  name: 'homeSlideshowComponent',
   props: [
-    "slides",
-    "custom",
-    "height",
-    "mdImage",
-    "mdText",
-    "full",
-    "interval",
+    'slides',
+    'custom',
+    'height',
+    'mdImage',
+    'mdText',
+    'full',
+    'interval',
   ],
   computed: {
-    ...mapGetters(["theme"]),
+    ...mapGetters(['theme']),
   },
   components: {
     VueMarkdown,

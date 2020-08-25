@@ -46,10 +46,10 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
-import VueMarkdown from "vue-markdown"; // production
-import homeBannerComponent from "../components/home.banner.component.vue";
-import homeLinksComponent from "../components/home.links.component.vue";
+import { mapGetters } from 'vuex';
+import VueMarkdown from 'vue-markdown'; // production
+import homeBannerComponent from '../components/home.banner.component.vue';
+import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -58,9 +58,9 @@ export default {
   data() {
     return {
       valid: false,
-      password: "Password",
+      password: 'Password',
       rules: {
-        email: (v) => /\S+@\S+\.\S+/.test(v) || "",
+        email: (v) => /\S+@\S+\.\S+/.test(v) || '',
       },
     };
   },
@@ -70,7 +70,7 @@ export default {
     homeLinksComponent,
   },
   computed: {
-    ...mapGetters(["theme", "contents"]),
+    ...mapGetters(['theme', 'contents']),
   },
   created() {
     this.$store.dispatch(this.$route.meta.data);

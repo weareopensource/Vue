@@ -72,7 +72,7 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
@@ -80,21 +80,21 @@ export default {
   data() {
     return {
       valid: false,
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
       rules: {
-        firstName: (v) => !!v || "Firstname is required",
-        lastName: (v) => !!v || "Lastname is required",
-        required: (v) => !!v || "Required",
-        mail: (v) => /\S+@\S+\.\S+/.test(v) || "E-mail must be valid",
-        password: (v) => !!v || "Password is required",
+        firstName: (v) => !!v || 'Firstname is required',
+        lastName: (v) => !!v || 'Lastname is required',
+        required: (v) => !!v || 'Required',
+        mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
+        password: (v) => !!v || 'Password is required',
       },
     };
   },
   computed: {
-    ...mapGetters(["theme"]),
+    ...mapGetters(['theme']),
   },
   methods: {
     validate() {
@@ -104,7 +104,7 @@ export default {
         const { email } = this;
         const { password } = this;
         this.$store
-          .dispatch("signup", {
+          .dispatch('signup', {
             email,
             password,
             firstName,

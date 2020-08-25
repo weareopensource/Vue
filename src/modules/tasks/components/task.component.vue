@@ -22,15 +22,15 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
 export default {
-  name: "taskComponent",
-  props: ["item"],
+  name: 'taskComponent',
+  props: ['item'],
   computed: {
-    ...mapGetters(["isLoggedIn", "theme"]),
+    ...mapGetters(['isLoggedIn', 'theme']),
   },
 };
 </script>

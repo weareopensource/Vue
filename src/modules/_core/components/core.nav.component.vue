@@ -73,21 +73,21 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 /**
  * Export default
  */
 export default {
-  name: "waosNav",
+  name: 'waosNav',
   computed: {
-    ...mapGetters(["theme", "nav"]),
+    ...mapGetters(['theme', 'nav']),
     drawer: {
       get() {
         return this.$store.getters.drawer;
       },
       set(v) {
-        return this.$store.commit("set_drawer", v);
+        return this.$store.commit('set_drawer', v);
       },
     },
     mini: {
@@ -95,17 +95,17 @@ export default {
         return this.$store.getters.mini;
       },
       set(v) {
-        return this.$store.commit("set_mini", v);
+        return this.$store.commit('set_mini', v);
       },
     },
   },
   methods: {
     testRoute(path, route) {
-      return route.split("/").includes(path.substr(1));
+      return route.split('/').includes(path.substr(1));
     },
   },
   created() {
-    this.$store.dispatch("refreshNav");
+    this.$store.dispatch('refreshNav');
   },
 };
 </script>

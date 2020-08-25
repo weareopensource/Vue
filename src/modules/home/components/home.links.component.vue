@@ -52,7 +52,7 @@
  * Export default
  */
 export default {
-  name: "homeLinksComponent",
-  props: ["links", "custom"],
+  name: 'homeLinksComponent',
+  props: ['links', 'custom'],
 };
 </script>
