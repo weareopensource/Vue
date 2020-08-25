@@ -3,11 +3,11 @@
     <v-card
       class="mx-auto"
       :outlined="true"
-      :style="{background: config.vuetify.theme.themes[theme].surface}"
+      :style="{ background: config.vuetify.theme.themes[theme].surface }"
       :flat="config.vuetify.theme.flat"
     >
-      <v-card-title>{{item.title}}</v-card-title>
-      <v-card-text>{{item.description}}</v-card-text>
+      <v-card-title>{{ item.title }}</v-card-title>
+      <v-card-text>{{ item.description }}</v-card-text>
       <v-card-actions v-if="isLoggedIn">
         <div class="flex-grow-1"></div>
         <v-btn v-if="item.id" :to="`/tasks/${item.id}`" icon>
@@ -22,15 +22,15 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 /**
  * Export default
  */
 export default {
-  name: 'taskComponent',
-  props: ['item'],
+  name: "taskComponent",
+  props: ["item"],
   computed: {
-    ...mapGetters(['isLoggedIn', 'theme']),
+    ...mapGetters(["isLoggedIn", "theme"]),
   },
 };
 </script>

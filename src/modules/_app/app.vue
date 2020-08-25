@@ -16,9 +16,13 @@
 
     <waosHeader />
 
-    <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
+    <waosNav
+      v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn"
+    />
 
-    <v-main :style="{background: config.vuetify.theme.themes[theme].background}">
+    <v-main
+      :style="{ background: config.vuetify.theme.themes[theme].background }"
+    >
       <router-view />
     </v-main>
 
@@ -30,12 +34,12 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
-import waosHeader from '@/modules/_core/components/core.header.component.vue';
-import waosNav from '@/modules/_core/components/core.nav.component.vue';
-import waosFooter from '@/modules/_core/components/core.footer.component.vue';
-import router from '@/modules/_app/app.router';
-import theme from '@/lib/helpers/theme';
+import { mapGetters } from "vuex";
+import waosHeader from "@/modules/_core/components/core.header.component.vue";
+import waosNav from "@/modules/_core/components/core.nav.component.vue";
+import waosFooter from "@/modules/_core/components/core.footer.component.vue";
+import router from "@/modules/_app/app.router";
+import theme from "@/lib/helpers/theme";
 
 /**
  * Export default
@@ -45,9 +49,9 @@ export default {
     return {
       snackbar: {
         status: false,
-        color: 'error',
+        color: "error",
         timeout: 4000,
-        text: 'toto',
+        text: "toto",
       },
     };
   },
@@ -57,17 +61,17 @@ export default {
     waosFooter,
   },
   computed: {
-    ...mapGetters(['isLoggedIn', 'theme']),
+    ...mapGetters(["isLoggedIn", "theme"]),
   },
   created() {
     // auth
     this.axios.interceptors.response.use(
       (response) => {
         if (
-          this.config.vuetify.theme.snackbar.status
-          && response.config
-          && this.config.vuetify.theme.snackbar.methods.indexOf(
-            response.config.method,
+          this.config.vuetify.theme.snackbar.status &&
+          response.config &&
+          this.config.vuetify.theme.snackbar.methods.indexOf(
+            response.config.method
           ) > -1
         ) {
           this.snackbar.text = `${response.data.type}: ${response.data.message}`;
@@ -76,30 +80,31 @@ export default {
         }
         return response;
       },
-      (err) => new Promise(() => {
-        if (
-          err.response.status === 401
-            && err.config
-            && !err.config.__isRetryRequest
-        ) {
-          this.$store.dispatch('signout');
-          this.snackbar.text = 'Signin failed';
-          this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
-          this.snackbar.status = true;
-          router.push('/signin');
-        }
-        if (
-          this.config.vuetify.theme.snackbar.status
-            && err.response
-            && err.response.data
-            && err.response.data.description
-        ) {
-          this.snackbar.text = err.response.data.description;
-          this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
-          this.snackbar.status = true;
-        }
-        throw err;
-      }),
+      (err) =>
+        new Promise(() => {
+          if (
+            err.response.status === 401 &&
+            err.config &&
+            !err.config.__isRetryRequest
+          ) {
+            this.$store.dispatch("signout");
+            this.snackbar.text = "Signin failed";
+            this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
+            this.snackbar.status = true;
+            router.push("/signin");
+          }
+          if (
+            this.config.vuetify.theme.snackbar.status &&
+            err.response &&
+            err.response.data &&
+            err.response.data.description
+          ) {
+            this.snackbar.text = err.response.data.description;
+            this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
+            this.snackbar.status = true;
+          }
+          throw err;
+        })
     );
     // set base theme
     this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
@@ -108,7 +113,8 @@ export default {
 </script>
 
 <style>
-.v-application header a, .v-application nav a{
+.v-application header a,
+.v-application nav a {
   text-decoration: none !important;
   color: var(--v-onPrimary-base) !important;
 }

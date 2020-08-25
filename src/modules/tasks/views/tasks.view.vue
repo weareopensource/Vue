@@ -13,7 +13,7 @@
             class="mx-3 pa-8"
             outlined
             tile
-            :style="{background: config.vuetify.theme.themes[theme].surface}"
+            :style="{ background: config.vuetify.theme.themes[theme].surface }"
             :flat="config.vuetify.theme.flat"
           >
             <h2 class="text-center">No Tasks found :( !</h2>
@@ -50,14 +50,14 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
-import taskComponent from '@/modules/tasks/components/task.component.vue';
+import { mapGetters } from "vuex";
+import taskComponent from "@/modules/tasks/components/task.component.vue";
 /**
  * Export default
  */
 export default {
   data: () => ({
-    direction: 'bottom',
+    direction: "bottom",
     fab: false,
     fling: false,
     hover: false,
@@ -66,16 +66,16 @@ export default {
     right: true,
     bottom: false,
     left: false,
-    transition: 'slide-y',
+    transition: "slide-y",
   }),
   components: {
     taskComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'isLoggedIn', 'tasks']),
+    ...mapGetters(["theme", "isLoggedIn", "tasks"]),
   },
   created() {
-    this.$store.dispatch('getTasks');
+    this.$store.dispatch("getTasks");
   },
 };
 </script>

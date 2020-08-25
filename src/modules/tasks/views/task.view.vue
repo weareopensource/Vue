@@ -30,13 +30,18 @@
             tile
             width="100%"
             class="px-10 pa-6"
-            :style="{background: config.vuetify.theme.themes[theme].surface}"
+            :style="{ background: config.vuetify.theme.themes[theme].surface }"
             :flat="config.vuetify.theme.flat"
           >
             <v-form ref="form" v-model="valid">
               <v-row>
                 <v-col cols="12">
-                  <v-text-field v-model="title" :rules="[rules.required]" label="Title" required></v-text-field>
+                  <v-text-field
+                    v-model="title"
+                    :rules="[rules.required]"
+                    label="Title"
+                    required
+                  ></v-text-field>
                   <v-text-field
                     v-model="description"
                     :rules="[rules.required]"
@@ -46,7 +51,13 @@
                 </v-col>
               </v-row>
               <v-row v-if="!this.task.id">
-                <v-btn :disabled="!valid" color="success" class="mr-4" @click="create">Validate</v-btn>
+                <v-btn
+                  :disabled="!valid"
+                  color="success"
+                  class="mr-4"
+                  @click="create"
+                  >Validate</v-btn
+                >
               </v-row>
             </v-form>
           </v-card>
@@ -61,8 +72,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
-import taskComponent from '../components/task.component.vue';
+import { mapGetters } from "vuex";
+import taskComponent from "../components/task.component.vue";
 
 /**
  * Export default
@@ -76,7 +87,7 @@ export default {
       // Description
       valid: false,
       rules: {
-        required: (v) => !!v || 'Required',
+        required: (v) => !!v || "Required",
       },
       // request
       loading: false,
@@ -86,14 +97,14 @@ export default {
     taskComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'task', 'result']),
+    ...mapGetters(["theme", "task", "result"]),
     title: {
       get() {
         return this.task.title;
       },
       set(title) {
         this.save = true;
-        this.$store.commit('task_update', { title });
+        this.$store.commit("task_update", { title });
       },
     },
     description: {
@@ -102,7 +113,7 @@ export default {
       },
       set(description) {
         this.save = true;
-        this.$store.commit('task_update', { description });
+        this.$store.commit("task_update", { description });
       },
     },
   },
@@ -110,7 +121,7 @@ export default {
     create() {
       if (this.$refs.form.validate()) {
         this.$store
-          .dispatch('createTask', this.task)
+          .dispatch("createTask", this.task)
           .then(() => {
             this.$router.push(`/tasks/${this.task.id}`);
             this.save = false;
@@ -130,7 +141,7 @@ export default {
         };
 
         this.$store
-          .dispatch('updateTask', data)
+          .dispatch("updateTask", data)
           .then(() => {
             this.save = false;
           })
@@ -140,9 +151,9 @@ export default {
     remove() {
       if (this.$refs.form.validate()) {
         this.$store
-          .dispatch('deleteTask', { id: this.id })
+          .dispatch("deleteTask", { id: this.id })
           .then(() => {
-            this.$router.push('/tasks');
+            this.$router.push("/tasks");
           })
           .catch((err) => console.log(err));
       }
@@ -150,10 +161,10 @@ export default {
   },
   created() {
     if (this.id) {
-      this.$store.commit('task_reset');
-      this.$store.dispatch('getTask', this.id).catch((err) => console.log(err));
+      this.$store.commit("task_reset");
+      this.$store.dispatch("getTask", this.id).catch((err) => console.log(err));
     } else {
-      this.$store.commit('task_reset');
+      this.$store.commit("task_reset");
     }
   },
 };
