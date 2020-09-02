@@ -24,8 +24,7 @@
                     $vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4',
                   ]"
                   class="font-weight-black"
-                  >{{ app.title }}</span
-                >
+                >{{ app.title }}</span>
                 <center>
                   <v-img
                     v-if="app.logo"
@@ -41,8 +40,7 @@
                   :class="[
                     $vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1',
                   ]"
-                  >{{ app.subtitle }}</span
-                >
+                >{{ app.subtitle }}</span>
               </v-col>
               <v-col class="white--text text-center" cols="12">
                 <v-btn

@@ -31,21 +31,15 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-btn
-                :disabled="!valid"
-                color="success"
-                class="mr-4"
-                @click="validate"
-                >Validate</v-btn
-              >
-              <v-btn color="error" class="mr-4" @click="reset"
-                >Reset Form</v-btn
-              >
+              <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
+              <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
             </v-row>
           </v-form>
           <br />
           <p v-if="config.vuetify.theme.signup">
-            <b><router-link to="/signup">Sign Up</router-link></b> if you have
+            <b>
+              <router-link to="/signup">Sign Up</router-link>
+            </b> if you have
             no account yet :) !
           </p>
         </v-container>

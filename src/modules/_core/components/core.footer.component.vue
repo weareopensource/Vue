@@ -12,8 +12,7 @@
       <a
         href="https://weareopensource.me"
         style="color: white; text-decoration: none;"
-        >We Are Open Source</a
-      >
+      >We Are Open Source</a>
     </div>
   </v-footer>
 </template>

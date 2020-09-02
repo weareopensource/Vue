@@ -36,12 +36,7 @@
             <v-form ref="form" v-model="valid">
               <v-row>
                 <v-col cols="12">
-                  <v-text-field
-                    v-model="title"
-                    :rules="[rules.required]"
-                    label="Title"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="title" :rules="[rules.required]" label="Title" required></v-text-field>
                   <v-text-field
                     v-model="description"
                     :rules="[rules.required]"
@@ -51,13 +46,7 @@
                 </v-col>
               </v-row>
               <v-row v-if="!this.task.id">
-                <v-btn
-                  :disabled="!valid"
-                  color="success"
-                  class="mr-4"
-                  @click="create"
-                  >Validate</v-btn
-                >
+                <v-btn :disabled="!valid" color="success" class="mr-4" @click="create">Validate</v-btn>
               </v-row>
             </v-form>
           </v-card>

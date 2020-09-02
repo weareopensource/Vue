@@ -41,8 +41,7 @@
                 v-bind="attrs"
                 v-on="on"
                 :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-                >fa-{{ item.meta.icon }}</v-icon
-              >
+              >fa-{{ item.meta.icon }}</v-icon>
             </template>
             <span>{{ item.name }}</span>
           </v-tooltip>
@@ -50,16 +49,12 @@
         <v-list-item-content>
           <v-list-item-title
             :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-            >{{ item.name }}</v-list-item-title
-          >
+          >{{ item.name }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
-      <div
-        class="pa-2 caption"
-        :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-      >
+      <div class="pa-2 caption" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
         <center>
           &copy;
           <a href="https://weareopensource.me">WAOS</a>

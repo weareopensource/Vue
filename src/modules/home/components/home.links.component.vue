@@ -19,14 +19,8 @@
             :flat="config.vuetify.theme.flat"
             :style="custom && custom.section ? custom.section : null"
           >
-            <v-card-title
-              class="justify-center text--secondary"
-              v-text="title"
-            ></v-card-title>
-            <v-list
-              dense
-              :style="custom && custom.section ? custom.section : null"
-            >
+            <v-card-title class="justify-center text--secondary" v-text="title"></v-card-title>
+            <v-list dense :style="custom && custom.section ? custom.section : null">
               <v-list-item-group color="primary">
                 <v-list-item v-for="(item, i) in items" :key="i">
                   <v-list-item-content>
