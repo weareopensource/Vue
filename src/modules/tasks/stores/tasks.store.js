@@ -13,8 +13,8 @@ const whitelists = ['title', 'description'];
  * Getters: get state
  */
 const getters = {
-  tasks: state => state.tasks,
-  task: state => state.task,
+  tasks: (state) => state.tasks,
+  task: (state) => state.task,
 };
 
 /**

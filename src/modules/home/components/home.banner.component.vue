@@ -2,12 +2,8 @@
   <section id="hero">
     <v-row no-gutters>
       <v-img
-        :min-height="
-          'calc(100vh/' + ratio + ' - ' + $vuetify.application.top + 'px)'
-        "
-        :max-height="
-          'calc(100vh/' + ratio + ' - ' + $vuetify.application.top + 'px)'
-        "
+        :min-height="'calc(100vh/' + ratio + ' - ' + $vuetify.application.top + 'px)'"
+        :max-height="'calc(100vh/' + ratio + ' - ' + $vuetify.application.top + 'px)'"
         :src="
           config.home.temporalBackground
             ? generateTemporalBackground()
@@ -20,11 +16,10 @@
               <v-col class="white--text text-center" cols="12" tag="h1">
                 <span
                   v-if="app.title && !app.logo"
-                  :class="[
-                    $vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4',
-                  ]"
+                  :class="[$vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4']"
                   class="font-weight-black"
-                >{{ app.title }}</span>
+                  >{{ app.title }}</span
+                >
                 <center>
                   <v-img
                     v-if="app.logo"
@@ -37,10 +32,9 @@
                 <span
                   v-if="app.subtitle"
                   class="font-weight-light"
-                  :class="[
-                    $vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1',
-                  ]"
-                >{{ app.subtitle }}</span>
+                  :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-1']"
+                  >{{ app.subtitle }}</span
+                >
               </v-col>
               <v-col class="white--text text-center" cols="12">
                 <v-btn
@@ -124,9 +118,7 @@ export default {
   },
   methods: {
     generateTemporalBackground() {
-      return `${
-        this.config.home.temporalBackground
-      }/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
+      return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
     },
     createSubscription() {
       if (this.rules.email(this.subscription.email)) {

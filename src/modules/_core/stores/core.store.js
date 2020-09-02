@@ -11,10 +11,10 @@ import config from '@/config';
  * Getters: get state
  */
 const getters = {
-  drawer: state => state.drawer,
-  mini: state => state.mini,
-  theme: state => state.theme,
-  nav: state => state.nav,
+  drawer: (state) => state.drawer,
+  mini: (state) => state.mini,
+  theme: (state) => state.theme,
+  nav: (state) => state.nav,
 };
 
 /**
@@ -22,7 +22,7 @@ const getters = {
  */
 const actions = {
   refreshNav: ({ commit, rootGetters }) => {
-    const nav = _.pickBy(Vue.prototype.$routes, i => {
+    const nav = _.pickBy(Vue.prototype.$routes, (i) => {
       if (i.meta.display !== false) {
         // hidden item
         if (!('requiresAuth' in i.meta)) return i; // auth undefined, always displayed

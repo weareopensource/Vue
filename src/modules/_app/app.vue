@@ -66,9 +66,7 @@ export default {
         if (
           this.config.vuetify.theme.snackbar.status &&
           response.config &&
-          this.config.vuetify.theme.snackbar.methods.indexOf(
-            response.config.method,
-          ) > -1
+          this.config.vuetify.theme.snackbar.methods.indexOf(response.config.method) > -1
         ) {
           this.snackbar.text = `${response.data.type}: ${response.data.message}`;
           this.snackbar.color = this.config.vuetify.theme.snackbar.sucessColor;
@@ -78,11 +76,7 @@ export default {
       },
       (err) =>
         new Promise(() => {
-          if (
-            err.response.status === 401 &&
-            err.config &&
-            !err.config.__isRetryRequest
-          ) {
+          if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
             this.$store.dispatch('signout');
             this.snackbar.text = 'Signin failed';
             this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;

@@ -2,10 +2,7 @@
   <section id="stats" class="black" v-if="statistics.length > 0">
     <v-parallax
       :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-      :src="
-        config.home.stats.background ||
-        require('@/assets/images/backgroundParalax.jpg')
-      "
+      :src="config.home.stats.background || require('@/assets/images/backgroundParalax.jpg')"
     >
       <v-container fill-height>
         <v-row class="mx-auto">

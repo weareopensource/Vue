@@ -17,20 +17,16 @@
         :key="item.text"
         :to="item.path"
         :style="
-          config.vuetify.theme.navigation.selectBorder &&
-          testRoute(item.path, $route.path)
+          config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
             ? `border-left: 4px solid ${
-                config.vuetify.theme.themes[theme][
-                  config.vuetify.theme.navigation.selectBorder
-                ]
+                config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]
               };`
             : 'border-left: 4px solid transparent;'
         "
       >
         <v-list-item-action
           :style="
-            config.vuetify.theme.navigation.selectBorder &&
-            testRoute(item.path, $route.path)
+            config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
               ? 'margin-left: -4px;'
               : 'margin-left: -4px;'
           "
@@ -41,15 +37,16 @@
                 v-bind="attrs"
                 v-on="on"
                 :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-              >fa-{{ item.meta.icon }}</v-icon>
+                >fa-{{ item.meta.icon }}</v-icon
+              >
             </template>
             <span>{{ item.name }}</span>
           </v-tooltip>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title
-            :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-          >{{ item.name }}</v-list-item-title>
+          <v-list-item-title :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">{{
+            item.name
+          }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>

@@ -20,6 +20,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-shadow': 0,
     'operator-linebreak': 0,
+    'implicit-arrow-linebreak': 0,
   },
   parserOptions: {
     parser: 'babel-eslint',

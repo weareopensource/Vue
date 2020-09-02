@@ -8,9 +8,7 @@
     <v-container>
       <v-row>
         <v-col
-          v-for="({ items, title }, i) in links.filter(
-            (section) => section.items
-          )"
+          v-for="({ items, title }, i) in links.filter((section) => section.items)"
           :key="i"
           cols="12"
           :md="12 / links.filter((section) => section.items).length"

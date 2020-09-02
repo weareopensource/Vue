@@ -21,7 +21,9 @@
           <div class="subtitle-1 text--secondary">
             <vue-markdown :source="excerpt" />
           </div>
-          <v-btn class="ml-n5 font-weight-black" :href="url" target="_blank" text>Continue Reading</v-btn>
+          <v-btn class="ml-n5 font-weight-black" :href="url" target="_blank" text
+            >Continue Reading</v-btn
+          >
         </v-col>
       </v-row>
     </v-container>
