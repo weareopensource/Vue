@@ -17,20 +17,16 @@
         :key="item.text"
         :to="item.path"
         :style="
-          config.vuetify.theme.navigation.selectBorder &&
-          testRoute(item.path, $route.path)
+          config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
             ? `border-left: 4px solid ${
-                config.vuetify.theme.themes[theme][
-                  config.vuetify.theme.navigation.selectBorder
-                ]
+                config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]
               };`
             : 'border-left: 4px solid transparent;'
         "
       >
         <v-list-item-action
           :style="
-            config.vuetify.theme.navigation.selectBorder &&
-            testRoute(item.path, $route.path)
+            config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
               ? 'margin-left: -4px;'
               : 'margin-left: -4px;'
           "
@@ -48,18 +44,14 @@
           </v-tooltip>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title
-            :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-            >{{ item.name }}</v-list-item-title
-          >
+          <v-list-item-title :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">{{
+            item.name
+          }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
-      <div
-        class="pa-2 caption"
-        :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
-      >
+      <div class="pa-2 caption" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
         <center>
           &copy;
           <a href="https://weareopensource.me">WAOS</a>

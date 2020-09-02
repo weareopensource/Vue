@@ -15,7 +15,8 @@ export default [
     meta: {
       icon: 'tasks',
     },
-  }, {
+  },
+  {
     path: '/task',
     name: 'task create',
     component: task,
@@ -23,7 +24,8 @@ export default [
       display: false, // hide any time
       requiresAuth: true,
     },
-  }, {
+  },
+  {
     path: '/tasks/:id',
     name: 'task',
     component: task,

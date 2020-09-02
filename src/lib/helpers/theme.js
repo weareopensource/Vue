@@ -5,7 +5,11 @@
  */
 exports.defineTheme = (theme) => {
   console.log(theme);
-  if (theme === 'auto') return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (theme === 'auto') {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  }
   return theme ? 'dark' : 'light';
 };
 
@@ -15,6 +19,8 @@ exports.defineTheme = (theme) => {
  * @return {Boolean} dark value
  */
 exports.isDark = (theme) => {
-  if (theme === 'auto') return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (theme === 'auto') {
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
   return !!theme;
 };
