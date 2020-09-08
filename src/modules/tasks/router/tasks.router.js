@@ -22,7 +22,7 @@ export default [
     component: task,
     meta: {
       display: false, // hide any time
-      requiresAuth: true,
+      roles: ['user'], // proteced, require one of this roles
     },
   },
   {
@@ -31,7 +31,7 @@ export default [
     component: task,
     meta: {
       display: false, // hide any time
-      requiresAuth: true,
+      roles: ['user'], // proteced, require one of this roles
     },
   },
 ];

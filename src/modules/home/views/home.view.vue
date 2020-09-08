@@ -24,6 +24,7 @@
       v-bind:mdImage="8"
       v-bind:mdText="4"
       v-bind:full="false"
+      v-bind:interval="6000"
     ></homeSlideshowComponent>
     <homeStatsComponent v-bind:statistics="statistics"></homeStatsComponent>
     <homeBlogComponent
