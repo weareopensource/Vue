@@ -79,7 +79,10 @@
         :show-arrows="false"
         :interval="interval || 6000"
       >
-        <v-carousel-item v-for="({ img, icon, title, text, color }, i) in slides.data" :key="i">
+        <v-carousel-item
+          v-for="({ img, icon, title, text, dark, color }, i) in slides.data"
+          :key="i"
+        >
           <v-sheet color="transparent" height="100%">
             <v-row justify="center" align="center" class="fill-height">
               <v-col cols="12" :md="mdImage || 6">

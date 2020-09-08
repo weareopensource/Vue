@@ -22,12 +22,21 @@ const getters = {
  */
 const actions = {
   refreshNav: ({ commit, rootGetters }) => {
+    const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
+      ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
+      : [];
     const nav = _.pickBy(Vue.prototype.$routes, (i) => {
       if (i.meta.display !== false) {
         // hidden item
-        if (!('requiresAuth' in i.meta)) return i; // auth undefined, always displayed
-        if (!i.meta.requiresAuth && !rootGetters.isLoggedIn) return i; // auth false, not logged
-        if (i.meta.requiresAuth && rootGetters.isLoggedIn) return i; // auth true and logged
+        if (!('roles' in i.meta)) return i; // auth undefined, always displayed
+        if (!i.meta.roles && !rootGetters.isLoggedIn) return i; // auth false, not logged
+        if (
+          i.meta.roles &&
+          rootGetters.isLoggedIn &&
+          i.meta.roles.some((r) => userRoles.includes(r))
+        ) {
+          return i; // auth true and loggedd
+        }
       }
     });
     commit('set_nav', nav);

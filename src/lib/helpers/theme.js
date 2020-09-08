@@ -4,7 +4,6 @@
  * @return {String} theme
  */
 exports.defineTheme = (theme) => {
-  console.log(theme);
   if (theme === 'auto') {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
