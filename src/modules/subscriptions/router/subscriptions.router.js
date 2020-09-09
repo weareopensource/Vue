@@ -1,6 +1,8 @@
 /**
  * Module dependencies.
  */
+import config from '@/config';
+import store from '@/modules/_core/stores/core.store';
 import subscriptions from '../views/subscriptions.view.vue';
 import subscription from '../views/subscription.view.vue';
 
@@ -14,6 +16,9 @@ export default [
     component: subscriptions,
     meta: {
       icon: 'paper-plane',
+      color: {
+        border: config.vuetify.theme.themes[store.state.theme].error, // color icon
+      },
       roles: ['admin'], // proteced, require one of this roles
     },
   },
