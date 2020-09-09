@@ -18,9 +18,8 @@
         :to="item.path"
         :style="
           config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
-            ? `border-left: 4px solid ${
-                config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]
-              };`
+            ? `border-left: 4px solid ${(item.meta.color && item.meta.color.border) ||
+                config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]};`
             : 'border-left: 4px solid transparent;'
         "
       >
@@ -36,7 +35,11 @@
               <v-icon
                 v-bind="attrs"
                 v-on="on"
-                :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
+                :style="{
+                  color:
+                    (item.meta.color && item.meta.color.icon) ||
+                    config.vuetify.theme.themes[theme].onPrimary,
+                }"
                 >fa-{{ item.meta.icon }}</v-icon
               >
             </template>

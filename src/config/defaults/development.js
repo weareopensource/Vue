@@ -81,10 +81,10 @@ module.exports = {
         },
         light: {
           primary: '#34495e',
-          secondary: '#d35400',
+          secondary: '#EE5A24',
           background: '#f3f3f6',
           surface: '#ffffff',
-          error: '#B00020',
+          error: '#EA2027',
           success: '#119178',
           onPrimary: '#ffffff',
           onSecondary: '#FFFFFF',
