@@ -16,8 +16,8 @@ module.exports = {
       core: 'core',
       auth: 'auth',
       users: 'users',
-      tasks: 'tasks',
       subscriptions: 'subscriptions',
+      tasks: 'tasks',
     },
   },
   sign: {

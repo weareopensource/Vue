@@ -39,10 +39,9 @@
         />
       </div>
     </template>
-    <span
-      >{{ user.firstName }} {{ user.lastName }} <br />
-      {{ user.email }}</span
-    >
+    <span v-if="user.firstname || user.lastName">{{ user.firstName }} {{ user.lastName }}</span>
+    <br v-if="(user.firstname || user.lastName) && user.email" />
+    <span v-if="user.email">{{ user.email }}</span>
   </v-tooltip>
 </template>
 
