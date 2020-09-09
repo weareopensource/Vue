@@ -47,7 +47,7 @@
               <v-row>
                 <v-col cols="12" xs="12" sm="12" md="9" lg="10" xl="11">
                   <v-text-field v-model="email" label="Email" required></v-text-field>
-                  <v-text-field v-model="news" label="News" required></v-text-field>
+                  <v-switch v-model="news" label="News" required></v-switch>
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="3" lg="2" xl="1">
                   <center>
