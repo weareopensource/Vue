@@ -13,7 +13,7 @@ export default [
     name: 'Users',
     component: users,
     meta: {
-      icon: 'users',
+      icon: 'user-tie',
       roles: ['admin'], // proteced, require one of this roles
     },
   },
