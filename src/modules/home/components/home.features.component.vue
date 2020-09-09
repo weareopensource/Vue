@@ -1,3 +1,22 @@
+<!--
+  - Call example
+    <homeFeaturesComponent
+      v-bind:features="features"
+      v-bind:custom="null"
+    ></homeFeaturesComponent>
+  - Data Example
+    features: {
+      title: 'Stacks',
+      data: [
+        {
+          icon: 'fab fa-vuejs',
+          title: 'Vue',
+          text: '**Alpha Front Stack** <br> Classic auth with landing page ...',
+          color: '#186b9f',
+        },
+      ],
+    },
+-->
 <template>
   <section
     id="features"
