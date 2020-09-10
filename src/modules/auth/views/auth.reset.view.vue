@@ -10,47 +10,23 @@
         :flat="config.vuetify.theme.flat"
       >
         <v-col cols="12">
-          <v-subheader><h4>Sign Up</h4></v-subheader>
+          <v-subheader><h4>Reset</h4></v-subheader>
           <v-divider></v-divider>
         </v-col>
         <v-container>
           <v-form ref="form" v-model="valid">
             <v-row>
-              <v-col cols="12" md="6" sm="6">
-                <v-text-field
-                  v-model="firstName"
-                  :rules="[rules.firstName]"
-                  label="Firstname"
-                  prepend-icon="fa fa-user"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" sm="6">
-                <v-text-field
-                  v-model="lastName"
-                  :rules="[rules.lastName]"
-                  label="Lastname"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="12" sm="12">
-                <v-text-field
-                  v-model="email"
-                  :rules="[rules.required, rules.mail]"
-                  label="E-mail"
-                  prepend-icon="fa fa-envelope"
-                  required
-                ></v-text-field>
+              <v-col cols="12">
                 <v-text-field
                   :type="'password'"
-                  v-model="password"
                   :rules="[rules.password]"
-                  label="Password"
+                  v-model="password"
+                  label="New password"
                   prepend-icon="fa fa-key"
                   required
                 ></v-text-field>
               </v-col>
-              <v-col cols="12" md="12" sm="12">
+              <v-col cols="12">
                 <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"
                   >Validate</v-btn
                 >
@@ -59,7 +35,12 @@
             </v-row>
           </v-form>
           <br />
-          <p><router-link to="/signin">Sign In</router-link> if you already have an account :) !</p>
+          <p v-if="config.vuetify.theme.signup">
+            <b>
+              <router-link to="/signin">Back</router-link>
+            </b>
+            to sign in !
+          </p>
         </v-container>
       </v-card>
     </v-row>
@@ -78,36 +59,22 @@ export default {
   data() {
     return {
       valid: false,
-      firstName: '',
-      lastName: '',
-      email: '',
       password: '',
       rules: {
-        firstName: (v) => !!v || 'Firstname is required',
-        lastName: (v) => !!v || 'Lastname is required',
         required: (v) => !!v || 'Required',
         mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
-        password: (v) => !!v || 'Password is required',
       },
     };
   },
   computed: {
-    ...mapGetters(['theme']),
+    ...mapGetters(['theme', 'mail']),
   },
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        const { firstName } = this;
-        const { lastName } = this;
-        const { email } = this;
         const { password } = this;
         this.$store
-          .dispatch('signup', {
-            email,
-            password,
-            firstName,
-            lastName,
-          })
+          .dispatch('reset', { newPassword: password, token: this.$route.query.token })
           .then(() => this.$router.push(this.config.sign.route))
           .catch((err) => console.log(err));
       }
