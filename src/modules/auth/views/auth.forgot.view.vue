@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="start" justify="center">
       <v-card
-        class="mx-6 my-3"
+        class="mx-6 my-3 pa-5"
         outlined
         tile
         width="100%"
