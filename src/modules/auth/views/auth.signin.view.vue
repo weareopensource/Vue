@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="start" justify="center">
       <v-card
-        class="mx-6 my-3"
+        class="mx-6 my-3 pa-5"
         outlined
         tile
         width="100%"
@@ -39,6 +39,15 @@
                 >
                 <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
               </v-col>
+              <v-col cols="12">
+                <v-btn
+                  v-if="config.oAuth.google"
+                  :href="`${oAuth}/google`"
+                  class="white--text mr-4"
+                  color="blue"
+                  ><v-icon class="mr-4">fab fa-google</v-icon> Sign In</v-btn
+                >
+              </v-col>
             </v-row>
           </v-form>
           <br />
@@ -72,6 +81,7 @@ export default {
       valid: false,
       email: '',
       password: '',
+      oAuth: `${this.config.api.protocol}://${this.config.api.host}:${this.config.api.port}/${this.config.api.base}/${this.config.api.endPoints.auth}`,
       rules: {
         required: (v) => !!v || 'Required',
         mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',

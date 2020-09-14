@@ -26,6 +26,9 @@ module.exports = {
   cookie: {
     prefix: 'waos',
   },
+  oAuth: {
+    google: false, // require server side oAuth config
+  },
   analytics: {
     matomo: {
       // host: 'https://mtm.weareopensource.me',
