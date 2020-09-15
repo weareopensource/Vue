@@ -43,9 +43,14 @@
                 <v-btn
                   v-if="config.oAuth.google"
                   :href="`${oAuth}/google`"
-                  class="white--text mr-4"
-                  color="blue"
+                  class="white--text mr-4 blue"
                   ><v-icon class="mr-4">fab fa-google</v-icon> Sign In</v-btn
+                >
+                <v-btn
+                  v-if="config.oAuth.apple"
+                  :href="`${oAuth}/apple`"
+                  class="white--text mr-4 grey darken-2"
+                  ><v-icon class="mr-4">fab fa-apple</v-icon> Sign In</v-btn
                 >
               </v-col>
             </v-row>
