@@ -63,6 +63,7 @@ export default {
         .catch((err) => console.log(err));
     } else {
       this.error = JSON.parse(this.$route.query.error);
+      console.log(this.error);
     }
   },
 };
