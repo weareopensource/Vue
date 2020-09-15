@@ -28,6 +28,7 @@ module.exports = {
   },
   oAuth: {
     google: false, // require server side oAuth config
+    apple: false, // require server side oAuth config
   },
   analytics: {
     matomo: {
