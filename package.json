@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-free": "^5.15.0",
     "@tryghost/content-api": "1.4.4",
     "aos": "^2.3.4",
     "axios": "^0.20.0",
