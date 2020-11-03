@@ -28,12 +28,6 @@
         <v-theme-provider dark>
           <v-container fill-height>
             <v-row align="center" class="white--text mx-auto" justify="center" style="margin-top:-100px;">
-              <span
-                v-if="app.status && app.status !== ''"
-                class="font-weight-light hidden-sm-and-down display-1"
-                :style="'position:absolute; margin-left:'+statusMargin+'px; margin-top:-100px; opacity:0.5;'"
-                >{{ app.status }}</span
-              >
               <v-col class="white--text text-center" cols="12" tag="h1">
                 <span
                   v-if="app.title && !app.logo"
@@ -53,11 +47,11 @@
                 </center>
                 <span
                   v-if="app.status && app.status !== ''"
-                  class="font-weight-light hidden-md-and-up display-0"
+                  class="font-weight-light display-0"
                   style="opacity:0.5;"
                   >{{ app.status }}</span
                 >
-                <br class="hidden-md-and-up" />
+                <br />
                 <br />
                 <span
                   v-if="app.subtitle"
