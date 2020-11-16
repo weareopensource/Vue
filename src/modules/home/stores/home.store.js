@@ -15,6 +15,7 @@ const whitelists = ['email', 'news'];
  * Getters: get state
  */
 const getters = {
+  team: (state) => state.team,
   contents: (state) => state.contents,
   news: (state) => state.news,
   homeSubscription: (state) => state.subscription,
@@ -26,6 +27,14 @@ const getters = {
  * Actions
  */
 const actions = {
+  getTeam: async ({ commit }) => {
+    try {
+      const team = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/team`);
+      commit('team_set', team.data.data);
+    } catch (err) {
+      commit('error', err);
+    }
+  },
   getChangelogs: async ({ commit }) => {
     try {
       const changelogs = await Vue.prototype.axios.get(
@@ -94,6 +103,10 @@ const mutations = {
   error(err) {
     console.log(err);
   },
+  // team
+  team_set(state, data) {
+    state.team = data;
+  },
   // news
   contents_set(state, data) {
     state.contents = data;
@@ -137,6 +150,7 @@ const mutations = {
  * State
  */
 const state = {
+  team: [],
   contents: [],
   news: [],
   subscription: {},

@@ -242,6 +242,11 @@ module.exports = {
         items: [
           {
             // set null to hide
+            label: 'Us ?',
+            icon: 'fa-users',
+            url: '/team',
+          },
+          {
             label: 'Changelogs',
             icon: 'fa-clipboard-list',
             url: '/changelogs',
