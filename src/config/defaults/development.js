@@ -15,7 +15,7 @@ module.exports = {
     port: '3000',
     base: 'api',
     endPoints: {
-      core: 'core',
+      home: 'home',
       auth: 'auth',
       users: 'users',
       subscriptions: 'subscriptions',
