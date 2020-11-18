@@ -97,7 +97,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme']),
+    ...mapGetters(['user', 'theme']),
+  },
+  watch: {
+    user(user) {
+      if (user.email) this.$router.push(this.config.sign.route);
+    },
   },
   methods: {
     validate() {
@@ -106,7 +111,6 @@ export default {
         const { password } = this;
         this.$store
           .dispatch('signin', { email, password })
-          .then(() => this.$router.push(this.config.sign.route))
           .catch((err) => console.log(err));
       }
     },
