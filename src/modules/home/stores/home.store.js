@@ -52,6 +52,17 @@ const actions = {
       commit('error', err);
     }
   },
+  getPages: async ({ commit }, name) => {
+    try {
+      const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/pages/${name}`);
+      commit('contents_set', [{
+        markdown: res.data.data.markdown,
+        style: 'classic',
+      }]);
+    } catch (err) {
+      commit('task_error', err);
+    }
+  },
   getNews: async ({ commit }) => {
     try {
       const ghost = new GhostContentAPI({
