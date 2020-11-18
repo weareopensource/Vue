@@ -45,7 +45,7 @@ export default {
   metaInfo() {
     return {
       title: this.config.app.title,
-      titleTemplate: `%s | ${this.$route.name}`,
+      titleTemplate: `%s | ${this.$route.params.name || this.$route.name}`,
       meta: [
         { name: 'description', content: this.config.app.description },
         { name: 'keywords', content: this.config.app.keywords },
