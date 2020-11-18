@@ -12,6 +12,7 @@ const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${co
 const getters = {
   isLoggedIn: (state) => !!state.cookieExpire,
   authStatus: (state) => state.status,
+  user: (state) => state.user,
   mail: (state) => state.mail,
 };
 
