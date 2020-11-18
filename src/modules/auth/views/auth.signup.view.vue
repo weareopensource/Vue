@@ -109,11 +109,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['user', 'theme']),
+    ...mapGetters(['auth', 'theme']),
   },
   watch: {
-    user(user) {
-      if (user.email) this.$router.push(this.config.sign.route);
+    auth(auth) {
+      if (auth.email) this.$router.push(this.config.sign.route);
     },
   },
   methods: {
