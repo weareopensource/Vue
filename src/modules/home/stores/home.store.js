@@ -54,11 +54,15 @@ const actions = {
   },
   getPages: async ({ commit }, name) => {
     try {
-      const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/pages/${name}`);
-      commit('contents_set', [{
-        markdown: res.data.data.markdown,
-        style: 'classic',
-      }]);
+      const pages = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/pages/${name}`);
+      commit(
+        'contents_set',
+        pages.data.data.map((item) => ({
+          title: null,
+          markdown: item.markdown,
+          style: 'classic',
+        })),
+      );
     } catch (err) {
       commit('task_error', err);
     }

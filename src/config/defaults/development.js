@@ -264,7 +264,7 @@ module.exports = {
             // set null to hide
             label: 'TOU / CGU',
             icon: 'fa-file-alt',
-            url: '/pages/termsAndConditions',
+            url: '/pages/terms',
           }, {
             label: 'Comes Legal',
             icon: 'fa-stamp',
