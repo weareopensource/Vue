@@ -34,7 +34,6 @@
           :key="i"
           cols="12"
           md="4"
-          data-aos="fade-up"
         >
           <v-card
             class="pt-8 pb-2 px-4 rounded-xl"
