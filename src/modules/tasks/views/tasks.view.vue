@@ -31,12 +31,12 @@
         style="position: absolute;"
       >
         <template v-slot:activator>
-          <v-btn v-model="fab" color="blue darken-2" dark fab>
+          <v-btn v-model="fab" color="blue darken-2" dark fab depressed>
             <v-icon v-if="fab">fa-times</v-icon>
             <v-icon v-else>fa-ellipsis-v</v-icon>
           </v-btn>
         </template>
-        <v-btn to="/task" fab dark small color="green">
+        <v-btn to="/task" color="green" fab dark small depressed>
           <v-icon color="white">fa-plus</v-icon>
         </v-btn>
       </v-speed-dial>
