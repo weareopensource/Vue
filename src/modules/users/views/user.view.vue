@@ -35,8 +35,6 @@
     <v-row class="mx-0">
       <v-col cols="12" sm="12" md="12" lg="12" xl="12">
         <v-card
-          outlined
-          tile
           width="100%"
           class="px-10 pa-6"
           :style="{ background: config.vuetify.theme.themes[theme].surface }"
