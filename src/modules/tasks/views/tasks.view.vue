@@ -10,9 +10,7 @@
       <v-row v-if="!tasks || !tasks.length" align="start" justify="center">
         <v-col cols="12">
           <v-card
-            class="mx-3 pa-8"
-            outlined
-            tile
+            class="ma-6 pa-6"
             :style="{ background: config.vuetify.theme.themes[theme].surface }"
             :flat="config.vuetify.theme.flat"
           >
