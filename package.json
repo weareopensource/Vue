@@ -77,7 +77,7 @@
     "@weareopensource/conventional-changelog": "^1.7.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
-    "commitizen": "^4.2.2",
+    "commitizen": "^4.2.3",
     "eslint": "^7.17.0",
     "eslint-plugin-vue": "^7.4.1",
     "husky": "^4.3.7",
