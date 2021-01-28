@@ -89,7 +89,7 @@
     "standard-version": "^9.1.0",
     "vue-cli-plugin-vuetify": "^2.0.9",
     "vue-template-compiler": "^2.6.12",
-    "vuetify-loader": "^1.6.0"
+    "vuetify-loader": "^1.7.1"
   },
   "release": {
     "branches": [
