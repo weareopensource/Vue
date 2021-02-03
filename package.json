@@ -28,6 +28,7 @@
     "vue:serve": "vue-cli-service serve",
     "vue:build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "snyk-protect": "snyk protect",
