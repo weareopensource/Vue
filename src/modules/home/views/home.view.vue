@@ -50,8 +50,6 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeAboutsComponent from '../components/home.abouts.component.vue';
 import homeFeaturesComponent from '../components/home.features.component.vue';
@@ -79,7 +77,6 @@ export default {
     ...mapGetters(['theme', 'news', 'statistics']),
   },
   created() {
-    AOS.init();
     this.$store.dispatch('getStatistics').then(() => {
       this.$store.dispatch('getNews');
     });
