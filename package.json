@@ -87,7 +87,7 @@
     "sass": "^1.32.7",
     "sass-loader": "^10.1.1",
     "semantic-release": "^17.3.9",
-    "standard-version": "^9.1.0",
+    "standard-version": "^9.1.1",
     "vue-cli-plugin-vuetify": "^2.1.0",
     "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.7.2"
