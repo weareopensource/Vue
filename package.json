@@ -48,7 +48,7 @@
     "@tryghost/content-api": "1.4.14",
     "aos": "^2.3.4",
     "axios": "^0.21.1",
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "snyk": "^1.456.0",
