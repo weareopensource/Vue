@@ -134,7 +134,7 @@ export default {
       rules: {
         bio: [(v) => !v || (v && v.length <= 200) || 'Max 200 characters'],
       },
-      rolesItems: ['admin', 'user'],
+      rolesItems: this.config.whitelists.users.roles,
       removeConfirm: false,
     };
   },
