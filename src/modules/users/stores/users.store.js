@@ -90,7 +90,7 @@ const mutations = {
     state.user = data;
   },
   user_update(state, data) {
-    _.merge(state.user, data);
+    _.assign(state.user, data);
   },
   user_reset(state) {
     state.user = {};

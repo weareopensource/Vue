@@ -33,6 +33,11 @@ module.exports = {
     google: true, // require server side oAuth config
     apple: true, // require server side oAuth config
   },
+  whitelists: {
+    users: {
+      roles: ['user', 'admin'],
+    },
+  },
   analytics: {
     matomo: {
       // host: 'https://mtm.weareopensource.me',
