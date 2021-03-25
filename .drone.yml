@@ -7,8 +7,8 @@ steps:
     image: node:14
     commands:
       - npm i
-      - npm run lint
       - npm run build
+      - npm run lint
 
 ---
 kind: pipeline
@@ -20,5 +20,5 @@ steps:
     failure: ignore
     commands:
       - npm i
-      - npm run lint
       - npm run build
+      - npm run lint
