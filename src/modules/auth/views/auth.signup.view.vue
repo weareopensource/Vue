@@ -70,7 +70,9 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      oAuth: `${this.config.api.protocol}://${this.config.api.host}:${this.config.api.port}/${this.config.api.base}/${this.config.api.endPoints.auth}`,
+      oAuth: `${this.config.api.protocol}://
+      ${this.config.api.host}:${this.config.api.port}/
+      ${this.config.api.base}/${this.config.api.endPoints.auth}`,
       rules: {
         firstName: (v) => !!v || 'Firstname is required',
         lastName: (v) => !!v || 'Lastname is required',

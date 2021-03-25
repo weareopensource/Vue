@@ -71,7 +71,9 @@ export default {
       valid: false,
       email: '',
       password: '',
-      oAuth: `${this.config.api.protocol}://${this.config.api.host}:${this.config.api.port}/${this.config.api.base}/${this.config.api.endPoints.auth}`,
+      oAuth: `${this.config.api.protocol}://
+      ${this.config.api.host}:${this.config.api.port}
+      /${this.config.api.base}/${this.config.api.endPoints.auth}`,
       rules: {
         required: (v) => !!v || 'Required',
         mail: (v) => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
