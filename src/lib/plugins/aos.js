@@ -8,7 +8,7 @@ import 'aos/dist/aos.css'; // If ypu need load compiled AOS css here in plugin
 class AosPlugin {
   config = {
     // Your AOS config here
-  }
+  };
 
   install(Vue) {
     AOS.init(this.config);

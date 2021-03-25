@@ -34,9 +34,7 @@ const actions = {
   },
   getChangelogs: async ({ commit }) => {
     try {
-      const changelogs = await Vue.prototype.axios.get(
-        `${api}/${config.api.endPoints.home}/changelogs`,
-      );
+      const changelogs = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/changelogs`);
       commit(
         'contents_set',
         changelogs.data.data.map((item) => ({
@@ -84,9 +82,7 @@ const actions = {
   getStatistics: async ({ commit }) => {
     try {
       const tasks = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.tasks}/stats`);
-      const releases = await Vue.prototype.axios.get(
-        `${api}/${config.api.endPoints.home}/releases`,
-      );
+      const releases = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.home}/releases`);
       const users = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.users}/stats`);
       commit('statistics_set', {
         tasks: tasks.data.data,

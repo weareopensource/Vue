@@ -20,7 +20,11 @@ if (fs.existsSync(`${_path}.js`)) {
 // Get the config from  process.env.WAOS_NODE_*
 const environmentVars = _.mapKeys(
   _.pickBy(process.env, (_value, key) => key.startsWith('WAOS_VUE_')),
-  (_v, k) => k.split('_').slice(2).join('.'),
+  (_v, k) =>
+    k
+      .split('_')
+      .slice(2)
+      .join('.'),
 );
 const environmentConfigVars = {};
 _.forEach(environmentVars, (v, k) => objectPath.set(environmentConfigVars, k, v));
@@ -38,10 +42,9 @@ fs.open('./src/config/index.js', 'w', (err, fd) => {
  * it' a generated one
  * edit in defaults/*, cf readme
  */
-module.exports = ${
-  JSON.stringify(config, undefined, 2)
+module.exports = ${JSON.stringify(config, undefined, 2)
     .replace(/\"([^(\")"]+)\":/g, '$1:')
-    .replace(/"/g, '\'')
+    .replace(/"/g, "'")
     .replace(/\n|\r/g, ',\n')
     .replace(/{,/g, '{')
     .replace(/\[,/g, '[')
