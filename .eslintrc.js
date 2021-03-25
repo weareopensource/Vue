@@ -8,7 +8,6 @@ module.exports = {
   },
   extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:markdown/recommended', 'plugin:prettier/recommended'],
   plugins: ['prettier', 'markdown'],
-  ignorePatterns: ['./src/config/index.js'],
   rules: {
     'prettier/prettier': 'error',
     'no-console': 0,
@@ -30,7 +29,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)', '*.vue'],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true,
       },
