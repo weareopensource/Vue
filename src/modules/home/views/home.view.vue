@@ -1,15 +1,7 @@
 <template>
   <div>
-    <homeBannerComponent
-      v-bind:ratio="1"
-      v-bind:app="config.app"
-      v-bind:statusMargin="450"
-    ></homeBannerComponent>
-    <homeAboutsComponent
-      v-bind:abouts="config.home.abouts"
-      v-bind:md="6"
-      v-bind:custom="null"
-    ></homeAboutsComponent>
+    <homeBannerComponent v-bind:ratio="1" v-bind:app="config.app" v-bind:statusMargin="450"></homeBannerComponent>
+    <homeAboutsComponent v-bind:abouts="config.home.abouts" v-bind:md="6" v-bind:custom="null"></homeAboutsComponent>
     <homeFeaturesComponent
       v-bind:features="config.home.features"
       v-bind:custom="{

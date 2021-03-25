@@ -141,7 +141,8 @@ module.exports = {
     abouts: [
       {
         title: 'About Us',
-        text: '[WAOS](https://blog.weareopensource.me/us/)"s goal is to simplify the **start** of new **tech projects** / **startups**. As we know It"s must be **fast**, **efficient** while **avoiding the refactor** afterward. So whether through the creation of [Open-Source](https://github.com/weareopensource) **stacks** / **tools** or **articles**, we **share our knowledge** around this subject.',
+        text:
+          '[WAOS](https://blog.weareopensource.me/us/)"s goal is to simplify the **start** of new **tech projects** / **startups**. As we know It"s must be **fast**, **efficient** while **avoiding the refactor** afterward. So whether through the creation of [Open-Source](https://github.com/weareopensource) **stacks** / **tools** or **articles**, we **share our knowledge** around this subject.',
         image: 'https://avatars3.githubusercontent.com/u/8588816?s=200&v=4',
         button: 'Github',
         link: 'https://github.com/weareopensource',
@@ -153,18 +154,21 @@ module.exports = {
         {
           icon: 'fa-users',
           title: 'Vibrant Community',
-          text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          text:
+            '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
           // color: 'red' background color option
         },
         {
           icon: 'fa-cloud-upload-alt',
           title: 'Frequent Updates',
-          text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+          text:
+            '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
         },
         {
           icon: 'fa-history',
           title: 'Long-term Support',
-          text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          text:
+            '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
         },
       ],
     },
@@ -172,7 +176,8 @@ module.exports = {
       title: 'Demos',
       data: [
         {
-          img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+          img:
+            'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           icon: 'fa-users',
           title: 'Vibrant Community',
           text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint ...',
@@ -181,7 +186,8 @@ module.exports = {
           // dark: true, start / center / end text position for full slideshow only dark / light option for image => 01-dark.jpg 01-light.jpg
         },
         {
-          img: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+          img:
+            'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           icon: 'fa-cloud-upload-alt',
           title: 'Frequent Updates',
           // color: 'red'
@@ -190,7 +196,8 @@ module.exports = {
       ],
     },
     stats: {
-      background: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+      background:
+        'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
       data: [
         {
           value: '0',

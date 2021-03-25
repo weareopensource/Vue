@@ -29,7 +29,9 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // meta
   document.title = to.name;
-  const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`) ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',') : [];
+  const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
+    ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
+    : [];
   // secu
   if (to.matched.some((record) => record.meta.roles)) {
     if (store.getters.isLoggedIn && to.meta.roles.some((r) => userRoles.includes(r))) {

@@ -22,7 +22,9 @@ const getters = {
  */
 const actions = {
   refreshNav: ({ commit, rootGetters }) => {
-    const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`) ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',') : [];
+    const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
+      ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
+      : [];
     const nav = _.orderBy(
       _.pickBy(Vue.prototype.$routes, (i) => {
         if (i.meta.display !== false) {
