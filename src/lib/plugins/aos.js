@@ -10,10 +10,10 @@ class AosPlugin {
     // Your AOS config here
   };
 
-  install(Vue) {
+  install(vue) {
     AOS.init(this.config);
 
-    Vue.mixin({
+    vue.mixin({
       updated() {
         this.$nextTick(() => {
           AOS.refreshHard(); // This is needed to avoid the un-animate aos effect

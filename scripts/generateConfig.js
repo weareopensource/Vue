@@ -36,14 +36,14 @@ fs.open('./src/config/index.js', 'w', (err, fd) => {
     throw err;
   }
   // const envConfigFile = `\/\/ don't edit this file /!\\ \n\/\/ it' a generated one \n\/\/ edit in defaults *, see Readme \nmodule.exports = ${config};`;
-  const envConfigFile = `\/**
- * eslint comma-dangle: ["error", "never"]
+  const envConfigFile = `/**
  * don't edit this file /!\\
  * it' a generated one
  * edit in defaults/*, cf readme
  */
+/* eslint-disable */
 module.exports = ${JSON.stringify(config, undefined, 2)
-    .replace(/\"([^(\")"]+)\":/g, '$1:')
+    .replace(/"([^(")"]+)":/g, '$1:')
     .replace(/"/g, "'")
     .replace(/\n|\r/g, ',\n')
     .replace(/{,/g, '{')

@@ -33,6 +33,7 @@ const actions = {
             return i; // auth true and loggedd
           }
         }
+        return null;
       }),
       ['meta.roles'],
       ['desc'],
