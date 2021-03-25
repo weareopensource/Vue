@@ -8,6 +8,7 @@ module.exports = {
   },
   extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:markdown/recommended', 'plugin:prettier/recommended'],
   plugins: ['prettier', 'markdown'],
+  ignorePatterns: ['./src/config/index.js'],
   rules: {
     'prettier/prettier': 'error',
     'no-console': 0,
