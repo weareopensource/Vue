@@ -79,7 +79,7 @@
     "@vue/test-utils": "1.1.4",
     "@weareopensource/conventional-changelog": "^1.7.0",
     "babel-eslint": "^10.1.0",
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.1",
     "commitizen": "^4.2.3",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
