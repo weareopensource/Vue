@@ -46,7 +46,7 @@
                   app.subtitle
                 }}</span>
               </v-col>
-              <v-col class="white--text text-center" cols="12">
+              <v-col class="white--text text-center" cols="12" v-if="ratio == 1">
                 <v-btn class="align-self-end" fab @click="$vuetify.goTo('#about-me')" data-aos="fade-up" color="transparent" elevation="0">
                   <v-icon>fa-angle-down</v-icon>
                 </v-btn>
@@ -62,7 +62,7 @@
                 xl="5"
                 style="bottom: 5%; position: absolute; opacity: 75%"
                 data-aos="fade-up"
-                v-if="config.home.blog && config.home.blog.subscribe"
+                v-if="config.home.blog && config.home.blog.subscribe && ratio == 1"
               >
                 <v-btn :href="config.home.blog.subscribe" target="_blank" class="px-10" height="55" elevation="0" rounded light
                   ><span style="color: gray">Stay informed by email<v-icon class="pl-8">fa-paper-plane</v-icon></span></v-btn
