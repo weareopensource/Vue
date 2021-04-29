@@ -35,15 +35,10 @@
     "test:lint": "./node_modules/.bin/eslint ./src",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
-    "commit": "npx git-cz",
+    "commit": "npx cz",
     "release": "standard-version",
     "release:auto": "npx semantic-release",
     "generateConfig": "node ./scripts/generateConfig.js"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
