@@ -15,7 +15,7 @@ Quick links :
 * [Global roadmap and  ideas about stacks](https://github.com/orgs/weareopensource/projects/3)
 * [How to contribute and help us](https://blog.weareopensource.me/how-to-contribute/)
 
-Our stack Vue is actually in Alpha.
+Our stack Vue is actually in Beta.
 
 # :computer: Vue 4.x / Vuetify / Jwt
 
