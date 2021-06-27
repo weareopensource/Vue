@@ -34,11 +34,4 @@ module.exports = {
       files: ['**/__tests__/*.{cj,j,t}s?(x)', '**/tests/unit/**/*.spec.{cj,j,t}s?(x)', '*.vue'],
     },
   ],
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [['@', './src/']],
-      },
-    },
-  },
 };
