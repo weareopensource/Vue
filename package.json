@@ -55,7 +55,7 @@
     "vue-matomo": "^4.0.1",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.5.2",
-    "vuetify": "^2.5.4",
+    "vuetify": "^2.5.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
