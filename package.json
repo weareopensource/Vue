@@ -41,7 +41,7 @@
     "generateConfig": "node ./scripts/generateConfig.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@tryghost/content-api": "1.5.11",
     "aos": "^2.3.4",
     "axios": "^0.21.1",
