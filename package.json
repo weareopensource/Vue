@@ -44,7 +44,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@tryghost/content-api": "1.5.13",
     "aos": "^2.3.4",
-    "axios": "^0.21.3",
+    "axios": "^0.21.4",
     "core-js": "^3.17.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
