@@ -3,9 +3,9 @@
  */
 import Vue from 'vue';
 import _ from 'lodash';
-import config from '@/config';
-import tools from '@/lib/helpers/tools';
 import GhostContentAPI from '@tryghost/content-api';
+import tools from '@/lib/helpers/tools';
+import config from '@/config';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 
