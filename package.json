@@ -87,7 +87,7 @@
     "object-path": "^0.11.8",
     "prettier": "^2.4.1",
     "sass": "^1.42.1",
-    "sass-loader": "10.1.1",
+    "sass-loader": "12.1.0",
     "semantic-release": "^18.0.0",
     "standard-version": "^9.3.1",
     "vue-cli-plugin-vuetify": "^2.4.2",
