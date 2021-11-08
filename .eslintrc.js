@@ -21,11 +21,13 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-shadow': 0,
     'operator-linebreak': 0,
+    'vue/multi-word-component-names': 0,
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     ecmaVersion: 12,
     sourceType: 'module',
+    requireConfigFile: false
   },
   overrides: [
     {
