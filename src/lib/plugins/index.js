@@ -7,3 +7,4 @@ import './moment';
 import './gravatar';
 import './images';
 import './aos';
+import './markdown';

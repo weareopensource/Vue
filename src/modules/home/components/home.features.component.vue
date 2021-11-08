@@ -33,7 +33,7 @@
             </div>
             <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
             <v-card-text class="subtitle-1 text--secondary">
-              <vue-markdown :source="text" />
+              <v-markdown :source="text" />
             </v-card-text>
           </v-card>
         </v-col>
@@ -44,17 +44,10 @@
 
 <script>
 /**
- * Module dependencies.
- */
-import VueMarkdown from 'vue-markdown';
-/**
  * Export default
  */
 export default {
   name: 'homeAboutsComponent',
   props: ['features', 'custom'],
-  components: {
-    VueMarkdown,
-  },
 };
 </script>

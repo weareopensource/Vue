@@ -26,7 +26,7 @@
             <v-img :src="feature_image" class="mb-4 rounded-xl" height="200" max-width="100%"></v-img>
             <h3 class="mb-4 text--primary" v-text="title"></h3>
             <div class="subtitle-1 text--secondary">
-              <vue-markdown :source="excerpt" />
+              <v-markdown :source="excerpt" />
             </div>
           </a>
         </v-col>
@@ -37,17 +37,10 @@
 
 <script>
 /**
- * Module dependencies.
- */
-import VueMarkdown from 'vue-markdown';
-/**
  * Export default
  */
 export default {
   name: 'homeBlogComponent',
   props: ['title', 'url', 'news', 'custom'],
-  components: {
-    VueMarkdown,
-  },
 };
 </script>
