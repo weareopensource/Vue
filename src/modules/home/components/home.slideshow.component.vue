@@ -123,7 +123,7 @@
                     v-text="title"
                   ></v-card-title>
                   <v-card-text v-if="text" class="subtitle-1 text--secondary">
-                    <vue-markdown :source="text" />
+                    <v-markdown :source="text" />
                   </v-card-text>
                 </v-card>
               </v-col>
@@ -140,7 +140,6 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import VueMarkdown from 'vue-markdown';
 /**
  * Export default
  */
@@ -149,9 +148,6 @@ export default {
   props: ['slides', 'custom', 'height', 'mdImage', 'mdText', 'full', 'interval'],
   computed: {
     ...mapGetters(['theme']),
-  },
-  components: {
-    VueMarkdown,
   },
 };
 </script>

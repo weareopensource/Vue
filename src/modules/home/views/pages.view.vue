@@ -28,7 +28,7 @@
               }"
             >
               <v-card-text class="pa-4">
-                <vue-markdown :source="content.markdown" :class="content.style" />
+                <v-markdown :source="content.markdown" :class="content.style" />
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -44,7 +44,7 @@
           }"
         >
           <v-card-text class="pa-4">
-            <vue-markdown :source="contents[0].markdown" :class="contents[0].style" />
+            <v-markdown :source="contents[0].markdown" :class="contents[0].style" />
           </v-card-text>
         </v-card>
       </v-container>
@@ -63,7 +63,6 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import VueMarkdown from 'vue-markdown'; // production
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeLinksComponent from '../components/home.links.component.vue';
 
@@ -81,7 +80,6 @@ export default {
     };
   },
   components: {
-    VueMarkdown,
     homeBannerComponent,
     homeLinksComponent,
   },
