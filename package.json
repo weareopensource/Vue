@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "@tryghost/content-api": "1.5.14",
+    "@tryghost/content-api": "1.5.15",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.0",
     "axios": "^0.24.0",
