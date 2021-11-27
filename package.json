@@ -91,7 +91,7 @@
     "prettier": "^2.4.1",
     "sass": "<1.44",
     "sass-loader": "12.3.0",
-    "semantic-release": "^18.0.0",
+    "semantic-release": "^18.0.1",
     "standard-version": "^9.3.2",
     "vue-cli-plugin-vuetify": "^2.4.3",
     "vue-template-compiler": "^2.6.14",
