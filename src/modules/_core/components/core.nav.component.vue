@@ -49,7 +49,7 @@
     <template v-slot:append v-if="!config.vuetify.theme.footer">
       <div class="pa-2 caption" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
         <center>
-          &copy;
+          <span role="img" aria-label="copyright"> &copy; </span>
           <a href="https://weareopensource.me">WAOS</a>
         </center>
       </div>
