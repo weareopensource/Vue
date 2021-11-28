@@ -19,6 +19,7 @@
           height: height,
         }"
       >
+        <!-- eslint-disable-next-line -->
         <a v-if="user.id" :href="disabled === true ? null : `/users/${user.id}`">
           <v-img
             v-if="user.avatar && user.avatar != ''"
