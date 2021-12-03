@@ -45,9 +45,10 @@
           <v-tooltip top>
             <template v-slot:activator="{ on }"
               ><div>
+                <!-- eslint-disable-next-line -->
                 <a :href="link">
                   <v-avatar v-on="on" v-if="link" :size="size">
-                    <img v-if="image" :src="image" />
+                    <img v-if="image" :src="image" alt="logo" />
                   </v-avatar>
                 </a>
               </div>
