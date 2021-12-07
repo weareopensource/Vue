@@ -47,7 +47,7 @@
     "autoprefixer": "^10.4.0",
     "axios": "^0.24.0",
     "babel-runtime": "^6.26.0",
-    "core-js": "^3.19.2",
+    "core-js": "^3.19.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "snyk": "^1.783.0",
