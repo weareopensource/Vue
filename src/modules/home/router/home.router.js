@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import config from '@/config';
+import config from '@/config/index.cjs';
 import home from '@/modules/home/views/home.view.vue';
 import pages from '@/modules/home/views/pages.view.vue';
 import team from '@/modules/home/views/team.view.vue';

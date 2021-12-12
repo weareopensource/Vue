@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import Vue from 'vue';
-import config from '@/config';
+import config from '@/config/index.cjs';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 

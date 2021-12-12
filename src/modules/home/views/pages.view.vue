@@ -28,7 +28,7 @@
               }"
             >
               <v-card-text class="pa-4">
-                <v-markdown :source="content.markdown" :class="content.style" />
+                <vue-markdown :source="content.markdown" :class="content.style" />
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -44,7 +44,7 @@
           }"
         >
           <v-card-text class="pa-4">
-            <v-markdown :source="contents[0].markdown" :class="contents[0].style" />
+            <vue-markdown :source="contents[0].markdown" :class="contents[0].style" />
           </v-card-text>
         </v-card>
       </v-container>

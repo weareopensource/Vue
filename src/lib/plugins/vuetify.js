@@ -3,7 +3,7 @@
  */
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
-import config from '@/config';
+import config from '@/config/index.cjs';
 
 Vue.use(Vuetify);
 

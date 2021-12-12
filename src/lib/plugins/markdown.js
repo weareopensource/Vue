@@ -2,6 +2,14 @@
  * Module dependencies.
  */
 import Vue from 'vue';
-import VueMarkdown from 'vue-markdown';
+import marked from 'marked';
 
-Vue.component('v-markdown', VueMarkdown);
+Vue.component('v-markdown', {
+  props: ['source'],
+  computed: {
+    markup() {
+      return marked.parse(this.source);
+    },
+  },
+  template: '<span v-html="markup"></span>',
+});

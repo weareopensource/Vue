@@ -4,8 +4,8 @@
 // import _ from 'lodash';
 import Vue from 'vue';
 import _ from 'lodash';
-import theme from '@/lib/helpers/theme';
-import config from '@/config';
+import * as theme from '@/lib/helpers/theme';
+import config from '@/config/index.cjs';
 
 /**
  * Getters: get state
