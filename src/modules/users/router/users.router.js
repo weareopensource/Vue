@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import config from '@/config';
+import config from '@/config/index.cjs';
 import store from '@/modules/_core/stores/core.store';
 import users from '../views/users.view.vue';
 import user from '../views/user.view.vue';

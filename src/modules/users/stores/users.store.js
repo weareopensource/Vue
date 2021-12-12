@@ -3,7 +3,7 @@
  */
 import Vue from 'vue';
 import _ from 'lodash';
-import config from '@/config';
+import config from '@/config/index.cjs';
 import model from '@/lib/middlewares/model';
 
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;

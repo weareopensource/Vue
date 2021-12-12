@@ -25,13 +25,20 @@ module.exports = {
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    ecmaVersion: 12,
+    ecmaVersion: 13,
     sourceType: 'module',
-    requireConfigFile: false
+    requireConfigFile: false,
   },
   overrides: [
     {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)', '*.vue'],
+      files: ['**/__tests__/*.{cj,j,t}s?(x)', '**/tests/unit/**/*.spec.{cj,j,t}s?(x)', '*.vue'],
     },
   ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['@', './src/']],
+      },
+    },
+  },
 };

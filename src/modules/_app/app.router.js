@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/modules/_app/app.store';
-import config from '@/config';
+import config from '@/config/index.cjs';
 
 import home from '@/modules/home/router/home.router';
 import auth from '@/modules/auth/router/auth.router';
