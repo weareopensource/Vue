@@ -90,7 +90,7 @@
     "npm-run-all": "^4.1.5",
     "object-path": "^0.11.8",
     "prettier": "^2.5.1",
-    "sass": "<1.45",
+    "sass": "<1.46",
     "sass-loader": "12.3.0",
     "semantic-release": "^18.0.1",
     "standard-version": "^9.3.2",
