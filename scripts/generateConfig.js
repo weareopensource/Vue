@@ -29,7 +29,7 @@ const environmentVars = _.mapKeys(
 const environmentConfigVars = {};
 _.forEach(environmentVars, (v, k) => objectPath.set(environmentConfigVars, k, v));
 // Merge config files
-const config = _.merge(defaultConfig, environmentConfigVars);
+const config = _.merge(defaultConfig.default, environmentConfigVars);
 // generate config
 fs.open('./src/config/index.cjs', 'w', (err, fd) => {
   if (err) {
@@ -42,7 +42,7 @@ fs.open('./src/config/index.cjs', 'w', (err, fd) => {
  * edit in defaults/*, cf readme
  */
 /* eslint-disable */
-module.exports = ${JSON.stringify(config.default, undefined, 2)
+module.exports = ${JSON.stringify(config, undefined, 2)
     .replace(/"([^(")"]+)":/g, '$1:')
     .replace(/"/g, "'")
     .replace(/\n|\r/g, ',\n')
