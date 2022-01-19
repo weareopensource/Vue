@@ -44,7 +44,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@tryghost/content-api": "1.5.16",
     "aos": "^2.3.4",
-    "autoprefixer": "^10.4.1",
+    "autoprefixer": "^10.4.2",
     "axios": "^0.24.0",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.20.2",
