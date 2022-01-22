@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import Vue from 'vue';
-import marked from 'marked';
+import { marked } from 'marked';
 
 Vue.component('v-markdown', {
   props: ['source'],
