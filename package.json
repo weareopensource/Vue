@@ -79,7 +79,7 @@
     "@weareopensource/conventional-changelog": "^1.7.0",
     "chalk": "^5.0.0",
     "commitizen": "^4.2.4",
-    "eslint": "^8.10.0",
+    "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.25.4",
