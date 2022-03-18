@@ -5,18 +5,18 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '@/lib/plugins';
 import 'vuetify/dist/vuetify.min.css';
 
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from '@/modules/_app/app.vue';
 import store from '@/modules/_app/app.store';
 import router from '@/modules/_app/app.router';
 import vuetify from '@/lib/plugins/vuetify';
+import config from '@/config/index.cjs';
 
-// Vuetify
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: (h) => h(App),
-}).$mount('#app');
+app.use(router);
+app.use(store);
+app.use(vuetify);
+app.use(config);
+
+app.mount('#app');

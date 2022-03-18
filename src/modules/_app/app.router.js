@@ -1,8 +1,7 @@
 /**
  * Module dependencies.
  */
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import store from '@/modules/_app/app.store';
 import config from '@/config/index.cjs';
 
@@ -17,11 +16,8 @@ const routes = [].concat(home, auth, users, secure, tasks);
 /**
  * Router configuration
  */
-Vue.use(Router);
-Vue.prototype.$routes = routes;
-
-const router = new Router({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHashHistory(),
   base: process.env.BASE_URL,
   routes,
 });

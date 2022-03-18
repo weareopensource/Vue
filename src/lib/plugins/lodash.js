@@ -1,7 +1,9 @@
 /**
  * Module dependencies.
  */
-import Vue from 'vue';
+import { createApp } from 'vue';
+import App from '@/modules/_app/app.vue';
 import _ from 'lodash';
 
-Vue.prototype._ = _;
+const app = createApp(App);
+app.config.globalProperties.$_ = _;

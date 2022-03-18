@@ -1,5 +1,6 @@
 <template>
   <v-app id="app">
+    {{ config }}
     <v-snackbar
       v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
@@ -34,8 +35,8 @@ import { mapGetters } from 'vuex';
 import waosHeader from '@/modules/_core/components/core.header.component.vue';
 import waosNav from '@/modules/_core/components/core.nav.component.vue';
 import waosFooter from '@/modules/_core/components/core.footer.component.vue';
-import router from '@/modules/_app/app.router';
-import * as theme from '@/lib/helpers/theme';
+// import * as theme from '@/lib/helpers/theme';
+import axios from 'axios';
 
 /**
  * Export default
@@ -73,7 +74,7 @@ export default {
   },
   created() {
     // auth
-    this.axios.interceptors.response.use(
+    axios.interceptors.response.use(
       (response) => {
         if (
           this.config.vuetify.theme.snackbar.status &&
@@ -93,7 +94,7 @@ export default {
             this.snackbar.text = 'Signin failed';
             this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
             this.snackbar.status = true;
-            router.push('/signin');
+            this.router.push('/signin');
           }
           if (this.config.vuetify.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
             this.snackbar.text = err.response.data.description;
@@ -104,7 +105,7 @@ export default {
         }),
     );
     // set base theme
-    this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
+    // this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
   },
 };
 </script>

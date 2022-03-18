@@ -1,11 +1,13 @@
 /**
  * Module dependencies.
  */
-import Vue from 'vue';
+import { createApp } from 'vue';
+import App from '@/modules/_app/app.vue';
 import _ from 'lodash';
 import config from '@/config/index.cjs';
 import model from '@/lib/middlewares/model';
 
+const app = createApp(App);
 const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 const whitelists = ['firstName', 'lastName', 'bio', 'position', 'email', 'avatar', 'roles'];
 
@@ -23,7 +25,7 @@ const getters = {
 const actions = {
   getUsers: async ({ commit }, params) => {
     try {
-      const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
+      const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
       commit('users_set', res.data.data);
     } catch (err) {
       commit('user_error', err);
@@ -31,7 +33,7 @@ const actions = {
   },
   getUser: async ({ commit }, params) => {
     try {
-      const res = await Vue.prototype.axios.get(`${api}/${config.api.endPoints.users}/${params}`);
+      const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/${params}`);
       commit('user_set', res.data.data);
     } catch (err) {
       commit('user_error', err);
@@ -40,7 +42,7 @@ const actions = {
   updateUser: async ({ commit, state }, params) => {
     try {
       const obj = model.clean(_.merge(state.user, params), whitelists);
-      const res = await Vue.prototype.axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
+      const res = await app.config.globalProperties.$axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
       commit('user_update', res.data.data);
     } catch (err) {
       commit('user_error', err);
@@ -48,7 +50,7 @@ const actions = {
   },
   deleteUser: async ({ commit }, params) => {
     try {
-      await Vue.prototype.axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
+      await app.config.globalProperties.$axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
       commit('user_reset');
     } catch (err) {
       commit('user_error', err);
@@ -58,7 +60,7 @@ const actions = {
   //   try {
   //     const formData = new FormData();
   //     formData.append('img', params.file);
-  //     const res = await Vue.prototype.axios.post(
+  //     const res = await app.config.globalProperties.$axios.post(
   //       `${api}/${config.api.endPoints...}/..../avatar/${params.id}`,
   //       formData,
   //       { headers: { 'Content-Type': 'multipart/form-data' } },

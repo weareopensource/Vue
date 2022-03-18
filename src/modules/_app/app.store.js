@@ -1,8 +1,7 @@
 /**
  * Module dependencies.
  */
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 import core from '@/modules/_core/stores/core.store';
 import auth from '@/modules/auth/stores/auth.store';
 import users from '@/modules/users/stores/users.store';
@@ -14,12 +13,10 @@ const debug = process.env.NODE_ENV !== 'production';
 /**
  * Vuex configuration
  */
-Vue.use(Vuex);
-
-/**
- * Export default
- */
-export default new Vuex.Store({
+const store = createStore({
+  state: {
+    name: 'Vue',
+  },
   modules: {
     core,
     auth,
@@ -29,3 +26,5 @@ export default new Vuex.Store({
   },
   strict: debug,
 });
+
+export default store;

@@ -2,10 +2,13 @@
  * Module dependencies.
  */
 // import _ from 'lodash';
-import Vue from 'vue';
+import { createApp } from 'vue';
+import App from '@/modules/_app/app.vue';
 import _ from 'lodash';
 import * as theme from '@/lib/helpers/theme';
 import config from '@/config/index.cjs';
+
+const app = createApp(App);
 
 /**
  * Getters: get state
@@ -26,7 +29,7 @@ const actions = {
       ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
       : [];
     const nav = _.orderBy(
-      _.pickBy(Vue.prototype.$routes, (i) => {
+      _.pickBy(app.config.globalProperties.$routes, (i) => {
         if (i.meta.display !== false) {
           // hidden item
           if (!('roles' in i.meta)) return i; // auth undefined, always displayed

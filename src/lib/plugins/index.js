@@ -1,4 +1,3 @@
-import './config';
 import './meta';
 import './lodash';
 import './axios';

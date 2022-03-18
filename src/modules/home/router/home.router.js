@@ -47,7 +47,7 @@ export default [
     },
   },
   {
-    path: '*',
+    path: '/:catchAll(.*)',
     redirect: { name: 'Home' },
     meta: {
       display: false, // hide any time

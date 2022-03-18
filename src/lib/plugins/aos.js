@@ -1,7 +1,8 @@
 /**
  * Module dependencies.
  */
-import Vue from 'vue';
+import { createApp } from 'vue';
+import App from '@/modules/_app/app.vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // If ypu need load compiled AOS css here in plugin
 
@@ -23,4 +24,5 @@ class AosPlugin {
   }
 }
 
-Vue.use(new AosPlugin());
+const app = createApp(App);
+app.config.globalProperties.$aos = new AosPlugin();
