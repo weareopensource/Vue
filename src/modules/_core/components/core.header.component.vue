@@ -20,18 +20,14 @@
     <v-app-bar-nav-icon
       :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
       v-if="
-        config.vuetify.drawer.type === 'mini' &&
-        (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) &&
-        !this.$vuetify.breakpoint.mdAndDown
+        config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && !this.$vuetify.display.mdAndDown
       "
       @click.stop="mini = !mini"
     ></v-app-bar-nav-icon>
     <v-app-bar-nav-icon
       :style="{ color: config.vuetify.theme.themes[theme].onPrimary }"
       v-if="
-        config.vuetify.drawer.type === 'mini' &&
-        (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) &&
-        this.$vuetify.breakpoint.mdAndDown
+        config.vuetify.drawer.type === 'mini' && (!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn) && this.$vuetify.display.mdAndDown
       "
       @click.stop="
         drawer = !drawer;

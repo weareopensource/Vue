@@ -1,6 +1,5 @@
 <template>
   <v-app id="app">
-    {{ config }}
     <v-snackbar
       v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
