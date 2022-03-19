@@ -1,14 +1,9 @@
 /**
  * Module dependencies.
  */
-import { createApp } from 'vue';
-import App from '@/modules/_app/app.vue';
 import _ from 'lodash';
-import config from '@/config/index.cjs';
 import model from '@/lib/middlewares/model';
 
-const app = createApp(App);
-const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
 const whitelists = ['firstName', 'lastName', 'bio', 'position', 'email', 'avatar', 'roles'];
 
 /**
@@ -22,54 +17,58 @@ const getters = {
 /**
  * Actions
  */
-const actions = {
-  getUsers: async ({ commit }, params) => {
-    try {
-      const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
-      commit('users_set', res.data.data);
-    } catch (err) {
-      commit('user_error', err);
-    }
-  },
-  getUser: async ({ commit }, params) => {
-    try {
-      const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/${params}`);
-      commit('user_set', res.data.data);
-    } catch (err) {
-      commit('user_error', err);
-    }
-  },
-  updateUser: async ({ commit, state }, params) => {
-    try {
-      const obj = model.clean(_.merge(state.user, params), whitelists);
-      const res = await app.config.globalProperties.$axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
-      commit('user_update', res.data.data);
-    } catch (err) {
-      commit('user_error', err);
-    }
-  },
-  deleteUser: async ({ commit }, params) => {
-    try {
-      await app.config.globalProperties.$axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
-      commit('user_reset');
-    } catch (err) {
-      commit('user_error', err);
-    }
-  },
-  // uploadAvatar: async ({ commit }, params) => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('img', params.file);
-  //     const res = await app.config.globalProperties.$axios.post(
-  //       `${api}/${config.api.endPoints...}/..../avatar/${params.id}`,
-  //       formData,
-  //       { headers: { 'Content-Type': 'multipart/form-data' } },
-  //     );
-  //     commit('sample_update', res.data.data);
-  //   } catch (err) {
-  //     commit('sample_error', err);
-  //   }
-  // },
+const actions = (app) => {
+  const config = app.config.globalProperties.config;
+  const api = `${config.api.protocol}://${config.api.host}:${config.api.port}/${config.api.base}`;
+  return {
+    getUsers: async ({ commit }, params) => {
+      try {
+        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
+        commit('users_set', res.data.data);
+      } catch (err) {
+        commit('user_error', err);
+      }
+    },
+    getUser: async ({ commit }, params) => {
+      try {
+        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/${params}`);
+        commit('user_set', res.data.data);
+      } catch (err) {
+        commit('user_error', err);
+      }
+    },
+    updateUser: async ({ commit, state }, params) => {
+      try {
+        const obj = model.clean(_.merge(state.user, params), whitelists);
+        const res = await app.config.globalProperties.$axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
+        commit('user_update', res.data.data);
+      } catch (err) {
+        commit('user_error', err);
+      }
+    },
+    deleteUser: async ({ commit }, params) => {
+      try {
+        await app.config.globalProperties.$axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
+        commit('user_reset');
+      } catch (err) {
+        commit('user_error', err);
+      }
+    },
+    // uploadAvatar: async ({ commit }, params) => {
+    //   try {
+    //     const formData = new FormData();
+    //     formData.append('img', params.file);
+    //     const res = await app.config.globalProperties.$axios.post(
+    //       `${api}/${config.api.endPoints...}/..../avatar/${params.id}`,
+    //       formData,
+    //       { headers: { 'Content-Type': 'multipart/form-data' } },
+    //     );
+    //     commit('sample_update', res.data.data);
+    //   } catch (err) {
+    //     commit('sample_error', err);
+    //   }
+    // },
+  };
 };
 
 /**
@@ -117,9 +116,11 @@ const state = {
 /**
  * Export default
  */
-export default {
-  state,
-  getters,
-  actions,
-  mutations,
+export default (app) => {
+  return {
+    state,
+    getters,
+    actions: actions(app),
+    mutations,
+  };
 };

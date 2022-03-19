@@ -13,18 +13,20 @@ const debug = process.env.NODE_ENV !== 'production';
 /**
  * Vuex configuration
  */
-const store = createStore({
-  state: {
-    name: 'Vue',
-  },
-  modules: {
-    core,
-    auth,
-    users,
-    home,
-    tasks,
-  },
-  strict: debug,
-});
+const getStore = (app) => {
+  return createStore({
+    state: {
+      name: 'Vue',
+    },
+    modules: {
+      core: core(app),
+      auth: auth(app),
+      users: users(app),
+      home: home(app),
+      tasks: tasks(app),
+    },
+    strict: debug,
+  });
+};
 
-export default store;
+export default getStore;

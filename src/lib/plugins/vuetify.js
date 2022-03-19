@@ -1,11 +1,12 @@
 /**
  * Module dependencies.
  */
+import '@mdi/font/css/materialdesignicons.css';
+/* eslint-disable import/extensions */
+import 'vuetify/styles';
 
+// Vuetify
 import { createVuetify } from 'vuetify';
-import config from '@/config/index.cjs';
 
-export default createVuetify({
-  theme: config.vuetify.theme,
-  icons: config.vuetify.icons,
-});
+export default createVuetify();
+// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides

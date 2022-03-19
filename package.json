@@ -1,15 +1,23 @@
 {
   "name": "@weareopensource/vue",
   "version": "0.1.0",
-  "private": false,
   "description": "Node - Boilerplate Back : Express, Jwt, Mongo, Sequelize (Beta)  (Based on meanjs and riess.js)",
+  "keywords": [
+    "vue",
+    "vuex",
+    "vuetify",
+    "jwt",
+    "jest",
+    "stack",
+    "boilerplate"
+  ],
+  "private": false,
   "author": "https://github.com/weareopensource/Vue/graphs/contributors",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/weareopensource/Vue.git"
   },
-  "type": "module",
   "engines": {
     "node": ">=10.16.3",
     "npm": ">=6.11.3"
@@ -22,12 +30,12 @@
     "commit": "npx cz",
     "generateConfig": "node ./scripts/generateConfig.js",
     "lint:vue": "vue-cli-service lint",
-    "test": "",
-    "test:lint": "./node_modules/.bin/eslint ./src",
-    "snyk-protect": "snyk protect",
     "release": "standard-version",
     "release:auto": "npx semantic-release",
+    "snyk-protect": "snyk protect",
     "start": "run-s generateConfig vue:serve",
+    "test": "",
+    "test:lint": "./node_modules/.bin/eslint ./src",
     "vue:build": "vue-cli-service build",
     "vue:serve": "vue-cli-service serve"
   },
@@ -101,15 +109,6 @@
       "path": "./node_modules/@weareopensource/conventional-changelog"
     }
   },
-  "keywords": [
-    "vue",
-    "vuex",
-    "vuetify",
-    "jwt",
-    "jest",
-    "stack",
-    "boilerplate"
-  ],
   "release": {
     "branches": [
       {

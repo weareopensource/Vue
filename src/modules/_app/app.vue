@@ -34,7 +34,7 @@ import { mapGetters } from 'vuex';
 import waosHeader from '@/modules/_core/components/core.header.component.vue';
 import waosNav from '@/modules/_core/components/core.nav.component.vue';
 import waosFooter from '@/modules/_core/components/core.footer.component.vue';
-// import * as theme from '@/lib/helpers/theme';
+import * as theme from '@/lib/helpers/theme';
 import axios from 'axios';
 
 /**
@@ -104,7 +104,7 @@ export default {
         }),
     );
     // set base theme
-    // this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
+    this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
   },
 };
 </script>

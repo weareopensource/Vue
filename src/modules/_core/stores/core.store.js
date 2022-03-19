@@ -2,13 +2,9 @@
  * Module dependencies.
  */
 // import _ from 'lodash';
-import { createApp } from 'vue';
-import App from '@/modules/_app/app.vue';
 import _ from 'lodash';
 import * as theme from '@/lib/helpers/theme';
 import config from '@/config/index.cjs';
-
-const app = createApp(App);
 
 /**
  * Getters: get state
@@ -23,28 +19,30 @@ const getters = {
 /**
  * Actions
  */
-const actions = {
-  refreshNav: ({ commit, rootGetters }) => {
-    const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
-      ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
-      : [];
-    const nav = _.orderBy(
-      _.pickBy(app.config.globalProperties.$routes, (i) => {
-        if (i.meta.display !== false) {
-          // hidden item
-          if (!('roles' in i.meta)) return i; // auth undefined, always displayed
-          if (!i.meta.roles && !rootGetters.isLoggedIn) return i; // auth false, not logged
-          if (i.meta.roles && rootGetters.isLoggedIn && i.meta.roles.some((r) => userRoles.includes(r))) {
-            return i; // auth true and loggedd
+const actions = (app) => {
+  return {
+    refreshNav: ({ commit, rootGetters }) => {
+      const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
+        ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
+        : [];
+      const nav = _.orderBy(
+        _.pickBy(app.config.globalProperties.$routes, (i) => {
+          if (i.meta.display !== false) {
+            // hidden item
+            if (!('roles' in i.meta)) return i; // auth undefined, always displayed
+            if (!i.meta.roles && !rootGetters.isLoggedIn) return i; // auth false, not logged
+            if (i.meta.roles && rootGetters.isLoggedIn && i.meta.roles.some((r) => userRoles.includes(r))) {
+              return i; // auth true and loggedd
+            }
           }
-        }
-        return null;
-      }),
-      ['meta.roles'],
-      ['desc'],
-    );
-    commit('set_nav', nav);
-  },
+          return null;
+        }),
+        ['meta.roles'],
+        ['desc'],
+      );
+      commit('set_nav', nav);
+    },
+  };
 };
 
 /**
@@ -65,19 +63,23 @@ const mutations = {
 /**
  * State
  */
-const state = {
-  drawer: config.vuetify.drawer.model,
-  mini: config.vuetify.drawer.mini,
-  theme: theme.isDark(config.vuetify.theme.dark) ? 'dark' : 'light',
-  nav: [],
+const state = (app) => {
+  return {
+    drawer: app.config.globalProperties.config.vuetify.drawer.model,
+    mini: app.config.globalProperties.config.vuetify.drawer.mini,
+    theme: theme.isDark(app.config.globalProperties.config.vuetify.theme.dark) ? 'dark' : 'light',
+    nav: [],
+  };
 };
 
 /**
  * Export default
  */
-export default {
-  state,
-  getters,
-  actions,
-  mutations,
+export default (app) => {
+  return {
+    state: state(app),
+    getters,
+    actions: actions(app),
+    mutations,
+  };
 };
