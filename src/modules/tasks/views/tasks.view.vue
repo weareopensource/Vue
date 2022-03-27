@@ -40,7 +40,7 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import taskComponent from '@/modules/tasks/components/task.component.vue';
+import taskComponent from '../components/task.component.vue';
 /**
  * Export default
  */

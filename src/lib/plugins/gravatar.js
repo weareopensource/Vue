@@ -1,7 +1,7 @@
-/**
- * Module dependencies.
- */
-// import Vue from 'vue';
-// import Gravatar from 'vue-gravatar';
+// /**
+//  * Module dependencies.
+//  */
+// // import Vue from 'vue';
+// // import Gravatar from 'vue-gravatar';
 
-// Vue.component('v-gravatar', Gravatar);
+// // Vue.component('v-gravatar', Gravatar);

@@ -1,9 +1,9 @@
 /**
  * Module dependencies.
  */
-import home from '@/modules/home/views/home.view.vue';
-import pages from '@/modules/home/views/pages.view.vue';
-import team from '@/modules/home/views/team.view.vue';
+import home from '../views/home.view.vue';
+import pages from '../views/pages.view.vue';
+import team from '../views/team.view.vue';
 
 /**
  * Router configuration
@@ -14,7 +14,7 @@ export default [
     name: 'toto', // todo: get from config
     component: home,
     meta: {
-      icon: 'home',
+      icon: 'fa-solid fa-house',
     },
   },
   {

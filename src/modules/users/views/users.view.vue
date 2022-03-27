@@ -53,7 +53,7 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import * as tools from '@/lib/helpers/tools';
+import * as tools from '../../../lib/helpers/tools';
 import userAvatarComponent from '../components/user.avatar.component.vue';
 
 /**

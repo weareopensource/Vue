@@ -3,7 +3,7 @@
  */
 import _ from 'lodash';
 import GhostContentAPI from '@tryghost/content-api';
-import * as tools from '@/lib/helpers/tools';
+import * as tools from '../../../lib/helpers/tools';
 
 /**
  * Getters: get state
@@ -25,7 +25,7 @@ const actions = (app) => {
   return {
     getTeam: async ({ commit }) => {
       try {
-        const team = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.home}/team`);
+        const team = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.home}/team`);
         commit('team_set', team.data.data);
       } catch (err) {
         commit('error', err);
@@ -33,7 +33,7 @@ const actions = (app) => {
     },
     getChangelogs: async ({ commit }) => {
       try {
-        const changelogs = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.home}/changelogs`);
+        const changelogs = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.home}/changelogs`);
         commit(
           'contents_set',
           changelogs.data.data.map((item) => ({
@@ -48,7 +48,7 @@ const actions = (app) => {
     },
     getPages: async ({ commit }, name) => {
       try {
-        const pages = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.home}/pages/${name}`);
+        const pages = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.home}/pages/${name}`);
         commit(
           'contents_set',
           pages.data.data.map((item) => {
@@ -80,9 +80,9 @@ const actions = (app) => {
     },
     getStatistics: async ({ commit }) => {
       try {
-        const tasks = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.tasks}/stats`);
-        const releases = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.home}/releases`);
-        const users = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/stats`);
+        const tasks = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.tasks}/stats`);
+        const releases = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.home}/releases`);
+        const users = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.users}/stats`);
         commit('statistics_set', {
           tasks: tasks.data.data,
           releases: releases.data.data,

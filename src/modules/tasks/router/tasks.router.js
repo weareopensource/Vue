@@ -13,7 +13,7 @@ export default [
     name: 'Tasks',
     component: tasks,
     meta: {
-      icon: 'tasks',
+      icon: 'fa-solid fa-list-check',
     },
   },
   {

@@ -9,7 +9,7 @@
       title: 'Stacks',
       data: [
         {
-          icon: 'fab fa-vuejs',
+          icon: 'fa-brand fa-vuejs',
           title: 'Vue',
           text: '**Alpha Front Stack** <br> Classic auth with landing page ...',
           color: '#186b9f',

@@ -31,28 +31,27 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import waosHeader from '@/modules/_core/components/core.header.component.vue';
-import waosNav from '@/modules/_core/components/core.nav.component.vue';
-import waosFooter from '@/modules/_core/components/core.footer.component.vue';
-import * as theme from '@/lib/helpers/theme';
-import axios from 'axios';
+import waosHeader from '../_core/components/core.header.component.vue';
+import waosNav from '../_core/components/core.nav.component.vue';
+import waosFooter from '../_core/components/core.footer.component.vue';
+import * as theme from '../../lib/helpers/theme';
 
 /**
  * Export default
  */
 export default {
   name: 'App',
-  metaInfo() {
-    return {
-      title: this.config.app.title,
-      titleTemplate: `%s | ${this.$route.params.name || this.$route.name}`,
-      meta: [
-        { name: 'description', content: this.config.app.description },
-        { name: 'keywords', content: this.config.app.keywords },
-        { name: 'author', content: this.config.app.author },
-      ],
-    };
-  },
+  // metaInfo() { todo
+  //   return {
+  //     title: this.config.app.title,
+  //     titleTemplate: `%s | ${this.$route.params.name || this.$route.name}`,
+  //     meta: [
+  //       { name: 'description', content: this.config.app.description },
+  //       { name: 'keywords', content: this.config.app.keywords },
+  //       { name: 'author', content: this.config.app.author },
+  //     ],
+  //   };
+  // },
   data() {
     return {
       snackbar: {
@@ -73,7 +72,7 @@ export default {
   },
   created() {
     // auth
-    axios.interceptors.response.use(
+    this.axios.interceptors.response.use(
       (response) => {
         if (
           this.config.vuetify.theme.snackbar.status &&

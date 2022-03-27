@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import _ from 'lodash';
-import model from '@/lib/middlewares/model';
+import model from '../../../lib/middlewares/model';
 
 const whitelists = ['firstName', 'lastName', 'bio', 'position', 'email', 'avatar', 'roles'];
 
@@ -23,7 +23,7 @@ const actions = (app) => {
   return {
     getUsers: async ({ commit }, params) => {
       try {
-        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
+        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.users}/page/${params}`);
         commit('users_set', res.data.data);
       } catch (err) {
         commit('user_error', err);
@@ -31,7 +31,7 @@ const actions = (app) => {
     },
     getUser: async ({ commit }, params) => {
       try {
-        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.users}/${params}`);
+        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.users}/${params}`);
         commit('user_set', res.data.data);
       } catch (err) {
         commit('user_error', err);
@@ -40,7 +40,7 @@ const actions = (app) => {
     updateUser: async ({ commit, state }, params) => {
       try {
         const obj = model.clean(_.merge(state.user, params), whitelists);
-        const res = await app.config.globalProperties.$axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
+        const res = await app.config.globalProperties.axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
         commit('user_update', res.data.data);
       } catch (err) {
         commit('user_error', err);
@@ -48,7 +48,7 @@ const actions = (app) => {
     },
     deleteUser: async ({ commit }, params) => {
       try {
-        await app.config.globalProperties.$axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
+        await app.config.globalProperties.axios.delete(`${api}/${config.api.endPoints.users}/${params.id}`);
         commit('user_reset');
       } catch (err) {
         commit('user_error', err);
@@ -58,7 +58,7 @@ const actions = (app) => {
     //   try {
     //     const formData = new FormData();
     //     formData.append('img', params.file);
-    //     const res = await app.config.globalProperties.$axios.post(
+    //     const res = await app.config.globalProperties.axios.post(
     //       `${api}/${config.api.endPoints...}/..../avatar/${params.id}`,
     //       formData,
     //       { headers: { 'Content-Type': 'multipart/form-data' } },

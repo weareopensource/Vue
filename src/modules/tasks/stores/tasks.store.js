@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import _ from 'lodash';
-import model from '@/lib/middlewares/model';
+import model from '../../../lib/middlewares/model';
 
 const whitelists = ['title', 'description'];
 
@@ -24,7 +24,7 @@ const actions = (app) => {
   return {
     getTasks: async ({ commit }) => {
       try {
-        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.tasks}/`);
+        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.tasks}/`);
         commit('tasks_set', res.data.data);
       } catch (err) {
         commit('task_error', err);
@@ -32,7 +32,7 @@ const actions = (app) => {
     },
     getTask: async ({ commit }, params) => {
       try {
-        const res = await app.config.globalProperties.$axios.get(`${api}/${config.api.endPoints.tasks}/${params}`);
+        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.tasks}/${params}`);
         commit('task_set', res.data.data);
       } catch (err) {
         commit('task_error', err);
@@ -41,7 +41,7 @@ const actions = (app) => {
     createTask: async ({ commit }, params) => {
       try {
         const obj = model.clean(params, whitelists);
-        const res = await app.config.globalProperties.$axios.post(`${api}/${config.api.endPoints.tasks}/`, obj);
+        const res = await app.config.globalProperties.axios.post(`${api}/${config.api.endPoints.tasks}/`, obj);
         commit('task_set', res.data.data);
       } catch (err) {
         commit('task_error', err);
@@ -50,7 +50,7 @@ const actions = (app) => {
     updateTask: async ({ commit, state }, params) => {
       try {
         const obj = model.clean(_.merge(state.task, params), whitelists);
-        const res = await app.config.globalProperties.$axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
+        const res = await app.config.globalProperties.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
         commit('task_update', res.data.data);
       } catch (err) {
         commit('task_error', err);
@@ -58,7 +58,7 @@ const actions = (app) => {
     },
     deleteTask: async ({ commit }, params) => {
       try {
-        await app.config.globalProperties.$axios.delete(`${api}/${config.api.endPoints.tasks}/${params.id}`);
+        await app.config.globalProperties.axios.delete(`${api}/${config.api.endPoints.tasks}/${params.id}`);
         commit('task_reset');
       } catch (err) {
         commit('task_error', err);

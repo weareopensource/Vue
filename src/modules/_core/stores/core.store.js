@@ -3,15 +3,14 @@
  */
 // import _ from 'lodash';
 import _ from 'lodash';
-import * as theme from '@/lib/helpers/theme';
-import config from '@/config/index.cjs';
+import * as theme from '../../../lib/helpers/theme';
+import config from '../../../config/index.cjs';
 
 /**
  * Getters: get state
  */
 const getters = {
   drawer: (state) => state.drawer,
-  mini: (state) => state.mini,
   theme: (state) => state.theme,
   nav: (state) => state.nav,
 };
@@ -26,7 +25,7 @@ const actions = (app) => {
         ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
         : [];
       const nav = _.orderBy(
-        _.pickBy(app.config.globalProperties.$routes, (i) => {
+        _.pickBy(app.config.globalProperties.routes, (i) => {
           if (i.meta.display !== false) {
             // hidden item
             if (!('roles' in i.meta)) return i; // auth undefined, always displayed
@@ -65,8 +64,7 @@ const mutations = {
  */
 const state = (app) => {
   return {
-    drawer: app.config.globalProperties.config.vuetify.drawer.model,
-    mini: app.config.globalProperties.config.vuetify.drawer.mini,
+    drawer: app.config.globalProperties.config.vuetify.theme.navigation.drawer.model,
     theme: theme.isDark(app.config.globalProperties.config.vuetify.theme.dark) ? 'dark' : 'light',
     nav: [],
   };

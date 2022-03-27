@@ -42,7 +42,7 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import userAvatarComponent from '@/modules/users/components/user.avatar.component.vue';
+import userAvatarComponent from '../../users/components/user.avatar.component.vue';
 
 /**
  * Export default

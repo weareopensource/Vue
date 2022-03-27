@@ -1,17 +1,14 @@
 <template>
   <v-navigation-drawer
     v-model="drawer"
-    :clipped="config.vuetify.drawer.clipped"
-    :floating="config.vuetify.drawer.floating"
-    :mini-variant="mini"
-    :permanent="config.vuetify.drawer.type === 'permanent'"
-    :temporary="config.vuetify.drawer.type === 'temporary'"
+    :floating="config.vuetify.theme.navigation.drawer.floating"
+    :permanent="config.vuetify.theme.navigation.drawer.type === 'permanent'"
+    :temporary="config.vuetify.theme.navigation.drawer.type === 'temporary'"
     :style="{ background: config.vuetify.theme.themes[theme].primary }"
-    :src="config.vuetify.theme.navigation.background"
-    app
+    :expand-on-hover="config.vuetify.theme.navigation.drawer.expand"
+    :rail="config.vuetify.theme.navigation.drawer.rail"
   >
-    <v-list dense>
-      <!--<v-subheader class="mt-4 grey--text text--darken-1">Navigation</v-subheader>-->
+    <v-list :style="{ background: config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary }" nav>
       <v-list-item
         v-for="item in nav"
         :key="item.text"
@@ -24,26 +21,15 @@
             : 'border-left: 4px solid transparent;'
         "
       >
-        <v-list-item-action
-          :style="config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path) ? 'margin-left: -4px;' : 'margin-left: -4px;'"
-        >
-          <v-tooltip right>
-            <template v-slot:activator="{ on, attrs }">
-              <v-icon
-                v-bind="attrs"
-                v-on="on"
-                :style="{
-                  color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].onPrimary,
-                }"
-                >fa-{{ item.meta.icon }}</v-icon
-              >
-            </template>
-            <span>{{ item.name }}</span>
-          </v-tooltip>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">{{ item.name }}</v-list-item-title>
-        </v-list-item-content>
+        <v-list-item-avatar left>
+          <v-icon
+            :icon="item.meta.icon"
+            :style="{
+              color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].onPrimary,
+            }"
+          ></v-icon>
+        </v-list-item-avatar>
+        <v-list-item-title v-text="item.name"></v-list-item-title>
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
@@ -76,14 +62,6 @@ export default {
       },
       set(v) {
         return this.$store.commit('set_drawer', v);
-      },
-    },
-    mini: {
-      get() {
-        return this.$store.getters.mini;
-      },
-      set(v) {
-        return this.$store.commit('set_mini', v);
       },
     },
   },
