@@ -12,8 +12,7 @@ const getBaseConfiguration = async () => {
   const _path = path.join(process.cwd(), './src/config', 'defaults', `${process.env.NODE_ENV}.cjs`);
   if (fs.existsSync(`${_path}`)) {
     console.log(`+ Configuration based on : "${process.env.NODE_ENV}"`);
-
-    return await import(_path);
+    return await import(path.join('file://', _path));
   }
   console.error(`+ Error: No configuration file found for "${process.env.NODE_ENV}" environment using development instead`);
   return await import(path.join(process.cwd(), './src/config', 'defaults', 'development.cjs'));
