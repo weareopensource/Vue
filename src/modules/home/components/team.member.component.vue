@@ -21,7 +21,7 @@
       </v-img>
       <v-card-actions>
         {{ item.firstName }} {{ item.lastName }}
-        <span class="pl-4 secondary--text" v-if="item.position && item.position !== ''"> {{ item.position }}</span>
+        <span class="pl-4 text-secondary" v-if="item.position && item.position !== ''"> {{ item.position }}</span>
         <v-spacer></v-spacer>
         <v-btn icon @click="show = !show">
           <v-icon>{{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}</v-icon>

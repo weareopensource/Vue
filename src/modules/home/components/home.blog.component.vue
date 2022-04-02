@@ -17,9 +17,7 @@
 <template>
   <section id="blog" class="py-12" :style="custom && custom.section ? custom.section : null" v-if="news.length > 0">
     <v-container>
-      <h2 class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase" v-if="title">
-        <a :href="url" style="font-weight: inherit; color: inherit !important">{{ title }}</a>
-      </h2>
+      <h2 class="font-weight-bold mb-3 pb-8 text-h4 text-center" style="text-transform: uppercase !important" v-if="title" v-text="title"></h2>
       <v-row>
         <v-col v-for="({ feature_image, excerpt, title, url }, i) in news" :key="i" cols="12" md="4" data-aos="fade-up">
           <!-- eslint-disable-next-line -->

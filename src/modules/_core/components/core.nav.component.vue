@@ -33,11 +33,9 @@
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
-      <div class="pa-2 caption" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
-        <center>
-          <span role="img" aria-label="copyright"> &copy; </span>
-          <a href="https://weareopensource.me">WAOS</a>
-        </center>
+      <div class="pa-2 d-flex justify-center" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
+        <span role="img" aria-label="copyright"> &copy; </span>
+        <a href="https://weareopensource.me">WAOS</a>
       </div>
     </template>
   </v-navigation-drawer>

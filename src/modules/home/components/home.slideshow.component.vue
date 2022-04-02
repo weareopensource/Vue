@@ -47,7 +47,7 @@
               <v-container fill-height fluid class="hidden-sm-and-down">
                 <v-row>
                   <v-col cols="12">
-                    <v-row align="center" :justify="position ? position : 'center'" class="text-center display-2 pa-10 ma-10">
+                    <v-row align="center" :justify="position ? position : 'center'" class="text-center pa-10 ma-10">
                       <v-col cols="6" md="4">
                         <h3
                           :style="{
@@ -64,7 +64,7 @@
               <v-container fluid class="hidden-md-and-up">
                 <v-row>
                   <v-col cols="12">
-                    <v-row align="start" justify="center" class="text-center display-1">
+                    <v-row align="start" justify="center" class="text-center">
                       <v-col cols="12" md="12" class="mt-0 pt-0">
                         <h5
                           :style="{
@@ -85,9 +85,12 @@
     </v-carousel>
     <!-- slideshow with text -->
     <v-container v-else class="text-center">
-      <h2 class="display-1 font-weight-bold mb-3 text-uppercase" v-if="slides.title">
-        {{ slides.title }}
-      </h2>
+      <h2
+        class="font-weight-bold mb-3 pb-8 text-h4 text-center"
+        style="text-transform: uppercase !important"
+        v-if="slides.title"
+        v-text="slides.title"
+      ></h2>
       <v-carousel
         cycle
         :height="height + 100"

@@ -5,9 +5,13 @@
 <template>
   <section id="contact" class="py-12">
     <v-container>
-      <h2 class="display-1 font-weight-bold mb-3 pb-8 text-center text-uppercase" v-if="config.home.contact.title">
-        {{ config.home.contact.title }}
-      </h2>
+      <h2
+        class="font-weight-bold mb-3 pb-8 text-h4 text-center"
+        style="text-transform: uppercase !important"
+        v-if="config.home.contact.title"
+        v-text="config.home.contact.title"
+      ></h2>
+
       <v-theme-provider light>
         <v-form ref="form">
           <v-row>
