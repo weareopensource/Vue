@@ -6,7 +6,7 @@
     <taskComponent v-for="(item, index) in tasks" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></taskComponent>
     <v-row v-if="!tasks || !tasks.length" align="start" justify="center">
       <v-col cols="12">
-        <v-card class="ma-6 pa-6" :style="{ background: config.vuetify.theme.themes[theme].surface }" :flat="config.vuetify.theme.flat">
+        <v-card class="ma-6 pa-6" :style="{ background: config.vuetify.theme.themes[theme].colors.surface }" :flat="config.vuetify.theme.flat">
           <h2 class="text-center">No Tasks found :( !</h2>
         </v-card>
       </v-col>

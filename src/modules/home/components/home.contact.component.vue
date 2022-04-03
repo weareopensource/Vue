@@ -22,9 +22,9 @@
           <v-col class="mx-auto" cols="auto">
             <v-btn
               @click="sendMail()"
-              :color="config.vuetify.theme.themes[theme].secondary"
+              :color="config.vuetify.theme.themes[theme].colors.secondary"
               :style="{
-                color: config.vuetify.theme.themes[theme].onSecondary,
+                color: config.vuetify.theme.themes[theme].colors.onSecondary,
               }"
               depressed
               x-large

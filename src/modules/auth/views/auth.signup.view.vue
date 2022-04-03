@@ -1,7 +1,12 @@
 <template>
   <v-container fluid>
     <v-row align="start" justify="center">
-      <v-card class="ma-6 pa-6" width="100%" :style="{ background: config.vuetify.theme.themes[theme].surface }" :flat="config.vuetify.theme.flat">
+      <v-card
+        class="ma-6 pa-6"
+        width="100%"
+        :style="{ background: config.vuetify.theme.themes[theme].colors.surface }"
+        :flat="config.vuetify.theme.flat"
+      >
         <v-col cols="12">
           <v-subheader><h4>Sign Up</h4></v-subheader>
           <v-divider></v-divider>

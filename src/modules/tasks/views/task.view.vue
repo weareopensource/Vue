@@ -17,7 +17,7 @@
     <!-- First Form -->
     <v-row class="mx-0">
       <v-col cols="12" sm="12" md="6" lg="8" xl="9">
-        <v-card class="pa-6" :style="{ background: config.vuetify.theme.themes[theme].surface }" :flat="config.vuetify.theme.flat">
+        <v-card class="pa-6" :style="{ background: config.vuetify.theme.themes[theme].colors.surface }" :flat="config.vuetify.theme.flat">
           <v-form ref="form" v-model="valid">
             <v-row>
               <v-col cols="12">

@@ -1,18 +1,18 @@
 <template>
   <v-app-bar
     :style="{
-      background: config.vuetify.theme.themes[theme].primary,
-      color: config.vuetify.theme.themes[theme].onPrimary,
+      background: config.vuetify.theme.themes[theme].colors.primary,
+      color: config.vuetify.theme.themes[theme].colors.onPrimary,
     }"
     :flat="config.vuetify.theme.flat"
   >
     <!-- Navigation button -->
     <template v-slot:prepend v-if="config.vuetify.theme.navigation.ifLogged">
       <!-- v-if="isLoggedIn" -->
-      <v-app-bar-nav-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
     <template v-slot:prepend v-else>
-      <v-app-bar-nav-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
     <!-- Title -->
     <v-app-bar-title>
@@ -23,14 +23,14 @@
     <v-btn v-for="({ icon, label, url }, i) in config.header.socials" :key="i" class="hidden-sm-and-down" icon>
       <v-tooltip :text="label" activator="parent" anchor="bottom" />
       <a :href="url">
-        <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">{{ icon }}</v-icon>
+        <v-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">{{ icon }}</v-icon>
       </a>
     </v-btn>
     <!-- Mobile Menu -->
     <v-menu>
       <template v-slot:activator="{ props }">
         <v-btn v-bind="props" class="hidden-md-and-up" icon>
-          <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">fa-solid fa-ellipsis</v-icon>
+          <v-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">fa-solid fa-ellipsis</v-icon>
         </v-btn>
       </template>
       <v-list>
@@ -46,12 +46,12 @@
     <v-btn v-if="!isLoggedIn && config.sign.in" icon>
       <v-tooltip text="Sign In" activator="parent" anchor="bottom" />
       <router-link to="/signin">
-        <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">fa-solid fa-user</v-icon>
+        <v-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">fa-solid fa-user</v-icon>
       </router-link>
     </v-btn>
     <v-btn v-if="isLoggedIn" @click="signout" icon>
       <v-tooltip text="Sign Out" activator="parent" anchor="bottom" />
-      <v-icon :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">fa-solid fa-arrow-right</v-icon>
+      <v-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">fa-solid fa-arrow-right</v-icon>
     </v-btn>
   </v-app-bar>
 </template>

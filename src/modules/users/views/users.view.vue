@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout class="ma-3" wrap align-content-space-around text-xs-center>
-      <v-card width="100%" :style="{ background: config.vuetify.theme.themes[theme].surface }" :flat="config.vuetify.theme.flat">
+      <v-card width="100%" :style="{ background: config.vuetify.theme.themes[theme].colors.surface }" :flat="config.vuetify.theme.flat">
         <v-card-title>
           Users
           <v-spacer></v-spacer>
@@ -19,7 +19,7 @@
           :footer-props="{
             'items-per-page-options': perPage,
           }"
-          :style="{ background: config.vuetify.theme.themes[theme].surface }"
+          :style="{ background: config.vuetify.theme.themes[theme].colors.surface }"
           :flat="config.vuetify.theme.flat"
         >
           <template v-slot:[`item.avatar`]="{ item }">
@@ -39,7 +39,7 @@
       </v-card>
       <v-row v-if="!users.length" align="start" justify="center">
         <v-col cols="12">
-          <v-card :style="{ background: config.vuetify.theme.themes[theme].surface }" :flat="config.vuetify.theme.flat">
+          <v-card :style="{ background: config.vuetify.theme.themes[theme].colors.surface }" :flat="config.vuetify.theme.flat">
             <h2 class="text-center">No Users found :( !</h2>
           </v-card>
         </v-col>

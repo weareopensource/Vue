@@ -2,7 +2,7 @@
   - Call example
     <homeSlideshowComponent
       v-bind:slides="slideshow"
-      v-bind:custom="{ section: { background: config.vuetify.theme.themes[theme].surface } }"
+      v-bind:custom="{ section: { background: config.vuetify.theme.themes[theme].colors.surface } }"
       v-bind:height="pageHeight / 1.75"
       v-bind:full="true"
       v-bind:interval="10000"
@@ -51,7 +51,7 @@
                       <v-col cols="6" md="4">
                         <h3
                           :style="{
-                            color: color || config.vuetify.theme.themes[theme].onPrimary,
+                            color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
                           }"
                         >
                           {{ text }}
@@ -68,7 +68,7 @@
                       <v-col cols="12" md="12" class="mt-0 pt-0">
                         <h5
                           :style="{
-                            color: color || config.vuetify.theme.themes[theme].onPrimary,
+                            color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
                           }"
                         >
                           {{ text }}
@@ -121,7 +121,7 @@
                     v-if="title"
                     class="justify-center font-weight-black text-uppercase"
                     :style="{
-                      color: color || config.vuetify.theme.themes[theme].onBackground,
+                      color: color || config.vuetify.theme.themes[theme].colors.onBackground,
                     }"
                     v-text="title"
                   ></v-card-title>

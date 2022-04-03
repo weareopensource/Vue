@@ -1,8 +1,8 @@
 <template>
   <v-footer
     :style="{
-      background: this.config.vuetify.theme.themes[theme].primary,
-      color: config.vuetify.theme.themes[theme].onPrimary,
+      background: this.config.vuetify.theme.themes[theme].colors.primary,
+      color: config.vuetify.theme.themes[theme].colors.onPrimary,
     }"
     app
   >

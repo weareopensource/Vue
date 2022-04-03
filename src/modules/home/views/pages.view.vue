@@ -15,7 +15,7 @@
             :key="content.title"
             :href="`#tab-${content.title}`"
             :style="{
-              background: config.vuetify.theme.themes[theme].background,
+              background: config.vuetify.theme.themes[theme].colors.background,
             }"
             >{{ content.title }}</v-tab
           >
@@ -23,8 +23,8 @@
             <v-card
               flat
               :style="{
-                background: config.vuetify.theme.themes[theme].surface,
-                color: config.vuetify.theme.themes[theme].onSurface,
+                background: config.vuetify.theme.themes[theme].colors.surface,
+                color: config.vuetify.theme.themes[theme].colors.onSurface,
               }"
             >
               <v-card-text class="pa-4">
@@ -39,8 +39,8 @@
         <v-card
           flat
           :style="{
-            background: config.vuetify.theme.themes[theme].surface,
-            color: config.vuetify.theme.themes[theme].onSurface,
+            background: config.vuetify.theme.themes[theme].colors.surface,
+            color: config.vuetify.theme.themes[theme].colors.onSurface,
           }"
         >
           <v-card-text class="pa-4">
@@ -52,7 +52,7 @@
     <homeLinksComponent
       v-bind:links="config.home.links"
       v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].surface },
+        section: { background: config.vuetify.theme.themes[theme].colors.surface },
       }"
     ></homeLinksComponent>
   </div>

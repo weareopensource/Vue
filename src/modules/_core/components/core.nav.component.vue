@@ -4,11 +4,14 @@
     :floating="config.vuetify.theme.navigation.drawer.floating"
     :permanent="config.vuetify.theme.navigation.drawer.type === 'permanent'"
     :temporary="config.vuetify.theme.navigation.drawer.type === 'temporary'"
-    :style="{ background: config.vuetify.theme.themes[theme].primary }"
+    :style="{ background: config.vuetify.theme.themes[theme].colors.primary }"
     :expand-on-hover="config.vuetify.theme.navigation.drawer.expand"
     :rail="config.vuetify.theme.navigation.drawer.rail"
   >
-    <v-list :style="{ background: config.vuetify.theme.themes[theme].primary, color: config.vuetify.theme.themes[theme].onPrimary }" nav>
+    <v-list
+      :style="{ background: config.vuetify.theme.themes[theme].colors.primary, color: config.vuetify.theme.themes[theme].colors.onPrimary }"
+      nav
+    >
       <v-list-item
         v-for="item in nav"
         :key="item.text"
@@ -16,7 +19,7 @@
         :style="
           config.vuetify.theme.navigation.selectBorder && testRoute(item.path, $route.path)
             ? `border-left: 4px solid ${
-                (item.meta.color && item.meta.color.border) || config.vuetify.theme.themes[theme][config.vuetify.theme.navigation.selectBorder]
+                (item.meta.color && item.meta.color.border) || config.vuetify.theme.themes[theme].colors[config.vuetify.theme.navigation.selectBorder]
               };`
             : 'border-left: 4px solid transparent;'
         "
@@ -25,7 +28,7 @@
           <v-icon
             :icon="item.meta.icon"
             :style="{
-              color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].onPrimary,
+              color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].colors.onPrimary,
             }"
           ></v-icon>
         </v-list-item-avatar>
@@ -33,7 +36,7 @@
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
-      <div class="pa-2 d-flex justify-center" :style="{ color: config.vuetify.theme.themes[theme].onPrimary }">
+      <div class="pa-2 d-flex justify-center" :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">
         <span role="img" aria-label="copyright"> &copy; </span>
         <a href="https://weareopensource.me">WAOS</a>
       </div>

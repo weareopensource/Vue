@@ -18,7 +18,7 @@
 
     <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
 
-    <v-main :style="{ background: config.vuetify.theme.themes[theme].background }">
+    <v-main :style="{ background: config.vuetify.theme.themes[theme].colors.background }">
       <router-view />
     </v-main>
 
