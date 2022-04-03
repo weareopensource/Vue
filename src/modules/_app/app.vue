@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" :theme="theme">
     <v-snackbar
       v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
@@ -34,7 +34,6 @@ import { mapGetters } from 'vuex';
 import waosHeader from '../_core/components/core.header.component.vue';
 import waosNav from '../_core/components/core.nav.component.vue';
 import waosFooter from '../_core/components/core.footer.component.vue';
-// import * as theme from '../../lib/helpers/theme';
 
 /**
  * Export default
@@ -103,7 +102,6 @@ export default {
         }),
     );
     // set base theme
-    // this.$vuetify.theme.dark = theme.isDark(this.config.vuetify.theme.dark);
   },
 };
 </script>
