@@ -30,7 +30,7 @@
           </v-avatar>
           <br v-if="link" />
           <v-btn v-if="link" color="grey" :href="link" large>
-            <span class="text-grey text--darken-1 font-weight-bold" v-text="button"></span>
+            <span v-text="button"></span>
           </v-btn>
         </v-col>
       </v-row>
