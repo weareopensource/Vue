@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-btn v-if="!isLoggedIn" icon to="/task" color="success" elevation="0" style="position: absolute; right: 10px; z-index: 1">
+    <v-btn v-if="isLoggedIn" icon to="/task" color="success" elevation="0" style="position: absolute; right: 10px; z-index: 1">
       <v-icon icon="fa-solid fa-plus"></v-icon>
     </v-btn>
     <taskComponent v-for="(item, index) in tasks" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></taskComponent>
