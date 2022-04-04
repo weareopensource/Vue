@@ -40,46 +40,24 @@
       :interval="interval || 6000"
       style="max-height: 900px !important"
     >
-      <v-carousel-item v-for="({ img, text, position, dark, color }, i) in slides.data" :key="i">
-        <v-sheet color="transparent" height="100%" style="max-height: 900px !important">
-          <v-row class="fill-height" align="center" justify="center">
-            <v-img :src="dark ? `${img.split('.')[0]}-${theme}.${img.split('.')[1]}` : img" class="mb-4" height="100%" max-width="100%">
-              <v-container fill-height fluid class="hidden-sm-and-down">
-                <v-row>
-                  <v-col cols="12">
-                    <v-row align="center" :justify="position ? position : 'center'" class="text-center pa-10 ma-10">
-                      <v-col cols="6" md="4">
-                        <h3
-                          :style="{
-                            color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
-                          }"
-                        >
-                          {{ text }}
-                        </h3>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                </v-row>
-              </v-container>
-              <v-container fluid class="hidden-md-and-up">
-                <v-row>
-                  <v-col cols="12">
-                    <v-row align="start" justify="center" class="text-center">
-                      <v-col cols="12" md="12" class="mt-0 pt-0">
-                        <h5
-                          :style="{
-                            color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
-                          }"
-                        >
-                          {{ text }}
-                        </h5>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-img>
-          </v-row>
+      <v-carousel-item
+        v-for="({ img, text, dark, color, position }, i) in slides.data"
+        :key="i"
+        :src="dark ? `${img.split('.')[0]}-${theme}.${img.split('.')[1]}` : img"
+        cover
+      >
+        <v-sheet color="transparent" height="100%">
+          <div class="d-flex fill-height justify-center align-center" :style="{ float: position && !$vuetify.display.smAndDown ? position : 'none' }">
+            <div
+              class="text-h3"
+              :style="{
+                color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
+                margin: '50px',
+              }"
+            >
+              {{ text }}
+            </div>
+          </div>
         </v-sheet>
       </v-carousel-item>
     </v-carousel>
@@ -103,12 +81,7 @@
           <v-sheet color="transparent" height="100%">
             <v-row justify="center" align="center" class="fill-height">
               <v-col cols="12" :md="mdImage || 6">
-                <v-img
-                  :src="dark ? `${img.split('.')[0]}-${theme}.${img.split('.')[1]}` : img"
-                  class="mb-4 rounded-xl"
-                  :height="height"
-                  max-width="100%"
-                ></v-img>
+                <v-img :src="dark ? `${img.split('.')[0]}-${theme}.${img.split('.')[1]}` : img" class="mb-4" :height="height"></v-img>
               </v-col>
               <v-col v-if="title || text || icon" cols="12" :md="mdText || 6">
                 <v-card class="py-12 px-4" :flat="config.vuetify.theme.flat" color="rgb(255, 255, 255, 0)">
