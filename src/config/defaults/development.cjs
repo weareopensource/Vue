@@ -173,7 +173,7 @@ module.exports = {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
         },
         {
-          icon: 'fa-solid fa-rectangle-history',
+          icon: 'fa-solid fa-headset',
           title: 'Long-term Support',
           text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque \
             harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
