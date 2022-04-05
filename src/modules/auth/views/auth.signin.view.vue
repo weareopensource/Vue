@@ -34,7 +34,8 @@
             </v-row>
             <v-row>
               <v-col cols="6">
-                <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
+                <!-- TODO fix diabled <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn> -->
+                <v-btn color="success" class="mr-4" @click="validate">Validate</v-btn>
                 <v-btn v-if="config.oAuth.google" :href="`${oAuth}/google`" class="text-white mr-4 blue"><v-icon>fab fa-google</v-icon> </v-btn>
                 <v-btn v-if="config.oAuth.apple" :href="`${oAuth}/apple`" class="text-white mr-4 grey darken-2"><v-icon>fab fa-apple</v-icon> </v-btn>
               </v-col>
@@ -93,8 +94,8 @@ export default {
     },
   },
   methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
+    async validate() {
+      if (await this.$refs.form.validate().valid) {
         const { email } = this;
         const { password } = this;
         this.$store.dispatch('signin', { email, password }).catch((err) => console.log(err));

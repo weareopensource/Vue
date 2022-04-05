@@ -66,8 +66,8 @@ export default {
     ...mapGetters(['theme', 'mail']),
   },
   methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
+    async validate() {
+      if (await this.$refs.form.validate().valid) {
         const { password } = this;
         this.$store
           .dispatch('reset', { newPassword: password, token: this.$route.query.token })

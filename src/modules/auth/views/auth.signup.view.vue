@@ -94,8 +94,8 @@ export default {
     },
   },
   methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
+    async validate() {
+      if (await this.$refs.form.validate().valid) {
         const { firstName } = this;
         const { lastName } = this;
         const { email } = this;

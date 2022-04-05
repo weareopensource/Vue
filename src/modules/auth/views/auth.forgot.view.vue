@@ -68,8 +68,8 @@ export default {
     ...mapGetters(['theme', 'mail']),
   },
   methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
+    async validate() {
+      if (await this.$refs.form.validate().valid) {
         const { email } = this;
         this.$store.dispatch('forgot', { email }).catch((err) => console.log(err));
       }

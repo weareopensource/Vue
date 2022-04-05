@@ -86,8 +86,8 @@ export default {
     },
   },
   methods: {
-    create() {
-      if (this.$refs.form.validate()) {
+    async create() {
+      if (await this.$refs.form.validate().valid) {
         this.$store
           .dispatch('createTask', this.task)
           .then(() => {
@@ -97,8 +97,8 @@ export default {
           .catch((err) => console.log(err));
       }
     },
-    update() {
-      if (this.$refs.form.validate()) {
+    async update() {
+      if (await this.$refs.form.validate().valid) {
         const { title } = this;
         const { description } = this;
 
@@ -116,8 +116,8 @@ export default {
           .catch((err) => console.log(err));
       }
     },
-    remove() {
-      if (this.$refs.form.validate()) {
+    async remove() {
+      if (await this.$refs.form.validate().valid) {
         this.$store
           .dispatch('deleteTask', { id: this.id })
           .then(() => {
