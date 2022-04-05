@@ -14,10 +14,17 @@
       <v-form ref="form">
         <v-row>
           <v-col cols="12">
-            <v-text-field v-model="subject" :flat="config.vuetify.theme.flat" name="subject" label="Subject*" class="rounded-xl" solo></v-text-field>
+            <v-text-field
+              class="customTextField"
+              v-model="subject"
+              :flat="config.vuetify.theme.flat"
+              name="subject"
+              label="Subject*"
+              variant="contained"
+            ></v-text-field>
           </v-col>
           <v-col cols="12">
-            <v-textarea v-model="body" :flat="config.vuetify.theme.flat" label="Message*" class="rounded-xl" solo></v-textarea>
+            <v-textarea class="customTextField" v-model="body" :flat="config.vuetify.theme.flat" label="Message*" variant="contained"></v-textarea>
           </v-col>
           <v-col class="mx-auto" cols="auto">
             <v-btn
