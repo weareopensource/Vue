@@ -246,7 +246,7 @@ module.exports = {
           },
           {
             label: 'Twitter',
-            icon: 'fa-brand fa-twitter',
+            icon: 'fa-brands fa-twitter',
             url: 'https://weareopensource.me',
           },
         ],

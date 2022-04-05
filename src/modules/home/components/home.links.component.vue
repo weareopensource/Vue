@@ -39,7 +39,7 @@
     ],
 -->
 <template>
-  <section id="features" class="py-12" :style="custom && custom.section ? custom.section : null" v-if="links.length > 0">
+  <section id="features" class="py-10" :style="custom && custom.section ? custom.section : null" v-if="links.length > 0">
     <v-container>
       <v-row>
         <v-col
@@ -49,13 +49,13 @@
           :md="12 / links.filter((section) => section.items).length"
         >
           <v-card :flat="config.vuetify.theme.flat" :style="custom && custom.section ? custom.section : null">
-            <v-card-title class="justify-center text--secondary" v-text="title"></v-card-title>
+            <v-card-title class="justify-center text-h6 text-medium-emphasis" v-text="title"></v-card-title>
             <v-list :style="custom && custom.section ? custom.section : null">
-              <v-list-item v-for="(item, i) in items" :key="i">
+              <v-list-item v-for="(item, i) in items" :key="i" class="justify-center">
                 <a :href="item.url">
-                  <v-list-item-title class="text-center">
-                    <v-icon class="pr-2" small>{{ item.icon }}</v-icon>
-                    {{ item.label }}
+                  <v-list-item-title>
+                    <v-icon size="16" class="mr-2 text-medium-emphasis">{{ item.icon }}</v-icon>
+                    <v-list-item-content class="text-secondary text-subtitle-2"> {{ item.label }} </v-list-item-content>
                   </v-list-item-title>
                 </a>
               </v-list-item>
