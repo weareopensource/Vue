@@ -51,13 +51,11 @@
           <v-card :flat="config.vuetify.theme.flat" :style="custom && custom.section ? custom.section : null">
             <v-card-title class="justify-center text-h6 text-medium-emphasis" v-text="title"></v-card-title>
             <v-list :style="custom && custom.section ? custom.section : null">
-              <v-list-item v-for="(item, i) in items" :key="i" class="justify-center">
-                <a :href="item.url">
-                  <v-list-item-title>
-                    <v-icon size="16" class="mr-2 text-medium-emphasis">{{ item.icon }}</v-icon>
-                    <v-list-item-content class="text-secondary text-subtitle-2"> {{ item.label }} </v-list-item-content>
-                  </v-list-item-title>
-                </a>
+              <v-list-item v-for="(item, i) in items" :key="i" :to="item.url" class="justify-center">
+                <v-list-item-title>
+                  <v-icon size="16" class="mr-2 text-medium-emphasis">{{ item.icon }}</v-icon>
+                  <v-list-item-content class="text-secondary text-subtitle-2"> {{ item.label }} </v-list-item-content>
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-card>

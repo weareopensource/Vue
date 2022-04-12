@@ -2,10 +2,10 @@
   <div>
     <homeBannerComponent
       v-bind:ratio="3"
-      v-bind:app="{ subtitle: this.$route.meta.title || _.startCase(this.$route.params.name) }"
+      v-bind:app="{ subtitle: this.$route.meta.title || lodash.startCase(this.$route.params.name) }"
       v-bind:banner="contents.length == 1 && contents[0].banner ? contents[0].banner : null"
     ></homeBannerComponent>
-    <section id="about-me">
+    <section id="page">
       <v-container class="pb-12">
         <!-- Multiple Pages -->
         <v-tabs v-if="contents.length > 1" centered grow>
@@ -19,6 +19,7 @@
             }"
             >{{ content.title }}</v-tab
           >
+
           <v-tab-item v-for="content in contents" :key="content.title" :value="'tab-' + content.title">
             <v-card
               flat
@@ -28,7 +29,7 @@
               }"
             >
               <v-card-text class="pa-4">
-                <vue-markdown :source="content.markdown" :class="content.style" />
+                <v-markdown :source="content.markdown" class="air" />
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -44,7 +45,7 @@
           }"
         >
           <v-card-text class="pa-4">
-            <vue-markdown :source="contents[0].markdown" :class="contents[0].style" />
+            <v-markdown :source="contents[0].markdown" :class="contents[0].style" />
           </v-card-text>
         </v-card>
       </v-container>
@@ -63,20 +64,16 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
+import _ from 'lodash';
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeLinksComponent from '../components/home.links.component.vue';
-
 /**
  * Export default
  */
 export default {
   data() {
     return {
-      valid: false,
-      password: 'Password',
-      rules: {
-        email: (v) => /\S+@\S+\.\S+/.test(v) || '',
-      },
+      lodash: _,
     };
   },
   components: {
