@@ -41,10 +41,10 @@
             <v-row>
               <v-col cols="6">
                 <v-btn :flat="config.vuetify.theme.flat" :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
-                <v-btn variant="outlined" v-if="config.oAuth.google" :href="`${oAuth}/google`" class="text-white mr-4 blue"
+                <v-btn variant="outlined" color="secondary" v-if="config.oAuth.google" :href="`${oAuth}/google`" class="text-white mr-4 blue"
                   ><v-icon>fab fa-google</v-icon>
                 </v-btn>
-                <v-btn variant="outlined" v-if="config.oAuth.apple" :href="`${oAuth}/apple`" class="text-white mr-4 grey darken-2"
+                <v-btn variant="outlined" color="secondary" v-if="config.oAuth.apple" :href="`${oAuth}/apple`" class="text-white mr-4 grey darken-2"
                   ><v-icon>fab fa-apple</v-icon>
                 </v-btn>
               </v-col>

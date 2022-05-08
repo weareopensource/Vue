@@ -113,7 +113,7 @@ export default {
   text-decoration: none !important;
   color: rgba(var(--v-theme-onPrimary), 1) !important;
 }
-.v-application main a {
+.v-application main a:not(.v-btn) {
   text-decoration: none !important;
   font-weight: 400;
   color: rgba(var(--v-theme-secondary), 1) !important;
