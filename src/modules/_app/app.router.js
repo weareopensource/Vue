@@ -31,7 +31,7 @@ const getRouter = (app) => {
       : [];
     // secu
     if (to.matched.some((record) => record.meta.roles)) {
-      if (store.getters.isLoggedIn && to.meta.roles.some((r) => userRoles.includes(r))) {
+      if (store(app).getters.isLoggedIn && to.meta.roles.some((r) => userRoles.includes(r))) {
         next();
         return;
       }

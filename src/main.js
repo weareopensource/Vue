@@ -13,8 +13,8 @@ const app = createApp(App);
 app.config.globalProperties.config = config;
 
 app
-  .use(router(app))
   .use(store(app))
+  .use(router(app))
   .use(plugins.aos)
   .use(plugins.axios)
   .use(plugins.images)
