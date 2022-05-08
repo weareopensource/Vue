@@ -113,12 +113,12 @@ export default {
 .v-application header a,
 .v-application nav a {
   text-decoration: none !important;
-  color: var(--v-onPrimary-base) !important;
+  color: rgba(var(--v-theme-onPrimary), 1) !important;
 }
 .v-application main a {
   text-decoration: none !important;
   font-weight: 400;
-  color: var(--v-secondary-base) !important;
+  color: rgba(var(--v-theme-secondary), 1) !important;
 }
 .v-card {
   border: none !important;

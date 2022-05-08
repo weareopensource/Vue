@@ -24,8 +24,10 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-btn :disabled="!valid || mail.status" color="success" class="mr-4" @click="validate">Validate</v-btn>
-                <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
+                <v-btn :flat="config.vuetify.theme.flat" :disabled="!valid || mail.status" color="success" class="mr-4" @click="validate"
+                  >Validate</v-btn
+                >
+                <v-btn :flat="config.vuetify.theme.flat" color="error" class="mr-4" @click="reset">Reset Form</v-btn>
               </v-col>
             </v-row>
           </v-form>
