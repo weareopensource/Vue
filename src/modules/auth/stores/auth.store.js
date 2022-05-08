@@ -97,6 +97,7 @@ const mutations = {
     console.log(err);
   },
   auth_logout(state) {
+    state.auth = false;
     state.cookieExpire = 0;
   },
   forgot_success(state, data) {
