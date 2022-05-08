@@ -9,9 +9,11 @@
       :color="snackbar.color"
     >
       {{ snackbar.text }}
-      <v-btn dark text @click="snackbar.status = false">
-        <v-icon>fa-times</v-icon>
-      </v-btn>
+      <template v-slot:actions>
+        <v-btn @click="snackbar.status = false" icon>
+          <v-icon icon="fa-solid fa-circle-xmark"></v-icon>
+        </v-btn>
+      </template>
     </v-snackbar>
 
     <waosHeader />
@@ -91,7 +93,8 @@ export default {
             this.snackbar.text = 'Signin failed';
             this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
             this.snackbar.status = true;
-            this.router.push('/signin');
+            console.log('tototo', this.router);
+            // this.router.push('/signin');
           }
           if (this.config.vuetify.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
             this.snackbar.text = err.response.data.description;
