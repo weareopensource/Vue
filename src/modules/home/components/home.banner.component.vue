@@ -84,7 +84,7 @@ export default {
   props: ['ratio', 'app', 'statusMargin', 'banner'],
   data() {
     return {
-      valid: false,
+      valid: true, // TODO: switch to false when forms will be reactive
       password: 'Password',
       rules: {
         email: (v) => /\S+@\S+\.\S+/.test(v) || '',

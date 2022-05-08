@@ -72,7 +72,7 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      valid: false,
+      valid: true, // TODO: switch to false when forms will be reactive
       email: '',
       password: '',
       oAuth: `${this.config.api.protocol}://
@@ -95,7 +95,8 @@ export default {
   },
   methods: {
     async validate() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { email } = this;
         const { password } = this;
         this.$store.dispatch('signin', { email, password }).catch((err) => console.log(err));

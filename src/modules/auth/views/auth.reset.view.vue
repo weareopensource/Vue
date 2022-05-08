@@ -54,7 +54,7 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      valid: false,
+      valid: true, // TODO: switch to false when forms will be reactive
       password: '',
       rules: {
         required: (v) => !!v || 'Required',
@@ -67,7 +67,8 @@ export default {
   },
   methods: {
     async validate() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { password } = this;
         this.$store
           .dispatch('reset', { newPassword: password, token: this.$route.query.token })

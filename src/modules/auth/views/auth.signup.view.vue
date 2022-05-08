@@ -68,7 +68,7 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      valid: false,
+      valid: true, // TODO: switch to false when forms will be reactive
       firstName: '',
       lastName: '',
       email: '',
@@ -95,7 +95,8 @@ export default {
   },
   methods: {
     async validate() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { firstName } = this;
         const { lastName } = this;
         const { email } = this;

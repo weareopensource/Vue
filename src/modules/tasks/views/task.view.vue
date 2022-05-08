@@ -87,7 +87,8 @@ export default {
   },
   methods: {
     async create() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         this.$store
           .dispatch('createTask', this.task)
           .then(() => {
@@ -98,7 +99,8 @@ export default {
       }
     },
     async update() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { title } = this;
         const { description } = this;
 
@@ -117,7 +119,8 @@ export default {
       }
     },
     async remove() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         this.$store
           .dispatch('deleteTask', { id: this.id })
           .then(() => {

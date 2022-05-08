@@ -180,7 +180,8 @@ export default {
   },
   methods: {
     async update() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { firstName } = this;
         const { lastName } = this;
         const { email } = this;
@@ -209,7 +210,8 @@ export default {
       }
     },
     async remove() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         this.$store
           .dispatch('deleteUser', { id: this.id })
           .then(() => {

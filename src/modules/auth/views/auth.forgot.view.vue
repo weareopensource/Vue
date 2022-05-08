@@ -56,7 +56,7 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      valid: false,
+      valid: true, // TODO: switch to false when forms will be reactive
       email: '',
       rules: {
         required: (v) => !!v || 'Required',
@@ -69,7 +69,8 @@ export default {
   },
   methods: {
     async validate() {
-      if (await this.$refs.form.validate().valid) {
+      const form = await this.$refs.form.validate();
+      if (form.valid) {
         const { email } = this;
         this.$store.dispatch('forgot', { email }).catch((err) => console.log(err));
       }
