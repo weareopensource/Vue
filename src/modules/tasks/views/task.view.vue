@@ -1,17 +1,17 @@
 <template>
   <v-container fluid>
     <!-- Header -->
-    <v-row class="mt-3 mx-3">
-      <v-subheader>
-        <v-icon class="mr-5">fa-check</v-icon>
+    <v-row class="my-3 mx-3">
+      <span class="mt-3">
+        <v-icon class="mr-5" icon="fa-solid fa-check"></v-icon>
         <b>1. Description</b>
-      </v-subheader>
+      </span>
       <v-spacer></v-spacer>
-      <v-btn v-if="this.task.id" color="red lighten-3" @click="remove" icon>
-        <v-icon>fa-trash</v-icon>
+      <v-btn v-if="this.task.id" color="error" @click="remove" icon class="mx-1">
+        <v-icon icon="fa-solid fa-trash"></v-icon>
       </v-btn>
-      <v-btn v-if="this.task.id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
-        <v-icon>fa-save</v-icon>
+      <v-btn v-if="this.task.id" color="success" @click="update()" :disabled="!save" icon class="mx-1">
+        <v-icon icon="fa-solid fa-save"></v-icon>
       </v-btn>
     </v-row>
     <!-- First Form -->

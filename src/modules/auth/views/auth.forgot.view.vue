@@ -8,7 +8,7 @@
         :flat="config.vuetify.theme.flat"
       >
         <v-col cols="12">
-          <v-subheader><h4>Forgot</h4></v-subheader>
+          <h4>Forgot</h4>
           <v-divider></v-divider>
         </v-col>
         <v-container>

@@ -92,13 +92,13 @@ const mutations = {
 /**
  * State
  */
-const state = {
+const state = () => ({
   task: {
     title: '',
     description: '',
   },
   tasks: [],
-};
+});
 
 /**
  * Export default

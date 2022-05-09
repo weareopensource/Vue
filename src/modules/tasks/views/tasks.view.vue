@@ -1,6 +1,13 @@
 <template>
   <v-container fluid>
-    <v-btn :flat="config.vuetify.theme.flat" v-if="isLoggedIn" icon to="/task" color="success" style="position: absolute; right: 10px; z-index: 1">
+    <v-btn
+      :flat="config.vuetify.theme.flat"
+      v-if="isLoggedIn"
+      icon
+      to="/task"
+      color="success"
+      style="position: absolute; top: 5px; right: 5px; z-index: 1"
+    >
       <v-icon icon="fa-solid fa-plus"></v-icon>
     </v-btn>
     <v-row>

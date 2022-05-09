@@ -23,8 +23,8 @@
           <!-- eslint-disable-next-line -->
           <a :href="url" target="_blank">
             <v-img :src="feature_image" class="mb-4 rounded-xl" height="200" max-width="100%" cover></v-img>
-            <h3 class="mb-4 text--primary" v-text="title"></h3>
-            <div class="subtitle-1 text-medium-emphasis">
+            <h3 class="mb-4 text-primary" v-text="title"></h3>
+            <div class="subtitle-1 text-medium-emphasis text-onSurface">
               <v-markdown :source="excerpt" />
             </div>
           </a>

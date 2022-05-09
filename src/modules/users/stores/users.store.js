@@ -98,7 +98,7 @@ const mutations = {
 /**
  * State
  */
-const state = {
+const state = () => ({
   user: {
     firstName: '',
     lastName: '',
@@ -111,7 +111,7 @@ const state = {
     created: '',
   },
   users: [],
-};
+});
 
 /**
  * Export default

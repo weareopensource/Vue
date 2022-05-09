@@ -2,10 +2,8 @@
   <v-container fluid>
     <!-- Header -->
     <v-row class="mt-3 mx-3">
-      <v-subheader>
-        <v-icon class="mr-5">fa-user</v-icon>
-        <b>{{ firstName }} {{ lastName }}</b>
-      </v-subheader>
+      <v-icon class="mr-5">fa-user</v-icon>
+      <b>{{ firstName }} {{ lastName }}</b>
       <div class="flex-grow-1"></div>
       <v-btn v-if="id" color="red lighten-3" @click.stop="removeConfirm = true" icon>
         <v-icon>fa-trash</v-icon>
