@@ -53,8 +53,8 @@
             <v-list :style="custom && custom.section ? custom.section : null">
               <v-list-item v-for="(item, i) in items" :key="i" :to="item.url" class="justify-center">
                 <v-list-item-title>
-                  <v-icon size="16" class="mr-2 text-medium-emphasis">{{ item.icon }}</v-icon>
-                  <v-list-item-content class="text-secondary text-subtitle-2"> {{ item.label }} </v-list-item-content>
+                  <v-icon size="16" class="mr-2 text-onSurface text-medium-emphasis">{{ item.icon }}</v-icon>
+                  <span class="text-secondary text-subtitle-2"> {{ item.label }} </span>
                 </v-list-item-title>
               </v-list-item>
             </v-list>
