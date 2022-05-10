@@ -23,4 +23,5 @@ app
   .use(plugins.matomo)
   .use(plugins.moment)
   .use(plugins.vuetify)
+  .use(plugins.gravatar)
   .mount('#app');

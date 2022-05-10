@@ -36,6 +36,7 @@
     "vue:serve": "vue-cli-service serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.0",
     "@mdi/font": "5.9.55",
     "@tryghost/content-api": "1.7.1",
     "@vue/compiler-sfc": "^3.2.31",
@@ -46,20 +47,20 @@
     "core-js": "^3.21.1",
     "lodash": "^4.17.21",
     "marked": "^4.0.12",
+    "md5": "^2.3.0",
     "moment": "^2.29.1",
     "roboto-fontface": "*",
     "snyk": "^1.877.0",
     "vue": "^3.2.31",
-    "vue-gravatar": "^1.4.1",
     "vue-loader": "^17.0.0",
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^4.1.0",
     "vue-meta": "^3.0.0-alpha.7",
     "vue-router": "^4.0.14",
+    "vue3-gravatar": "^3.0.0",
     "vuetify": "^3.0.0-beta.1",
     "vuex": "^v4.0.2",
-    "webfontloader": "^1.0.0",
-    "@fortawesome/fontawesome-free": "^6.1.0"
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
