@@ -6,37 +6,31 @@
       v-bind:banner="contents.length == 1 && contents[0].banner ? contents[0].banner : null"
     ></homeBannerComponent>
     <section id="page">
-      <v-container class="pb-12">
-        <!-- Multiple Pages -->
-        <v-tabs v-if="contents.length > 1" centered grow>
-          <v-tabs-slider></v-tabs-slider>
-          <v-tab
-            v-for="content in contents"
-            :key="content.title"
-            :href="`#tab-${content.title}`"
-            :style="{
-              background: config.vuetify.theme.themes[theme].colors.background,
-            }"
-            >{{ content.title }}</v-tab
-          >
-
-          <v-tab-item v-for="content in contents" :key="content.title" :value="'tab-' + content.title">
-            <v-card
-              flat
-              :style="{
-                background: config.vuetify.theme.themes[theme].colors.surface,
-                color: config.vuetify.theme.themes[theme].colors.onSurface,
-              }"
-            >
-              <v-card-text class="pa-4">
-                <v-markdown :source="content.markdown" class="air" />
-              </v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs>
+      <!-- Multiple Pages -->
+      <v-container v-if="contents.length > 1" class="pb-12">
+        <v-card flat>
+          <v-tabs v-model="tab" background-color="background">
+            <v-tab v-for="content in contents" :key="content.title" :value="content.title" color="secondary">{{ content.title }}</v-tab>
+          </v-tabs>
+          <v-card-text>
+            <v-window v-model="tab">
+              <v-window-item
+                v-for="content in contents"
+                :key="content.title"
+                :value="content.title"
+                :style="{
+                  background: config.vuetify.theme.themes[theme].colors.surface,
+                  color: config.vuetify.theme.themes[theme].colors.onSurface,
+                }"
+              >
+                <v-markdown :source="content.markdown" :class="content.style" />
+              </v-window-item>
+            </v-window>
+          </v-card-text>
+        </v-card>
       </v-container>
       <!-- One Page -->
-      <v-container v-if="contents.length === 1" class="pt-0 pb-12">
+      <v-container v-if="contents.length === 1">
         <v-card
           flat
           :style="{
@@ -44,7 +38,7 @@
             color: config.vuetify.theme.themes[theme].colors.onSurface,
           }"
         >
-          <v-card-text class="pa-4">
+          <v-card-text class="pa-8">
             <v-markdown :source="contents[0].markdown" :class="contents[0].style" />
           </v-card-text>
         </v-card>
@@ -67,12 +61,15 @@ import { mapGetters } from 'vuex';
 import _ from 'lodash';
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeLinksComponent from '../components/home.links.component.vue';
+
 /**
  * Export default
  */
 export default {
   data() {
     return {
+      page: null,
+      tab: null,
       lodash: _,
     };
   },
@@ -83,9 +80,19 @@ export default {
   computed: {
     ...mapGetters(['theme', 'contents']),
   },
+  watch: {
+    $route(route) {
+      if (this.page !== route.params.name) {
+        this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
+        this.page = this.$route.params.name;
+      }
+    },
+  },
   created() {
-    if (this.$route.params.name) this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
-    else this.$store.dispatch(this.$route.meta.data);
+    if (this.$route.params.name) {
+      this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
+      this.page = this.$route.params.name;
+    } else this.$store.dispatch(this.$route.meta.data);
   },
   methods: {
     generateTemporalBackground() {
