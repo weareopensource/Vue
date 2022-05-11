@@ -1,18 +1,18 @@
 <template>
-  <v-col cols="12" sm="6" md="6" lg="4" xl="3">
+  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
     <v-card class="mx-auto rounded-xl" :flat="config.vuetify.theme.flat">
       <v-img
         :src="require('@/assets/images/background.jpg')"
         class="text-white"
-        height="175"
+        height="150"
         cover
         :gradient="theme == 'dark' ? 'to top right, rgba(0,0,0,.3), rgba(0,0,0,.7)' : 'to top right, rgba(255,255,255,.3), rgba(255,255,255,.7)'"
-        style="border: 5px solid transparent; border-radius: 20px 20px 0 0"
+        style="border: 5px solid transparent; border-radius: 25px 25px 0 0"
       >
       </v-img>
       <v-card-actions class="pt-6">
         <v-card-title class="text-capitalize"
-          ><h3>{{ item.firstName }} {{ item.lastName }}</h3>
+          ><h4>{{ item.firstName }} {{ item.lastName }}</h4>
         </v-card-title>
         <span class="pl-4 text-secondary" v-if="item.position && item.position !== ''"> {{ item.position }}</span>
         <v-spacer></v-spacer>
@@ -38,10 +38,10 @@
         </div>
       </v-expand-transition>
       <userAvatarComponent
-        style="position: absolute; top: 50px; left: 50%; margin-left: -75px"
+        style="position: absolute; top: 50px; left: 50%; margin-left: -60px"
         :user="item"
-        :width="'150px'"
-        :height="'150px'"
+        :width="'120px'"
+        :height="'120px'"
         :radius="'50%'"
         :border="'5px'"
         :color="config.vuetify.theme.themes[theme].colors.surface"

@@ -32,7 +32,7 @@
             }"
           ></v-icon>
         </v-list-item-avatar>
-        <v-list-item-title v-text="item.name"></v-list-item-title>
+        <v-list-item-title class="pl-2 pt-1" v-text="item.name"></v-list-item-title>
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
