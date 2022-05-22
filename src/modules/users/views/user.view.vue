@@ -2,13 +2,13 @@
   <v-container fluid>
     <!-- Header -->
     <v-row class="mt-3 mx-3">
-      <v-icon class="mr-5">fa-user</v-icon>
-      <b>{{ firstName }} {{ lastName }}</b>
-      <div class="flex-grow-1"></div>
-      <v-btn v-if="id" color="red lighten-3" @click.stop="removeConfirm = true" icon>
-        <v-icon>fa-trash</v-icon>
+      <v-icon class="mx-2 my-2" icon="fa-solid fa-user"></v-icon>
+      <h2 class="mx-2 my-1 text-capitalize">{{ firstName }} {{ lastName }}</h2>
+      <v-spacer></v-spacer>
+      <v-btn v-if="id" class="mx-2 mb-2" color="error" @click.stop="removeConfirm = true" :flat="config.vuetify.theme.flat" icon>
+        <v-icon icon="fa-solid fa-trash"></v-icon>
       </v-btn>
-      <v-dialog v-model="removeConfirm" max-width="290">
+      <v-dialog v-model="removeConfirm" max-width="500">
         <v-card>
           <v-card-title class="headline">Delete this item ?</v-card-title>
           <v-card-text> Are you sure you want to delete this item ? we will not be able to recover it. </v-card-text>
@@ -19,8 +19,8 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-btn v-if="id" class="mr-5" color="blue lighten-2" @click="update()" :disabled="!save" icon>
-        <v-icon>fa-save</v-icon>
+      <v-btn v-if="id" class="mx-2 mb-2" color="success" @click="update()" :flat="config.vuetify.theme.flat" :disabled="!save" icon>
+        <v-icon icon="fa-solid fa-save"></v-icon>
       </v-btn>
     </v-row>
     <!-- First Form -->
@@ -40,9 +40,7 @@
                 <v-text-field v-model="email" label="Email" required></v-text-field>
               </v-col>
               <v-col cols="12" xs="12" sm="12" md="4" lg="3" xl="2">
-                <center>
-                  <userAvatarComponent :user="user" :width="'200px'" :height="'200px'" :radius="'50%'" :border="'0px'" :color="'#000'" :size="512" />
-                </center>
+                <userAvatarComponent :user="user" :width="'200px'" :height="'200px'" :radius="'50%'" :border="'0px'" :color="'#000'" :size="512" />
               </v-col>
             </v-row>
             <v-row>
@@ -111,7 +109,7 @@ export default {
     userAvatarComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'user', 'result']),
+    ...mapGetters(['theme', 'user', 'result', 'isLoggedIn']),
     firstName: {
       get() {
         return this.user.firstName;
