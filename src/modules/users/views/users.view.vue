@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
-    <v-layout class="ma-3" wrap align-content-space-around text-xs-center>
+    <v-row class="ma-2">
       <coreDataTableComponent :headers="headers" :items="users" :request="'getUsers'">deadead</coreDataTableComponent>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 

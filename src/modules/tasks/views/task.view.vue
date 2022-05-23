@@ -1,21 +1,19 @@
 <template>
   <v-container fluid>
     <!-- Header -->
-    <v-row class="my-3 mx-3">
-      <span class="mt-3">
-        <v-icon class="mr-5" icon="fa-solid fa-check"></v-icon>
-        <b>1. Description</b>
-      </span>
+    <v-row class="mx-2 my-1">
+      <v-icon class="ma-2" icon="fa-solid fa-check"></v-icon>
+      <h2 class="my-1 text-capitalize">1. Description</h2>
       <v-spacer></v-spacer>
-      <v-btn v-if="this.task.id" color="error" @click="remove" icon class="mx-1">
+      <v-btn v-if="this.task.id" @click="remove" color="error" icon class="mx-1">
         <v-icon icon="fa-solid fa-trash"></v-icon>
       </v-btn>
-      <v-btn v-if="this.task.id" color="success" @click="update()" :disabled="!save" icon class="mx-1">
+      <v-btn v-if="this.task.id" @click="update()" :disabled="!save" color="success" icon class="mx-1">
         <v-icon icon="fa-solid fa-save"></v-icon>
       </v-btn>
     </v-row>
-    <!-- First Form -->
-    <v-row class="mx-0">
+    <!-- Form -->
+    <v-row class="pa-2">
       <v-col cols="12" sm="12" md="6" lg="8" xl="9">
         <v-card class="pa-6" :style="{ background: config.vuetify.theme.themes[theme].colors.surface }" :flat="config.vuetify.theme.flat">
           <v-form ref="form" v-model="valid">
@@ -51,7 +49,7 @@ export default {
     return {
       // vue
       id: this.$route.params.id ? this.$route.params.id : null,
-      save: false,
+      save: null,
       // Description
       valid: false,
       rules: {
@@ -71,7 +69,6 @@ export default {
         return this.task.title;
       },
       set(title) {
-        this.save = true;
         this.$store.commit('task_update', { title });
       },
     },
@@ -80,9 +77,16 @@ export default {
         return this.task.description;
       },
       set(description) {
-        this.save = true;
         this.$store.commit('task_update', { description });
       },
+    },
+  },
+  watch: {
+    task: {
+      handler() {
+        this.save = true;
+      },
+      deep: true,
     },
   },
   methods: {
@@ -101,17 +105,8 @@ export default {
     async update() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        const { title } = this;
-        const { description } = this;
-
-        const data = {
-          id: this.id,
-          title,
-          description,
-        };
-
         this.$store
-          .dispatch('updateTask', data)
+          .dispatch('updateTask', { id: this.id })
           .then(() => {
             this.save = false;
           })
@@ -133,7 +128,12 @@ export default {
   created() {
     if (this.id) {
       this.$store.commit('task_reset');
-      this.$store.dispatch('getTask', this.id).catch((err) => console.log(err));
+      this.$store
+        .dispatch('getTask', { id: this.id })
+        .then(() => {
+          this.save = false;
+        })
+        .catch((err) => console.log(err));
     } else {
       this.$store.commit('task_reset');
     }

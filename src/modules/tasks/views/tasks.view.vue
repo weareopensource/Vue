@@ -10,7 +10,7 @@
     >
       <v-icon icon="fa-solid fa-plus"></v-icon>
     </v-btn>
-    <v-row>
+    <v-row class="pa-2">
       <taskComponent v-for="(item, index) in tasks" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></taskComponent>
     </v-row>
     <v-row v-if="!tasks || !tasks.length" align="start" justify="center">

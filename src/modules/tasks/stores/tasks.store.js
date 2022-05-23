@@ -32,7 +32,7 @@ const actions = (app) => {
     },
     getTask: async ({ commit }, params) => {
       try {
-        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.tasks}/${params}`);
+        const res = await app.config.globalProperties.axios.get(`${api}/${config.api.endPoints.tasks}/${params.id}`);
         commit('task_set', res.data.data);
       } catch (err) {
         commit('task_error', err);
@@ -49,7 +49,7 @@ const actions = (app) => {
     },
     updateTask: async ({ commit, state }, params) => {
       try {
-        const obj = model.clean(_.merge(state.task, params), whitelists);
+        const obj = model.clean(state.task, whitelists);
         const res = await app.config.globalProperties.axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
         commit('task_update', res.data.data);
       } catch (err) {
@@ -71,8 +71,7 @@ const actions = (app) => {
  * Mutation: change state in a Vuex store is by committing a mutation
  */
 const mutations = {
-  // tasks
-  task_error(state, err) {
+  task_error(err) {
     console.log(err);
   },
   tasks_set(state, data) {
