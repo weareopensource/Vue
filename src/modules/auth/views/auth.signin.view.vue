@@ -101,9 +101,12 @@ export default {
     async validate() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        const { email } = this;
-        const { password } = this;
-        this.$store.dispatch('signin', { email, password }).catch((err) => console.log(err));
+        this.$store
+          .dispatch('signin', {
+            email: this.email,
+            password: this.password,
+          })
+          .catch((err) => console.log(err));
       }
     },
     reset() {

@@ -101,16 +101,12 @@ export default {
     async validate() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        const { firstName } = this;
-        const { lastName } = this;
-        const { email } = this;
-        const { password } = this;
         this.$store
           .dispatch('signup', {
-            email,
-            password,
-            firstName,
-            lastName,
+            email: this.email,
+            password: this.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
           })
           .catch((err) => console.log(err));
       }

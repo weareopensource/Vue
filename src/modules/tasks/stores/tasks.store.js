@@ -81,7 +81,7 @@ const mutations = {
     state.task = data;
   },
   task_update(state, data) {
-    _.merge(state.task, data);
+    _.assign(state.task, data);
   },
   task_reset(state) {
     state.task = {};

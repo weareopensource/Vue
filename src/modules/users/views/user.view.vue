@@ -102,7 +102,7 @@ export default {
       rules: {
         bio: [(v) => !v || (v && v.length <= 200) || 'Max 200 characters'],
       },
-      roles: [],
+      userRoles: [],
       rolesItems: this.config.whitelists.users.roles,
       removeConfirm: false,
     };
@@ -150,6 +150,16 @@ export default {
       },
       set(position) {
         this.$store.commit('user_update', { position });
+      },
+    },
+    roles: {
+      get() {
+        return this.userRoles;
+      },
+      set(roles) {
+        this.userRoles = roles;
+        this.save = true;
+        this.$store.commit('user_update', { roles: _.cloneDeep(this.userRoles) });
       },
     },
     avatar: {
@@ -211,7 +221,7 @@ export default {
       this.$store
         .dispatch('getUser', { id: this.id })
         .then(() => {
-          this.roles = _.cloneDeep(this.user.roles);
+          this.userRoles = _.cloneDeep(this.user.roles);
           this.save = false;
         })
         .catch((err) => console.log(err));
