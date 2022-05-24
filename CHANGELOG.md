@@ -1,3 +1,25 @@
+## [1.1.1](https://github.com/weareopensource/Vue/compare/v1.1.0...v1.1.1) (2022-05-24)
+
+
+### Bug Fixes
+
+* **build:** fix eslint version 🐛 ([#1410](https://github.com/weareopensource/Vue/issues/1410)) ([ae3e264](https://github.com/weareopensource/Vue/commit/ae3e264ea441f892369d0523979c521e8e04c45a))
+* **dependencies:** alignpackagelock 🐛 ([#1656](https://github.com/weareopensource/Vue/issues/1656)) ([045a74b](https://github.com/weareopensource/Vue/commit/045a74b7dcf93abd9a168df70be6fb76e963aff0))
+* **dependencies:** fix wron deps upgrade to vue 3 🐛 ([#1654](https://github.com/weareopensource/Vue/issues/1654)) ([8f2fffe](https://github.com/weareopensource/Vue/commit/8f2fffea4cbd50dcac21782ea8573832e6680388))
+* **deps:** vuetify loader switch to webpack-plugin-vuetify 🐛 ([#1725](https://github.com/weareopensource/Vue/issues/1725)) ([af2533e](https://github.com/weareopensource/Vue/commit/af2533ed8374bcafb8057d376a56873ac324a579))
+* **global:** eslint new rules 🐛 ([#1483](https://github.com/weareopensource/Vue/issues/1483)) ([6e13b3d](https://github.com/weareopensource/Vue/commit/6e13b3d50a80d4fada23b244d60e6934637ee4aa))
+* **lib:** plugins marked import fix 🐛 ([#1570](https://github.com/weareopensource/Vue/issues/1570)) ([4c802d2](https://github.com/weareopensource/Vue/commit/4c802d258fe62f4e1206d01c040f04593c6fb445))
+* package.json & package-lock.json to reduce vulnerabilities ([#1551](https://github.com/weareopensource/Vue/issues/1551)) ([55a627f](https://github.com/weareopensource/Vue/commit/55a627f086815256b6908580f538acb40c3e3da3))
+* **home:** imports order for new rules 🐛 ([#1339](https://github.com/weareopensource/Vue/issues/1339)) ([6d9de94](https://github.com/weareopensource/Vue/commit/6d9de94b6914de2e6c1024e668f7e882c95a5e05))
+* **package:** npm version 🐛 ([#1503](https://github.com/weareopensource/Vue/issues/1503)) ([6ca9ae4](https://github.com/weareopensource/Vue/commit/6ca9ae4d39a2c85fcb066d0c3fb11ddf21285261))
+* **scripts:** config generator 🐛 ([#1519](https://github.com/weareopensource/Vue/issues/1519)) ([72453a3](https://github.com/weareopensource/Vue/commit/72453a38981ffca564591acd5372db0e7f463e15))
+* package.json & package-lock.json to reduce vulnerabilities ([#1319](https://github.com/weareopensource/Vue/issues/1319)) ([9c02619](https://github.com/weareopensource/Vue/commit/9c02619b0fef113a0103bac60de6df345036f88b))
+
+
+### Reverts
+
+* Revert "build(deps-dev): bump webpack from 4.45.0 to 5.37.0 (#1140)" (#1149) ([fc956fa](https://github.com/weareopensource/Vue/commit/fc956fa475649355bd6673f969f4b1f0251a379f)), closes [#1140](https://github.com/weareopensource/Vue/issues/1140) [#1149](https://github.com/weareopensource/Vue/issues/1149)
+
 # [1.1.0](https://github.com/weareopensource/Vue/compare/v1.0.0...v1.1.0) (2021-04-30)
 
 
