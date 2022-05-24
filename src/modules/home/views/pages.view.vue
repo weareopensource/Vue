@@ -9,7 +9,7 @@
       <!-- Multiple Pages -->
       <v-container v-if="contents.length > 1" class="pb-12">
         <v-card flat>
-          <v-tabs v-model="tab" background-color="background">
+          <v-tabs v-model="tab" background-color="background" fixed-tabs>
             <v-tab v-for="content in contents" :key="content.title" :value="content.title" color="secondary">{{ content.title }}</v-tab>
           </v-tabs>
           <v-card-text>
