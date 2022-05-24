@@ -1,10 +1,9 @@
 /**
  * Module dependencies.
  */
-import config from '@/config/index.cjs';
-import home from '@/modules/home/views/home.view.vue';
-import pages from '@/modules/home/views/pages.view.vue';
-import team from '@/modules/home/views/team.view.vue';
+import home from '../views/home.view.vue';
+import pages from '../views/pages.view.vue';
+import team from '../views/team.view.vue';
 
 /**
  * Router configuration
@@ -12,10 +11,10 @@ import team from '@/modules/home/views/team.view.vue';
 export default [
   {
     path: '/',
-    name: config.app.title,
+    name: 'toto', // todo: get from config
     component: home,
     meta: {
-      icon: 'home',
+      icon: 'fa-solid fa-house',
     },
   },
   {
@@ -47,7 +46,7 @@ export default [
     },
   },
   {
-    path: '*',
+    path: '/:catchAll(.*)',
     redirect: { name: 'Home' },
     meta: {
       display: false, // hide any time

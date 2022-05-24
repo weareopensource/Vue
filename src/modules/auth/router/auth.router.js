@@ -1,11 +1,11 @@
 /**
  * Module dependencies.
  */
-import signin from '@/modules/auth/views/auth.signin.view.vue';
-import signup from '@/modules/auth/views/auth.signup.view.vue';
-import forgot from '@/modules/auth/views/auth.forgot.view.vue';
-import reset from '@/modules/auth/views/auth.reset.view.vue';
-import token from '@/modules/auth/views/auth.token.view.vue';
+import signin from '../views/auth.signin.view.vue';
+import signup from '../views/auth.signup.view.vue';
+import forgot from '../views/auth.forgot.view.vue';
+import reset from '../views/auth.reset.view.vue';
+import token from '../views/auth.token.view.vue';
 
 /**
  * Router configuration
@@ -16,7 +16,7 @@ export default [
     name: 'Signin',
     component: signin,
     meta: {
-      icon: 'user',
+      icon: 'fa-solid fa-user',
       display: false, // hide any time
     },
   },

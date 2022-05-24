@@ -5,8 +5,8 @@
     <homeFeaturesComponent
       v-bind:features="config.home.features"
       v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].surface },
-        card: { background: config.vuetify.theme.themes[theme].background },
+        section: { background: config.vuetify.theme.themes[theme].colors.surface },
+        card: { background: config.vuetify.theme.themes[theme].colors.background },
       }"
     ></homeFeaturesComponent>
     <homeSlideshowComponent
@@ -24,14 +24,14 @@
       v-bind:url="config.home.blog.url"
       v-bind:news="news"
       v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].surface },
+        section: { background: config.vuetify.theme.themes[theme].colors.surface },
       }"
     ></homeBlogComponent>
     <homeContactComponent></homeContactComponent>
     <homeLinksComponent
       v-bind:links="config.home.links"
       v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].surface },
+        section: { background: config.vuetify.theme.themes[theme].colors.surface },
       }"
     ></homeLinksComponent>
   </div>

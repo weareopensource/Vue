@@ -2,11 +2,11 @@
 [![Dependabot badge](https://badges.weareopensource.me/badge/Dependabot-enabled-2768cf.svg?style=flat-square)](https://dependabot.com)
 [![Known Vulnerabilities](https://snyk.io/test/github/weareopensource/vue/badge.svg?style=flat-square)](https://snyk.io/test/github/weareopensource/vue) [![Docker Pulls](https://badges.weareopensource.me/docker/pulls/weareopensource/vue?style=flat-square)](https://hub.docker.com/repository/docker/weareopensource/vue)
 
-# :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 4.x - Beta
+# :globe_with_meridians: [WeAreOpenSource](https://weareopensource.me) Vue 3 - Beta
 
 ## :book: Presentation
 
-This project is a Vue stack that can be ran as a standalone FrontEnd. Or in a fullstack with another repo of your choice (ex: [Node](https://github.com/weareopensource/Node), [Swift](https://github.com/weareopensource/Swift)).
+This project is a Vue 3 stack that can be ran as a standalone FrontEnd. Or in a fullstack with another repo of your choice (ex: [Node](https://github.com/weareopensource/Node), [Swift](https://github.com/weareopensource/Swift)).
 
 Quick links :
 
@@ -17,7 +17,7 @@ Quick links :
 
 Our stack Vue is actually in Beta.
 
-# :computer: Vue 4.x / Vuetify / Jwt
+# :computer: Vue 3 / Vuetify 3 / Jwt
 
 - [**Knowledges JS**](https://blog.weareopensource.me/js-knwoledges/)
 - [**Demo**](https://vue.weareopensource.me) (working with [Node](https://github.com/weareopensource/Node) stack, email: *test@waos.me*, password: _TestWaos@2019_)
