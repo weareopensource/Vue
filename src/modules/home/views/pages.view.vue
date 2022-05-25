@@ -82,7 +82,7 @@ export default {
   },
   watch: {
     $route(route) {
-      if (this.page !== route.params.name) {
+      if (route.params.name !== undefined && this.page !== route.params.name) {
         this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
         this.page = this.$route.params.name;
       }
