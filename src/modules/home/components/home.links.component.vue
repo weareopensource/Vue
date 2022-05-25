@@ -39,7 +39,7 @@
     ],
 -->
 <template>
-  <section id="features" class="py-10" :style="custom && custom.section ? custom.section : null" v-if="links.length > 0">
+  <section id="links" class="py-10" :style="custom && custom.section ? custom.section : null" v-if="links.length > 0">
     <v-container>
       <v-row>
         <v-col

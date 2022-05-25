@@ -121,4 +121,9 @@ export default {
 .v-card {
   border: none !important;
 }
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
 </style>
