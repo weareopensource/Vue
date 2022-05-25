@@ -6,13 +6,6 @@
         <teamMemberComponent v-for="(item, index) in team" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></teamMemberComponent>
       </v-layout>
     </v-container>
-    <homeLinksComponent
-      v-bind:links="config.home.links"
-      v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].colors.surface },
-      }"
-      class="footer"
-    ></homeLinksComponent>
   </div>
 </template>
 
@@ -23,7 +16,6 @@
 import { mapGetters } from 'vuex';
 import teamMemberComponent from '../components/team.member.component.vue';
 import homeBannerComponent from '../components/home.banner.component.vue';
-import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -41,7 +33,6 @@ export default {
   components: {
     homeBannerComponent,
     teamMemberComponent,
-    homeLinksComponent,
   },
   computed: {
     ...mapGetters(['theme', 'team']),

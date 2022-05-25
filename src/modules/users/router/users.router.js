@@ -25,7 +25,7 @@ export default [
     name: 'user',
     component: user,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       roles: ['admin'], // proteced, require one of this roles
     },
   },

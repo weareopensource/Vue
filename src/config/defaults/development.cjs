@@ -63,7 +63,6 @@ module.exports = {
     theme: {
       dark: 'auto', // dark theme true / false / auto (based on prefers-color-scheme)
       flat: true, // flat by default
-      footer: false, // display footer
       snackbar: {
         // kind of notifications on requests
         status: true, // activate for error

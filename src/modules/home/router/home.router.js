@@ -15,6 +15,7 @@ export default [
     component: home,
     meta: {
       icon: 'fa-solid fa-house',
+      footer: true, // display footer
     },
   },
   {
@@ -22,9 +23,10 @@ export default [
     name: 'changelogs',
     component: pages,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       title: 'Changelogs',
       data: 'getChangelogs', // array of {title: ..., markdown: ...}
+      footer: true, // display footer
     },
   },
   {
@@ -32,8 +34,9 @@ export default [
     name: 'Team',
     component: team,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       title: 'Team',
+      footer: true, // display footer
     },
   },
   {
@@ -41,15 +44,16 @@ export default [
     name: 'Pages',
     component: pages,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       data: 'getPages', // array of {title: ..., markdown: ...}
+      footer: true, // display footer
     },
   },
   {
     path: '/:catchAll(.*)',
     redirect: { name: 'Home' },
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
 ];
