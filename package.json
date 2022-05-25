@@ -37,16 +37,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
-    "@mdi/font": "5.9.55",
+    "@mdi/font": "6.7.96",
     "@tryghost/content-api": "1.7.1",
     "@vue/compiler-sfc": "^3.2.36",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
     "babel-runtime": "^6.26.0",
-    "core-js": "^3.21.1",
+    "core-js": "^3.22.7",
     "lodash": "^4.17.21",
-    "marked": "^4.0.12",
+    "marked": "^4.0.16",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "roboto-fontface": "*",
@@ -56,7 +56,7 @@
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^4.1.0",
     "vue-meta": "^3.0.0-alpha.7",
-    "vue-router": "^4.0.14",
+    "vue-router": "^4.0.15",
     "vue3-gravatar": "^3.0.0",
     "vuetify": "^3.0.0-beta.1",
     "vuex": "^v4.0.2",
@@ -88,7 +88,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "object-path": "^0.11.8",
     "prettier": "^2.6.0",
@@ -99,7 +99,7 @@
     "vue-cli-plugin-vuetify": "~2.5.0",
     "vue-template-compiler": "^2.6.14",
     "webpack-plugin-vuetify": "^2.0.0-alpha.10",
-    "webpack": "^5.70.0"
+    "webpack": "^5.72.1"
   },
   "config": {
     "commitizen": {
