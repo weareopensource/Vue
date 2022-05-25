@@ -33,6 +33,7 @@
       v-bind:custom="{
         section: { background: config.vuetify.theme.themes[theme].colors.surface },
       }"
+      class="footer"
     ></homeLinksComponent>
   </div>
 </template>
