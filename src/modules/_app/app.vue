@@ -24,7 +24,12 @@
       <router-view />
     </v-main>
 
-    <waosFooter v-if="config.vuetify.theme.footer" />
+    <waosFooter
+      v-bind:links="config.home.links"
+      v-bind:custom="{
+        section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
+      }"
+    />
   </v-app>
 </template>
 
@@ -120,10 +125,5 @@ export default {
 }
 .v-card {
   border: none !important;
-}
-.footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
 </style>

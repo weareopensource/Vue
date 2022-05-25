@@ -21,7 +21,7 @@ export default [
     name: 'task create',
     component: task,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       roles: ['user'], // proteced, require one of this roles
     },
   },
@@ -30,7 +30,7 @@ export default [
     name: 'task',
     component: task,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
       roles: ['user'], // proteced, require one of this roles
     },
   },

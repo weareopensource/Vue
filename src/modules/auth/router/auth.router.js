@@ -17,7 +17,7 @@ export default [
     component: signin,
     meta: {
       icon: 'fa-solid fa-user',
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
   {
@@ -25,7 +25,7 @@ export default [
     name: 'Signup',
     component: signup,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
   {
@@ -33,7 +33,7 @@ export default [
     name: 'Forgot',
     component: forgot,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
   {
@@ -41,7 +41,7 @@ export default [
     name: 'Reset',
     component: reset,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
   {
@@ -49,7 +49,7 @@ export default [
     name: 'Token',
     component: token,
     meta: {
-      display: false, // hide any time
+      display: false, // hide from drawer any time
     },
   },
 ];

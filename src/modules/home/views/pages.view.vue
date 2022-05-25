@@ -7,12 +7,12 @@
     ></homeBannerComponent>
     <section id="page">
       <!-- Multiple Pages -->
-      <v-container v-if="contents.length > 1" class="pb-12">
+      <v-container v-if="contents.length > 1" class="my-6">
         <v-card flat>
           <v-tabs v-model="tab" background-color="background" fixed-tabs>
             <v-tab v-for="content in contents" :key="content.title" :value="content.title" color="secondary">{{ content.title }}</v-tab>
           </v-tabs>
-          <v-card-text>
+          <v-card-text class="pa-12">
             <v-window v-model="tab">
               <v-window-item
                 v-for="content in contents"
@@ -30,7 +30,7 @@
         </v-card>
       </v-container>
       <!-- One Page -->
-      <v-container v-if="contents.length === 1">
+      <v-container v-if="contents.length === 1" class="my-6">
         <v-card
           flat
           :style="{
@@ -38,19 +38,12 @@
             color: config.vuetify.theme.themes[theme].colors.onSurface,
           }"
         >
-          <v-card-text class="pa-8">
+          <v-card-text class="pa-12">
             <v-markdown :source="contents[0].markdown" :class="contents[0].style" />
           </v-card-text>
         </v-card>
       </v-container>
     </section>
-    <homeLinksComponent
-      v-bind:links="config.home.links"
-      v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].colors.surface },
-      }"
-      class="footer"
-    ></homeLinksComponent>
   </div>
 </template>
 
@@ -61,7 +54,6 @@
 import { mapGetters } from 'vuex';
 import _ from 'lodash';
 import homeBannerComponent from '../components/home.banner.component.vue';
-import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -76,7 +68,6 @@ export default {
   },
   components: {
     homeBannerComponent,
-    homeLinksComponent,
   },
   computed: {
     ...mapGetters(['theme', 'contents']),

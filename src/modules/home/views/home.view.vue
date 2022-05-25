@@ -28,13 +28,6 @@
       }"
     ></homeBlogComponent>
     <homeContactComponent></homeContactComponent>
-    <homeLinksComponent
-      v-bind:links="config.home.links"
-      v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].colors.surface },
-      }"
-      class="footer"
-    ></homeLinksComponent>
   </div>
 </template>
 
@@ -50,7 +43,6 @@ import homeSlideshowComponent from '../components/home.slideshow.component.vue';
 import homeStatsComponent from '../components/home.stats.component.vue';
 import homeBlogComponent from '../components/home.blog.component.vue';
 import homeContactComponent from '../components/home.contact.component.vue';
-import homeLinksComponent from '../components/home.links.component.vue';
 
 /**
  * Export default
@@ -64,7 +56,6 @@ export default {
     homeStatsComponent,
     homeBlogComponent,
     homeContactComponent,
-    homeLinksComponent,
   },
   computed: {
     ...mapGetters(['theme', 'news', 'statistics']),
