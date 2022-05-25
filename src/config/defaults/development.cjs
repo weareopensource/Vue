@@ -75,7 +75,7 @@ module.exports = {
         ifLogged: true, // show nav only if user is logged (easy for one page site)
         selectBorder: 'secondary', // color / undefined
         drawer: {
-          model: true,
+          model: false,
           floating: true,
           expand: true, // Collapses the drawer to a mini-variant until hovering with the mouse
           rail: true, // Small navigation, icon only
