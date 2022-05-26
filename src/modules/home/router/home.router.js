@@ -11,7 +11,7 @@ import team from '../views/team.view.vue';
 export default [
   {
     path: '/',
-    name: 'toto', // todo: get from config
+    name: 'Home', // todo: get from config
     component: home,
     meta: {
       icon: 'fa-solid fa-house',

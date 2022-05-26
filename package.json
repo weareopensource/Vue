@@ -55,7 +55,7 @@
     "vue-loader": "^17.0.0",
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^4.1.0",
-    "vue-meta": "^3.0.0-alpha.7",
+    "vue-meta": "^3.0.0-alpha.8",
     "vue-router": "^4.0.14",
     "vue3-gravatar": "^3.0.0",
     "vuetify": "^3.0.0-beta.1",
@@ -98,8 +98,8 @@
     "standard-version": "^9.5.0",
     "vue-cli-plugin-vuetify": "~2.5.0",
     "vue-template-compiler": "^2.6.14",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.10",
-    "webpack": "^5.72.1"
+    "webpack": "^5.72.1",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.10"
   },
   "config": {
     "commitizen": {
