@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 import { createApp } from 'vue';
+import { createMetaManager, plugin as metaPlugin } from 'vue-meta';
 import store from './modules/_app/app.store';
 import router from './modules/_app/app.router';
 import plugins from './lib/plugins';
@@ -15,6 +16,8 @@ app.config.globalProperties.config = config;
 app
   .use(store(app))
   .use(router(app))
+  .use(createMetaManager())
+  .use(metaPlugin)
   .use(plugins.aos)
   .use(plugins.axios)
   .use(plugins.images)

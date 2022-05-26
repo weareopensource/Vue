@@ -1,5 +1,9 @@
 <template>
   <v-app id="app" :theme="theme">
+    <metainfo>
+      <template v-slot:title="{ content }">{{ `${content} | ${this.$route.params.name || this.$route.name}` }} </template>
+    </metainfo>
+
     <v-snackbar
       v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
@@ -47,17 +51,6 @@ import waosFooter from '../_core/components/core.footer.component.vue';
  */
 export default {
   name: 'App',
-  // metaInfo() { todo
-  //   return {
-  //     title: this.config.app.title,
-  //     titleTemplate: `%s | ${this.$route.params.name || this.$route.name}`,
-  //     meta: [
-  //       { name: 'description', content: this.config.app.description },
-  //       { name: 'keywords', content: this.config.app.keywords },
-  //       { name: 'author', content: this.config.app.author },
-  //     ],
-  //   };
-  // },
   data() {
     return {
       snackbar: {
@@ -66,6 +59,16 @@ export default {
         timeout: 4000,
         text: 'toto',
       },
+    };
+  },
+  metaInfo() {
+    return {
+      title: this.config.app.title,
+      description: this.config.app.description,
+      meta: [
+        { name: 'keywords', content: this.config.app.keywords },
+        { name: 'author', content: this.config.app.author },
+      ],
     };
   },
   components: {
