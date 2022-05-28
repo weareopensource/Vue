@@ -1,3 +1,21 @@
+# [1.2.0](https://github.com/weareopensource/Vue/compare/v1.1.1...v1.2.0) (2022-05-28)
+
+
+### Bug Fixes
+
+* **core:** fixed footer 🐛 ([#1760](https://github.com/weareopensource/Vue/issues/1760)) ([d99056f](https://github.com/weareopensource/Vue/commit/d99056f142a2ee60a79aae13dc46f4fd92f91e79))
+* **home:** changelog exit error 🐛 ([#1737](https://github.com/weareopensource/Vue/issues/1737)) ([43c1a6a](https://github.com/weareopensource/Vue/commit/43c1a6a106dca844dfdf9ce58d5e3115d35b97fb))
+* **home:** color migration due to vue3 🐛 ([#1756](https://github.com/weareopensource/Vue/issues/1756)) ([5a7bd48](https://github.com/weareopensource/Vue/commit/5a7bd4806dcc122d0322252884cf9015a5dfc4d9))
+* **home:** components text colors 🐛 ([#1761](https://github.com/weareopensource/Vue/issues/1761)) ([4c724a2](https://github.com/weareopensource/Vue/commit/4c724a2e7b15465c099f353b1409a5c7fbb8f6e1))
+* **home:** footer position 🐛 ([#1749](https://github.com/weareopensource/Vue/issues/1749)) ([8068534](https://github.com/weareopensource/Vue/commit/8068534a8bf5e86969ba9202b19fa011f7181ee1))
+* **home:** logo component to v-img 🐛 ([#1762](https://github.com/weareopensource/Vue/issues/1762)) ([2bbbbc9](https://github.com/weareopensource/Vue/commit/2bbbbc944bad340d1e0da6ce0b3e204a64eac66f))
+
+
+### Features
+
+* **auth, home, tasks, users:** footer enabled from router ✨ ([#1750](https://github.com/weareopensource/Vue/issues/1750)) ([976a6e4](https://github.com/weareopensource/Vue/commit/976a6e423d67f10ffad41f9cd79a10999770a084))
+* **lib, app, home:** add vue 3 meta example ✨ ([#1755](https://github.com/weareopensource/Vue/issues/1755)) ([f7f3132](https://github.com/weareopensource/Vue/commit/f7f31326ee7ba588f0e7f5b308d1861240e38609))
+
 ## [1.1.1](https://github.com/weareopensource/Vue/compare/v1.1.0...v1.1.1) (2022-05-24)
 
 ### Features
