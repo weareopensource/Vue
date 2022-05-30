@@ -24,16 +24,16 @@
 
     <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
 
-    <v-main class="pa-0" :style="{ background: config.vuetify.theme.themes[theme].colors.background }">
+    <v-main class="pb-0" :style="{ background: config.vuetify.theme.themes[theme].colors.background }">
       <router-view />
-    </v-main>
 
-    <waosFooter
-      v-bind:links="config.home.links"
-      v-bind:custom="{
-        section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
-      }"
-    />
+      <waosFooter
+        v-bind:links="config.home.links"
+        v-bind:custom="{
+          section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
+        }"
+      />
+    </v-main>
   </v-app>
 </template>
 
