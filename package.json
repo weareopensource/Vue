@@ -96,7 +96,7 @@
     "sass-loader": "13.0.0",
     "semantic-release": "^19.0.2",
     "standard-version": "^9.5.0",
-    "vue-cli-plugin-vuetify": "~2.5.0",
+    "vue-cli-plugin-vuetify": "~2.5.1",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.72.1",
     "webpack-plugin-vuetify": "^2.0.0-alpha.10"
