@@ -7,7 +7,7 @@
     :flat="config.vuetify.theme.flat"
   >
     <!-- Navigation button -->
-    <template v-slot:prepend v-if="!config.vuetify.theme.navigation.ifLogged">
+    <template v-slot:prepend v-if="!config.vuetify.theme.navigation.ifLogged || (config.vuetify.theme.navigation.ifLogged && isLoggedIn)">
       <!-- v-if="isLoggedIn" -->
       <v-app-bar-nav-icon
         :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }"
