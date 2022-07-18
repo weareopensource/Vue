@@ -44,7 +44,7 @@
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
     "babel-runtime": "^6.26.0",
-    "core-js": "^3.22.7",
+    "core-js": "^3.23.5",
     "lodash": "^4.17.21",
     "marked": "^4.0.16",
     "md5": "^2.3.0",
