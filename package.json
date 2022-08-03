@@ -50,7 +50,7 @@
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "roboto-fontface": "*",
-    "snyk": "^1.940.0",
+    "snyk": "^1.982.0",
     "vue": "^3.2.31",
     "vue-loader": "^17.0.0",
     "vue-markdown": "^2.2.4",
