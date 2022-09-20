@@ -39,7 +39,7 @@
           <v-list-item-avatar left>
             <v-icon :icon="icon"></v-icon>
           </v-list-item-avatar>
-          <v-list-item-title v-text="label"></v-list-item-title>
+          <v-list-item-title>{{ label }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>

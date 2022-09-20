@@ -63,7 +63,16 @@
                 style="bottom: 5%; position: absolute; opacity: 75%"
                 v-if="config.home.blog && config.home.blog.subscribe && ratio == 1"
               >
-                <v-btn :href="config.home.blog.subscribe" target="_blank" class="px-10" height="55" elevation="0" rounded light data-aos="fade-up"
+                <v-btn
+                  :href="config.home.blog.subscribe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-10"
+                  height="55"
+                  elevation="0"
+                  rounded
+                  light
+                  data-aos="fade-up"
                   ><span style="color: gray">Stay informed by email<v-icon class="px-2">fa-solid fa-paper-plane</v-icon></span></v-btn
                 >
               </v-col>
