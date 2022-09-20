@@ -24,19 +24,20 @@
             : 'border-left: 4px solid transparent;'
         "
       >
-        <v-list-item-avatar left>
+        <template v-slot:prepend>
           <v-icon
             :icon="item.meta.icon"
             :style="{
               color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].colors.onPrimary,
             }"
+            size="small"
           ></v-icon>
-        </v-list-item-avatar>
-        <v-list-item-title class="pl-2 pt-1" v-text="item.name"></v-list-item-title>
+        </template>
+        <v-list-item-title>{{ item.name }}</v-list-item-title>
       </v-list-item>
     </v-list>
     <template v-slot:append v-if="!config.vuetify.theme.footer">
-      <div class="pa-2 d-flex justify-center" :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">
+      <div class="pa-2 d-flex text-center text-caption" :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">
         <span role="img" aria-label="copyright"> &copy; </span>
         <a href="https://weareopensource.me">WAOS</a>
       </div>
