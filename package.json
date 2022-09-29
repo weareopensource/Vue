@@ -51,7 +51,7 @@
     "moment": "^2.29.4",
     "roboto-fontface": "*",
     "snyk": "^1.1014.0",
-    "vue": "^3.2.39",
+    "vue": "^3.2.40",
     "vue-loader": "^17.0.0",
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^4.2.0",
