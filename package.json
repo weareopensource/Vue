@@ -97,7 +97,7 @@
     "semantic-release": "^19.0.5",
     "standard-version": "^9.5.0",
     "vue-cli-plugin-vuetify": "~2.5.8",
-    "vue-template-compiler": "^2.7.10",
+    "vue-template-compiler": "^2.7.11",
     "webpack": "^5.74.0",
     "webpack-plugin-vuetify": "^2.0.0-alpha.13"
   },
