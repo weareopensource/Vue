@@ -46,7 +46,7 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^3.26.1",
     "lodash": "^4.17.21",
-    "marked": "^4.2.4",
+    "marked": "^4.2.5",
     "md5": "^2.3.0",
     "moment": "^2.29.4",
     "roboto-fontface": "*",
