@@ -42,7 +42,7 @@
     "@vue/compiler-sfc": "^3.2.45",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.13",
-    "axios": "^1.2.2",
+    "axios": "^1.2.3",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.27.1",
     "lodash": "^4.17.21",
