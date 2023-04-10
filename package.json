@@ -80,7 +80,7 @@
     "@weareopensource/conventional-changelog": "^1.7.0",
     "chalk": "^5.1.2",
     "commitizen": "^4.3.0",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.27.5",
