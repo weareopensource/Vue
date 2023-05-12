@@ -52,7 +52,7 @@
     "roboto-fontface": "*",
     "snyk": "^1.1154.0",
     "vue": "^3.2.47",
-    "vue-loader": "^17.1.0",
+    "vue-loader": "^17.1.1",
     "vue-markdown": "^2.2.4",
     "vue-matomo": "^4.2.0",
     "vue-meta": "^3.0.0-alpha.8",
