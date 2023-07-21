@@ -20,23 +20,18 @@
                 {{ moment(new Date(lodash.get(item, header.value))).format(header.format) }}
               </span>
               <span v-else-if="header.kind == 'icon'">
-                <v-btn
-                  v-if="header.path && header.pathValue"
-                  :to="`${header.path}${lodash.get(item, header.pathValue)}`"
-                  variant="contained-flat"
-                  icon
-                >
+                <v-btn v-if="header.path && header.pathValue" :to="`${header.path}${lodash.get(item, header.pathValue)}`" variant="flat" icon>
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
                 <v-btn
                   v-else-if="header.dispatch && header.param"
                   @click="dispatch(header.dispatch, header.param, lodash.get(item, header.param), header.refresh)"
-                  variant="contained-flat"
+                  variant="flat"
                   icon
                 >
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
-                <v-btn v-else variant="contained-flat" icon>
+                <v-btn v-else variant="flat" icon>
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
               </span>
@@ -48,11 +43,7 @@
               </span>
               <span v-else-if="header.kind == 'capitalize'" class="text-capitalize"> {{ lodash.get(item, header.value) }}</span>
               <span v-else-if="header.kind == 'link' && header.path && header.pathValue">
-                <v-btn
-                  :to="`${header.path}${lodash.get(item, header.pathValue)}`"
-                  :class="`text-${header.color} text-capitalize`"
-                  variant="contained-flat"
-                >
+                <v-btn :to="`${header.path}${lodash.get(item, header.pathValue)}`" :class="`text-${header.color} text-capitalize`" variant="flat">
                   {{ lodash.get(item, header.value) }}
                 </v-btn>
               </span>
@@ -62,7 +53,7 @@
                 }}</v-chip>
               </span>
               <span v-else-if="header.kind == 'status'">
-                <v-btn variant="contained-flat" icon>
+                <v-btn variant="flat" icon>
                   <v-icon v-if="lodash.get(item, header.value) === true" color="green" icon="fa-solid fa-check" />
                   <v-icon v-else-if="lodash.get(item, header.value) === false" color="red" icon="fa-solid fa-times" />
                   <v-icon v-else class="rotating" color="orange" icon="fa-solid fa-spinner" />
@@ -101,13 +92,13 @@
       ></v-switch>
       <v-spacer></v-spacer>
       <v-select :items="perPage" v-model="options.itemsPerPage" label="Items per page" style="max-width: 150px; width: 150px"></v-select>
-      <v-btn @click="switchPage('-')" :disabled="options.page <= 1" variant="contained-flat" class="mb-8" icon>
+      <v-btn @click="switchPage('-')" :disabled="options.page <= 1" variant="flat" class="mb-8" icon>
         <v-icon icon="fa-solid fa-angle-left"></v-icon>
       </v-btn>
-      <v-btn variant="contained-flat" disabled class="mb-8">
+      <v-btn variant="flat" disabled class="mb-8">
         {{ options.page }}
       </v-btn>
-      <v-btn @click="switchPage('+')" :disabled="items.length < options.itemsPerPage" variant="contained-flat" class="mb-8 mr-2" icon>
+      <v-btn @click="switchPage('+')" :disabled="items.length < options.itemsPerPage" variant="flat" class="mb-8 mr-2" icon>
         <v-icon icon="fa-solid fa-angle-right"></v-icon>
       </v-btn>
     </v-card-actions>

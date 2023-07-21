@@ -36,9 +36,9 @@
       </template>
       <v-list>
         <v-list-item v-for="({ icon, label, url }, i) in config.header.socials" :key="i" :href="url">
-          <v-list-item-avatar left>
-            <v-icon :icon="icon"></v-icon>
-          </v-list-item-avatar>
+          <template v-slot:prepend>
+            <v-icon>{{ icon }}</v-icon>
+          </template>
           <v-list-item-title>{{ label }}</v-list-item-title>
         </v-list-item>
       </v-list>
