@@ -19,10 +19,9 @@
         </v-btn>
       </template>
     </v-snackbar>
+    <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
 
     <waosHeader />
-
-    <waosNav v-if="!config.vuetify.theme.navigation.displayIfLogged || isLoggedIn" />
 
     <v-main class="pb-0" :style="{ background: config.vuetify.theme.themes[theme].colors.background }">
       <router-view />
@@ -41,8 +40,8 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import waosHeader from '../_core/components/core.header.component.vue';
-import waosNav from '../_core/components/core.nav.component.vue';
+import waosHeader from '../_core/components/core.appbar.component.vue';
+import waosNav from '../_core/components/core.navigation.component.vue';
 import waosFooter from '../_core/components/core.footer.component.vue';
 
 /**
