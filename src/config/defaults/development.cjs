@@ -41,23 +41,9 @@ module.exports = {
     },
   },
   analytics: {
-    matomo: {
-      // host: 'https://mtm.weareopensource.me',
-      // siteId: 2,
-      // router: this.$router, // Enables automatically registering pageviews on the router
-      // trackerFileName: 'matomo', // Changes the default .js and .php endpoint's filename
-      // enableLinkTracking: true, // Enables link tracking on regular links. Note that
-      // this won't work for routing links (ie. internal Vue router links)
-      // requireConsent: false, // Require consent before sending tracking information to matomo
-      // trackInitialView: true, // Whether to track the initial page view
-      // disableCookies: false, // Run Matomo without cookies
-      // enableHeartBeatTimer: false, // Enable the heartbeat timer
-      // heartBeatTimerInterval: 15, // Set the heartbeat timer interval
-      // debug: false, // Whether or not to log debug information
-      // userId: undefined, // UserID passed to Matom
-      // cookieDomain: undefined, // Share the tracking cookie across subdomains
-      // domains: undefined, // Tell Matomo the website domain so that clicks on these domains are not tracked as 'Outlinks'
-      // preInitActions: [],
+    posthog: {
+      // host: 'ph_instance_address',
+      // key: 'ph_project_api_key',
     },
   },
   vuetify: {
