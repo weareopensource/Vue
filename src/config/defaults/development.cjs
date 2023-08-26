@@ -61,9 +61,7 @@ module.exports = {
         opacity: 99,
       },
       navigation: {
-        ifLogged: false, // show nav only if user is logged (easy for one page site)
         drawer: {
-          model: false,
           floating: true,
           expand: true, // Collapses the drawer to a mini-variant until hovering with the mouse
           rail: true, // Small navigation, icon only
