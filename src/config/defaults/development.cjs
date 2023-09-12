@@ -2,7 +2,6 @@
 module.exports = {
   app: {
     title: 'WAOS',
-    status: 'Dev',
     logo: 'logo.png', // null to use title by default
     subtitle: 'welcome to demo.',
     description: 'Vue - Boilerplate Front : Vuetify, Axios, Jest, Cypress (Alpha) ',
@@ -59,6 +58,7 @@ module.exports = {
       },
       appbar: {
         opacity: 99,
+        scrollBehavior: 'hide',
       },
       navigation: {
         drawer: {
@@ -70,7 +70,7 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            primary: '#34495e',
+            primary: '#101115',
             secondary: '#EE5A24',
             background: '#f3f3f6',
             surface: '#ffffff',
@@ -86,7 +86,7 @@ module.exports = {
         },
         dark: {
           colors: {
-            primary: '#34495e',
+            primary: '#101115',
             secondary: '#e67e22',
             background: '#1F1F1F',
             surface: '#282A2E',
@@ -110,35 +110,84 @@ module.exports = {
     },
   },
   header: {
+    logo: {
+      file: 'logo.png', // null to hide
+      width: '120px',
+    },
+    title: false, // display title or not
     links: [
       // top left
       {
-        label: 'Blog',
+        title: 'Product',
+        sublinks: [
+          {
+            icon: 'fa-regular fa-star',
+            color: 'secondary',
+            title: 'For startuper',
+            subtitle: 'Create faster, Resilient, Easily',
+            url: 'https://github.com/weareopensource/',
+          },
+          {
+            icon: 'fa-solid fa-code',
+            color: 'secondary',
+            title: 'For developer',
+            subtitle: 'Learn, develop, fork',
+            url: 'https://github.com/weareopensource/',
+          },
+        ],
+      },
+      {
+        title: 'Ressources',
+        sublinks: [
+          {
+            icon: 'fa-regular fa-newspaper',
+            color: 'secondary',
+            title: 'Blog',
+            subtitle: 'Follow our updates and activities',
+            url: 'https://blog.weareopensource.me',
+          },
+        ],
+      },
+      {
+        title: 'Pricing',
         url: 'https://blog.weareopensource.me',
       },
     ],
-    socials: [
-      // top right icons
+    shortcuts: [
       {
-        icon: 'fa-brands fa-github',
-        label: 'Github',
-        url: 'https://github.com/weareopensource/',
+        title: 'Get Started - free',
+        url: 'https://blog.weareopensource.me',
+        variant: 'flat',
       },
     ],
   },
   home: {
-    temporalBackground: 'https://blog.weareopensource.me/content/images/size/w1600/2020/11',
-    // one by hour 00.jpg, 01.jpg; 02.jpg ... set to null default background would be in @/assets/images/background.jpg
+    lightBackground: 'lite.jpeg',
+    darkBackground: 'dark.jpeg',
+    banner: {
+      title: 'Turn your ideas <br /> <b><span style="color:#55efc4">into a reality.</span></b>',
+      button: {
+        title: 'Just launched: 2.0 →',
+        color: '#55efc4',
+        link: 'https://github.com/weareopensource',
+      },
+    },
+    video: {
+      file: 'video.mp4',
+      poster: 'video-poster.webp',
+      background: '#101115',
+    },
     abouts: [
       {
-        title: 'About Us',
+        title: 'About us',
         text: '[WAOS](https://blog.weareopensource.me/us/)"s goal is to simplify the **start** of new **tech projects** / **startups**. \
           As we know It"s must be **fast**, **efficient** while **avoiding the refactor** afterward. \
           So whether through the creation of [Open-Source](https://github.com/weareopensource) **stacks** / **tools** or **articles**, \
           we **share our knowledge** around this subject.',
-        image: 'https://avatars3.githubusercontent.com/u/8588816?s=200&v=4',
-        button: 'Github',
-        link: 'https://github.com/weareopensource',
+        button: {
+          title: 'Follow Us on Github !',
+          link: 'https://github.com/weareopensource',
+        },
       },
     ],
     features: {
@@ -175,15 +224,12 @@ module.exports = {
           title: 'Vibrant Community',
           text: '**Lorem** ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint ...',
           // color: 'red'
-          // position: 'end', start / center / end text position for full slideshow only
-          // dark: true, start / center / end text position for full slideshow only dark / light option for image => 01-dark.jpg 01-light.jpg
+          // position: 'end', start / center / end text position
         },
         {
           img: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           icon: 'fa-solid fa-cloud-arrow-up',
           title: 'Frequent Updates',
-          // color: 'red'
-          // text: '**Sed** ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui,
         },
       ],
     },

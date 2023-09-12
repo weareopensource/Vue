@@ -1,7 +1,14 @@
 <template>
   <div>
-    <homeBannerComponent v-bind:ratio="1" v-bind:app="config.app" v-bind:statusMargin="450"></homeBannerComponent>
-    <homeAboutsComponent v-bind:abouts="config.home.abouts" v-bind:md="6" v-bind:custom="null"></homeAboutsComponent>
+    <homeBannerComponent v-bind:title="config.home.banner.title" v-bind:button="config.home.banner.button"></homeBannerComponent>
+    <homeVideoComponent
+      v-bind:video="config.home.video"
+      v-bind:custom="{
+        section: { background: config.vuetify.theme.themes[theme].colors.surface },
+        card: { background: config.vuetify.theme.themes[theme].colors.background },
+      }"
+    ></homeVideoComponent>
+    <homeAboutsComponent v-bind:abouts="config.home.abouts" v-bind:md="6" v-bind:custom="{ 'max-width': '1400px' }"></homeAboutsComponent>
     <homeFeaturesComponent
       v-bind:features="config.home.features"
       v-bind:custom="{
@@ -9,16 +16,7 @@
         card: { background: config.vuetify.theme.themes[theme].colors.background },
       }"
     ></homeFeaturesComponent>
-    <homeSlideshowComponent
-      v-bind:slides="config.home.slideshow"
-      v-bind:custom="null"
-      v-bind:height="350"
-      v-bind:mdImage="8"
-      v-bind:mdText="4"
-      v-bind:full="false"
-      v-bind:interval="6000"
-    ></homeSlideshowComponent>
-    <homeStatsComponent v-bind:statistics="statistics"></homeStatsComponent>
+    <homeSlideshowComponent v-bind:slides="config.home.slideshow" v-bind:height="'500px'" v-bind:interval="6000"></homeSlideshowComponent>
     <homeBlogComponent
       v-bind:title="config.home.blog.title"
       v-bind:url="config.home.blog.url"
@@ -27,6 +25,7 @@
         section: { background: config.vuetify.theme.themes[theme].colors.surface },
       }"
     ></homeBlogComponent>
+    <homeStatsComponent v-bind:statistics="statistics"></homeStatsComponent>
     <homeContactComponent></homeContactComponent>
   </div>
 </template>
@@ -37,6 +36,7 @@
  */
 import { mapGetters } from 'vuex';
 import homeBannerComponent from '../components/home.banner.component.vue';
+import homeVideoComponent from '../components/home.video.component.vue';
 import homeAboutsComponent from '../components/home.abouts.component.vue';
 import homeFeaturesComponent from '../components/home.features.component.vue';
 import homeSlideshowComponent from '../components/home.slideshow.component.vue';
@@ -50,6 +50,7 @@ import homeContactComponent from '../components/home.contact.component.vue';
 export default {
   components: {
     homeBannerComponent,
+    homeVideoComponent,
     homeAboutsComponent,
     homeFeaturesComponent,
     homeSlideshowComponent,

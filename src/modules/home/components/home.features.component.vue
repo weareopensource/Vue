@@ -1,24 +1,5 @@
-<!--
-  - Call example
-    <homeFeaturesComponent
-      v-bind:features="features"
-      v-bind:custom="null"
-    ></homeFeaturesComponent>
-  - Data Example
-    features: {
-      title: 'Stacks',
-      data: [
-        {
-          icon: 'fa-brand fa-vuejs',
-          title: 'Vue',
-          text: '**Alpha Front Stack** <br> Classic auth with landing page ...',
-          color: '#186b9f',
-        },
-      ],
-    },
--->
 <template>
-  <section id="features" class="py-12" :style="custom && custom.section ? custom.section : null" v-if="features.data.length > 0">
+  <section id="features" v-if="features.data.length > 0" class="py-12" :style="sectionStyle">
     <v-container class="text-center">
       <h2
         class="font-weight-bold mb-3 pb-8 text-h4 text-center"
@@ -52,5 +33,10 @@
 export default {
   name: 'homeAboutsComponent',
   props: ['features', 'custom'],
+  computed: {
+    sectionStyle() {
+      return this.custom && this.custom.section ? this.custom.section : null;
+    },
+  },
 };
 </script>

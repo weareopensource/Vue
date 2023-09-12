@@ -27,10 +27,7 @@
 -->
 <template>
   <section id="stats" class="black" v-if="statistics.length > 0">
-    <v-parallax
-      :height="$vuetify.display.smAndDown ? 700 : 500"
-      :src="config.home.stats.background || require('@/assets/images/backgroundParalax.jpg')"
-    >
+    <v-parallax :height="$vuetify.display.smAndDown ? 700 : 500" :src="config.home.stats.background || require('@/assets/images/paralax.jpg')">
       <v-row class="mx-auto fill-height align-center pa-12">
         <v-col v-for="({ value, title }, i) in statistics" :key="i" cols="12" md="3">
           <div class="text-center text-white" data-aos="fade">
