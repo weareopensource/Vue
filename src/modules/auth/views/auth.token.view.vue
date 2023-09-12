@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row align="start" justify="center">
       <v-card
         class="ma-6 pa-6"

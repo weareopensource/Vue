@@ -1,21 +1,5 @@
-<!--
-  - Call example
-    <homeBlogComponent
-      v-bind:title="blog"
-      v-bind:url="config.home.blog2.url"
-      v-bind:news="news2"
-      v-bind:custom="null"
-    ></homeBlogComponent>
-  - Data Example
-    blog: {
-      // actually dev for Ghost Blog
-      title: 'Articles',
-      url: 'https://blog.weareopensource.me',
-      key: 'yourkey',
-    },
--->
 <template>
-  <section id="blog" class="py-12" :style="custom && custom.section ? custom.section : null" v-if="news.length > 0">
+  <section id="blog" v-if="news.length > 0" class="py-12" :style="sectionStyle">
     <v-container>
       <h2 class="font-weight-bold mb-3 pb-8 text-h4 text-center" style="text-transform: uppercase !important" v-if="title" v-text="title"></h2>
       <v-row>
@@ -41,5 +25,10 @@
 export default {
   name: 'homeBlogComponent',
   props: ['title', 'url', 'news', 'custom'],
+  computed: {
+    sectionStyle() {
+      return this.custom && this.custom.section ? this.custom.section : null;
+    },
+  },
 };
 </script>

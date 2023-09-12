@@ -127,4 +127,7 @@ export default {
 .v-card {
   border: none !important;
 }
+.v-application {
+  font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
 </style>

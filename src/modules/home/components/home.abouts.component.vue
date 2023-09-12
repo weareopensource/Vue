@@ -1,36 +1,13 @@
-<!--
-  - Call example
-    <homeAboutsComponent
-      v-bind:abouts="abouts"
-      v-bind:custom="null"
-      v-bind:md="6"
-    ></homeAboutsComponent>
-  - Data Example
-    abouts: [
-      {
-        title: 'Concept',
-        text: '[WAOS](https://blog.weareopensource.me/us/) aims at simpli ... ',
-        image: null,
-        button: null,
-        link: null,
-      },
-    ],
--->
 <template>
-  <section id="about-me" v-if="abouts.length > 0" :style="custom && custom.section ? custom.section : null">
-    <v-container class="text-center pb-12">
-      <v-row align="center" justify="center">
-        <v-col v-for="({ title, text, image, button, link }, i) in abouts" :key="i" cols="12" :md="md">
-          <h2 class="font-weight-bold mb-3 py-8 text-h4 text-center" style="text-transform: uppercase !important" v-text="title"></h2>
-          <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
-            <v-markdown :source="text" />
-          </v-responsive>
-          <v-avatar v-if="image" class="elevation-12 mb-12" size="128">
-            <v-img :src="image"></v-img>
-          </v-avatar>
-          <br v-if="link" />
-          <v-btn v-if="link" color="grey" :href="link" large>
-            <span v-text="button"></span>
+  <section id="abouts" v-if="abouts.length > 0" :style="sectionStyle">
+    <v-container class="text-justify">
+      <v-row>
+        <v-col v-for="({ title, text, button }, i) in abouts" :key="i" cols="12" :md="abouts.length > 1 ? md : 12" class="pa-10">
+          <h2 class="my-5 text-secondary" v-text="title"></h2>
+          <v-markdown class="text-h6" :source="text" />
+          <v-btn v-if="button.title" :href="button.link" variant="text" class="my-5 text-none" color="secondary" size="large">
+            <v-icon class="mr-2" size="x-small">fa-solid fa-angle-right</v-icon>
+            {{ button.title }}
           </v-btn>
         </v-col>
       </v-row>
@@ -44,6 +21,24 @@
  */
 export default {
   name: 'homeAboutsComponent',
-  props: ['abouts', 'custom', 'md'],
+  props: {
+    abouts: {
+      type: Array,
+      default: () => [],
+    },
+    custom: {
+      type: Object,
+      default: () => ({}),
+    },
+    md: {
+      type: [Number, String],
+      default: 12,
+    },
+  },
+  computed: {
+    sectionStyle() {
+      return this.custom && this.custom.section ? this.custom.section : null;
+    },
+  },
 };
 </script>

@@ -2,7 +2,7 @@
   <v-col cols="12" sm="12" md="6" lg="4" xl="3">
     <v-card class="mx-auto rounded-xl" :flat="config.vuetify.theme.flat">
       <v-img
-        :src="require('@/assets/images/background.jpg')"
+        :src="require('@/assets/images/dark.jpeg')"
         class="text-white"
         height="150"
         cover
