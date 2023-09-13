@@ -70,7 +70,7 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            primary: '#101115',
+            primary: '#2c3e50',
             secondary: '#EE5A24',
             background: '#f3f3f6',
             surface: '#ffffff',
@@ -86,7 +86,7 @@ module.exports = {
         },
         dark: {
           colors: {
-            primary: '#101115',
+            primary: '#2c3e50',
             secondary: '#e67e22',
             background: '#1F1F1F',
             surface: '#282A2E',
@@ -175,24 +175,69 @@ module.exports = {
     video: {
       file: 'video.mp4',
       poster: 'video-poster.webp',
-      background: '#101115',
+      style: {
+        section: {
+          background: 'surface',
+        },
+        video: {
+          background: '#101115',
+        },
+      },
     },
-    abouts: [
-      {
-        title: 'About us',
-        text: '[WAOS](https://blog.weareopensource.me/us/)"s goal is to simplify the **start** of new **tech projects** / **startups**. \
+    abouts: {
+      style: {
+        section: {
+          background: 'background',
+        },
+      },
+      content: [
+        {
+          title: 'About us',
+          text: '[WAOS](https://blog.weareopensource.me/us/)"s goal is to simplify the **start** of new **tech projects** / **startups**. \
           As we know It"s must be **fast**, **efficient** while **avoiding the refactor** afterward. \
           So whether through the creation of [Open-Source](https://github.com/weareopensource) **stacks** / **tools** or **articles**, \
           we **share our knowledge** around this subject.',
-        button: {
-          title: 'Follow Us on Github !',
-          link: 'https://github.com/weareopensource',
+          button: {
+            title: 'Follow Us on Github !',
+            link: 'https://github.com/weareopensource',
+          },
         },
+      ],
+    },
+    logos: {
+      style: {
+        section: {
+          background: 'surface',
+        },
+        size: '100px',
       },
-    ],
+      title: 'Our Partners',
+      content: [
+        {
+          image: 'https://logodownload.org/wp-content/uploads/2013/12/apple-logo-16.png',
+          link: 'https://apple.com',
+        },
+        {
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
+          link: 'https://google.com',
+        },
+        {
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
+          link: 'https://tesla.com',
+        },
+      ],
+    },
     features: {
       title: 'Vuetify features',
-      data: [
+      style: {
+        section: {
+          background: 'background',
+        },
+        card: {
+          background: 'surface',
+        },
+      },
+      content: [
         {
           icon: 'fa-solid fa-users',
           title: 'Vibrant Community',
@@ -217,7 +262,11 @@ module.exports = {
     },
     slideshow: {
       title: 'Demos',
-      data: [
+      style: {
+        height: '500px',
+        interval: 6000,
+      },
+      content: [
         {
           img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           icon: 'fa-solid fa-users',
@@ -236,7 +285,7 @@ module.exports = {
     stats: {
       background:
         'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-      data: [
+      content: [
         {
           value: '0',
           title: 'Tasks',
@@ -256,16 +305,38 @@ module.exports = {
       ],
     },
     blog: {
-      // actually dev for Ghost Blog
+      style: {
+        section: {
+          background: 'surface',
+        },
+      },
       title: 'Blog',
       url: 'https://blog.weareopensource.me',
       subscribe: 'https://blog.weareopensource.me/#subscribe',
       key: '0415f48774e7c49c713204f787',
     },
     contact: {
+      style: {
+        section: {
+          background: 'surface',
+        },
+      },
       title: 'Contact Us',
       mail: 'mailto:pierre@weareopensource.me',
     },
+  },
+  pages: {
+    style: {
+      section: {
+        background: 'background',
+      },
+      card: {
+        background: 'surface',
+        maxWidth: '1400px',
+      },
+    },
+  },
+  footer: {
     links: [
       {
         title: 'Useful',

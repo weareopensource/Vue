@@ -1,16 +1,7 @@
-<!--
-  - Call example
-    <homeContactComponent></homeContactComponent>
--->
 <template>
-  <section id="contact" class="py-12">
+  <section id="contact" class="py-12" :style="style('section', contact)">
     <v-container>
-      <h2
-        class="font-weight-bold mb-3 pb-8 text-h4 text-center"
-        style="text-transform: uppercase !important"
-        v-if="config.home.contact.title"
-        v-text="config.home.contact.title"
-      ></h2>
+      <h4 class="font-weight-bold mb-3 pb-8 text-h4 text-center" v-if="config.home.contact.title" v-text="config.home.contact.title"></h4>
       <v-form ref="form">
         <v-row>
           <v-col cols="12">
@@ -42,6 +33,7 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
+import { style } from '../../../lib/helpers/theme';
 /**
  * Export default
  */
@@ -69,6 +61,7 @@ export default {
     },
   },
   methods: {
+    style,
     sendMail() {
       window.location.href = `${this.config.home.contact.mail}?subject=${this.contact.subject}&body=${this.contact.body.replace(/\n/g, '%0D%0A')}`;
       this.$refs.form.reset();

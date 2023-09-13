@@ -23,6 +23,22 @@ export const isDark = (theme) => {
 };
 
 /**
+ * @desc Function to return custom css object
+ * @param {String} String, section, card, video
+ * @return {Object} object in config { background: ... }
+ */
+export const style = (kind, object) => {
+  const style = {};
+  if (object && object.style && object.style[kind]) {
+    if (object.style[kind].background)
+      style.background =
+        object.style[kind].background[0] === '#' ? object.style[kind].background : `rgb(var(--v-theme-${object.style[kind].background}))`;
+    if (object.style[kind].maxWidth) style['max-width'] = object.style[kind].maxWidth;
+  }
+  return style;
+};
+
+/**
  * @desc default export
  */
-export default { defineTheme, isDark };
+export default { defineTheme, isDark, style };

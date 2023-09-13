@@ -1,7 +1,7 @@
 <template>
-  <section id="blog" v-if="news.length > 0" class="py-12" :style="sectionStyle">
+  <section id="blog" v-if="news.length > 0" class="py-12" :style="style('section', blog)">
     <v-container>
-      <h2 class="font-weight-bold mb-3 pb-8 text-h4 text-center" style="text-transform: uppercase !important" v-if="title" v-text="title"></h2>
+      <h4 class="font-weight-bold mb-3 pb-8 text-h4 text-center" v-if="blog.title" v-text="blog.title"></h4>
       <v-row>
         <v-col v-for="({ feature_image, excerpt, title, url }, i) in news" :key="i" cols="12" md="4" data-aos="fade-up">
           <!-- eslint-disable-next-line -->
@@ -20,15 +20,17 @@
 
 <script>
 /**
+ * Module dependencies.
+ */
+import { style } from '../../../lib/helpers/theme';
+/**
  * Export default
  */
 export default {
   name: 'homeBlogComponent',
-  props: ['title', 'url', 'news', 'custom'],
-  computed: {
-    sectionStyle() {
-      return this.custom && this.custom.section ? this.custom.section : null;
-    },
+  props: ['blog', 'news'],
+  methods: {
+    style,
   },
 };
 </script>

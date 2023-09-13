@@ -27,7 +27,7 @@
       <router-view />
     </v-main>
     <waosFooter
-      v-bind:links="config.home.links"
+      v-bind:links="config.footer.links"
       v-bind:custom="{
         section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
       }"

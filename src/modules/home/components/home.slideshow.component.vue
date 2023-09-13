@@ -1,7 +1,14 @@
 <template>
-  <section id="slideshow" v-if="slides.data.length > 0">
-    <v-carousel cycle :height="height" hide-delimiter-background :show-arrows="false" :interval="interval || 6000" class="slideshow-carousel">
-      <v-carousel-item v-for="({ img, text, color, position }, i) in slides.data" :key="i" :src="img" cover>
+  <section id="slideshow" v-if="slides.content.length > 0">
+    <v-carousel
+      cycle
+      :height="slides.style.height"
+      hide-delimiter-background
+      :show-arrows="false"
+      :interval="slides.style.interval || 6000"
+      class="slideshow-carousel"
+    >
+      <v-carousel-item v-for="({ img, text, color, position }, i) in slides.content" :key="i" :src="img" cover>
         <v-sheet color="transparent" height="100%">
           <div class="d-flex fill-height justify-center align-center" :style="{ float: position && !$vuetify.display.smAndDown ? position : 'none' }">
             <div
@@ -34,14 +41,6 @@ export default {
     slides: {
       type: Object,
       default: () => ({ data: [] }),
-    },
-    height: {
-      type: String,
-      default: '400px',
-    },
-    interval: {
-      type: Number,
-      default: 6000,
     },
   },
   computed: {
