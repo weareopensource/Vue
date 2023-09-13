@@ -13,7 +13,7 @@
               cols="12"
               class="text-white text-center"
               :style="{
-                'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-20vh',
+                'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
               }"
             >
               <v-btn
