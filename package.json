@@ -53,7 +53,7 @@
     "posthog-js": "^1.78.1",
     "roboto-fontface": "*",
     "snyk": "^1.1216.0",
-    "video.js": "7.21.1",
+    "video.js": "7.21.5",
     "vue": "^3.3.4",
     "vue-loader": "^17.2.2",
     "vue-markdown": "^2.1.3",
