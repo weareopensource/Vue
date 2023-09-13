@@ -12,7 +12,7 @@
  */
 
 import { mapGetters } from 'vuex';
-import coreDataTableComponent from '../../_core/components/core.datatable.component.vue';
+import coreDataTableComponent from '../../core/components/core.datatable.component.vue';
 
 /**
  * Export default

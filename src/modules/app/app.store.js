@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import { createStore } from 'vuex';
-import core from '../_core/stores/core.store';
+import core from '../core/stores/core.store';
 import auth from '../auth/stores/auth.store';
 import users from '../users/stores/users.store';
 import home from '../home/stores/home.store';

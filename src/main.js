@@ -3,11 +3,11 @@
  */
 import { createApp } from 'vue';
 import { createMetaManager, plugin as metaPlugin } from 'vue-meta';
-import store from './modules/_app/app.store';
-import router from './modules/_app/app.router';
+import store from './modules/app/app.store';
+import router from './modules/app/app.router';
 import plugins from './lib/plugins';
 import config from './config/index.cjs';
-import App from './modules/_app/app.vue';
+import App from './modules/app/app.vue';
 
 const app = createApp(App);
 

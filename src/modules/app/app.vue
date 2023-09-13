@@ -40,9 +40,9 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import waosHeader from '../_core/components/core.appbar.component.vue';
-import waosNav from '../_core/components/core.navigation.component.vue';
-import waosFooter from '../_core/components/core.footer.component.vue';
+import waosHeader from '../core/components/core.appbar.component.vue';
+import waosNav from '../core/components/core.navigation.component.vue';
+import waosFooter from '../core/components/core.footer.component.vue';
 
 /**
  * Export default
