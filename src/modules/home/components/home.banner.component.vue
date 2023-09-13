@@ -3,7 +3,7 @@
     <v-row>
       <v-img
         :height="ratio ? `calc(${100 / ratio}vh)` : this.$vuetify.display.smAndDown ? '70vh' : '90vh'"
-        :src="require('@/assets/images/' + generateBackground())"
+        :src="banner ? banner : require('@/assets/images/' + generateBackground())"
         style="margin-top: -65px"
         cover
       >
@@ -13,7 +13,7 @@
               cols="12"
               class="text-white text-center"
               :style="{
-                'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-20vh',
+                'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
               }"
             >
               <v-btn
@@ -44,6 +44,11 @@ export default {
     // define a ratio to handle banne height
     ratio: {
       type: [Number, String],
+      default: null,
+    },
+    // title to display
+    banner: {
+      type: String,
       default: null,
     },
     // title to display

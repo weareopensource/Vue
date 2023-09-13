@@ -1,63 +1,15 @@
-<!--
-  - Call example
-  <homeLogosComponent
-    v-bind:logos="sponsors"
-    v-bind:size="150"
-    v-bind:ratio="1"
-    v-bind:custom="null"
-  ></homeLogosComponent>
-  - Data Example
-  sponsors: {
-    title: 'Sponsor',
-    data: [
-      [{
-        title: 'OpenCollective',
-        image: 'logos/opencollective.png',
-        link: 'https://opencollective.com/weareopensource',
-      }, {
-        title: 'Ko-fi',
-        image: 'logos/patreon.png',
-        link: 'https://ko-fi.com/weareopensource',
-      }, {
-        title: 'Patreon',
-        image: 'logos/kofi.png',
-        link: 'https://patreon.com/weareopensource',
-      }],
-    ],
-  },
--->
 <template>
-  <section id="logos" class="py-12" :style="custom && custom.section ? custom.section : null" v-if="logos.data.length > 0">
+  <section id="logos" v-if="logos.content.length > 0" class="py-12" :style="style('section', logos)">
     <v-container class="text-center">
-      <h2
-        class="font-weight-bold mb-3 pb-8 text-h4 text-center"
-        style="text-transform: uppercase !important"
-        v-if="logos.title"
-        v-text="logos.title"
-      ></h2>
-      <v-row v-for="(data, i) in logos.data" :key="i" justify="center">
-        <v-col
-          v-for="({ image, link, title }, i) in data"
-          :key="i"
-          :cols="12 / ratio"
-          :sm="6 / ratio"
-          :md="4 / ratio"
-          :lg="4 / ratio"
-          :xl="2 / ratio"
-        >
-          <v-tooltip top>
-            <template v-slot:activator="{ on }"
-              ><div>
-                <!-- eslint-disable-next-line -->
-                <a :href="link">
-                  <v-avatar v-on="on" v-if="link" :size="size">
-                    <v-img v-if="image" :src="image" alt="logo" />
-                  </v-avatar>
-                </a>
-              </div>
-            </template>
-            <span>{{ title }} </span>
-          </v-tooltip>
+      <h4 class="font-weight-bold mb-3 pb-8 text-h4 text-center" v-if="logos.title" v-text="logos.title"></h4>
+      <v-row justify="center">
+        <v-col v-for="({ image, link }, i) in logos.content" :key="i" :cols="12" :sm="6" :md="4" :lg="4" :xl="2">
+          <!-- eslint-disable-next-line -->
+          <a v-if="link" :href="link">
+            <v-avatar :size="logos.style.size">
+              <v-img v-if="image" :src="image" alt="logo" />
+            </v-avatar>
+          </a>
         </v-col>
       </v-row>
     </v-container>
@@ -65,10 +17,17 @@
 </template>
 <script>
 /**
+ * Module dependencies.
+ */
+import { style } from '../../../lib/helpers/theme';
+/**
  * Export default
  */
 export default {
   name: 'homeLogosComponent',
-  props: ['logos', 'custom', 'size', 'ratio'],
+  props: ['logos'],
+  methods: {
+    style,
+  },
 };
 </script>

@@ -27,7 +27,7 @@
       <router-view />
     </v-main>
     <waosFooter
-      v-bind:links="config.home.links"
+      v-bind:links="config.footer.links"
       v-bind:custom="{
         section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
       }"
@@ -40,9 +40,9 @@
  * Module dependencies.
  */
 import { mapGetters } from 'vuex';
-import waosHeader from '../_core/components/core.appbar.component.vue';
-import waosNav from '../_core/components/core.navigation.component.vue';
-import waosFooter from '../_core/components/core.footer.component.vue';
+import waosHeader from '../core/components/core.appbar.component.vue';
+import waosNav from '../core/components/core.navigation.component.vue';
+import waosFooter from '../core/components/core.footer.component.vue';
 
 /**
  * Export default
