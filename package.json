@@ -50,7 +50,7 @@
     "marked": "^8.0.1",
     "md5": "^2.3.0",
     "moment": "^2.29.4",
-    "posthog-js": "^1.78.4",
+    "posthog-js": "^1.78.5",
     "roboto-fontface": "*",
     "snyk": "^1.1220.0",
     "video.js": "7.21.5",
