@@ -65,7 +65,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.19",
+    "@babel/core": "^7.22.20",
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-transform-private-methods": "^7.22.5",
     "@commitlint/cli": "^17.7.1",
