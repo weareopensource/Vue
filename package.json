@@ -52,7 +52,7 @@
     "moment": "^2.29.4",
     "posthog-js": "^1.79.0",
     "roboto-fontface": "*",
-    "snyk": "^1.1220.0",
+    "snyk": "^1.1221.0",
     "video.js": "7.21.5",
     "vue": "^3.3.4",
     "vue-loader": "^17.2.2",
