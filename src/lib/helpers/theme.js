@@ -30,10 +30,22 @@ export const isDark = (theme) => {
 export const style = (kind, object) => {
   const style = {};
   if (object && object.style && object.style[kind]) {
-    if (object.style[kind].background)
-      style.background =
-        object.style[kind].background[0] === '#' ? object.style[kind].background : `rgb(var(--v-theme-${object.style[kind].background}))`;
-    if (object.style[kind].maxWidth) style['max-width'] = object.style[kind].maxWidth;
+    // background
+    if (object.style[kind].background) {
+      if (object.style[kind].background[0] === '#') style.background = object.style[kind].background;
+      else if (object.style[kind].background.includes('linear-gradient')) style['background-image'] = object.style[kind].background;
+      else style.background = `rgb(var(--v-theme-${object.style[kind].background})) !important`;
+    }
+    // color
+    if (object.style[kind].color) {
+      if (object.style[kind].color[0] === '#') style.color = object.style[kind].color;
+      else style.color = `rgb(var(--v-theme-${object.style[kind].color})) !important`;
+    }
+    // height &  width
+    if (object.style[kind].height) style.height = `${object.style[kind].height} !important`;
+    if (object.style[kind].width) style.width = `${object.style[kind].width} !important`;
+    // radius
+    if (object.style[kind].borderRadius) style['border-radius'] = `${object.style[kind].borderRadius} !important`;
   }
   return style;
 };

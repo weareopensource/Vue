@@ -5,7 +5,6 @@
     :flat="config.vuetify.theme.flat"
     :scroll-behavior="config.vuetify.theme.appbar.scrollBehavior"
     class="waos-app-bar mx-auto"
-    rounded="lg"
   >
     <!-- Logo/Title -->
     <router-link to="/" v-if="this.config.header.logo.file">
@@ -57,7 +56,7 @@
     <v-menu location="bottom" offset="15px" transition="fade-transition">
       <template v-slot:activator="{ props }">
         <v-btn v-bind="props" class="hidden-md-and-up" icon>
-          <v-icon :style="{ color: config.vuetify.theme.themes[theme].colors.onPrimary }">fa-solid fa-bars</v-icon>
+          <v-icon :style="{ color: config.vuetify.theme.appbar.color }">fa-solid fa-bars</v-icon>
         </v-btn>
       </template>
       <v-card min-width="320px">
@@ -91,8 +90,8 @@
             size="large"
             :variant="variant"
             :style="{
-              background: config.vuetify.theme.themes[theme].colors.primary,
-              color: config.vuetify.theme.themes[theme].colors.onPrimary,
+              background: config.vuetify.theme.appbar.background,
+              color: config.vuetify.theme.appbar.color,
             }"
             class="text-none"
             width="100%"
@@ -120,18 +119,16 @@ export default {
     ...mapGetters(['theme', 'isLoggedIn']),
     appBarStyle() {
       return {
-        background: `linear-gradient(180deg, transparent 5px, ${this.config.vuetify.theme.themes[this.theme].colors.primary}${
-          this.config.vuetify.theme.appbar.opacity
-        } 5px)`,
-        color: this.config.vuetify.theme.themes[this.theme].colors.onPrimary,
+        background: `linear-gradient(180deg, transparent 10px, ${this.config.vuetify.theme.appbar.background}${this.config.vuetify.theme.appbar.opacity} 10px)`,
+        color: this.config.vuetify.theme.appbar.color,
         '-webkit-backdrop-filter': 'blur(8px)',
         'backdrop-filter': 'blur(8px)',
-        'max-width': '1400px',
+        'max-width': this.config.vuetify.theme.maxWidth,
         width: '96%',
         margin: 'auto',
         left: '0',
         right: '0',
-        'padding-top': '5px',
+        'padding-top': '10px',
       };
     },
   },

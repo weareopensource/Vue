@@ -1,13 +1,13 @@
 <template>
-  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
-    <v-card class="mx-auto rounded-xl" :flat="config.vuetify.theme.flat">
+  <v-col sm="12" md="6" lg="4" xl="4">
+    <v-card :class="`mx-auto ${config.vuetify.theme.rounded}`" :flat="config.vuetify.theme.flat">
       <v-img
         :src="require('@/assets/images/dark.jpeg')"
-        class="text-white"
+        class="`text-white ${config.vuetify.theme.rounded}`"
         height="150"
         cover
         :gradient="theme == 'dark' ? 'to top right, rgba(0,0,0,.3), rgba(0,0,0,.7)' : 'to top right, rgba(255,255,255,.3), rgba(255,255,255,.7)'"
-        style="border: 5px solid transparent; border-radius: 25px 25px 0 0"
+        style="border: 5px solid transparent"
       >
       </v-img>
       <v-card-actions class="pt-6">

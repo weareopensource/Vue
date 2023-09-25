@@ -1,16 +1,26 @@
 <template>
-  <section id="logos" v-if="logos.content.length > 0" class="py-12" :style="style('section', logos)">
-    <v-container class="text-center">
-      <h4 class="font-weight-bold mb-3 pb-8 text-h4 text-center" v-if="logos.title" v-text="logos.title"></h4>
-      <v-row justify="center">
-        <v-col v-for="({ image, link }, i) in logos.content" :key="i" :cols="12" :sm="6" :md="4" :lg="4" :xl="2">
-          <!-- eslint-disable-next-line -->
-          <a v-if="link" :href="link">
-            <v-avatar :size="logos.style.size">
-              <v-img v-if="image" :src="image" alt="logo" />
-            </v-avatar>
-          </a>
-        </v-col>
+  <section id="logos" v-if="setup.content.length > 0" :style="style('section', setup)">
+    <v-container class="text-center" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+      <v-row align="center" justify="center" class="pa-8">
+        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <v-slide-group show-arrows data-aos="fade">
+          <v-slide-group-item v-for="({ image, link }, i) in setup.content" :key="i">
+            <v-col>
+              <v-card
+                :class="`text-center pt-8 pb-2 mx-12 py-6 ${config.vuetify.theme.rounded}`"
+                :flat="config.vuetify.theme.flat"
+                :style="style('card', setup)"
+              >
+                <!-- eslint-disable-next-line -->
+                <a v-if="link" :href="link">
+                  <v-avatar :size="setup.style.size">
+                    <v-img v-if="image" :src="image" alt="logo" />
+                  </v-avatar>
+                </a>
+              </v-card>
+            </v-col>
+          </v-slide-group-item>
+        </v-slide-group>
       </v-row>
     </v-container>
   </section>
@@ -20,12 +30,16 @@
  * Module dependencies.
  */
 import { style } from '../../../lib/helpers/theme';
+import homeTitleComponent from './utils/home.title.component.vue';
 /**
  * Export default
  */
 export default {
   name: 'homeLogosComponent',
-  props: ['logos'],
+  props: ['setup'],
+  components: {
+    homeTitleComponent,
+  },
   methods: {
     style,
   },

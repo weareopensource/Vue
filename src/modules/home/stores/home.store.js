@@ -75,6 +75,7 @@ const actions = (app) => {
         const res = await ghost.posts.browse({ limit: 3, filter: 'tag:article' });
         commit('news_set', res);
       } catch (err) {
+        console.log(err);
         commit('error', err);
       }
     },

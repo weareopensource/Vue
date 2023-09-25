@@ -7,8 +7,8 @@
       icon
       @click="drawer = !drawer"
       :style="{
-        color: config.vuetify.theme.themes[theme].colors.onPrimary,
-        background: `${config.vuetify.theme.themes[theme].colors.primary}${config.vuetify.theme.appbar.opacity}`,
+        color: config.vuetify.theme.appbar.color,
+        background: `${config.vuetify.theme.appbar.background}${config.vuetify.theme.appbar.opacity}`,
         '-webkit-backdrop-filter': 'blur(8px)',
         'backdrop-filter': 'blur(8px)',
       }"
@@ -20,25 +20,22 @@
     <v-navigation-drawer
       v-model="drawer"
       :floating="config.vuetify.theme.navigation.drawer.floating"
-      :style="{ background: config.vuetify.theme.themes[theme].colors.primary }"
+      :style="{ background: config.vuetify.theme.appbar.background }"
       :expand-on-hover="this.$vuetify.display.mobile ? false : config.vuetify.theme.navigation.drawer.expand"
       :rail="config.vuetify.theme.navigation.drawer.rail"
     >
       <!-- Logo / drawer on mobile-->
-      <v-list
-        :style="{ background: config.vuetify.theme.themes[theme].colors.primary, color: config.vuetify.theme.themes[theme].colors.onPrimary }"
-        nav
-      >
+      <v-list :style="{ background: config.vuetify.theme.appbar.background, color: config.vuetify.theme.appbar.color }" nav>
         <v-list-item
           :style="{
-            color: config.vuetify.theme.themes[theme].colors.onPrimary,
+            color: config.vuetify.theme.appbar.color,
           }"
         >
           <template v-slot:prepend>
             <v-icon
               v-if="config.app.title"
               :style="{
-                color: config.vuetify.theme.themes[theme].colors.onPrimary,
+                color: config.vuetify.theme.appbar.color,
                 opacity: 1,
               }"
               :icon="this.$vuetify.display.mobile ? 'nothing' : config.app.icon"
@@ -48,18 +45,15 @@
           <v-list-item-title>{{ config.app.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
-      <v-divider :color="config.vuetify.theme.themes[theme].colors.onPrimary" :thickness="3"></v-divider>
+      <v-divider :color="config.vuetify.theme.appbar.color" :thickness="3"></v-divider>
       <!-- Navigation -->
-      <v-list
-        :style="{ background: config.vuetify.theme.themes[theme].colors.primary, color: config.vuetify.theme.themes[theme].colors.onPrimary }"
-        nav
-      >
+      <v-list :style="{ background: config.vuetify.theme.appbar.background, color: config.vuetify.theme.appbar.color }" nav>
         <v-list-item v-for="item in nav" :key="item.text" :to="item.path">
           <template v-slot:prepend>
             <v-icon
               :icon="item.meta.icon"
               :style="{
-                color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.themes[theme].colors.onPrimary,
+                color: (item.meta.color && item.meta.color.icon) || config.vuetify.theme.appbar.color,
               }"
               size="small"
             ></v-icon>
@@ -77,19 +71,19 @@
             <v-list-item-title>{{ label }}</v-list-item-title>
           </v-list-item>
         </v-list>
-        <v-divider :color="config.vuetify.theme.themes[theme].colors.onPrimary" :thickness="3"></v-divider>
+        <v-divider :color="config.vuetify.theme.appbar.color" :thickness="3"></v-divider>
         <!-- User -->
         <v-list>
           <v-list-item
             @click="signout"
             :style="{
-              color: config.vuetify.theme.themes[theme].colors.onPrimary,
+              color: config.vuetify.theme.appbar.color,
             }"
           >
             <template v-slot:prepend>
               <v-icon
                 :style="{
-                  color: config.vuetify.theme.themes[theme].colors.onPrimary,
+                  color: config.vuetify.theme.appbar.color,
                 }"
                 icon="fa-solid fa-arrow-right"
                 size="small"

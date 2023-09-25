@@ -10,7 +10,6 @@
         <v-container class="fill-height">
           <v-row align="center" justify="center">
             <v-col
-              cols="12"
               class="text-white text-center"
               :style="{
                 'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
@@ -19,10 +18,10 @@
               <v-btn
                 v-if="button.title"
                 :href="button.link"
-                class="mb-5 text-none"
-                rounded="xl"
-                :style="{ 'border-color': button.color }"
+                class="mb-5 text-none font-weight-bold rounded-xl"
+                :style="{ 'border-color': button.color, 'border-width': '1.5px' }"
                 variant="outlined"
+                size="large"
                 >{{ button.title }}</v-btn
               >
               <v-markdown v-if="title" class="font-weight-bold text-md-h1 text-h3" :source="title" />

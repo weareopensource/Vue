@@ -1,29 +1,37 @@
 <template>
-  <section id="slideshow" v-if="slides.content.length > 0">
-    <v-carousel
-      cycle
-      :height="slides.style.height"
-      hide-delimiter-background
-      :show-arrows="false"
-      :interval="slides.style.interval || 6000"
-      class="slideshow-carousel"
-    >
-      <v-carousel-item v-for="({ img, text, color, position }, i) in slides.content" :key="i" :src="img" cover>
-        <v-sheet color="transparent" height="100%">
-          <div class="d-flex fill-height justify-center align-center" :style="{ float: position && !$vuetify.display.smAndDown ? position : 'none' }">
-            <div
-              class="text-h3"
-              :style="{
-                color: color || config.vuetify.theme.themes[theme].colors.onPrimary,
-                margin: '50px',
-              }"
-            >
-              {{ text }}
-            </div>
-          </div>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
+  <section id="slideshow" v-if="setup.content.length > 0" :style="style('section', setup)">
+    <v-container ref="slideShowContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+      <v-row align="center" justify="center" class="pa-8">
+        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <v-carousel
+          v-model="step"
+          cycle
+          :height="setup.style.height"
+          hide-delimiter-background
+          hide-delimiters
+          :show-arrows="false"
+          :interval="setup.style.interval || 6000"
+          :class="`${config.vuetify.theme.rounded}`"
+        >
+          <v-carousel-item v-for="({ img, text, color }, i) in setup.content" :key="i" :src="require('@/assets/images/' + img)" cover>
+            <v-container class="fill-height" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+              <v-row align="center" justify="center">
+                <v-col class="text-center text-white text-h3">
+                  <v-markdown v-if="text" :style="`color: ${color};`" :source="text" />
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-carousel-item>
+        </v-carousel>
+        <homeDynamicIsland
+          v-if="steps > 0"
+          :container="slideShowContainer"
+          :window="{ step, steps }"
+          :action="stepper"
+          :text="setup.dynamicIsland.text"
+        ></homeDynamicIsland>
+      </v-row>
+    </v-container>
   </section>
 </template>
 
@@ -31,26 +39,54 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { style } from '../../../lib/helpers/theme';
+import homeTitleComponent from './utils/home.title.component.vue';
+import homeDynamicIsland from './utils/home.dynamicIsland.component.vue';
+
 /**
  * Export default
  */
 export default {
   name: 'homeSlideshowComponent',
+  data() {
+    return {
+      step: 0,
+      slideShowContainer: null,
+    };
+  },
   props: {
-    slides: {
+    setup: {
       type: Object,
       default: () => ({ data: [] }),
     },
   },
+  components: {
+    homeTitleComponent,
+    homeDynamicIsland,
+  },
   computed: {
-    ...mapGetters(['theme']),
+    steps() {
+      return this.setup.content.length - 1;
+    },
+  },
+  methods: {
+    style,
+    stepper(direction) {
+      switch (direction) {
+        case '+':
+          this.step += 1;
+          break;
+        case '-':
+          this.step -= 1;
+          break;
+        default:
+      }
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.slideShowContainer = this.$refs.slideShowContainer;
+    });
   },
 };
 </script>
-
-<style>
-.slideshow-carousel {
-  max-height: 900px !important;
-}
-</style>
