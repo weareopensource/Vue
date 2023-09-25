@@ -44,7 +44,6 @@ const getConfiguration = async () => {
 /* eslint-disable */
 module.exports = ${JSON.stringify(config, undefined, 2)
       .replace(/"([^(")"]+)":/g, '$1:')
-      .replace(/"/g, "'")
       .replace(/\n|\r/g, ',\n')
       .replace(/{,/g, '{')
       .replace(/\[,/g, '[')

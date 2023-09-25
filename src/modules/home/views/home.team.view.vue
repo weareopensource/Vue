@@ -1,7 +1,7 @@
 <template>
   <div>
     <homeBannerComponent v-bind:ratio="3" v-bind:title="this.$route.meta.title"></homeBannerComponent>
-    <v-container fluid>
+    <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-layout wrap align-content-space-around text-xs-center>
         <teamMemberComponent v-for="(item, index) in team" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></teamMemberComponent>
       </v-layout>

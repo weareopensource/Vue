@@ -1,16 +1,15 @@
 <template>
-  <section id="video" v-if="video && video.file" :style="style('section', video)" class="pa-5">
+  <section id="video" v-if="setup && setup.file" :style="style('section', setup)" class="pa-8 pb-10">
     <v-container
-      class="text-center pa-4"
+      :class="`text-center pa-4 ${config.vuetify.theme.rounded}`"
       :style="{
-        'max-width': '1400px',
-        'border-radius': '20px',
+        'max-width': config.vuetify.theme.maxWidth,
         'margin-top': this.$vuetify.display.smAndDown ? '-20vh' : '-40vh',
         position: 'relative',
-        ...style('video', video),
+        ...style('video', setup),
       }"
     >
-      <video-player :src="require('@/assets/videos/' + video.file)" :poster="require('@/assets/videos/' + video.poster)" loop muted autoplay fluid />
+      <video-player :src="require('@/assets/videos/' + setup.file)" :poster="require('@/assets/videos/' + setup.poster)" loop muted autoplay fluid />
     </v-container>
   </section>
 </template>
@@ -29,7 +28,7 @@ export default {
   name: 'homeAboutsComponent',
   props: {
     // video object
-    video: {
+    setup: {
       type: Object,
       default: () => ({
         file: 'video.mp4',

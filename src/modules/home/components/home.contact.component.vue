@@ -1,16 +1,12 @@
 <template>
-  <section id="contact" class="py-12" :style="style('section', contact)">
-    <v-container>
-      <h4 class="font-weight-bold mb-3 pb-8 text-h4 text-center" v-if="config.home.contact.title" v-text="config.home.contact.title"></h4>
-      <v-form ref="form">
-        <v-row>
-          <v-col cols="12">
+  <section id="contact" :style="style('section', config.home.contact)">
+    <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+      <v-row align="center" class="pa-8">
+        <homeTitleComponent v-bind:setup="config.home.contact"></homeTitleComponent>
+        <v-col>
+          <v-form ref="form">
             <v-text-field v-model="subject" :flat="config.vuetify.theme.flat" name="subject" label="Subject*"></v-text-field>
-          </v-col>
-          <v-col cols="12">
             <v-textarea v-model="body" :flat="config.vuetify.theme.flat" label="Message*"></v-textarea>
-          </v-col>
-          <v-col class="mx-auto" cols="auto">
             <v-btn
               @click="sendMail()"
               :color="config.vuetify.theme.themes[theme].colors.secondary"
@@ -21,9 +17,9 @@
               x-large
               >Send</v-btn
             >
-          </v-col>
-        </v-row>
-      </v-form>
+          </v-form>
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>
@@ -34,11 +30,16 @@
  */
 import { mapGetters } from 'vuex';
 import { style } from '../../../lib/helpers/theme';
+import homeTitleComponent from './utils/home.title.component.vue';
+
 /**
  * Export default
  */
 export default {
   name: 'homeContactComponent',
+  components: {
+    homeTitleComponent,
+  },
   computed: {
     ...mapGetters(['theme', 'contact']),
     subject: {

@@ -6,7 +6,7 @@
       v-bind:banner="contents[tab] && contents[tab].banner ? contents[tab].banner : null"
     ></homeBannerComponent>
     <section id="page" :style="style('section', config.pages)">
-      <v-container class="py-12">
+      <v-container class="py-12" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
         <v-row align="center" justify="center">
           <v-card :style="style('card', config.pages)" class="rounded-lg w-100" flat>
             <v-tabs v-if="contents.length > 1" v-model="tab" fixed-tabs>
