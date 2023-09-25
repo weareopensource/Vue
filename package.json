@@ -58,7 +58,7 @@
     "vue-loader": "^17.2.2",
     "vue-markdown": "^2.1.3",
     "vue-meta": "^3.0.0-alpha.8",
-    "vue-router": "^4.2.4",
+    "vue-router": "^4.2.5",
     "vue3-gravatar": "^3.0.0",
     "vuetify": "^3.3.17",
     "vuex": "^v4.1.0",
