@@ -72,7 +72,7 @@ const actions = (app) => {
           key: config.home.blog.key,
           version: 'v3.0',
         });
-        const res = await ghost.posts.browse({ limit: 3, filter: 'tag:article' });
+        const res = await ghost.posts.browse({ limit: 6, filter: 'tag:article' });
         commit('news_set', res);
       } catch (err) {
         console.log(err);

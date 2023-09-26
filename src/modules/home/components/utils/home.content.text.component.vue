@@ -4,7 +4,8 @@
     <v-markdown
       v-if="item.text"
       :style="item.quote ? { 'line-height': '2em' } : null"
-      :class="item.quote ? 'text-h5' : 'text-h6'"
+      class="text-left"
+      :class="item.quote ? 'text-h6 text-md-h5 ' : 'text-body-1 text-md-h6'"
       :source="item.text"
     />
     <v-btn
@@ -31,7 +32,7 @@ import homeTitleComponent from './home.title.component.vue';
  * Export default
  */
 export default {
-  name: 'homeContentsTextComponent',
+  name: 'homeContentTextComponent',
   props: {
     item: {
       type: Object,

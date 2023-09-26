@@ -1,13 +1,13 @@
 <template>
   <section>
-    <div :style="{ width: '360px', height: '60px', display: isFixed ? 'block' : 'none' }" class="mt-10"></div>
+    <div :style="{ width: '320px', height: '60px', display: isFixed ? 'block' : 'none' }" class="mt-10"></div>
     <div :class="['dynamicIsland', { fixed: isFixed, expand: animate, minimize: !animate }]" class="mt-10" :style="dynamicIslandStyle">
       <div :class="['content', { fadeIn: animate, fadeOut: !animate }]">
         <div class="d-flex justify-space-between font-weight-bold text-white">
-          <span class="ml-4 mt-1 text-h6 font-weight-bold">{{ text }}</span>
-          <span v-if="window && window.step !== null && window.steps !== null" class="mr-2">
+          <span class="ml-4 mt-1 text-h6">{{ text }}</span>
+          <span v-if="step !== null && steps !== null" class="mr-2">
             <v-btn
-              v-if="window.step > 0"
+              v-if="step > 0"
               icon="fa-solid fa-chevron-left"
               color="primary"
               variant="flat"
@@ -17,7 +17,7 @@
               size="small"
             ></v-btn>
             <v-btn
-              v-if="window.step < window.steps"
+              v-if="step < steps"
               icon="fa-solid fa-chevron-right"
               color="primary"
               variant="flat"
@@ -45,7 +45,7 @@ export default {
     animate: false,
     disabled: false,
   }),
-  props: ['container', 'text', 'window', 'action'],
+  props: ['container', 'text', 'step', 'steps', 'action'],
   computed: {
     dynamicIslandStyle() {
       return {
@@ -63,6 +63,7 @@ export default {
       const scrollDownTriger = (window.innerHeight / 3) * 2;
       const offset = 30;
       // Apparition : lorsque le container prend plus d'1/3 du viewport
+      // console.log(this.text, 'this.animate', this.animate, 'container.top', container.top, 'scrollDownTriger', scrollDownTriger);
       if (!this.animate && container.top < scrollDownTriger) this.animate = true;
       // Positionnement fixe : lorsque le bouton est au dessus de 50 du bas du viewport
       if (this.animate && !this.isFixed && button.bottom >= window.innerHeight) this.isFixed = true;
@@ -70,9 +71,6 @@ export default {
       if (this.animate && this.isFixed && button.bottom >= container.bottom - offset) this.isFixed = false;
       // Disparition: move to top lorsque le bouton est fixe et que le container prend moins 1/3 du viewport
       if (this.animate && this.isFixed && container.top > scrollDownTriger) this.animate = false;
-      // Disabled: move to bottom
-      if (this.animate && !this.isFixed && container.bottom < scrollDownTriger) this.disabled = true;
-      else this.disabled = false;
     },
     click(param) {
       this.disabled = true;
@@ -86,7 +84,10 @@ export default {
     container: {
       immediate: true,
       handler(newValue) {
+        console.log('TOTO', this.text, newValue, this && this.$el ? this.$el : null);
         if (newValue && newValue.$el && this.$el) {
+          console.log('TOTO', this.text, newValue, newValue.$el, this.$el);
+
           window.addEventListener('scroll', this.checkVisibility);
           this.checkVisibility();
         }
@@ -121,13 +122,13 @@ export default {
     height: 60px;
   }
   100% {
-    width: 360px;
+    width: 320px;
     height: 60px;
   }
 }
 @keyframes minimize {
   0% {
-    width: 360px;
+    width: 320px;
     height: 60px;
     opacity: 1;
   }
@@ -172,7 +173,7 @@ export default {
 .dynamicIsland .content {
   opacity: 0;
   height: 60px;
-  width: 360px;
+  width: 320px;
   display: table-cell;
   vertical-align: middle;
 }

@@ -1,27 +1,43 @@
 <template>
-  <section id="articles" v-if="setup.content.length > 0" :style="style('section', setup)">
-    <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
-      <v-row align="center" justify="center" class="pa-8">
+  <section id="images" :style="style('section', setup)">
+    <v-container ref="imagesContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+      <v-row align="center" justify="center" class="px-0 py-8">
         <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
-        <v-col v-for="({ feature_image, excerpt, title, url }, i) in setup.content" :key="i" md="4" data-aos="fade">
-          <v-hover v-slot="{ isHovering, props }">
-            <!-- eslint-disable-next-line -->
-            <a :href="url" target="_blank">
-              <v-img
-                v-bind="props"
-                :src="feature_image"
-                cover
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7)"
-                :class="{ 'on-hover': isHovering, ...imageStyle }"
-                class="mb-4 align-end"
-                :style="style('img', setup)"
-              >
-                <v-card-title class="text-white text-h6 font-weight-bold"> {{ title }}</v-card-title>
-                <v-card-text :class="{ 'on-hover': isHovering }" class="text-white text-body-1 pb-5"> {{ excerpt }}</v-card-text>
-              </v-img>
-            </a>
-          </v-hover>
-        </v-col>
+        <v-carousel
+          v-if="setup.content.length > 0"
+          v-model="step"
+          cycle
+          height="100%"
+          hide-delimiter-background
+          hide-delimiters
+          :show-arrows="false"
+          :interval="setup.slide.interval || 6000"
+          :class="`${config.vuetify.theme.rounded}`"
+        >
+          <v-carousel-item v-for="n in steps + 1" :key="n">
+            <v-row align="center" justify="center" class="pa-0">
+              <v-col v-for="(item, i) in content" :key="i" cols="12" :md="item.fullWidth ? 12 : setup.content.length > 1 ? 6 : 12">
+                <v-hover v-slot="{ isHovering, props }">
+                  <!-- eslint-disable-next-line -->
+                  <a :href="item.url" target="_blank">
+                    <homeImgComponent
+                      v-if="item.feature_image"
+                      v-bind="props"
+                      class="img-comp mb-4 align-end"
+                      :class="{ 'on-hover': isHovering }"
+                      :img="item.feature_image"
+                      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7)"
+                      :title="item.title"
+                      :text="item.excerpt"
+                      :height="this.$vuetify.display.xsAndDown ? '350px' : this.$vuetify.display.smAndDown ? '425px' : '575px'"
+                    ></homeImgComponent>
+                  </a>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+        </v-carousel>
+        <homeDynamicIsland :container="imagesContainer" :step="step" :steps="steps" :action="stepper" :text="setup.slide.text"></homeDynamicIsland>
       </v-row>
     </v-container>
   </section>
@@ -33,35 +49,71 @@
  */
 import { style } from '../../../lib/helpers/theme';
 import homeTitleComponent from './utils/home.title.component.vue';
+import homeImgComponent from './utils/home.img.component.vue';
+import homeDynamicIsland from './utils/home.dynamicIsland.component.vue';
+
 /**
  * Export default
  */
 export default {
   name: 'homeBlogComponent',
-  props: ['setup'],
-  computed: {
-    imageStyle() {
-      const obj = {};
-      obj[this.config.vuetify.theme.rounded] = true;
-      return obj;
+  data() {
+    return {
+      step: 0,
+      imagesContainer: null,
+    };
+  },
+  props: {
+    setup: {
+      type: Object,
+      default: () => ({ data: [] }),
     },
   },
   components: {
     homeTitleComponent,
+    homeImgComponent,
+    homeDynamicIsland,
+  },
+  computed: {
+    steps() {
+      console.log('toto', this.setup.content.length);
+      return this.$vuetify.display.smAndDown ? this.setup.content.length - 1 : Math.ceil(this.setup.content.length / 2) - 1;
+    },
+    content() {
+      return this.$vuetify.display.smAndDown
+        ? this.setup.content.slice(this.step, this.step + 1)
+        : this.setup.content.slice(this.step * 2, this.step * 2 + 2);
+    },
   },
   methods: {
     style,
+    stepper(direction) {
+      switch (direction) {
+        case '+':
+          this.step += 1;
+          break;
+        case '-':
+          this.step -= 1;
+          break;
+        default:
+      }
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.imagesContainer = this.$refs.imagesContainer;
+    });
   },
 };
 </script>
 
 <style scoped>
-.v-img,
+.img-comp,
 .v-card-text {
   transition: opacity 0.4s ease-in-out;
 }
 
-.v-img:not(.on-hover) {
+.img-comp:not(.on-hover) {
   opacity: 0.8;
 }
 

@@ -1,16 +1,17 @@
 <template>
-  <section id="slideshow" v-if="setup.content.length > 0" :style="style('section', setup)">
+  <section id="slideshow" :style="style('section', setup)">
     <v-container ref="slideShowContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
-      <v-row align="center" justify="center" class="pa-8">
+      <v-row align="center" justify="center" class="px-0 py-8">
         <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
         <v-carousel
+          v-if="setup.content.length > 0"
           v-model="step"
           cycle
-          :height="setup.style.height"
+          :height="setup.slide.height"
           hide-delimiter-background
           hide-delimiters
           :show-arrows="false"
-          :interval="setup.style.interval || 6000"
+          :interval="setup.slide.interval || 6000"
           :class="`${config.vuetify.theme.rounded}`"
         >
           <v-carousel-item v-for="({ img, text, color }, i) in setup.content" :key="i" :src="require('@/assets/images/' + img)" cover>
@@ -26,9 +27,10 @@
         <homeDynamicIsland
           v-if="steps > 0"
           :container="slideShowContainer"
-          :window="{ step, steps }"
+          :step="step"
+          :steps="steps"
           :action="stepper"
-          :text="setup.dynamicIsland.text"
+          :text="setup.slide.text"
         ></homeDynamicIsland>
       </v-row>
     </v-container>
