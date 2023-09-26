@@ -1,7 +1,7 @@
 <template>
   <section id="contact" :style="style('section', config.home.contact)">
     <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
-      <v-row align="center" class="pa-8">
+      <v-row align="center" justify="center" class="px-0 py-8">
         <homeTitleComponent v-bind:setup="config.home.contact"></homeTitleComponent>
         <v-col>
           <v-form ref="form">

@@ -50,9 +50,10 @@ export default {
     ...mapGetters(['theme', 'news', 'statistics']),
   },
   created() {
-    this.$store.dispatch('getStatistics').then(() => {
-      this.$store.dispatch('getNews');
-    });
+    this.$store.dispatch('getNews');
+
+    // this.$store.dispatch('getStatistics').then(() => {
+    // });
   },
 };
 </script>

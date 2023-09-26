@@ -1,9 +1,9 @@
 <template>
-  <section id="logos" v-if="setup.content.length > 0" :style="style('section', setup)">
+  <section id="logos" :style="style('section', setup)">
     <v-container class="text-center" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
-      <v-row align="center" justify="center" class="pa-8">
+      <v-row align="center" justify="center" class="px-0 py-8">
         <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
-        <v-slide-group show-arrows data-aos="fade">
+        <v-slide-group v-if="setup.content.length > 0" show-arrows>
           <v-slide-group-item v-for="({ image, link }, i) in setup.content" :key="i">
             <v-col>
               <v-card

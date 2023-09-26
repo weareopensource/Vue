@@ -230,14 +230,12 @@ module.exports = {
         },
         {
           subtitle: 'Authentication Feature',
-          img: 'login.jpg',
-          height: '400px',
+          img: 'content01.jpg',
           text: 'Leveraging **Apple Connect**, **Google Connect**, and **JWT**, our authentication system emphasizes security and ease. Fueled by **NodeJS**, **VueJS**, & **Swift**, it promises a unified sign-in process  and ensuring user comfort.',
         },
         {
           subtitle: 'CRUD Model',
-          img: 'crud.jpg',
-          height: '400px',
+          img: 'content02.jpg',
           text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
         },
       ],
@@ -248,8 +246,9 @@ module.exports = {
           background: 'background',
         },
       },
-      dynamicIsland: {
-        text: 'Discover more stacks',
+      slide: {
+        interval: 15000,
+        text: 'Broswe stacks...',
       },
       content: [
         {
@@ -335,13 +334,13 @@ module.exports = {
           icon: 'fa-solid fa-book',
           color: '#16a085',
           subtitle: 'History',
-          text: 'This work was initially based on [MEAN.js](http://meanjs.org/), and a fork named [Riess.js](https://github.com/lirantal/Riess.js). Its creators stopped working on it, and we wished to take the project over. We want to create updated stacks with the same mindset.',
+          text: 'This work was initially based on [MEAN.js](http://meanjs.org/), and a fork [Riess.js](https://github.com/lirantal/Riess.js). Its creators stopped working on it, and we wished to take the project over. We want to create updated stacks with this mindset.',
         },
         {
           icon: 'fa-solid fa-file-lines',
           color: '#2980b9',
           subtitle: 'Ressources',
-          text: '[Start a project and keep it updated ?](https://blog.weareopensource.me/start-a-project-and-maintain-updates/)<br /><br /> - Deployment: [Rancher](https://blog.weareopensource.me/tag/rancher-2/) - [CapRover](https://blog.weareopensource.me/node/) <br /> - Code: [JS](https://blog.weareopensource.me/js-knwoledges/) - [Swift](https://blog.weareopensource.me/js-knwoledges-2/)  <br /> - Other: [Commits](https://github.com/weareopensource/conventional-changelog) - [Server](https://blog.weareopensource.me/setup-debian-server/) - [Tools](https://blog.weareopensource.me/us/) <br /><br />',
+          text: '[Start a project and keep it updated ?](https://blog.weareopensource.me/start-a-project-and-maintain-updates/)<br /><br /> - Deployment: [Rancher](https://blog.weareopensource.me/tag/rancher-2/) - [CapRover](https://blog.weareopensource.me/node/) <br /> - Code: [JS](https://blog.weareopensource.me/js-knwoledges/) - [Swift](https://blog.weareopensource.me/js-knwoledges-2/)  <br /> - Other: [Commits](https://github.com/weareopensource/conventional-changelog) - [Server](https://blog.weareopensource.me/setup-debian-server/) - [Tools](https://blog.weareopensource.me/us/) <br />',
         },
         {
           icon: 'fa-solid fa-binoculars',
@@ -356,11 +355,11 @@ module.exports = {
         section: {
           background: 'background',
         },
+      },
+      slide: {
         height: '700px',
         interval: 6000,
-      },
-      dynamicIsland: {
-        text: 'Discover our designs',
+        text: 'Discover designs...',
       },
       content: [
         {
@@ -418,10 +417,10 @@ module.exports = {
         section: {
           background: 'background',
         },
-        img: {
-          height: '350px',
-          width: '500px',
-        },
+      },
+      slide: {
+        interval: 15000,
+        text: 'Read more...',
       },
       title: 'Some contents to read',
       url: 'https://blog.weareopensource.me',
