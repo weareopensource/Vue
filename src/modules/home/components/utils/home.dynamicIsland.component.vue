@@ -51,8 +51,6 @@ export default {
       return {
         background: `${this.config.vuetify.theme.appbar.background}${this.config.vuetify.theme.appbar.opacity}`,
         color: this.config.vuetify.theme.appbar.color,
-        '-webkit-backdrop-filter': 'blur(8px)',
-        'backdrop-filter': 'blur(8px)',
       };
     },
   },
@@ -151,6 +149,9 @@ export default {
   border-radius: 30px;
   transform-origin: center;
   opacity: 0;
+  background-color: rgba(44, 62, 80, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .dynamicIsland.expand {

@@ -248,7 +248,7 @@ module.exports = {
       },
       slide: {
         interval: 15000,
-        text: 'Broswe stacks...',
+        text: 'Browse stacks...',
       },
       content: [
         {
