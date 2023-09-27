@@ -14,7 +14,7 @@
           :interval="setup.slide.interval || 6000"
           :class="`${config.vuetify.theme.rounded}`"
         >
-          <v-carousel-item v-for="({ img, text, color }, i) in setup.content" :key="i" :src="require('@/assets/images/' + img)" cover>
+          <v-carousel-item v-for="({ img, text, color }, i) in setup.content" :key="i" :src="img" cover>
             <v-container class="fill-height" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
               <v-row align="center" justify="center">
                 <v-col class="text-center text-white text-h3">

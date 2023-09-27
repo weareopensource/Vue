@@ -61,7 +61,11 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.config.app.title,
+      title: 'My Example App',
+      htmlAttrs: {
+        lang: 'en',
+        amp: true,
+      },
       description: this.config.app.description,
       meta: [
         { name: 'keywords', content: this.config.app.keywords },
@@ -127,7 +131,20 @@ export default {
 .v-card {
   border: none !important;
 }
-.v-application {
-  font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+
+.v-application .text-overline,
+.v-application .text-caption,
+.v-application .text-button,
+.v-application .text-body-2,
+.v-application .text-body-1,
+.v-application .text-subtitle-2,
+.v-application .text-subtitle-1,
+.v-application .text-h6,
+.v-application .text-h5,
+.v-application .text-h4,
+.v-application .text-h3,
+.v-application .text-h2,
+.v-application .text-h1 {
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 </style>

@@ -2,10 +2,11 @@
   <section id="banner">
     <v-img
       :height="ratio ? `calc(${100 / ratio}vh)` : this.$vuetify.display.smAndDown ? '70vh' : '90vh'"
-      :src="banner ? banner : require('@/assets/images/' + generateBackground())"
+      :src="generateBackground()"
       style="margin-top: -65px"
       max-width="100%"
       cover
+      alt="banner"
     >
       <v-container class="fill-height">
         <v-row align="center" justify="center">
@@ -42,11 +43,6 @@ export default {
     // define a ratio to handle banne height
     ratio: {
       type: [Number, String],
-      default: null,
-    },
-    // title to display
-    banner: {
-      type: String,
       default: null,
     },
     // title to display

@@ -129,9 +129,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.selected {
-  border-left: 4px solid red;
-}
-</style>

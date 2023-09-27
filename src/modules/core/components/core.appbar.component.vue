@@ -8,7 +8,7 @@
   >
     <!-- Logo/Title -->
     <router-link to="/" v-if="this.config.header.logo.file">
-      <v-img :src="require('@/assets/images/' + this.config.header.logo.file)" :width="'120px'" class="ml-4 mr-2 mt-2" inline> </v-img>
+      <v-img :src="this.config.header.logo.file" :width="'120px'" class="ml-4 mr-2 mt-2" inline alt="logo"> </v-img>
     </router-link>
     <router-link to="/" v-if="this.config.header.title">
       {{ config.app.title }}

@@ -2,7 +2,6 @@
 module.exports = {
   app: {
     title: 'WAOS',
-    logo: 'logo.png', // null to use title by default
     subtitle: 'welcome to demo.',
     description: 'Vue - Boilerplate Front : Vuetify, Axios, Jest, Cypress (Alpha) ',
     keywords: 'vue, vuetify, axios, jest, cypress',
@@ -117,7 +116,7 @@ module.exports = {
   },
   header: {
     logo: {
-      file: 'logo.png', // null to hide
+      file: '/images/logo.webp', // null to hide
       width: '120px',
     },
     title: false, // display title or not
@@ -168,8 +167,8 @@ module.exports = {
     ],
   },
   home: {
-    lightBackground: 'light.jpeg',
-    darkBackground: 'dark.jpeg',
+    lightBackground: '/images/light.webp',
+    darkBackground: '/images/dark.webp',
     banner: {
       title: 'Turn your ideas <br /> <b><span style="color:#55efc4">into a reality.</span></b>',
       button: {
@@ -179,8 +178,8 @@ module.exports = {
       },
     },
     video: {
-      file: 'video.mp4',
-      poster: 'video-poster.webp',
+      file: '/videos/highlight.mp4',
+      poster: '/videos/highlight-poster.webp',
       style: {
         section: {
           background: 'surface',
@@ -224,18 +223,18 @@ module.exports = {
           reversed: true,
           fullWidth: true,
           video: {
-            file: 'video.mp4',
-            poster: 'video-poster.webp',
+            file: '/videos/highlight.mp4',
+            poster: '/videos/highlight-poster.webp',
           },
         },
         {
           subtitle: 'Authentication Feature',
-          img: 'content01.jpg',
+          img: '/images/content01.webp',
           text: 'Leveraging **Apple Connect**, **Google Connect**, and **JWT**, our authentication system emphasizes security and ease. Fueled by **NodeJS**, **VueJS**, & **Swift**, it promises a unified sign-in process  and ensuring user comfort.',
         },
         {
           subtitle: 'CRUD Model',
-          img: 'content02.jpg',
+          img: '/images/content02.webp',
           text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
         },
       ],
@@ -253,8 +252,8 @@ module.exports = {
       content: [
         {
           subtitle: 'Node',
-          img: 'card01.jpg',
-          text: 'Discover our Node stack that can run standalone or in conjunction with other repos like Vue or Swift. It utilizes Node, Express, MongoDB, Sequelize, and Jest. Features include user authentication, task management, and file uploads. Easy setup with Docker and configurable through variables.',
+          img: '/images/card01.webp',
+          text: 'Discover our Node stack. Runs standalone or with Vue or Swift. Uses Node, Express, MongoDB, and Jest. Features user auth, tasks, uploads, and Docker setup.',
           button: {
             title: 'Just launched: 1.2.1 →',
             color: '#EA3F7D',
@@ -269,9 +268,9 @@ module.exports = {
         },
         {
           subtitle: 'Vue',
-          img: 'card02.jpg',
+          img: '/images/card02.webp',
           reversed: true,
-          text: "Explore our Vue 3 stack, built on Vue 3 and Vuetify 3 with JWT for authentication. It's modular, pairing seamlessly with backend repos like our Node stack. The layered architecture ensures organized code, while tools like Docker, ESLint, and Github Action to enhance development and deployment.",
+          text: 'Explore our Vue 3 stack with JWT auth. Modular, pairs with our Node. Layered architecture, Docker, ESLint, and Github Action included. Design based on Vuetify.',
           button: {
             title: 'Just launched: 1.2.0 →',
             color: '#DAFE56',
@@ -286,8 +285,8 @@ module.exports = {
         },
         {
           subtitle: 'Swift',
-          img: 'card03.jpg',
-          text: 'Our Swift stack, in Beta, offers a standalone frontend or can pair with our other stacks. It features layered architecture, reactive programming with RxSwift, and integrates tools for development and CI. The stack supports user authentication, task management, uploads, and notifications',
+          img: '/images/card03.webp',
+          text: 'Our Swift stack in Beta offers frontend solutions. Features layered architecture, RxSwift, and tools for development. Supports user auth, tasks, and notifications.',
           button: {
             title: 'Just launched: 1.3.0 →',
             color: '#f1c40f',
@@ -302,9 +301,9 @@ module.exports = {
         },
         {
           subtitle: 'Conventional Changelog',
-          img: 'card04.jpg',
+          img: '/images/card04.webp',
           reversed: true,
-          text: "Conventional Changelog is a prompt to respect the standards inspired by CZ. It's been enhanced with ES6, an Emoji system and simplified. It offers configuration flexibility and is integrated with tools like commitizen. The project is open for contributions and is a part of our initiative.",
+          text: 'Conventional Changelog respects CZ standards. Enhanced with ES6 and Emoji. Integrated with commitizen and open for contributions. A lighter way to respect conventions',
           button: {
             title: 'Just launched: 1.7.0 →',
             color: '#365571',
@@ -334,7 +333,7 @@ module.exports = {
           icon: 'fa-solid fa-book',
           color: '#16a085',
           subtitle: 'History',
-          text: 'This work was initially based on [MEAN.js](http://meanjs.org/), and a fork [Riess.js](https://github.com/lirantal/Riess.js). Its creators stopped working on it, and we wished to take the project over. We want to create updated stacks with this mindset.',
+          text: 'This work was initially based on [MEAN.js](http://meanjs.org/), a fork [Riess.js](https://github.com/lirantal/Riess.js). Its creators stopped working on it, we wished to take the project over. We want to create stacks with this mindset.',
         },
         {
           icon: 'fa-solid fa-file-lines',
@@ -357,18 +356,18 @@ module.exports = {
         },
       },
       slide: {
-        height: '700px',
+        height: '600px',
         interval: 6000,
         text: 'Discover designs...',
       },
       content: [
         {
-          img: 'slide01.jpg',
+          img: '/images/slide01.webp',
           text: null,
           color: null,
         },
         {
-          img: 'slide02.jpg',
+          img: '/images/slide02.webp',
           text: null,
           color: null,
         },
@@ -382,33 +381,27 @@ module.exports = {
         card: {
           background: 'surface',
         },
-        size: '100px',
+        size: '125px',
       },
       title: 'Our incredible partners',
       content: [
         {
-          image: 'https://logodownload.org/wp-content/uploads/2013/12/apple-logo-16.png',
+          img: 'https://logodownload.org/wp-content/uploads/2013/12/apple-logo-16.png',
           link: 'https://apple.com',
+          subtitle: 'CRUD Model',
+          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
         },
         {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
           link: 'https://google.com',
+          subtitle: 'CRUD Model',
+          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
         },
         {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
           link: 'https://tesla.com',
-        },
-        {
-          image: 'https://logodownload.org/wp-content/uploads/2013/12/apple-logo-16.png',
-          link: 'https://apple.com',
-        },
-        {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
-          link: 'https://google.com',
-        },
-        {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
-          link: 'https://tesla.com',
+          subtitle: 'CRUD Model',
+          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
         },
       ],
     },

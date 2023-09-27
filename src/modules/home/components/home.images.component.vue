@@ -29,7 +29,7 @@
                       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7)"
                       :title="item.title"
                       :text="item.excerpt"
-                      :height="this.$vuetify.display.xsAndDown ? '350px' : this.$vuetify.display.smAndDown ? '425px' : '575px'"
+                      :height="this.$vuetify.display.xsAndDown ? '275px' : this.$vuetify.display.smAndDown ? '350px' : '500px'"
                     ></homeImgComponent>
                   </a>
                 </v-hover>
@@ -76,7 +76,6 @@ export default {
   },
   computed: {
     steps() {
-      console.log('toto', this.setup.content.length);
       return this.$vuetify.display.smAndDown ? this.setup.content.length - 1 : Math.ceil(this.setup.content.length / 2) - 1;
     },
     content() {

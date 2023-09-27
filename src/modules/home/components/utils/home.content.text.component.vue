@@ -4,8 +4,8 @@
     <v-markdown
       v-if="item.text"
       :style="item.quote ? { 'line-height': '2em' } : null"
-      class="text-left"
       :class="item.quote ? 'text-h6 text-md-h5 ' : 'text-body-1 text-md-h6'"
+      class="text-left font-weight-regular"
       :source="item.text"
     />
     <v-btn

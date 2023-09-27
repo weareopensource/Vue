@@ -12,21 +12,15 @@
               ...style('video', setup),
             }"
           >
-            <video-player
-              :src="require('@/assets/videos/' + item.video.file)"
-              :poster="require('@/assets/videos/' + item.video.poster)"
-              loop
-              muted
-              autoplay
-              fluid
-            />
+            <video-player :src="item.video.file" :poster="item.video.poster" loop muted autoplay fluid />
           </div>
           <v-img
             v-if="item.img"
-            :src="require('@/assets/images/' + item.img)"
+            :src="item.img"
             :height="this.$vuetify.display.xsAndDown ? '250px' : this.$vuetify.display.smAndDown ? '325px' : '375px'"
             :class="`my-6 ${config.vuetify.theme.rounded}`"
             cover
+            :alt="item.subtitle || item.title || 'content'"
           ></v-img>
           <homeContentsTextComponent v-if="!item.reversed" v-bind:item="item"></homeContentsTextComponent>
         </v-col>

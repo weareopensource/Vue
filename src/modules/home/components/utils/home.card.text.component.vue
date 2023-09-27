@@ -4,7 +4,7 @@
       <h4 v-if="item.subtitle" class="text-h5 text-md-h4 font-weight-bold my-4" v-text="item.subtitle"></h4>
     </v-card-title>
     <v-card-text class="px-8">
-      <v-markdown v-if="item.text" class="text-body-1 text-md-h6 text-left" :source="item.text" />
+      <v-markdown v-if="item.text" class="text-body-1 text-md-h6 font-weight-regular text-left" :source="item.text" />
     </v-card-text>
     <v-card-actions v-if="item.button" align="center" justify="center">
       <v-spacer>
