@@ -69,7 +69,7 @@ export default {
   methods: {
     style,
     generateTemporalBackground() {
-      return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.jpg`;
+      return `${this.config.home.temporalBackground}/${`0${new Date().getHours()}`.slice(-2)}.webp`;
     },
   },
 };

@@ -1,11 +1,12 @@
 <template>
   <v-img
-    :src="generate(img)"
-    :lazy-src="require('@/assets/images/lazy.jpg')"
+    :src="img"
+    lazy-src="/images/lazy.webp"
     :class="`${config.vuetify.theme.rounded}`"
-    :height="height || (this.$vuetify.display.xsAndDown ? '250px' : this.$vuetify.display.smAndDown ? '325px' : '375px')"
+    :height="height || (this.$vuetify.display.xsAndDown ? '225px' : this.$vuetify.display.smAndDown ? '300px' : '350px')"
     :gradient="gradient"
     cover
+    :alt="title || 'image'"
   >
     <template v-slot:placeholder>
       <div class="d-flex align-center justify-center fill-height">
@@ -23,13 +24,5 @@
 export default {
   name: 'homeImgComponent',
   props: ['img', 'gradient', 'title', 'text', 'height'],
-  methods: {
-    generate(link) {
-      if (link.startsWith('http')) {
-        return link;
-      }
-      return require(`@/assets/images/${link}`);
-    },
-  },
 };
 </script>

@@ -82,10 +82,7 @@ export default {
     container: {
       immediate: true,
       handler(newValue) {
-        console.log('TOTO', this.text, newValue, this && this.$el ? this.$el : null);
         if (newValue && newValue.$el && this.$el) {
-          console.log('TOTO', this.text, newValue, newValue.$el, this.$el);
-
           window.addEventListener('scroll', this.checkVisibility);
           this.checkVisibility();
         }

@@ -9,7 +9,7 @@
         ...style('video', setup),
       }"
     >
-      <video-player :src="require('@/assets/videos/' + setup.file)" :poster="require('@/assets/videos/' + setup.poster)" loop muted autoplay fluid />
+      <video-player :src="setup.file" :poster="setup.poster" loop muted autoplay fluid />
     </v-container>
   </section>
 </template>
