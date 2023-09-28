@@ -46,7 +46,7 @@
     "md5": "^2.3.0",
     "moment": "^2.29.4",
     "posthog-js": "^1.81.2",
-    "video.js": "8.5.2",
+    "video.js": "7.21.5",
     "vue": "^3.3.4",
     "vue-loader": "^17.2.2",
     "vue-markdown": "^2.2.4",
