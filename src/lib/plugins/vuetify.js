@@ -4,12 +4,10 @@
 // eslint-disable-next-line
 import 'vuetify/styles';
 import '@fortawesome/fontawesome-free/css/all.css';
-import '@mdi/font/css/materialdesignicons.css';
 
 // Vuetify
 import { createVuetify } from 'vuetify';
 import { aliases, fa } from 'vuetify/lib/iconsets/fa';
-import { mdi } from 'vuetify/lib/iconsets/mdi';
 import config from '../../config/index.cjs';
 
 // Toto: switch theme to TS
@@ -36,7 +34,6 @@ export default createVuetify({
     aliases,
     sets: {
       fa,
-      mdi,
     },
   },
 });
