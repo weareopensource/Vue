@@ -4,7 +4,6 @@
 // eslint-disable-next-line
 import 'vuetify/styles';
 import '@fortawesome/fontawesome-free/css/all.css';
-import '@mdi/font/css/materialdesignicons.css';
 
 // Vuetify
 import { createVuetify } from 'vuetify';

@@ -1,16 +1,20 @@
 <template>
   <div>
-    <homeBannerComponent v-bind:title="config.home.banner.title" v-bind:button="config.home.banner.button"></homeBannerComponent>
-    <homeVideoComponent v-bind:setup="config.home.video"></homeVideoComponent>
-    <homeContentsComponent v-bind:setup="config.home.punchline"></homeContentsComponent>
-    <homeContentsComponent v-bind:setup="config.home.features"></homeContentsComponent>
-    <homeCardsComponent v-bind:setup="config.home.repos"></homeCardsComponent>
-    <homeIconsComponent v-bind:setup="config.home.ressources"></homeIconsComponent>
-    <homeSlideshowComponent v-bind:setup="config.home.designs"></homeSlideshowComponent>
-    <homeLogosComponent v-bind:setup="config.home.partners"></homeLogosComponent>
-    <homeImagesComponent v-bind:setup="{ content: news, ...config.home.blog }"></homeImagesComponent>
-    <homeParallaxComponent v-bind:setup="statistics"></homeParallaxComponent>
-    <homeContactComponent></homeContactComponent>
+    <homeBannerComponent
+      v-if="config.home.banner"
+      v-bind:title="config.home.banner.title"
+      v-bind:button="config.home.banner.button"
+    ></homeBannerComponent>
+    <homeVideoComponent v-if="config.home.video" v-bind:setup="config.home.video"></homeVideoComponent>
+    <homeContentsComponent v-if="config.home.punchline" v-bind:setup="config.home.punchline"></homeContentsComponent>
+    <homeContentsComponent v-if="config.home.features" v-bind:setup="config.home.features"></homeContentsComponent>
+    <homeCardsComponent v-if="config.home.repos" v-bind:setup="config.home.repos"></homeCardsComponent>
+    <homeIconsComponent v-if="config.home.ressources" v-bind:setup="config.home.ressources"></homeIconsComponent>
+    <homeSlideshowComponent v-if="config.home.designs" v-bind:setup="config.home.designs"></homeSlideshowComponent>
+    <homeLogosComponent v-if="config.home.partners" v-bind:setup="config.home.partners"></homeLogosComponent>
+    <homeImagesComponent v-if="config.home.blog" v-bind:setup="{ content: news, ...config.home.blog }"></homeImagesComponent>
+    <homeParallaxComponent v-if="config.home.stats" v-bind:setup="statistics"></homeParallaxComponent>
+    <homeContactComponent v-if="config.home.contact"></homeContactComponent>
   </div>
 </template>
 
@@ -50,10 +54,8 @@ export default {
     ...mapGetters(['theme', 'news', 'statistics']),
   },
   created() {
-    this.$store.dispatch('getNews');
-
-    // this.$store.dispatch('getStatistics').then(() => {
-    // });
+    if (this.config.home.stats) this.$store.dispatch('getStatistics');
+    if (this.config.home.blog) this.$store.dispatch('getNews');
   },
 };
 </script>
