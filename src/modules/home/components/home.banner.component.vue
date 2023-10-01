@@ -17,7 +17,7 @@
             }"
           >
             <v-btn
-              v-if="button.title"
+              v-if="button && button.title"
               :href="button.link"
               class="mb-5 text-none font-weight-bold rounded-xl"
               :style="{ 'border-color': button.color, 'border-width': '1.5px' }"

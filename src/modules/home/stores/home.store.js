@@ -148,7 +148,7 @@ const state = (app) => {
     contents: [],
     news: [],
     contact: {},
-    statistics: app.config.globalProperties.config.home.stats.content,
+    statistics: app.config.globalProperties.config.home.stats ? app.config.globalProperties.config.home.stats.content : null,
   };
 };
 
