@@ -8,7 +8,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 // Vuetify
 import { createVuetify } from 'vuetify';
 import { aliases, fa } from 'vuetify/lib/iconsets/fa';
-import { mdi } from 'vuetify/lib/iconsets/mdi';
 import config from '../../config/index.cjs';
 
 // Toto: switch theme to TS
@@ -35,7 +34,6 @@ export default createVuetify({
     aliases,
     sets: {
       fa,
-      mdi,
     },
   },
 });
