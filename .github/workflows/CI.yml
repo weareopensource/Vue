@@ -23,7 +23,6 @@ jobs:
           cache: 'npm'
       - name: Run tests
         run: |
-          UV_USE_IO_URING=0
           npm i
-          npm run build
+          UV_USE_IO_URING=0 npm run build
           npm run lint
