@@ -61,7 +61,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'My Example App',
+      title: this.config.app.title,
       htmlAttrs: {
         lang: 'en',
         amp: true,
