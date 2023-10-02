@@ -27,6 +27,13 @@
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
               </span>
+              <span v-else-if="header.kind == 'arrayJoin'">
+                <v-chip-group selected-class="text-primary" column>
+                  <v-chip v-for="obj in lodash.get(item, header.value)" :key="obj._id || obj.name">
+                    {{ obj.name }}
+                  </v-chip>
+                </v-chip-group>
+              </span>
               <span v-else-if="header.kind == 'email'">
                 <a :href="`mailto:${item[header.value]}`">{{ item[header.value] }}</a>
               </span>
