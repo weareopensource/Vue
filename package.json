@@ -61,7 +61,7 @@
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-transform-private-methods": "^7.22.5",
     "@commitlint/cli": "^17.8.0",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/config-conventional": "^17.8.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@vue/cli-plugin-babel": "^5.0.8",
