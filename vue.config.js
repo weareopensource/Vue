@@ -5,14 +5,16 @@ const config = require('./src/config/index.cjs');
 module.exports = defineConfig({
   transpileDependencies: true,
   runtimeCompiler: true,
-  configureWebpack: {
-    plugins: [
-      new CompressionPlugin({
-        filename: '[path][base].br',
-        algorithm: 'brotliCompress',
-        test: /\.js$/,
-      }),
-    ],
+  configureWebpack: (config) => {
+    if (process.argv.includes('build')) {
+      config.plugins.push(
+        new CompressionPlugin({
+          filename: '[path][base].br',
+          algorithm: 'brotliCompress',
+          test: /\.js$/,
+        }),
+      );
+    }
   },
   devServer: {
     // proxy: 'http://localhost:3000/',
