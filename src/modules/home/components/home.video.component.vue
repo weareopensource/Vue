@@ -4,7 +4,7 @@
       :class="`text-center pa-4 ${config.vuetify.theme.rounded}`"
       :style="{
         'max-width': config.vuetify.theme.maxWidth,
-        'margin-top': this.$vuetify.display.smAndDown ? '-20vh' : '-40vh',
+        'margin-top': setup.subBanner ? (this.$vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
         position: 'relative',
         ...style('video', setup),
       }"

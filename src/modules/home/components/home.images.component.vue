@@ -37,7 +37,7 @@
             </v-row>
           </v-carousel-item>
         </v-carousel>
-        <homeDynamicIsland :container="imagesContainer" :step="step" :steps="steps" :action="stepper" :text="setup.slide.text"></homeDynamicIsland>
+        <homeDynamicIsland :container="imagesContainer" :step="step" :steps="steps" :action="stepper"></homeDynamicIsland>
       </v-row>
     </v-container>
   </section>
@@ -86,16 +86,8 @@ export default {
   },
   methods: {
     style,
-    stepper(direction) {
-      switch (direction) {
-        case '+':
-          this.step += 1;
-          break;
-        case '-':
-          this.step -= 1;
-          break;
-        default:
-      }
+    stepper(input) {
+      this.step = input;
     },
   },
   mounted() {

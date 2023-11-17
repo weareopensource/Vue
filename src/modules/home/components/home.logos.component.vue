@@ -15,9 +15,7 @@
               <v-col cols="12" md="2">
                 <!-- eslint-disable-next-line -->
                 <a v-if="item.link" :href="item.link">
-                  <v-avatar :size="setup.style.size">
-                    <v-img v-if="item.img" :src="item.img" :alt="item.subtitle || item.title || 'logo'" />
-                  </v-avatar>
+                  <homeImgComponent v-if="item.img" :img="item.img" :height="setup.style.size"></homeImgComponent>
                 </a>
               </v-col>
               <v-col cols="12" md="10">
@@ -36,6 +34,7 @@
  */
 import { style } from '../../../lib/helpers/theme';
 import homeTitleComponent from './utils/home.title.component.vue';
+import homeImgComponent from './utils/home.img.component.vue';
 import homeContentsTextComponent from './utils/home.content.text.component.vue';
 /**
  * Export default
@@ -46,6 +45,7 @@ export default {
   components: {
     homeTitleComponent,
     homeContentsTextComponent,
+    homeImgComponent,
   },
   methods: {
     style,

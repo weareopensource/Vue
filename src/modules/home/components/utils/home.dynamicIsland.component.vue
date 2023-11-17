@@ -1,31 +1,21 @@
 <template>
   <section>
-    <div :style="{ width: '320px', height: '60px', display: isFixed ? 'block' : 'none' }" class="mt-10"></div>
+    <div :style="{ width: '260px', height: '56px', display: isFixed ? 'block' : 'none' }" class="mt-10"></div>
     <div :class="['dynamicIsland', { fixed: isFixed, expand: animate, minimize: !animate }]" class="mt-10" :style="dynamicIslandStyle">
       <div :class="['content', { fadeIn: animate, fadeOut: !animate }]">
-        <div class="d-flex justify-space-between font-weight-bold text-white">
-          <span class="ml-4 mt-1 text-h6">{{ text }}</span>
-          <span v-if="step !== null && steps !== null" class="mr-2">
-            <v-btn
-              v-if="step > 0"
-              icon="fa-solid fa-chevron-left"
-              color="primary"
-              variant="flat"
-              class="mx-1"
-              :disabled="disabled"
-              @click="click('-')"
-              size="small"
-            ></v-btn>
-            <v-btn
-              v-if="step < steps"
-              icon="fa-solid fa-chevron-right"
-              color="primary"
-              variant="flat"
-              class="mx-1"
-              :disabled="disabled"
-              @click="click('+')"
-              size="small"
-            ></v-btn>
+        <div class="text-center font-weight-bold text-white">
+          <span v-if="text && !steps" class="ml-4 mt-1 text-h6 text-truncate">{{ text }}</span>
+          <span v-if="step !== null && steps !== null">
+            <span
+              v-for="index in stepsArray"
+              :key="index"
+              class="step"
+              :class="{ active: step === index }"
+              @click="action(index)"
+              @keyup.enter="action(index)"
+              tabindex="0"
+            >
+            </span>
           </span>
         </div>
       </div>
@@ -34,6 +24,10 @@
 </template>
 
 <script>
+/**
+ * Module dependencies.
+ */
+import { mapGetters } from 'vuex';
 /**
  * Export default
  */
@@ -44,13 +38,18 @@ export default {
     isFixed: false,
     animate: false,
     disabled: false,
+    stepsArray: [],
   }),
   props: ['container', 'text', 'step', 'steps', 'action'],
   computed: {
+    ...mapGetters(['theme']),
     dynamicIslandStyle() {
       return {
-        background: `${this.config.vuetify.theme.appbar.background}${this.config.vuetify.theme.appbar.opacity}`,
-        color: this.config.vuetify.theme.appbar.color,
+        filter: this.theme === 'dark' ? 'brightness(1.8)' : 'brightness(0.8)',
+        'background-color': `${this.config.vuetify.theme.themes[this.theme].colors.background}80`,
+        color: this.config.vuetify.theme.themes[this.theme].colors.onSurface,
+        '-webkit-backdrop-filter': 'blur(8px)',
+        'backdrop-filter': 'blur(8px)',
       };
     },
   },
@@ -89,6 +88,11 @@ export default {
       },
     },
   },
+  created() {
+    for (let i = 0; i <= this.steps; i += 1) {
+      this.stepsArray.push(i);
+    }
+  },
   beforeDestroy() {
     window.removeEventListener('scroll', this.checkVisibility);
   },
@@ -98,38 +102,38 @@ export default {
 <style scoped>
 @keyframes resize {
   0% {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
   }
   50% {
     width: 50px;
     height: 50px;
   }
   100% {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
   }
 }
 
 @keyframes expand {
   0% {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
   }
   100% {
-    width: 320px;
-    height: 60px;
+    width: 260px;
+    height: 56px;
   }
 }
 @keyframes minimize {
   0% {
-    width: 320px;
-    height: 60px;
+    width: 260px;
+    height: 56px;
     opacity: 1;
   }
   50% {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     opacity: 1;
   }
   100% {
@@ -141,14 +145,11 @@ export default {
 
 .dynamicIsland {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 30px;
   transform-origin: center;
   opacity: 0;
-  background-color: rgba(44, 62, 80, 0.9);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 }
 
 .dynamicIsland.expand {
@@ -170,8 +171,8 @@ export default {
 
 .dynamicIsland .content {
   opacity: 0;
-  height: 60px;
-  width: 320px;
+  height: 56px;
+  width: 260px;
   display: table-cell;
   vertical-align: middle;
 }
@@ -184,5 +185,26 @@ export default {
 .dynamicIsland .content.fadeOut {
   transition: opacity 0.1s;
   opacity: 0;
+}
+
+.dynamicIsland .step {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: rgb(var(--v-theme-onBackground));
+  margin: 8px;
+  margin-top: 12px;
+  transition: width 0.3s ease-in-out;
+  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur/hauteur */
+  cursor: pointer;
+}
+
+.dynamicIsland .step.active {
+  width: 70px; /* Augmente la largeur */
+}
+
+.dynamicIsland .step:last-child.active {
+  margin-left: calc(auto + 8px);
 }
 </style>

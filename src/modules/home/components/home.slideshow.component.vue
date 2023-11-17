@@ -1,37 +1,68 @@
 <template>
   <section id="slideshow" :style="style('section', setup)">
-    <v-container ref="slideShowContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+    <v-container
+      ref="slideShowContainer"
+      :style="{
+        'max-width': config.vuetify.theme.maxWidth,
+        'margin-top': setup.subBanner ? (this.$vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
+        position: 'relative',
+      }"
+    >
       <v-row align="center" justify="center" class="px-3 py-8">
         <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <v-tabs v-if="setup.slide.showTitle" v-model="step" class="mb-4" :style="style('tabs', setup)">
+          <v-tab
+            v-for="({ title }, i) in setup.content"
+            :key="i"
+            :value="i"
+            :color="setup.slide.titleColor"
+            :class="`${config.vuetify.theme.rounded}`"
+            hide-slider
+            mobile-breakpoint=""
+          >
+            <span class="text-capitalize text-h6 text-md-h5 font-weight-bold"> {{ title }}</span>
+          </v-tab>
+        </v-tabs>
         <v-carousel
           v-if="setup.content.length > 0"
           v-model="step"
           cycle
-          :height="setup.slide.height"
+          :height="this.$vuetify.display.smAndDown ? (setup.slide.height * 2) / 3 : setup.slide.height"
           hide-delimiter-background
           hide-delimiters
           :show-arrows="false"
           :interval="setup.slide.interval || 6000"
           :class="`${config.vuetify.theme.rounded}`"
         >
-          <v-carousel-item v-for="({ img, text, color }, i) in setup.content" :key="i" :src="img" cover>
-            <v-container class="fill-height" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
+          <v-carousel-item v-for="({ img, subtitle, subimg, text, reversed }, i) in setup.content" :key="i" :src="img.src" cover>
+            <v-container
+              class="fill-height"
+              :style="{ 'max-width': this.config.vuetify.theme.maxWidth, ...style('carousel', setup), background: img.gradient }"
+            >
               <v-row align="center" justify="center">
-                <v-col class="text-center text-white text-h3">
-                  <v-markdown v-if="text" :style="`color: ${color};`" :source="text" />
+                <v-col v-if="subimg && reversed" class="px-6" cols="12" sm="12" md="6">
+                  <homeImgComponent
+                    v-if="subimg"
+                    :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
+                    :img="subimg"
+                  ></homeImgComponent>
+                </v-col>
+                <v-col class="text-left px-6" cols="12" sm="12" md="6">
+                  <h4 v-if="subtitle" class="text-h5 text-md-h3 font-weight-bold mb-8">{{ subtitle }}</h4>
+                  <v-markdown v-if="text" :source="text" class="text-h6 text-md-h4" />
+                </v-col>
+                <v-col v-if="subimg && !reversed" class="px-6" cols="12" sm="12" md="6">
+                  <homeImgComponent
+                    v-if="subimg"
+                    :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
+                    :img="subimg"
+                  ></homeImgComponent>
                 </v-col>
               </v-row>
             </v-container>
           </v-carousel-item>
         </v-carousel>
-        <homeDynamicIsland
-          v-if="steps > 0"
-          :container="slideShowContainer"
-          :step="step"
-          :steps="steps"
-          :action="stepper"
-          :text="setup.slide.text"
-        ></homeDynamicIsland>
+        <homeDynamicIsland v-if="steps > 0" :container="slideShowContainer" :step="step" :steps="steps" :action="stepper"></homeDynamicIsland>
       </v-row>
     </v-container>
   </section>
@@ -44,6 +75,7 @@
 import { style } from '../../../lib/helpers/theme';
 import homeTitleComponent from './utils/home.title.component.vue';
 import homeDynamicIsland from './utils/home.dynamicIsland.component.vue';
+import homeImgComponent from './utils/home.img.component.vue';
 
 /**
  * Export default
@@ -65,6 +97,7 @@ export default {
   components: {
     homeTitleComponent,
     homeDynamicIsland,
+    homeImgComponent,
   },
   computed: {
     steps() {
@@ -73,16 +106,8 @@ export default {
   },
   methods: {
     style,
-    stepper(direction) {
-      switch (direction) {
-        case '+':
-          this.step += 1;
-          break;
-        case '-':
-          this.step -= 1;
-          break;
-        default:
-      }
+    stepper(input) {
+      this.step = input;
     },
   },
   mounted() {

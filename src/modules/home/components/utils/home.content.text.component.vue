@@ -3,8 +3,8 @@
     <homeTitleComponent v-if="item.subtitle" v-bind:setup="{ subtitle: item.subtitle }" :offpadding="true"></homeTitleComponent>
     <v-markdown
       v-if="item.text"
-      :style="item.quote ? { 'line-height': '2em' } : null"
-      :class="item.quote ? 'text-h6 text-md-h5 ' : 'text-body-1 text-md-h6'"
+      :style="item.quote ? { 'line-height': '2em' } : { 'line-height': '1.8em' }"
+      :class="item.quote ? 'text-h6 text-md-h5 ' : 'text-h6'"
       class="text-left font-weight-regular"
       :source="item.text"
     />
