@@ -53,7 +53,7 @@
     "vue-meta": "^3.0.0-alpha.8",
     "vue-router": "^4.2.5",
     "vue3-gravatar": "^3.0.0",
-    "vuetify": "^3.4.1",
+    "vuetify": "^3.4.2",
     "vuex": "^v4.1.0"
   },
   "devDependencies": {
