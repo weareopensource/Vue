@@ -30,14 +30,7 @@
             </v-row>
           </v-carousel-item>
         </v-carousel>
-        <homeDynamicIsland
-          v-if="steps > 0"
-          :container="cardsContainer"
-          :text="setup.slide.text"
-          :step="step"
-          :steps="steps"
-          :action="stepper"
-        ></homeDynamicIsland>
+        <homeDynamicIsland v-if="steps > 0" :container="cardsContainer" :step="step" :steps="steps" :action="stepper"></homeDynamicIsland>
       </v-row>
     </v-container>
   </section>
@@ -86,16 +79,8 @@ export default {
   },
   methods: {
     style,
-    stepper(direction) {
-      switch (direction) {
-        case '+':
-          this.step += 1;
-          break;
-        case '-':
-          this.step -= 1;
-          break;
-        default:
-      }
+    stepper(input) {
+      this.step = input;
     },
   },
   mounted() {

@@ -153,10 +153,6 @@ module.exports = {
           },
         ],
       },
-      {
-        title: 'Pricing',
-        url: 'https://blog.weareopensource.me',
-      },
     ],
     shortcuts: [
       {
@@ -180,9 +176,10 @@ module.exports = {
     video: {
       file: '/videos/highlight.mp4',
       poster: '/videos/highlight-poster.webp',
+      subBanner: true,
       style: {
         section: {
-          background: 'surface',
+          background: 'background',
         },
         video: {
           background: '#101115',
@@ -192,7 +189,7 @@ module.exports = {
     punchline: {
       style: {
         section: {
-          background: 'background',
+          background: 'surface',
         },
       },
       content: [
@@ -210,7 +207,7 @@ module.exports = {
     features: {
       style: {
         section: {
-          background: 'surface',
+          background: 'background',
         },
         video: {
           background: '#101115',
@@ -242,12 +239,11 @@ module.exports = {
     repos: {
       style: {
         section: {
-          background: 'background',
+          background: 'surface',
         },
       },
       slide: {
         interval: 15000,
-        text: 'Browse stacks...',
       },
       content: [
         {
@@ -322,10 +318,10 @@ module.exports = {
       title: 'Some ressources to start',
       style: {
         section: {
-          background: 'surface',
+          background: 'background',
         },
         card: {
-          background: 'background',
+          background: 'surface',
         },
       },
       content: [
@@ -349,6 +345,39 @@ module.exports = {
         },
       ],
     },
+    install: {
+      style: {
+        section: {
+          background: 'surface',
+        },
+        card: {
+          background: 'background',
+        },
+      },
+      content: [
+        {
+          icon: 'fa-solid fa-comment',
+          color: '#1abc9c',
+          title: 'Smooth setup!',
+          subtitle: 'Clone our stacks',
+          text: 'Start by [cloning your preferred stacks](https://blog.weareopensource.me/start-a-project-and-maintain-updates/) while keeping our repository as a git remote to seamlessly follow updates. Just manage the merges and minimally edit the stack for ease of use.',
+        },
+        {
+          icon: 'fa-solid fa-user',
+          color: '#2ecc71',
+          title: 'Configuration',
+          subtitle: 'Setup your content',
+          text: 'Configure the stacks to communicate with each other in seconds. Our homepage view includes all examples from this actual web page you are visiting, just configure them.',
+        },
+        {
+          icon: 'fa-solid fa-hotel',
+          color: '#3498db',
+          title: 'Host',
+          subtitle: 'Deploy to prod',
+          text: 'Deploy the entire setup through your favorite CI/CD and start developing your features. Think of each feature as an independent, reusable CRUD module, without editing the stack.',
+        },
+      ],
+    },
     designs: {
       style: {
         section: {
@@ -358,18 +387,13 @@ module.exports = {
       slide: {
         height: '600px',
         interval: 6000,
-        text: 'Discover designs...',
       },
       content: [
         {
-          img: '/images/slide01.webp',
-          text: null,
-          color: null,
+          img: { src: '/images/slide01.webp' },
         },
         {
-          img: '/images/slide02.webp',
-          text: null,
-          color: null,
+          img: { src: '/images/slide02.webp' },
         },
       ],
     },
@@ -381,27 +405,21 @@ module.exports = {
         card: {
           background: 'surface',
         },
-        size: '125px',
+        size: '200px',
       },
-      title: 'Our incredible partners',
+      title: 'Examples with our stacks',
       content: [
         {
-          img: 'https://logodownload.org/wp-content/uploads/2013/12/apple-logo-16.png',
-          link: 'https://apple.com',
-          subtitle: 'CRUD Model',
-          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
+          img: '/images/partner01.webp',
+          link: 'https://comes.io',
+          subtitle: 'Comes.io',
+          text: 'Like a travel agency for your weekends and hobbies, we will monitor your perfect conditions and alert you when all are met. Never miss wonderful moments again, discovery or family weekends, and spot the ideal days for surfing, skiing, golfing, fishing ...',
         },
         {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
-          link: 'https://google.com',
-          subtitle: 'CRUD Model',
-          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
-        },
-        {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
-          link: 'https://tesla.com',
-          subtitle: 'CRUD Model',
-          text: 'Our **CRUD** model, built on **NodeJS**, **VueJS**, & **Swift**, exemplifies rapid feature development. It offers a clear path to master CRUD operations, eliminating guesswork. Elevate your development with our insightful guide.',
+          img: '/images/partner02.webp',
+          link: 'https://foxdeluxe.com',
+          subtitle: 'FoxDeluxe',
+          text: 'FoxDeLuxe is an innovative platform designed for savvy businesses seeking to gain a competitive edge. It provides comprehensive tools for real-time market analysis, trend tracking, and strategic pricing insights, empowering you to make data-driven decisions and optimize your profitability effortlessly.',
         },
       ],
     },
@@ -413,7 +431,6 @@ module.exports = {
       },
       slide: {
         interval: 15000,
-        text: 'Read more...',
       },
       title: 'Some contents to read',
       url: 'https://blog.weareopensource.me',
