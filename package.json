@@ -40,7 +40,7 @@
     "@tryghost/content-api": "1.11.20",
     "@videojs-player/vue": "^1.0.0",
     "aos": "^2.3.4",
-    "axios": "^1.6.3",
+    "axios": "^1.6.4",
     "lodash": "^4.17.21",
     "marked": "^11.1.1",
     "md5": "^2.3.0",
