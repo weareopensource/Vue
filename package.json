@@ -88,7 +88,7 @@
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
     "object-path": "^0.11.8",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.2",
     "sass": "^1.69",
     "sass-loader": "13.3.3",
     "semantic-release": "^22.0.12",
