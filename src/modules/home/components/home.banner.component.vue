@@ -16,8 +16,8 @@
               'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
             }"
           >
-            <div class="mb-3"><v-markdown v-if="title" class="font-weight-bold text-md-h2 text-h3" :source="title" /></div>
-            <div class="mb-6"><v-markdown v-if="subtitle" class="font-weight-medium text-h5" :source="subtitle" /></div>
+            <div class="mb-5"><v-markdown v-if="title" class="font-weight-bold text-md-h2 text-h3" :source="title" /></div>
+            <div class="mb-10"><v-markdown v-if="subtitle" class="font-weight-medium text-h5" :source="subtitle" /></div>
             <v-btn
               v-if="button && button.title"
               :href="button.link"

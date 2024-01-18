@@ -40,18 +40,18 @@
               :style="{ 'max-width': this.config.vuetify.theme.maxWidth, ...style('carousel', setup), background: img.gradient }"
             >
               <v-row align="center" justify="center">
-                <v-col v-if="subimg && reversed" class="px-6" cols="12" sm="12" md="6">
+                <v-col v-if="subimg && reversed" class="px-10" cols="12" sm="12" md="6">
                   <homeImgComponent
                     v-if="subimg"
                     :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
                     :img="subimg"
                   ></homeImgComponent>
                 </v-col>
-                <v-col class="text-left px-6" cols="12" sm="12" md="6">
+                <v-col class="text-left px-10" cols="12" sm="12" md="6">
                   <h4 v-if="subtitle" class="text-h5 text-md-h3 font-weight-bold mb-8">{{ subtitle }}</h4>
                   <v-markdown v-if="text" :source="text" class="text-h6 text-md-h4" />
                 </v-col>
-                <v-col v-if="subimg && !reversed" class="px-6" cols="12" sm="12" md="6">
+                <v-col v-if="subimg && !reversed" class="px-10" cols="12" sm="12" md="6">
                   <homeImgComponent
                     v-if="subimg"
                     :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
