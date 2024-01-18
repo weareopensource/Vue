@@ -16,11 +16,7 @@
             <template v-if="item.title" v-slot:opposite>
               <h5 class="text-h5 text-md-h4 text-secondary font-weight-bold" v-text="item.title"></h5>
             </template>
-            <v-card
-              :class="`${config.vuetify.theme.rounded} my-8 pb-2`"
-              :flat="config.vuetify.theme.flat"
-              :style="this.style('card', { style: item.style })"
-            >
+            <v-card :class="`${config.vuetify.theme.rounded} my-8 pb-2`" :flat="config.vuetify.theme.flat" :style="style('card', setup)">
               <homeImgComponent v-if="item.img && !item.reversed" :img="item.img"></homeImgComponent>
               <homeCardsTextComponent :item="item"></homeCardsTextComponent>
               <homeImgComponent v-if="item.img && item.reversed" :img="item.img"></homeImgComponent>
