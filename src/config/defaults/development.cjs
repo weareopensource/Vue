@@ -167,6 +167,7 @@ module.exports = {
     darkBackground: '/images/dark.webp',
     banner: {
       title: 'Turn your ideas <br /> <b><span style="color:#55efc4">into a reality.</span></b>',
+      subtitle: 'WeAreOpenSource allow you to start projects faster with scalable stacks.',
       button: {
         title: 'Just launched: 2.0 →',
         color: '#55efc4',

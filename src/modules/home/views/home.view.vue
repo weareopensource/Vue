@@ -3,6 +3,7 @@
     <homeBannerComponent
       v-if="config.home.banner"
       v-bind:title="config.home.banner.title"
+      v-bind:subtitle="config.home.banner.subtitle"
       v-bind:button="config.home.banner.button"
     ></homeBannerComponent>
     <homeVideoComponent v-if="config.home.video" v-bind:setup="config.home.video"></homeVideoComponent>
