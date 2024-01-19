@@ -167,6 +167,7 @@ module.exports = {
     darkBackground: '/images/dark.webp',
     banner: {
       title: 'Turn your ideas <br /> <b><span style="color:#55efc4">into a reality.</span></b>',
+      subtitle: 'WeAreOpenSource allow you to start projects faster with scalable stacks.',
       button: {
         title: 'Just launched: 2.0 →',
         color: '#55efc4',
@@ -364,14 +365,14 @@ module.exports = {
         },
         {
           icon: 'fa-solid fa-user',
-          color: '#2ecc71',
+          color: '#1abc9c',
           title: 'Configuration',
           subtitle: 'Setup your content',
           text: 'Configure the stacks to communicate with each other in seconds. Our homepage view includes all examples from this actual web page you are visiting, just configure them.',
         },
         {
           icon: 'fa-solid fa-hotel',
-          color: '#3498db',
+          color: '#1abc9c',
           title: 'Host',
           subtitle: 'Deploy to prod',
           text: 'Deploy the entire setup through your favorite CI/CD and start developing your features. Think of each feature as an independent, reusable CRUD module, without editing the stack.',

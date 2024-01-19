@@ -19,7 +19,7 @@
                 </a>
               </v-col>
               <v-col cols="12" md="10">
-                <homeContentsTextComponent class="quote pl-12 py-4" v-bind:item="item"></homeContentsTextComponent>
+                <homeContentsTextComponent class="pl-5 py-4" v-bind:item="item"></homeContentsTextComponent>
               </v-col>
             </v-row>
           </v-window-item>
@@ -52,9 +52,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.quote {
-  border-left: 6px solid rgb(var(--v-theme-secondary)) !important;
-}
-</style>

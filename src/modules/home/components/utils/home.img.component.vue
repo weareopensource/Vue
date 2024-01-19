@@ -13,8 +13,8 @@
         <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
       </div>
     </template>
-    <v-card-title v-if="title" class="text-white text-h6 font-weight-bold"> {{ title }}</v-card-title>
-    <v-card-text v-if="text" class="text-white text-body-1 pb-5"> {{ text }}</v-card-text>
+    <v-card-title v-if="title" class="px-10 text-white text-h6 font-weight-bold"> {{ title }}</v-card-title>
+    <v-card-text v-if="text" class="px-10 text-white text-body-1 pb-5"> {{ text }}</v-card-text>
   </v-img>
 </template>
 <script>

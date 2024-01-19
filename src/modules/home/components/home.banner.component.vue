@@ -16,16 +16,17 @@
               'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
             }"
           >
+            <div class="mb-5"><v-markdown v-if="title" class="font-weight-bold text-md-h2 text-h3" :source="title" /></div>
+            <div class="mb-10"><v-markdown v-if="subtitle" class="font-weight-medium text-h5" :source="subtitle" /></div>
             <v-btn
               v-if="button && button.title"
               :href="button.link"
-              class="mb-5 text-none font-weight-bold rounded-xl"
+              class="text-none font-weight-bold rounded-xl"
               :style="{ 'border-color': button.color, 'border-width': '1.5px' }"
               variant="outlined"
               size="large"
               >{{ button.title }}</v-btn
             >
-            <v-markdown v-if="title" class="font-weight-bold text-md-h1 text-h3" :source="title" />
           </v-col>
         </v-row>
       </v-container>
@@ -52,6 +53,11 @@ export default {
     },
     // title to display
     title: {
+      type: String,
+      default: null,
+    },
+    // subtitle to display
+    subtitle: {
       type: String,
       default: null,
     },

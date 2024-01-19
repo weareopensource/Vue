@@ -3,6 +3,7 @@
     <homeBannerComponent
       v-bind:ratio="3"
       v-bind:title="this.$route.meta.title || lodash.startCase(this.$route.params.name)"
+      v-bind:subtitle="null"
       v-bind:banner="contents[tab] && contents[tab].banner ? contents[tab].banner : null"
     ></homeBannerComponent>
     <section id="page" :style="style('section', config.pages)">
