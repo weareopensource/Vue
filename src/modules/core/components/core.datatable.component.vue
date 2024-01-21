@@ -16,10 +16,10 @@
         <tr v-for="item in items" :key="item._id">
           <td v-for="header in headers" :key="header.text">
             <span v-if="header.value">
-              <span v-if="header.kind == 'date' && header.format">
+              <span v-if="header.kind === 'date' && header.format">
                 {{ moment(new Date(lodash.get(item, header.value))).format(header.format) }}
               </span>
-              <span v-else-if="header.kind == 'icon'">
+              <span v-else-if="header.kind === 'icon'">
                 <v-btn v-if="header.path && header.pathValue" :to="`${header.path}${lodash.get(item, header.pathValue)}`" variant="flat" icon>
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
@@ -35,37 +35,37 @@
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
               </span>
-              <span v-else-if="header.kind == 'email'">
+              <span v-else-if="header.kind === 'email'">
                 <a :href="`mailto:${lodash.get(item, header.value)}`">{{ lodash.get(item, header.value) }}</a>
               </span>
-              <span v-else-if="header.kind == 'avatar'">
+              <span v-else-if="header.kind === 'avatar'">
                 <userAvatarComponent :user="item" :width="'37px'" :height="'37px'" :radius="'50%'" :border="'0px'" :color="'#000'" />
               </span>
-              <span v-else-if="header.kind == 'capitalize'" class="text-capitalize"> {{ lodash.get(item, header.value) }}</span>
-              <span v-else-if="header.kind == 'link' && header.path && header.pathValue">
+              <span v-else-if="header.kind === 'capitalize'" class="text-capitalize"> {{ lodash.get(item, header.value) }}</span>
+              <span v-else-if="header.kind === 'link' && header.path && header.pathValue">
                 <v-btn :to="`${header.path}${lodash.get(item, header.pathValue)}`" :class="`text-${header.color} text-capitalize`" variant="flat">
                   {{ lodash.get(item, header.value) }}
                 </v-btn>
               </span>
-              <span v-else-if="header.kind == 'tags'">
+              <span v-else-if="header.kind === 'tags'">
                 <v-chip class="mr-2" v-for="(role, index) in lodash.get(item, header.value)" v-bind:index="index" v-bind:key="index">{{
                   role
                 }}</v-chip>
               </span>
-              <span v-else-if="header.kind == 'status'">
+              <span v-else-if="header.kind === 'status'">
                 <v-btn variant="flat" icon>
                   <v-icon v-if="lodash.get(item, header.value) === true" color="green" icon="fa-solid fa-check" />
                   <v-icon v-else-if="lodash.get(item, header.value) === false" color="red" icon="fa-solid fa-times" />
                   <v-icon v-else class="rotating" color="orange" icon="fa-solid fa-spinner" />
                 </v-btn>
               </span>
-              <span v-else-if="header.kind == 'superior'">
+              <span v-else-if="header.kind === 'superior'">
                 <span v-if="lodash.get(item, header.value) > header.condition" class="text-green">
                   {{ lodash.get(item, header.value) }}
                 </span>
                 <span v-else class="text-red">{{ lodash.get(item, header.value) || header.condition }}</span>
               </span>
-              <span v-else-if="header.kind == 'inferior'">
+              <span v-else-if="header.kind === 'inferior'">
                 <span v-if="lodash.get(item, header.value) < header.condition" color="green">
                   {{ lodash.get(item, header.value) }}
                 </span>
@@ -77,7 +77,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-row v-if="!items.length || items.length == 0">
+    <v-row v-if="!items.length || items.length === 0">
       <v-col cols="12">
         <h2 class="text-center pa-12">No Items found :( !</h2>
       </v-col>
