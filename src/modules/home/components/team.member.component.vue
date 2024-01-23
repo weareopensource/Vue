@@ -6,7 +6,7 @@
         class="`text-white ${config.vuetify.theme.rounded}`"
         height="150"
         cover
-        :gradient="theme == 'dark' ? 'to top right, rgba(0,0,0,.3), rgba(0,0,0,.7)' : 'to top right, rgba(255,255,255,.3), rgba(255,255,255,.7)'"
+        :gradient="theme === 'dark' ? 'to top right, rgba(0,0,0,.3), rgba(0,0,0,.7)' : 'to top right, rgba(255,255,255,.3), rgba(255,255,255,.7)'"
         style="border: 5px solid transparent"
       >
       </v-img>
