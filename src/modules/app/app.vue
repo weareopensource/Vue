@@ -1,9 +1,5 @@
 <template>
   <v-app id="app" :theme="theme">
-    <metainfo>
-      <template v-slot:title="{ content }">{{ `${content} | ${this.$route.params.name || this.$route.name}` }} </template>
-    </metainfo>
-
     <v-snackbar
       v-if="config.vuetify.theme.snackbar.status"
       v-model="snackbar.status"
@@ -59,7 +55,7 @@ export default {
       },
     };
   },
-  metaInfo() {
+  head() {
     return {
       title: this.config.app.title,
       htmlAttrs: {
