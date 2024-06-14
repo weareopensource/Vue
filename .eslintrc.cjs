@@ -6,8 +6,8 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:markdown/recommended', 'plugin:prettier/recommended'],
-  plugins: ['prettier', 'markdown'],
+  extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
     'no-console': 0,
