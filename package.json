@@ -58,7 +58,7 @@
     "vuex": "^v4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.8",
+    "@babel/core": "^7.25.9",
     "@babel/eslint-parser": "^7.25.8",
     "@babel/plugin-transform-private-methods": "^7.25.9",
     "@commitlint/cli": "^19.5.0",
