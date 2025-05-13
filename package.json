@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
-    "@tryghost/content-api": "^1.11.22",
+    "@tryghost/content-api": "^1.11.24",
     "@unhead/vue": "^1.11.20",
     "@videojs-player/vue": "^1.0.0",
     "aos": "^2.3.4",
