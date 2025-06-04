@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
-    "@babel/eslint-parser": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.5",
     "@babel/plugin-transform-private-methods": "^7.27.1",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
