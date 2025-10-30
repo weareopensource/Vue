@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
     <v-btn
-      :flat="config.vuetify.theme.flat"
       v-if="isLoggedIn"
+      :flat="config.vuetify.theme.flat"
       icon
       to="/task"
       color="success"
@@ -11,7 +11,7 @@
       <v-icon icon="fa-solid fa-plus"></v-icon>
     </v-btn>
     <v-row class="pa-2">
-      <taskComponent v-for="(item, index) in tasks" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></taskComponent>
+      <taskComponent v-for="(item, index) in tasks" :key="item.id" :item="item" :index="index"></taskComponent>
     </v-row>
     <v-row v-if="!tasks || !tasks.length" align="start" justify="center">
       <v-col cols="12">
@@ -33,6 +33,9 @@ import taskComponent from '../components/task.component.vue';
  * Export default
  */
 export default {
+  components: {
+    taskComponent,
+  },
   data: () => ({
     direction: 'bottom',
     fab: false,
@@ -45,9 +48,6 @@ export default {
     left: false,
     transition: 'slide-y',
   }),
-  components: {
-    taskComponent,
-  },
   computed: {
     ...mapGetters(['theme', 'isLoggedIn', 'tasks']),
   },

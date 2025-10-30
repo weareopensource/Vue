@@ -2,7 +2,7 @@
   <section id="images" :style="style('section', setup)">
     <v-container ref="imagesContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row align="center" justify="center" class="px-3 py-8">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
         <v-carousel
           v-if="setup.content.length > 0"
           v-model="step"
@@ -29,7 +29,7 @@
                       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7)"
                       :title="item.title"
                       :text="item.excerpt"
-                      :height="this.$vuetify.display.xsAndDown ? '275px' : this.$vuetify.display.smAndDown ? '350px' : '500px'"
+                      :height="$vuetify.display.xsAndDown ? '275px' : $vuetify.display.smAndDown ? '350px' : '500px'"
                     ></homeImgComponent>
                   </a>
                 </v-hover>
@@ -56,12 +56,11 @@ import homeDynamicIsland from './utils/home.dynamicIsland.component.vue';
  * Export default
  */
 export default {
-  name: 'homeBlogComponent',
-  data() {
-    return {
-      step: 0,
-      imagesContainer: null,
-    };
+  name: 'HomeBlogComponent',
+  components: {
+    homeTitleComponent,
+    homeImgComponent,
+    homeDynamicIsland,
   },
   props: {
     setup: {
@@ -69,10 +68,11 @@ export default {
       default: () => ({ data: [] }),
     },
   },
-  components: {
-    homeTitleComponent,
-    homeImgComponent,
-    homeDynamicIsland,
+  data() {
+    return {
+      step: 0,
+      imagesContainer: null,
+    };
   },
   computed: {
     steps() {
@@ -84,16 +84,16 @@ export default {
         : this.setup.content.slice(this.step * 2, this.step * 2 + 2);
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.imagesContainer = this.$refs.imagesContainer;
+    });
+  },
   methods: {
     style,
     stepper(input) {
       this.step = input;
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.imagesContainer = this.$refs.imagesContainer;
-    });
   },
 };
 </script>

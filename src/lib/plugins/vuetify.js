@@ -1,14 +1,14 @@
 /**
  * Module dependencies.
  */
-// eslint-disable-next-line
+ 
 import 'vuetify/styles';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 // Vuetify
 import { createVuetify } from 'vuetify';
 import { aliases, fa } from 'vuetify/lib/iconsets/fa';
-import config from '../../config/index.cjs';
+import config from '../../config/index.js';
 
 // Toto: switch theme to TS
 // const myCustomLightTheme: ThemeDefinition = {

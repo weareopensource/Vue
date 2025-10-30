@@ -1,7 +1,7 @@
 <template>
   <section id="banner">
     <v-img
-      :height="ratio ? `calc(${100 / ratio}vh)` : this.$vuetify.display.smAndDown ? '70vh' : '90vh'"
+      :height="ratio ? `calc(${100 / ratio}vh)` : $vuetify.display.smAndDown ? '70vh' : '90vh'"
       :src="banner ? banner : generateBackground()"
       style="margin-top: -65px"
       max-width="100%"
@@ -13,11 +13,11 @@
           <v-col
             class="text-white text-center"
             :style="{
-              'margin-top': ratio ? '5vh' : this.$vuetify.display.smAndDown ? '-5vh' : '-25vh',
+              'margin-top': ratio ? '5vh' : $vuetify.display.smAndDown ? '-5vh' : '-25vh',
             }"
           >
-            <div class="mb-5"><v-markdown v-if="title" class="font-weight-bold text-md-h2 text-h3" :source="title" /></div>
-            <div class="mb-10"><v-markdown v-if="subtitle" class="font-weight-medium text-h5" :source="subtitle" /></div>
+            <div class="mb-5"><VMarkdown v-if="title" class="font-weight-bold text-md-h2 text-h3" :source="title" /></div>
+            <div class="mb-10"><VMarkdown v-if="subtitle" class="font-weight-medium text-h5" :source="subtitle" /></div>
             <v-btn
               v-if="button && button.title"
               :href="button.link"
@@ -39,7 +39,7 @@
  * Export default
  */
 export default {
-  name: 'homeBannerComponent',
+  name: 'HomeBannerComponent',
   props: {
     // title to display
     banner: {

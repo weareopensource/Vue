@@ -11,9 +11,9 @@
               :key="index"
               class="step"
               :class="{ active: step === index }"
+              tabindex="0"
               @click="action(index)"
               @keyup.enter="action(index)"
-              tabindex="0"
             >
             </span>
           </span>
@@ -32,7 +32,29 @@ import { mapGetters } from 'vuex';
  * Export default
  */
 export default {
-  name: 'homeDynamicIslandComponent',
+  name: 'HomeDynamicIslandComponent',
+  props: {
+    container: {
+      type: Object,
+      default: null,
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+    step: {
+      type: Number,
+      default: null,
+    },
+    steps: {
+      type: Number,
+      default: null,
+    },
+    action: {
+      type: Function,
+      default: () => {},
+    },
+  },
   data: () => ({
     isVisible: false,
     isFixed: false,
@@ -40,7 +62,6 @@ export default {
     disabled: false,
     stepsArray: [],
   }),
-  props: ['container', 'text', 'step', 'steps', 'action'],
   computed: {
     ...mapGetters(['theme']),
     dynamicIslandStyle() {
@@ -52,6 +73,25 @@ export default {
         'backdrop-filter': 'blur(8px)',
       };
     },
+  },
+  watch: {
+    container: {
+      immediate: true,
+      handler(newValue) {
+        if (newValue && newValue.$el && this.$el) {
+          window.addEventListener('scroll', this.checkVisibility);
+          this.checkVisibility();
+        }
+      },
+    },
+  },
+  created() {
+    for (let i = 0; i <= this.steps; i += 1) {
+      this.stepsArray.push(i);
+    }
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.checkVisibility);
   },
   methods: {
     checkVisibility() {
@@ -76,25 +116,6 @@ export default {
         this.disabled = false;
       }, 400);
     },
-  },
-  watch: {
-    container: {
-      immediate: true,
-      handler(newValue) {
-        if (newValue && newValue.$el && this.$el) {
-          window.addEventListener('scroll', this.checkVisibility);
-          this.checkVisibility();
-        }
-      },
-    },
-  },
-  created() {
-    for (let i = 0; i <= this.steps; i += 1) {
-      this.stepsArray.push(i);
-    }
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.checkVisibility);
   },
 };
 </script>

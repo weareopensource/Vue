@@ -14,16 +14,16 @@
         <v-card-title class="text-capitalize"
           ><h4>{{ item.firstName }} {{ item.lastName }}</h4>
         </v-card-title>
-        <span class="pl-4 text-secondary" v-if="item.position && item.position !== ''"> {{ item.position }}</span>
+        <span v-if="item.position && item.position !== ''" class="pl-4 text-secondary"> {{ item.position }}</span>
         <v-spacer></v-spacer>
-        <v-btn @click="show = !show" v-if="item.bio" icon variant="text">
+        <v-btn v-if="item.bio" icon variant="text" @click="show = !show">
           <v-icon :icon="show ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></v-icon>
         </v-btn>
       </v-card-actions>
       <v-expand-transition>
         <div v-show="show">
           <v-card-actions class="pt-0 px-4">
-            <v-chip class="mr-2" v-for="(role, index) in item.roles" v-bind:index="index" v-bind:key="index">{{ role }}</v-chip>
+            <v-chip v-for="(role, index) in item.roles" :key="index" class="mr-2" :index="index">{{ role }}</v-chip>
             <v-spacer></v-spacer>
             <v-btn v-if="item.email" :href="`mailto:${item.email}`" icon>
               <v-icon icon="fa-solid fa-envelope"></v-icon>
@@ -62,14 +62,19 @@ import userAvatarComponent from '../../users/components/user.avatar.component.vu
  * Export default
  */
 export default {
-  name: 'taskComponent',
-  data: () => ({
-    show: false,
-  }),
-  props: ['item'],
+  name: 'TaskComponent',
   components: {
     userAvatarComponent,
   },
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+  data: () => ({
+    show: false,
+  }),
   computed: {
     ...mapGetters(['isLoggedIn', 'theme']),
   },

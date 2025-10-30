@@ -5,7 +5,7 @@
       <v-icon class="ma-2" icon="fa-solid fa-user"></v-icon>
       <h2 class="my-1 text-capitalize">{{ firstName }} {{ lastName }}</h2>
       <v-spacer></v-spacer>
-      <v-btn v-if="id" class="mx-1" color="error" @click.stop="removeConfirm = true" :flat="config.vuetify.theme.flat" icon>
+      <v-btn v-if="id" class="mx-1" color="error" :flat="config.vuetify.theme.flat" icon @click.stop="removeConfirm = true">
         <v-icon icon="fa-solid fa-trash"></v-icon>
       </v-btn>
       <v-dialog v-model="removeConfirm" max-width="500">
@@ -19,7 +19,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-btn v-if="id" class="mx-1" color="success" @click="update()" :flat="config.vuetify.theme.flat" :disabled="!save" icon>
+      <v-btn v-if="id" class="mx-1" color="success" :flat="config.vuetify.theme.flat" :disabled="!save" icon @click="update()">
         <v-icon icon="fa-solid fa-save"></v-icon>
       </v-btn>
     </v-row>
@@ -90,6 +90,9 @@ import userAvatarComponent from '../components/user.avatar.component.vue';
  * Export default
  */
 export default {
+  components: {
+    userAvatarComponent,
+  },
   data() {
     return {
       // vue
@@ -106,9 +109,6 @@ export default {
       rolesItems: this.config.whitelists.users.roles,
       removeConfirm: false,
     };
-  },
-  components: {
-    userAvatarComponent,
   },
   computed: {
     ...mapGetters(['theme', 'user', 'result', 'isLoggedIn']),
@@ -179,6 +179,20 @@ export default {
       deep: true,
     },
   },
+  created() {
+    if (this.id) {
+      this.$store.commit('user_reset');
+      this.$store
+        .dispatch('getUser', { id: this.id })
+        .then(() => {
+          this.userRoles = _.cloneDeep(this.user.roles);
+          this.save = false;
+        })
+        .catch((err) => console.log(err));
+    } else {
+      this.$store.commit('user_reset');
+    }
+  },
   methods: {
     async update() {
       const form = await this.$refs.form.validate();
@@ -214,20 +228,6 @@ export default {
     //       .catch((err) => console.log(err));
     //   }
     // },
-  },
-  created() {
-    if (this.id) {
-      this.$store.commit('user_reset');
-      this.$store
-        .dispatch('getUser', { id: this.id })
-        .then(() => {
-          this.userRoles = _.cloneDeep(this.user.roles);
-          this.save = false;
-        })
-        .catch((err) => console.log(err));
-    } else {
-      this.$store.commit('user_reset');
-    }
   },
 };
 </script>

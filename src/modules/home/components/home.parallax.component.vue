@@ -20,7 +20,12 @@
  * Export default
  */
 export default {
-  name: 'homeStatsComponent',
-  props: ['setup'],
+  name: 'HomeStatsComponent',
+  props: {
+    setup: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>

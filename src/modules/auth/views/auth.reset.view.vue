@@ -16,9 +16,9 @@
             <v-row>
               <v-col cols="12">
                 <v-text-field
+                  v-model="password"
                   :type="'password'"
                   :rules="[rules.password]"
-                  v-model="password"
                   label="New password"
                   prepend-icon="fa fa-key"
                   required
