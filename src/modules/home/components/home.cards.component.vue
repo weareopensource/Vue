@@ -2,7 +2,7 @@
   <section id="cards" :style="style('section', setup)">
     <v-container ref="cardsContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row align="center" justify="center" class="px-3 py-8">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
         <v-carousel
           v-if="setup.content.length > 0"
           v-model="step"
@@ -20,7 +20,7 @@
                 <v-card
                   :class="`${config.vuetify.theme.rounded}`"
                   :flat="config.vuetify.theme.flat"
-                  :style="this.style('card', { style: item.style })"
+                  :style="style('card', { style: item.style })"
                 >
                   <homeImgComponent v-if="item.img && !item.reversed" :img="item.img"></homeImgComponent>
                   <homeCardsTextComponent :item="item"></homeCardsTextComponent>
@@ -50,23 +50,23 @@ import homeImgComponent from './utils/home.img.component.vue';
  * Export default
  */
 export default {
-  name: 'homeCardsComponent',
-  data: () => ({
-    step: 0,
-    cardsContainer: null,
-  }),
-  props: {
-    setup: {
-      type: Object,
-      default: () => {},
-    },
-  },
+  name: 'HomeCardsComponent',
   components: {
     homeTitleComponent,
     homeDynamicIsland,
     homeCardsTextComponent,
     homeImgComponent,
   },
+  props: {
+    setup: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  data: () => ({
+    step: 0,
+    cardsContainer: null,
+  }),
   computed: {
     steps() {
       return this.$vuetify.display.smAndDown ? this.setup.content.length - 1 : Math.ceil(this.setup.content.length / 2) - 1;
@@ -77,16 +77,16 @@ export default {
         : this.setup.content.slice(this.step * 2, this.step * 2 + 2);
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.cardsContainer = this.$refs.cardsContainer;
+    });
+  },
   methods: {
     style,
     stepper(input) {
       this.step = input;
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.cardsContainer = this.$refs.cardsContainer;
-    });
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div data-aos="fade">
-    <homeTitleComponent v-if="item.subtitle" v-bind:setup="{ subtitle: item.subtitle }" :offpadding="true"></homeTitleComponent>
-    <v-markdown
+    <homeTitleComponent v-if="item.subtitle" :setup="{ subtitle: item.subtitle }" :offpadding="true"></homeTitleComponent>
+    <VMarkdown
       v-if="item.text"
       :style="item.quote ? { 'line-height': '2em' } : { 'line-height': '1.8em' }"
       :class="item.quote ? 'text-h6 text-md-h5 ' : 'text-h6'"
@@ -32,15 +32,15 @@ import homeTitleComponent from './home.title.component.vue';
  * Export default
  */
 export default {
-  name: 'homeContentTextComponent',
+  name: 'HomeContentTextComponent',
+  components: {
+    homeTitleComponent,
+  },
   props: {
     item: {
       type: Object,
       default: () => {},
     },
-  },
-  components: {
-    homeTitleComponent,
   },
 };
 </script>

@@ -4,12 +4,12 @@
       ref="slideShowContainer"
       :style="{
         'max-width': config.vuetify.theme.maxWidth,
-        'margin-top': setup.subBanner ? (this.$vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
+        'margin-top': setup.subBanner ? ($vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
         position: 'relative',
       }"
     >
       <v-row align="center" justify="center" class="px-3 py-8">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
         <v-tabs v-if="setup.slide.showTitle" v-model="step" class="mb-4" :style="style('tabs', setup)">
           <v-tab
             v-for="({ title }, i) in setup.content"
@@ -27,7 +27,7 @@
           v-if="setup.content.length > 0"
           v-model="step"
           cycle
-          :height="this.$vuetify.display.smAndDown ? (setup.slide.height * 2) / 3 : setup.slide.height"
+          :height="$vuetify.display.smAndDown ? (setup.slide.height * 2) / 3 : setup.slide.height"
           hide-delimiter-background
           hide-delimiters
           :show-arrows="false"
@@ -37,24 +37,24 @@
           <v-carousel-item v-for="({ img, subtitle, subimg, text, reversed }, i) in setup.content" :key="i" :src="img.src" cover>
             <v-container
               class="fill-height"
-              :style="{ 'max-width': this.config.vuetify.theme.maxWidth, ...style('carousel', setup), background: img.gradient }"
+              :style="{ 'max-width': config.vuetify.theme.maxWidth, ...style('carousel', setup), background: img.gradient }"
             >
               <v-row align="center" justify="center">
                 <v-col v-if="subimg && reversed" class="px-10" cols="12" sm="12" md="6">
                   <homeImgComponent
                     v-if="subimg"
-                    :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
+                    :height="$vuetify.display.smAndDown ? img.height / 3 : img.height"
                     :img="subimg"
                   ></homeImgComponent>
                 </v-col>
                 <v-col class="text-left px-10" cols="12" sm="12" md="6">
                   <h4 v-if="subtitle" class="text-h5 text-md-h3 font-weight-bold mb-8">{{ subtitle }}</h4>
-                  <v-markdown v-if="text" :source="text" class="text-h6 text-md-h4" />
+                  <VMarkdown v-if="text" :source="text" class="text-h6 text-md-h4" />
                 </v-col>
                 <v-col v-if="subimg && !reversed" class="px-10" cols="12" sm="12" md="6">
                   <homeImgComponent
                     v-if="subimg"
-                    :height="this.$vuetify.display.smAndDown ? img.height / 3 : img.height"
+                    :height="$vuetify.display.smAndDown ? img.height / 3 : img.height"
                     :img="subimg"
                   ></homeImgComponent>
                 </v-col>
@@ -81,12 +81,11 @@ import homeImgComponent from './utils/home.img.component.vue';
  * Export default
  */
 export default {
-  name: 'homeSlideshowComponent',
-  data() {
-    return {
-      step: 0,
-      slideShowContainer: null,
-    };
+  name: 'HomeSlideshowComponent',
+  components: {
+    homeTitleComponent,
+    homeDynamicIsland,
+    homeImgComponent,
   },
   props: {
     setup: {
@@ -94,26 +93,27 @@ export default {
       default: () => ({ data: [] }),
     },
   },
-  components: {
-    homeTitleComponent,
-    homeDynamicIsland,
-    homeImgComponent,
+  data() {
+    return {
+      step: 0,
+      slideShowContainer: null,
+    };
   },
   computed: {
     steps() {
       return this.setup.content.length - 1;
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.slideShowContainer = this.$refs.slideShowContainer;
+    });
+  },
   methods: {
     style,
     stepper(input) {
       this.step = input;
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.slideShowContainer = this.$refs.slideShowContainer;
-    });
   },
 };
 </script>

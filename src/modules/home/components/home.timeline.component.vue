@@ -2,8 +2,8 @@
   <section id="timeline" :style="style('section', setup)">
     <v-container ref="timelineContainer" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row align="center" justify="center" class="px-3 py-0">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
-        <v-timeline v-if="setup.content.length > 0" :density="this.$vuetify.display.smAndDown ? 'compact' : 'default'">
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
+        <v-timeline v-if="setup.content.length > 0" :density="$vuetify.display.smAndDown ? 'compact' : 'default'">
           <v-timeline-item
             v-for="(item, i) in setup.content"
             :key="i"
@@ -13,7 +13,7 @@
             fill-dot
             size="x-large"
           >
-            <template v-if="item.title" v-slot:opposite>
+            <template v-if="item.title" #opposite>
               <h5 class="text-h5 text-secondary font-weight-bold" v-text="item.title"></h5>
             </template>
             <v-card :class="`${config.vuetify.theme.rounded} my-8 pb-2`" :flat="config.vuetify.theme.flat" :style="style('card', setup)">
@@ -40,17 +40,17 @@ import homeImgComponent from './utils/home.img.component.vue';
  * Export default
  */
 export default {
-  name: 'homeTimelineComponent',
+  name: 'HomeTimelineComponent',
+  components: {
+    homeTitleComponent,
+    homeCardsTextComponent,
+    homeImgComponent,
+  },
   props: {
     setup: {
       type: Object,
       default: () => {},
     },
-  },
-  components: {
-    homeTitleComponent,
-    homeCardsTextComponent,
-    homeImgComponent,
   },
   methods: {
     style,

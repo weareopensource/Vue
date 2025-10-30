@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <v-text-field v-if="search != null ? search : true" v-model="textSearch" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
-    <v-progress-linear :active="this.loading" indeterminate color="secondary"></v-progress-linear>
+    <v-progress-linear :active="loading" indeterminate color="secondary"></v-progress-linear>
     <v-table v-if="items && items.length > 0" fixed-header>
       <thead>
         <tr>
@@ -25,9 +25,9 @@
                 </v-btn>
                 <v-btn
                   v-else-if="header.dispatch && header.param"
-                  @click="dispatch(header.dispatch, header.param, lodash.get(item, header.param), header.refresh)"
                   variant="flat"
                   icon
+                  @click="dispatch(header.dispatch, header.param, lodash.get(item, header.param), header.refresh)"
                 >
                   <v-icon :color="header.color" :icon="header.icon"></v-icon>
                 </v-btn>
@@ -48,9 +48,7 @@
                 </v-btn>
               </span>
               <span v-else-if="header.kind === 'tags'">
-                <v-chip class="mr-2" v-for="(role, index) in lodash.get(item, header.value)" v-bind:index="index" v-bind:key="index">{{
-                  role
-                }}</v-chip>
+                <v-chip v-for="(role, index) in lodash.get(item, header.value)" :key="index" class="mr-2" :index="index">{{ role }}</v-chip>
               </span>
               <span v-else-if="header.kind === 'status'">
                 <v-btn variant="flat" icon>
@@ -85,31 +83,25 @@
     <v-card-actions>
       <v-switch
         v-if="auto != null ? auto : true"
-        class="ml-2"
         v-model="refresh"
+        class="ml-2"
         label="Auto Refresh"
         :color="config.vuetify.theme.themes[theme].colors.secondary"
       ></v-switch>
       <v-spacer></v-spacer>
-      <v-select :items="perPage" v-model="options.itemsPerPage" label="Items per page" style="max-width: 150px; width: 150px"></v-select>
-      <v-btn @click="switchPage('-')" :disabled="options.page <= 1" variant="flat" class="mb-8" icon>
+      <v-select v-model="options.itemsPerPage" :items="perPage" label="Items per page" style="max-width: 150px; width: 150px"></v-select>
+      <v-btn :disabled="options.page <= 1" variant="flat" class="mb-8" icon @click="switchPage('-')">
         <v-icon icon="fa-solid fa-angle-left"></v-icon>
       </v-btn>
       <v-btn variant="flat" disabled class="mb-8">
         {{ options.page }}
       </v-btn>
-      <v-btn @click="switchPage('+')" :disabled="items.length < options.itemsPerPage" variant="flat" class="mb-8 mr-2" icon>
+      <v-btn :disabled="items.length < options.itemsPerPage" variant="flat" class="mb-8 mr-2" icon @click="switchPage('+')">
         <v-icon icon="fa-solid fa-angle-right"></v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
-
-<style>
-.datatable .v-field__overlay {
-  background: none !important;
-}
-</style>
 
 <script>
 /**
@@ -123,7 +115,44 @@ import userAvatarComponent from '../../users/components/user.avatar.component.vu
  * Export default
  */
 export default {
-  name: 'core-datatable',
+  name: 'CoreDatatable',
+  components: {
+    userAvatarComponent,
+  },
+  props: {
+    headers: {
+      type: Array,
+      required: true,
+    },
+    items: {
+      type: Array,
+      required: true,
+    },
+    request: {
+      type: Object,
+      required: true,
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    settings: {
+      type: Object,
+      default: null,
+    },
+    auto: {
+      type: Boolean,
+      default: true,
+    },
+    search: {
+      type: Boolean,
+      default: true,
+    },
+    filter: {
+      type: String,
+      default: '',
+    },
+  },
   data: () => ({
     refresh: false,
     lodash: _,
@@ -135,12 +164,8 @@ export default {
       itemsPerPage: 5,
     },
   }),
-  props: ['headers', 'items', 'request', 'title', 'settings', 'auto', 'search', 'filter'],
   computed: {
     ...mapGetters(['theme']),
-  },
-  components: {
-    userAvatarComponent,
   },
   watch: {
     options: {
@@ -152,6 +177,39 @@ export default {
       },
       deep: true,
     },
+  },
+  created() {
+    if (this.settings) {
+      if (this.settings.perPage) this.perPage = this.settings.perPage;
+      if (this.settings.page) this.page = this.options.settings.page;
+      if (this.settings.itemsPerPage) this.options.itemsPerPage = this.settings.itemsPerPage;
+    }
+    if (this.filter) {
+      this.textSearch = this.filter;
+    }
+    this.gettextSearch();
+    this.watchtextSearch = this.$watch(
+      'textSearch',
+      _.debounce(() => {
+        this.gettextSearch();
+      }, 1000),
+    );
+  },
+  mounted() {
+    window.setInterval(() => {
+      if (this.refresh) {
+        this.loading = true;
+        this.$store.dispatch(this.request, tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
+          this.loading = false;
+        });
+        setTimeout(() => {
+          this.loading = false;
+        }, 30000);
+      }
+    }, 5000);
+  },
+  beforeUnmount() {
+    this.watchtextSearch();
   },
   methods: {
     gettextSearch() {
@@ -188,38 +246,11 @@ export default {
       } else this.$store.dispatch(dispatch).catch((err) => console.log(err));
     },
   },
-  created() {
-    if (this.settings) {
-      if (this.settings.perPage) this.perPage = this.settings.perPage;
-      if (this.settings.page) this.page = this.options.settings.page;
-      if (this.settings.itemsPerPage) this.options.itemsPerPage = this.settings.itemsPerPage;
-    }
-    if (this.filter) {
-      this.textSearch = this.filter;
-    }
-    this.gettextSearch();
-    this.watchtextSearch = this.$watch(
-      'textSearch',
-      _.debounce(() => {
-        this.gettextSearch();
-      }, 1000),
-    );
-  },
-  mounted() {
-    window.setInterval(() => {
-      if (this.refresh) {
-        this.loading = true;
-        this.$store.dispatch(this.request, tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
-          this.loading = false;
-        });
-        setTimeout(() => {
-          this.loading = false;
-        }, 30000);
-      }
-    }, 5000);
-  },
-  beforeDestroy() {
-    this.watchtextSearch();
-  },
 };
 </script>
+
+<style>
+.datatable .v-field__overlay {
+  background: none !important;
+}
+</style>

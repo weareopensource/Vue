@@ -2,7 +2,7 @@
   <section id="reviews" :style="style('section', setup)">
     <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row v-if="setup.content.length > 0" align="center" justify="center" class="px-0 py-8">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
         <v-col v-for="(item, i) in setup.content" :key="i" cols="12" sm="12" md="4" data-aos="fade">
           <v-card :class="`text-center pt-8 pb-2 ${config.vuetify.theme.rounded}`" :flat="config.vuetify.theme.flat" :style="style('card', setup)">
             <v-btn icon :color="item.color ? item.color : 'primary'" width="100" height="100" class="text-white">
@@ -27,11 +27,16 @@ import homeCardsTextComponent from './utils/home.card.text.component.vue';
  * Export default
  */
 export default {
-  name: 'homeReviewsComponent',
-  props: ['setup'],
+  name: 'HomeReviewsComponent',
   components: {
     homeTitleComponent,
     homeCardsTextComponent,
+  },
+  props: {
+    setup: {
+      type: Object,
+      required: true,
+    },
   },
   methods: {
     style,

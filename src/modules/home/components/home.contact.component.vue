@@ -2,19 +2,19 @@
   <section id="contact" :style="style('section', config.home.contact)">
     <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row align="center" justify="center" class="px-0 py-8">
-        <homeTitleComponent v-bind:setup="config.home.contact"></homeTitleComponent>
+        <homeTitleComponent :setup="config.home.contact"></homeTitleComponent>
         <v-col>
           <v-form ref="form">
             <v-text-field v-model="subject" :flat="config.vuetify.theme.flat" name="subject" label="Subject*"></v-text-field>
             <v-textarea v-model="body" :flat="config.vuetify.theme.flat" label="Message*"></v-textarea>
             <v-btn
-              @click="sendMail()"
               :color="config.vuetify.theme.themes[theme].colors.secondary"
               :style="{
                 color: config.vuetify.theme.themes[theme].colors.onSecondary,
               }"
               depressed
               x-large
+              @click="sendMail()"
               >Send</v-btn
             >
           </v-form>
@@ -36,7 +36,7 @@ import homeTitleComponent from './utils/home.title.component.vue';
  * Export default
  */
 export default {
-  name: 'homeContactComponent',
+  name: 'HomeContactComponent',
   components: {
     homeTitleComponent,
   },

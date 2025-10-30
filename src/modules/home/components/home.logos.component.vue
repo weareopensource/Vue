@@ -2,12 +2,12 @@
   <section id="logos" :style="style('section', setup)">
     <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-row align="center" justify="center" class="px-0 py-8 pb-14">
-        <homeTitleComponent v-bind:setup="setup"></homeTitleComponent>
+        <homeTitleComponent :setup="setup"></homeTitleComponent>
         <v-window v-if="setup.content.length > 0" class="w-100" show-arrows>
-          <template v-slot:prev="{ props }">
+          <template #prev="{ props }">
             <v-btn color="primary" variant="flat" icon="fa-solid fa-chevron-left" size="small" @click="props.onClick"> </v-btn>
           </template>
-          <template v-slot:next="{ props }">
+          <template #next="{ props }">
             <v-btn color="primary" variant="flat" icon="fa-solid fa-chevron-right" size="small" @click="props.onClick"> </v-btn>
           </template>
           <v-window-item v-for="(item, i) in setup.content" :key="i">
@@ -19,7 +19,7 @@
                 </a>
               </v-col>
               <v-col cols="12" md="10">
-                <homeContentsTextComponent class="pl-5 py-4" v-bind:item="item"></homeContentsTextComponent>
+                <homeContentsTextComponent class="pl-5 py-4" :item="item"></homeContentsTextComponent>
               </v-col>
             </v-row>
           </v-window-item>
@@ -40,12 +40,17 @@ import homeContentsTextComponent from './utils/home.content.text.component.vue';
  * Export default
  */
 export default {
-  name: 'homeLogosComponent',
-  props: ['setup'],
+  name: 'HomeLogosComponent',
   components: {
     homeTitleComponent,
     homeContentsTextComponent,
     homeImgComponent,
+  },
+  props: {
+    setup: {
+      type: Object,
+      required: true,
+    },
   },
   methods: {
     style,

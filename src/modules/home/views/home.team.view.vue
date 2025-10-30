@@ -1,9 +1,9 @@
 <template>
   <div>
-    <homeBannerComponent v-bind:ratio="3" v-bind:title="this.$route.meta.title" v-bind:subtitle="null"></homeBannerComponent>
+    <homeBannerComponent :ratio="3" :title="$route.meta.title" :subtitle="null"></homeBannerComponent>
     <v-container :style="`max-width: ${config.vuetify.theme.maxWidth}`">
       <v-layout wrap align-content-space-around text-xs-center>
-        <teamMemberComponent v-for="(item, index) in team" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></teamMemberComponent>
+        <teamMemberComponent v-for="(item, index) in team" :key="item.id" :item="item" :index="index"></teamMemberComponent>
       </v-layout>
     </v-container>
   </div>
@@ -21,6 +21,10 @@ import homeBannerComponent from '../components/home.banner.component.vue';
  * Export default
  */
 export default {
+  components: {
+    homeBannerComponent,
+    teamMemberComponent,
+  },
   data() {
     return {
       valid: true, // TODO: switch to false when forms will be reactive
@@ -29,10 +33,6 @@ export default {
         email: (v) => /\S+@\S+\.\S+/.test(v) || '',
       },
     };
-  },
-  components: {
-    homeBannerComponent,
-    teamMemberComponent,
   },
   computed: {
     ...mapGetters(['theme', 'team']),

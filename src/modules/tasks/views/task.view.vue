@@ -5,10 +5,10 @@
       <v-icon class="ma-2" icon="fa-solid fa-check"></v-icon>
       <h2 class="my-1 text-capitalize">1. Description</h2>
       <v-spacer></v-spacer>
-      <v-btn v-if="this.task.id" @click="remove" color="error" icon class="mx-1">
+      <v-btn v-if="task.id" color="error" icon class="mx-1" @click="remove">
         <v-icon icon="fa-solid fa-trash"></v-icon>
       </v-btn>
-      <v-btn v-if="this.task.id" @click="update()" :disabled="!save" color="success" icon class="mx-1">
+      <v-btn v-if="task.id" :disabled="!save" color="success" icon class="mx-1" @click="update()">
         <v-icon icon="fa-solid fa-save"></v-icon>
       </v-btn>
     </v-row>
@@ -23,13 +23,13 @@
                 <v-text-field v-model="description" :rules="[rules.required]" label="Description" required></v-text-field>
               </v-col>
             </v-row>
-            <v-row v-if="!this.task.id">
+            <v-row v-if="!task.id">
               <v-btn :disabled="!valid" color="success" class="mr-4" @click="create">Validate</v-btn>
             </v-row>
           </v-form>
         </v-card>
       </v-col>
-      <taskComponent v-bind:item="{ title, description }"></taskComponent>
+      <taskComponent :item="{ title, description }"></taskComponent>
     </v-row>
   </v-container>
 </template>
@@ -45,6 +45,9 @@ import taskComponent from '../components/task.component.vue';
  * Export default
  */
 export default {
+  components: {
+    taskComponent,
+  },
   data() {
     return {
       // vue
@@ -58,9 +61,6 @@ export default {
       // request
       loading: false,
     };
-  },
-  components: {
-    taskComponent,
   },
   computed: {
     ...mapGetters(['theme', 'task', 'result']),
@@ -88,6 +88,19 @@ export default {
       },
       deep: true,
     },
+  },
+  created() {
+    if (this.id) {
+      this.$store.commit('task_reset');
+      this.$store
+        .dispatch('getTask', { id: this.id })
+        .then(() => {
+          this.save = false;
+        })
+        .catch((err) => console.log(err));
+    } else {
+      this.$store.commit('task_reset');
+    }
   },
   methods: {
     async create() {
@@ -126,19 +139,6 @@ export default {
           .catch((err) => console.log(err));
       }
     },
-  },
-  created() {
-    if (this.id) {
-      this.$store.commit('task_reset');
-      this.$store
-        .dispatch('getTask', { id: this.id })
-        .then(() => {
-          this.save = false;
-        })
-        .catch((err) => console.log(err));
-    } else {
-      this.$store.commit('task_reset');
-    }
   },
 };
 </script>
