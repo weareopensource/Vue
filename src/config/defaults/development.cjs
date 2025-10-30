@@ -1,4 +1,4 @@
-/* eslint-disable no-multi-str */
+ 
 module.exports = {
   app: {
     title: 'WAOS',

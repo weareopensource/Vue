@@ -18,6 +18,9 @@ import coreDataTableComponent from '../../core/components/core.datatable.compone
  * Export default
  */
 export default {
+  components: {
+    coreDataTableComponent,
+  },
   data: () => ({
     headers: [
       {
@@ -76,9 +79,6 @@ export default {
       },
     ],
   }),
-  components: {
-    coreDataTableComponent,
-  },
   computed: {
     ...mapGetters(['theme', 'isLoggedIn', 'users']),
   },

@@ -56,7 +56,40 @@
  * Export default
  */
 export default {
-  name: 'userAvatarComponent',
-  props: ['user', 'width', 'height', 'radius', 'border', 'color', 'size', 'disabled'],
+  name: 'UserAvatarComponent',
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
+    width: {
+      type: String,
+      default: '50px',
+    },
+    height: {
+      type: String,
+      default: '50px',
+    },
+    radius: {
+      type: String,
+      default: '50%',
+    },
+    border: {
+      type: String,
+      default: '0px',
+    },
+    color: {
+      type: String,
+      default: '#000',
+    },
+    size: {
+      type: Number,
+      default: 128,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>

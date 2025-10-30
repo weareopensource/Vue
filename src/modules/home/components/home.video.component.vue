@@ -1,10 +1,10 @@
 <template>
-  <section id="video" v-if="setup && setup.file" :style="style('section', setup)" class="pa-8 pb-10">
+  <section v-if="setup && setup.file" id="video" :style="style('section', setup)" class="pa-8 pb-10">
     <v-container
       :class="`text-center pa-4 ${config.vuetify.theme.rounded}`"
       :style="{
         'max-width': config.vuetify.theme.maxWidth,
-        'margin-top': setup.subBanner ? (this.$vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
+        'margin-top': setup.subBanner ? ($vuetify.display.smAndDown ? '-20vh' : '-40vh') : 0,
         position: 'relative',
         ...style('video', setup),
       }"
@@ -25,7 +25,10 @@ import 'video.js/dist/video-js.css';
  * Export default
  */
 export default {
-  name: 'homeAboutsComponent',
+  name: 'HomeAboutsComponent',
+  components: {
+    VideoPlayer,
+  },
   props: {
     // video object
     setup: {
@@ -36,9 +39,6 @@ export default {
         background: '#101115',
       }),
     },
-  },
-  components: {
-    VideoPlayer,
   },
   methods: {
     style,

@@ -3,12 +3,12 @@
     :src="img"
     lazy-src="/images/lazy.webp"
     :class="`${config.vuetify.theme.rounded}`"
-    :height="height || (this.$vuetify.display.xsAndDown ? '225px' : this.$vuetify.display.smAndDown ? '300px' : '350px')"
+    :height="height || ($vuetify.display.xsAndDown ? '225px' : $vuetify.display.smAndDown ? '300px' : '350px')"
     :gradient="gradient"
     cover
     :alt="title || 'image'"
   >
-    <template v-slot:placeholder>
+    <template #placeholder>
       <div class="d-flex align-center justify-center fill-height">
         <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
       </div>
@@ -22,7 +22,28 @@
  * Export default
  */
 export default {
-  name: 'homeImgComponent',
-  props: ['img', 'gradient', 'title', 'text', 'height'],
+  name: 'HomeImgComponent',
+  props: {
+    img: {
+      type: String,
+      required: true,
+    },
+    gradient: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+    height: {
+      type: String,
+      default: '',
+    },
+  },
 };
 </script>

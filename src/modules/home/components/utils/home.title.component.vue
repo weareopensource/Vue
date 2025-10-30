@@ -15,7 +15,20 @@
  * Export default
  */
 export default {
-  name: 'hometitleComponent',
-  props: ['setup', 'offpadding', 'slide'],
+  name: 'HometitleComponent',
+  props: {
+    setup: {
+      type: Object,
+      required: true,
+    },
+    offpadding: {
+      type: Boolean,
+      default: false,
+    },
+    slide: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>

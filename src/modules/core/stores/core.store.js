@@ -4,7 +4,7 @@
 // import _ from 'lodash';
 import _ from 'lodash';
 import * as theme from '../../../lib/helpers/theme';
-import config from '../../../config/index.cjs';
+import config from '../../../config/index.js';
 
 /**
  * Getters: get state

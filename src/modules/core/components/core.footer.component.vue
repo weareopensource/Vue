@@ -1,6 +1,6 @@
 <template>
   <v-footer v-if="enabled" class="footer pa-0 align-end" :style="{ background: config.vuetify.theme.themes[theme].colors.background }" app>
-    <v-container class="pa-6" :style="custom && custom.section ? custom.section : null" v-if="links.length > 0">
+    <v-container v-if="links.length > 0" class="pa-6" :style="custom && custom.section ? custom.section : null">
       <v-row align="center" justify="center">
         <v-col
           v-for="({ items, title }, i) in links.filter((section) => section.items)"
@@ -12,7 +12,7 @@
           <v-card :flat="config.vuetify.theme.flat" :style="custom && custom.section ? custom.section : null">
             <v-card-title class="text-center text-h6 text-medium-emphasis">{{ title }}</v-card-title>
             <v-list :style="custom && custom.section ? custom.section : null">
-              <v-list-item v-for="(item, i) in items" :key="i" @click="navigate(item.url)" class="justify-center">
+              <v-list-item v-for="(item, idx) in items" :key="idx" class="justify-center" @click="navigate(item.url)">
                 <v-list-item-title>
                   <v-icon size="16" class="mr-2 text-onSurface text-medium-emphasis">{{ item.icon }}</v-icon>
                   <span class="text-secondary text-center text-subtitle-2"> {{ item.label }} </span>
@@ -35,15 +35,30 @@ import { mapGetters } from 'vuex';
  * Export default
  */
 export default {
-  name: 'waosFooter',
+  name: 'WaosFooter',
+  props: {
+    links: {
+      type: Array,
+      default: () => [],
+    },
+    custom: {
+      type: Object,
+      default: null,
+    },
+  },
   data() {
     return {
       enabled: false,
     };
   },
-  props: ['links', 'custom'],
   computed: {
     ...mapGetters(['theme']),
+  },
+  watch: {
+    $route(route) {
+      if (route.meta && route.meta.footer) this.enabled = true;
+      else this.enabled = false;
+    },
   },
   methods: {
     navigate(link) {
@@ -52,12 +67,6 @@ export default {
       } else {
         this.$router.push(link);
       }
-    },
-  },
-  watch: {
-    $route(route) {
-      if (route.meta && route.meta.footer) this.enabled = true;
-      else this.enabled = false;
     },
   },
 };

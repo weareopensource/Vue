@@ -9,8 +9,8 @@
       :color="snackbar.color"
     >
       {{ snackbar.text }}
-      <template v-slot:actions>
-        <v-btn @click="snackbar.status = false" icon>
+      <template #actions>
+        <v-btn icon @click="snackbar.status = false">
           <v-icon icon="fa-solid fa-circle-xmark"></v-icon>
         </v-btn>
       </template>
@@ -23,8 +23,8 @@
       <router-view />
     </v-main>
     <waosFooter
-      v-bind:links="config.footer.links"
-      v-bind:custom="{
+      :links="config.footer.links"
+      :custom="{
         section: { background: config.vuetify.theme.themes[theme].colors.surface, 'min-width': '100%' },
       }"
     />
@@ -45,6 +45,11 @@ import waosFooter from '../core/components/core.footer.component.vue';
  */
 export default {
   name: 'App',
+  components: {
+    waosHeader,
+    waosNav,
+    waosFooter,
+  },
   data() {
     return {
       snackbar: {
@@ -68,11 +73,6 @@ export default {
         { name: 'author', content: this.config.app.author },
       ],
     };
-  },
-  components: {
-    waosHeader,
-    waosNav,
-    waosFooter,
   },
   computed: {
     ...mapGetters(['isLoggedIn', 'theme']),

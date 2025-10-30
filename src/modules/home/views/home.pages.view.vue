@@ -1,10 +1,10 @@
 <template>
   <div>
     <homeBannerComponent
-      v-bind:ratio="3"
-      v-bind:title="this.$route.meta.title || lodash.startCase(this.$route.params.name)"
-      v-bind:subtitle="null"
-      v-bind:banner="contents[tab] && contents[tab].banner ? contents[tab].banner : null"
+      :ratio="3"
+      :title="$route.meta.title || lodash.startCase($route.params.name)"
+      :subtitle="null"
+      :banner="contents[tab] && contents[tab].banner ? contents[tab].banner : null"
     ></homeBannerComponent>
     <section id="page" :style="style('section', config.pages)">
       <v-container class="py-12" :style="`max-width: ${config.vuetify.theme.maxWidth}`">
@@ -15,8 +15,8 @@
             </v-tabs>
             <v-card-text class="pa-12">
               <v-window v-model="tab">
-                <v-window-item v-for="({ markdown, style }, i) in contents" :key="i" :value="i">
-                  <v-markdown :source="markdown" :class="style" />
+                <v-window-item v-for="({ markdown, style: styleClass }, i) in contents" :key="i" :value="i">
+                  <VMarkdown :source="markdown" :class="styleClass" />
                 </v-window-item>
               </v-window>
             </v-card-text>
@@ -40,15 +40,15 @@ import homeBannerComponent from '../components/home.banner.component.vue';
  * Export default
  */
 export default {
+  components: {
+    homeBannerComponent,
+  },
   data() {
     return {
       page: null,
       tab: 0,
       lodash: _,
     };
-  },
-  components: {
-    homeBannerComponent,
   },
   computed: {
     ...mapGetters(['theme', 'contents']),

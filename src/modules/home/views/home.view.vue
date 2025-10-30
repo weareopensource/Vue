@@ -2,20 +2,20 @@
   <div>
     <homeBannerComponent
       v-if="config.home.banner"
-      v-bind:title="config.home.banner.title"
-      v-bind:subtitle="config.home.banner.subtitle"
-      v-bind:button="config.home.banner.button"
+      :title="config.home.banner.title"
+      :subtitle="config.home.banner.subtitle"
+      :button="config.home.banner.button"
     ></homeBannerComponent>
-    <homeVideoComponent v-if="config.home.video" v-bind:setup="config.home.video"></homeVideoComponent>
-    <homeContentsComponent v-if="config.home.punchline" v-bind:setup="config.home.punchline"></homeContentsComponent>
-    <homeContentsComponent v-if="config.home.features" v-bind:setup="config.home.features"></homeContentsComponent>
-    <homeCardsComponent v-if="config.home.repos" v-bind:setup="config.home.repos"></homeCardsComponent>
-    <homeIconsComponent v-if="config.home.ressources" v-bind:setup="config.home.ressources"></homeIconsComponent>
-    <homeTimelineComponent v-if="config.home.install" v-bind:setup="config.home.install"></homeTimelineComponent>
-    <homeSlideshowComponent v-if="config.home.designs" v-bind:setup="config.home.designs"></homeSlideshowComponent>
-    <homeLogosComponent v-if="config.home.partners" v-bind:setup="config.home.partners"></homeLogosComponent>
-    <homeImagesComponent v-if="config.home.blog && news.length > 0" v-bind:setup="{ content: news, ...config.home.blog }"></homeImagesComponent>
-    <homeParallaxComponent v-if="config.home.stats" v-bind:setup="statistics"></homeParallaxComponent>
+    <homeVideoComponent v-if="config.home.video" :setup="config.home.video"></homeVideoComponent>
+    <homeContentsComponent v-if="config.home.punchline" :setup="config.home.punchline"></homeContentsComponent>
+    <homeContentsComponent v-if="config.home.features" :setup="config.home.features"></homeContentsComponent>
+    <homeCardsComponent v-if="config.home.repos" :setup="config.home.repos"></homeCardsComponent>
+    <homeIconsComponent v-if="config.home.ressources" :setup="config.home.ressources"></homeIconsComponent>
+    <homeTimelineComponent v-if="config.home.install" :setup="config.home.install"></homeTimelineComponent>
+    <homeSlideshowComponent v-if="config.home.designs" :setup="config.home.designs"></homeSlideshowComponent>
+    <homeLogosComponent v-if="config.home.partners" :setup="config.home.partners"></homeLogosComponent>
+    <homeImagesComponent v-if="config.home.blog && news.length > 0" :setup="{ content: news, ...config.home.blog }"></homeImagesComponent>
+    <homeParallaxComponent v-if="config.home.stats" :setup="statistics"></homeParallaxComponent>
     <homeContactComponent v-if="config.home.contact"></homeContactComponent>
   </div>
 </template>

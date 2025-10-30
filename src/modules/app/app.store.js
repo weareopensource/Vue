@@ -8,7 +8,7 @@ import users from '../users/stores/users.store';
 import home from '../home/stores/home.store';
 import tasks from '../tasks/stores/tasks.store';
 
-const debug = process.env.NODE_ENV !== 'production';
+const debug = import.meta.env.MODE !== 'production';
 
 /**
  * Vuex configuration

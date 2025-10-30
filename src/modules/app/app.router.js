@@ -19,8 +19,7 @@ const getRouter = (app) => {
   app.config.globalProperties.routes = routes;
 
   const router = createRouter({
-    history: createWebHashHistory(),
-    base: process.env.BASE_URL,
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
   });
   router.beforeEach((to, from, next) => {
