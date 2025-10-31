@@ -74,7 +74,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            'vue-vendor': ['vue', 'vue-router', 'vuex'],
+            'vue-vendor': ['vue', 'vue-router', 'pinia'],
             'vuetify-vendor': ['vuetify'],
             'utils-vendor': ['axios', 'lodash', 'moment'],
           },
@@ -85,7 +85,7 @@ export default defineConfig(({ mode }) => {
     },
 
     optimizeDeps: {
-      include: ['vue', 'vue-router', 'vuex', 'vuetify', 'axios', 'lodash', 'moment', 'marked', 'md5', 'aos'],
+      include: ['vue', 'vue-router', 'pinia', 'vuetify', 'axios', 'lodash', 'moment', 'marked', 'md5', 'aos'],
     },
   };
 });
