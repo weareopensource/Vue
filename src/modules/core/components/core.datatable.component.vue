@@ -108,7 +108,8 @@
  * Module dependencies.
  */
 import _ from 'lodash';
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../stores/core.store';
+import { useUsersStore } from '../../users/stores/users.store';
 import * as tools from '../../../lib/helpers/tools';
 import userAvatarComponent from '../../users/components/user.avatar.component.vue';
 /**
@@ -129,7 +130,7 @@ export default {
       required: true,
     },
     request: {
-      type: Object,
+      type: String,
       required: true,
     },
     title: {
@@ -165,15 +166,17 @@ export default {
     },
   }),
   computed: {
-    ...mapGetters(['theme']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
   },
   watch: {
     options: {
-      handler(options) {
+      async handler(options) {
         this.loading = true;
-        this.$store.dispatch(this.request, tools.pageRequest(options.page, options.itemsPerPage, this.textSearch)).then(() => {
-          this.loading = false;
-        });
+        await this.callStoreAction(tools.pageRequest(options.page, options.itemsPerPage, this.textSearch));
+        this.loading = false;
       },
       deep: true,
     },
@@ -199,7 +202,7 @@ export default {
     window.setInterval(() => {
       if (this.refresh) {
         this.loading = true;
-        this.$store.dispatch(this.request, tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
+        this.callStoreAction(tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
           this.loading = false;
         });
         setTimeout(() => {
@@ -212,11 +215,16 @@ export default {
     this.watchtextSearch();
   },
   methods: {
-    gettextSearch() {
+    async callStoreAction(params) {
+      const usersStore = useUsersStore();
+      if (this.request === 'getUsers') {
+        await usersStore.getUsers(params);
+      }
+    },
+    async gettextSearch() {
       this.loading = true;
-      this.$store.dispatch(this.request, tools.pageRequest(this.options.page, this.options.itemsPerPage, this.textSearch)).then(() => {
-        this.loading = false;
-      });
+      await this.callStoreAction(tools.pageRequest(this.options.page, this.options.itemsPerPage, this.textSearch));
+      this.loading = false;
     },
     switchPage(sign) {
       if (sign === '-' && this.options.page > 1) {

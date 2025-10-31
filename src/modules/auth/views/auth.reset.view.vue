@@ -47,7 +47,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useAuthStore } from '../stores/auth.store';
 /**
  * Export default
  */
@@ -63,17 +64,27 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'mail']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    mail() {
+      const authStore = useAuthStore();
+      return authStore.mail;
+    },
   },
   methods: {
     async validate() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
         const { password } = this;
-        this.$store
-          .dispatch('reset', { newPassword: password, token: this.$route.query.token })
-          .then(() => this.$router.push(this.config.sign.route))
-          .catch((err) => console.log(err));
+        const authStore = useAuthStore();
+        try {
+          await authStore.reset(this, { newPassword: password, token: this.$route.query.token });
+          this.$router.push(this.config.sign.route);
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     reset() {

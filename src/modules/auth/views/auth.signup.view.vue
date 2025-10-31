@@ -65,7 +65,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useAuthStore } from '../stores/auth.store';
 /**
  * Export default
  */
@@ -90,7 +91,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['auth', 'theme']),
+    auth() {
+      const authStore = useAuthStore();
+      return authStore.auth;
+    },
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
   },
   watch: {
     auth(auth) {
@@ -101,14 +109,17 @@ export default {
     async validate() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        this.$store
-          .dispatch('signup', {
+        const authStore = useAuthStore();
+        try {
+          await authStore.signup(this, {
             email: this.email,
             password: this.password,
             firstName: this.firstName,
             lastName: this.lastName,
-          })
-          .catch((err) => console.log(err));
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     reset() {

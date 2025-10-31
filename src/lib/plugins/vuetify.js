@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
- 
+
 import 'vuetify/styles';
 import '@fortawesome/fontawesome-free/css/all.css';
 

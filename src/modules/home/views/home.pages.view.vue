@@ -31,7 +31,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useHomeStore } from '../stores/home.store';
 import _ from 'lodash';
 import { style } from '../../../lib/helpers/theme';
 import homeBannerComponent from '../components/home.banner.component.vue';
@@ -51,21 +52,40 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'contents']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    contents() {
+      const homeStore = useHomeStore();
+      return homeStore.contents;
+    },
   },
   watch: {
     $route(route) {
       if (route.params.name !== undefined && this.page !== route.params.name) {
-        this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
+        const homeStore = useHomeStore();
+        const action = this.$route.meta.data;
+        if (action === 'getPages') {
+          homeStore.getPages(this, this.$route.params.name);
+        } else if (action === 'getChangelogs') {
+          homeStore.getChangelogs(this);
+        }
         this.page = this.$route.params.name;
       }
     },
   },
   created() {
+    const homeStore = useHomeStore();
+    const action = this.$route.meta.data;
     if (this.$route.params.name) {
-      this.$store.dispatch(this.$route.meta.data, this.$route.params.name);
+      if (action === 'getPages') {
+        homeStore.getPages(this, this.$route.params.name);
+      }
       this.page = this.$route.params.name;
-    } else this.$store.dispatch(this.$route.meta.data);
+    } else if (action === 'getChangelogs') {
+      homeStore.getChangelogs(this);
+    }
   },
   methods: {
     style,

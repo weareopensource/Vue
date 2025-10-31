@@ -1,32 +1,29 @@
 /**
  * Module dependencies.
  */
-import { createStore } from 'vuex';
-import core from '../core/stores/core.store';
-import auth from '../auth/stores/auth.store';
-import users from '../users/stores/users.store';
-import home from '../home/stores/home.store';
-import tasks from '../tasks/stores/tasks.store';
-
-const debug = import.meta.env.MODE !== 'production';
+import { useCoreStore } from '../core/stores/core.store';
+import { useAuthStore } from '../auth/stores/auth.store';
+import { useHomeStore } from '../home/stores/home.store';
 
 /**
- * Vuex configuration
+ * Initialize specific stores that need runtime data
  */
-const getStore = (app) => {
-  return createStore({
-    state: {
-      name: 'Vue',
-    },
-    modules: {
-      core: core(app),
-      auth: auth(app),
-      users: users(app),
-      home: home(app),
-      tasks: tasks(app),
-    },
-    strict: debug,
-  });
+const initializeStores = (routes) => {
+  // Initialize stores that need runtime data
+  const coreStore = useCoreStore();
+  const authStore = useAuthStore();
+  const homeStore = useHomeStore();
+
+  // Initialize with runtime data only
+  coreStore.init(routes);
+  authStore.initFromStorage();
+  homeStore.initStatistics();
+
+  return {
+    core: coreStore,
+    auth: authStore,
+    home: homeStore,
+  };
 };
 
-export default getStore;
+export default initializeStores;

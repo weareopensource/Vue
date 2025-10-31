@@ -28,7 +28,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useHomeStore } from '../stores/home.store';
 import { style } from '../../../lib/helpers/theme';
 import homeTitleComponent from './utils/home.title.component.vue';
 
@@ -41,14 +42,22 @@ export default {
     homeTitleComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'contact']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    contact() {
+      const homeStore = useHomeStore();
+      return homeStore.contact;
+    },
     subject: {
       get() {
         return this.contact.subject;
       },
       set(subject) {
         this.save = true;
-        this.$store.commit('contact_update', { subject });
+        const homeStore = useHomeStore();
+        homeStore.updateContact({ subject });
       },
     },
     body: {
@@ -57,7 +66,8 @@ export default {
       },
       set(body) {
         this.save = true;
-        this.$store.commit('contact_update', { body });
+        const homeStore = useHomeStore();
+        homeStore.updateContact({ body });
       },
     },
   },

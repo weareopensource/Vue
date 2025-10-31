@@ -109,7 +109,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../stores/core.store';
+import { useAuthStore } from '../../auth/stores/auth.store';
 
 /**
  * Export default
@@ -117,7 +118,14 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'WaosAppBar',
   computed: {
-    ...mapGetters(['theme', 'isLoggedIn']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
     appBarStyle() {
       return {
         // background: `linear-gradient(180deg, transparent 10px, ${this.config.vuetify.theme.appbar.background}${this.config.vuetify.theme.appbar.opacity} 10px)`,

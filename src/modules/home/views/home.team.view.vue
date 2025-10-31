@@ -13,7 +13,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useHomeStore } from '../stores/home.store';
 import teamMemberComponent from '../components/team.member.component.vue';
 import homeBannerComponent from '../components/home.banner.component.vue';
 
@@ -35,10 +36,18 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'team']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    team() {
+      const homeStore = useHomeStore();
+      return homeStore.team;
+    },
   },
   created() {
-    this.$store.dispatch('getTeam');
+    const homeStore = useHomeStore();
+    homeStore.getTeam(this);
   },
   methods: {
     generateTemporalBackground() {

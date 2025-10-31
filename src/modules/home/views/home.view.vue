@@ -24,7 +24,8 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useHomeStore } from '../stores/home.store';
 import homeBannerComponent from '../components/home.banner.component.vue';
 import homeVideoComponent from '../components/home.video.component.vue';
 import homeContentsComponent from '../components/home.contents.component.vue';
@@ -55,11 +56,23 @@ export default {
     homeContactComponent,
   },
   computed: {
-    ...mapGetters(['theme', 'news', 'statistics']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    news() {
+      const homeStore = useHomeStore();
+      return homeStore.news;
+    },
+    statistics() {
+      const homeStore = useHomeStore();
+      return homeStore.statistics;
+    },
   },
   created() {
-    if (this.config.home.stats) this.$store.dispatch('getStatistics');
-    if (this.config.home.blog) this.$store.dispatch('getNews');
+    const homeStore = useHomeStore();
+    if (this.config.home.stats) homeStore.getStatistics();
+    if (this.config.home.blog) homeStore.getNews();
   },
 };
 </script>

@@ -83,7 +83,9 @@
  * Module dependencies.
  */
 import _ from 'lodash';
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useAuthStore } from '../../auth/stores/auth.store';
+import { useUsersStore } from '../stores/users.store';
 import userAvatarComponent from '../components/user.avatar.component.vue';
 
 /**
@@ -111,13 +113,29 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'user', 'result', 'isLoggedIn']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    user() {
+      const usersStore = useUsersStore();
+      return usersStore.user;
+    },
+    result() {
+      const usersStore = useUsersStore();
+      return usersStore.result;
+    },
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
     firstName: {
       get() {
         return this.user.firstName;
       },
       set(firstName) {
-        this.$store.commit('user_update', { firstName });
+        const usersStore = useUsersStore();
+        usersStore.user.firstName = firstName;
       },
     },
     lastName: {
@@ -125,7 +143,8 @@ export default {
         return this.user.lastName;
       },
       set(lastName) {
-        this.$store.commit('user_update', { lastName });
+        const usersStore = useUsersStore();
+        usersStore.user.lastName = lastName;
       },
     },
     email: {
@@ -133,7 +152,8 @@ export default {
         return this.user.email;
       },
       set(email) {
-        this.$store.commit('user_update', { email });
+        const usersStore = useUsersStore();
+        usersStore.user.email = email;
       },
     },
     bio: {
@@ -141,7 +161,8 @@ export default {
         return this.user.bio;
       },
       set(bio) {
-        this.$store.commit('user_update', { bio });
+        const usersStore = useUsersStore();
+        usersStore.user.bio = bio;
       },
     },
     position: {
@@ -149,7 +170,8 @@ export default {
         return this.user.position;
       },
       set(position) {
-        this.$store.commit('user_update', { position });
+        const usersStore = useUsersStore();
+        usersStore.user.position = position;
       },
     },
     roles: {
@@ -159,7 +181,8 @@ export default {
       set(roles) {
         this.userRoles = roles;
         this.save = true;
-        this.$store.commit('user_update', { roles: _.cloneDeep(this.userRoles) });
+        const usersStore = useUsersStore();
+        usersStore.user.roles = _.cloneDeep(this.userRoles);
       },
     },
     avatar: {
@@ -167,7 +190,8 @@ export default {
         return this.user.avatar;
       },
       set(avatar) {
-        this.$store.commit('user_update', { avatar });
+        const usersStore = useUsersStore();
+        usersStore.user.avatar = avatar;
       },
     },
   },
@@ -179,53 +203,57 @@ export default {
       deep: true,
     },
   },
-  created() {
+  async created() {
+    const usersStore = useUsersStore();
     if (this.id) {
-      this.$store.commit('user_reset');
-      this.$store
-        .dispatch('getUser', { id: this.id })
-        .then(() => {
-          this.userRoles = _.cloneDeep(this.user.roles);
-          this.save = false;
-        })
-        .catch((err) => console.log(err));
+      usersStore.resetUser();
+      try {
+        await usersStore.getUser(this, { id: this.id });
+        this.userRoles = _.cloneDeep(this.user.roles);
+        this.save = false;
+      } catch (err) {
+        console.log(err);
+      }
     } else {
-      this.$store.commit('user_reset');
+      usersStore.resetUser();
     }
   },
   methods: {
     async update() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        await this.$store.commit('user_update', { roles: this.roles });
+        const usersStore = useUsersStore();
+        usersStore.user.roles = this.roles;
 
-        this.$store
-          .dispatch('updateUser', { id: this.id })
-          .then(() => {
-            this.save = false;
-          })
-          .catch((err) => console.log(err));
+        try {
+          await usersStore.updateUser(this, { id: this.id });
+          this.save = false;
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     async remove() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        this.$store
-          .dispatch('deleteUser', { id: this.id })
-          .then(() => {
-            this.$router.push('/users');
-          })
-          .catch((err) => console.log(err));
+        const usersStore = useUsersStore();
+        try {
+          await usersStore.deleteUser(this, { id: this.id });
+          this.$router.push('/users');
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     // uploadAvatar() {
     //   if (this.file.avatar) {
-    //     this.$store
-    //       .dispatch('uploadAvatar', { id: this.user.id, file: this.file.avatar })
-    //       .then(() => {
-    //         this.$router.push(`/users/${this.sample.id}`);
-    //       })
-    //       .catch((err) => console.log(err));
+    //     const usersStore = useUsersStore();
+    //     try {
+    //       await usersStore.uploadAvatar(this, { id: this.user.id, file: this.file.avatar });
+    //       this.$router.push(`/users/${this.user.id}`);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
     //   }
     // },
   },

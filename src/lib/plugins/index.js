@@ -1,5 +1,4 @@
 import vuetify from './vuetify';
-import axios from './axios';
 import posthog from './posthog';
 import moment from './moment';
 import gravatar from './gravatar';
@@ -10,7 +9,6 @@ import lodash from './lodash';
 
 export default {
   vuetify,
-  axios,
   posthog,
   moment,
   gravatar,
