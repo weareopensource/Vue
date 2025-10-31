@@ -1,5 +1,4 @@
- 
-module.exports = {
+export default {
   app: {
     title: 'WAOS',
     subtitle: 'welcome to demo.',

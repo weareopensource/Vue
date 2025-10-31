@@ -13,13 +13,13 @@ const __dirname = path.dirname(__filename);
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
 
 const getBaseConfiguration = async () => {
-  const _path = path.join(process.cwd(), './src/config', 'defaults', `${process.env.NODE_ENV}.cjs`);
+  const _path = path.join(process.cwd(), './src/config', 'defaults', `${process.env.NODE_ENV}.js`);
   if (fs.existsSync(`${_path}`)) {
     console.log(`+ Configuration based on : "${process.env.NODE_ENV}"`);
     return await import(path.join('file://', _path));
   }
   console.error(`+ Error: No configuration file found for "${process.env.NODE_ENV}" environment using development instead`);
-  return await import(path.join(process.cwd(), './src/config', 'defaults', 'development.cjs'));
+  return await import(path.join(process.cwd(), './src/config', 'defaults', 'development.js'));
 };
 
 const getConfiguration = async () => {
@@ -35,7 +35,7 @@ const getConfiguration = async () => {
   // Merge config files
   const config = _.merge(await defaultConfig.default, environmentConfigVars);
 
-  // Generate both CJS (for vite.config.js compatibility) and ESM (for browser imports)
+  // Generate ESM version
   const configJSON = JSON.stringify(config, undefined, 2)
     .replace(/"([^(")"]+)":/g, '$1:')
     .replace(/\n|\r/g, ',\n')
@@ -43,17 +43,7 @@ const getConfiguration = async () => {
     .replace(/\[,/g, '[')
     .replace(/,,/g, ',');
 
-  // Generate CJS version for Node.js (vite.config.js)
-  const cjsConfigFile = `/**
- * don't edit this file /!\\
- * it' a generated one
- * edit in defaults/*, cf readme
- */
-/* eslint-disable */
-module.exports = ${configJSON};
-`;
-
-  // Generate ESM version for browser imports
+  // Generate ESM file
   const esmConfigFile = `/**
  * don't edit this file /!\\
  * it' a generated one
@@ -63,11 +53,10 @@ module.exports = ${configJSON};
 export default ${configJSON};
 `;
 
-  // Write both files
-  fs.writeFileSync('./src/config/index.cjs', cjsConfigFile);
+  // Write ESM file
   fs.writeFileSync('./src/config/index.js', esmConfigFile);
 
-  console.log('+ Configuration files generated: index.cjs and index.js');
+  console.log('+ Configuration file generated: index.js');
 };
 
 getConfiguration();
