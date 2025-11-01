@@ -32,10 +32,19 @@ export default defineConfig(({ mode }) => {
       // Brotli compression for production
       viteCompression({
         verbose: true,
-        disable: false,
+        disable: mode !== 'production',
         threshold: 10240,
         algorithm: 'brotliCompress',
         ext: '.br',
+        deleteOriginFile: false,
+      }),
+      // Gzip compression fallback for production
+      viteCompression({
+        verbose: true,
+        disable: mode !== 'production',
+        threshold: 10240,
+        algorithm: 'gzip',
+        ext: '.gz',
         deleteOriginFile: false,
       }),
     ],

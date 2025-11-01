@@ -36,7 +36,6 @@
     "check:migration": "node ./scripts/check-vite-migration.js",
     "release": "npx semantic-release",
     "snyk-protect": "snyk protect",
-    "start": "npm run generateConfig && npm run vite:dev",
     "test": "vitest"
   },
   "dependencies": {
@@ -51,10 +50,8 @@
     "pinia": "^3.0.3",
     "posthog-js": "^1.217.4",
     "video.js": "^8.23.4",
-    "vite-plugin-vuetify": "^2.1.2",
     "vue": "^3.5.13",
     "vue-router": "^4.6.3",
-    "vue3-gravatar": "^3.0.0",
     "vuetify": "^3.10.8"
   },
   "devDependencies": {
@@ -79,7 +76,6 @@
     "object-path": "^0.11.8",
     "prettier": "^3.5.1",
     "sass": "^1.85",
-    "sass-loader": "16.0.4",
     "semantic-release": "^24.2.2",
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
