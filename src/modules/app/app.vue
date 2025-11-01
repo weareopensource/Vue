@@ -35,6 +35,7 @@
 /**
  * Module dependencies.
  */
+import { useHead } from '@unhead/vue';
 import { useAuthStore } from '../auth/stores/auth.store';
 import { useCoreStore } from '../core/stores/core.store';
 import { setupInterceptors } from '../../lib/services/axios';
@@ -62,20 +63,6 @@ export default {
       },
     };
   },
-  head() {
-    return {
-      title: this.config.app.title,
-      htmlAttrs: {
-        lang: 'en',
-        amp: true,
-      },
-      description: this.config.app.description,
-      meta: [
-        { name: 'keywords', content: this.config.app.keywords },
-        { name: 'author', content: this.config.app.author },
-      ],
-    };
-  },
   computed: {
     isLoggedIn() {
       const authStore = useAuthStore();
@@ -87,6 +74,19 @@ export default {
     },
   },
   created() {
+    // Configure head/meta tags
+    useHead({
+      title: this.config.app.title,
+      htmlAttrs: {
+        lang: 'en',
+      },
+      meta: [
+        { name: 'description', content: this.config.app.description },
+        { name: 'keywords', content: this.config.app.keywords },
+        { name: 'author', content: this.config.app.author },
+      ],
+    });
+
     // Configure axios interceptors
     const authStore = useAuthStore();
     setupInterceptors(this.config, this.snackbar, () => authStore.signout());
