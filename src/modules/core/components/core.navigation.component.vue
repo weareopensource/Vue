@@ -101,10 +101,11 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../stores/core.store';
+import { useAuthStore } from '../../auth/stores/auth.store';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'WaosNavigation',
@@ -114,17 +115,33 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'nav', 'isLoggedIn']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    nav() {
+      const coreStore = useCoreStore();
+      return coreStore.nav;
+    },
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
   },
   created() {
-    this.$store.dispatch('refreshNav');
+    const coreStore = useCoreStore();
+    const authStore = useAuthStore();
+    coreStore.refreshNav(authStore.isLoggedIn);
   },
   methods: {
-    signout() {
-      this.$store.dispatch('signout').then(() => {
-        this.$store.dispatch('refreshNav');
-        if (this.$route.path !== '/') this.$router.push('/');
-      });
+    async signout() {
+      const authStore = useAuthStore();
+      const coreStore = useCoreStore();
+
+      await authStore.signout();
+      coreStore.refreshNav(authStore.isLoggedIn);
+
+      if (this.$route.path !== '/') this.$router.push('/');
     },
   },
 };

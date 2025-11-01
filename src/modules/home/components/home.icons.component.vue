@@ -24,7 +24,7 @@ import { style } from '../../../lib/helpers/theme';
 import homeTitleComponent from './utils/home.title.component.vue';
 import homeCardsTextComponent from './utils/home.card.text.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeReviewsComponent',

@@ -1,5 +1,9 @@
 // Setup file for Vitest
 import { config } from '@vue/test-utils';
+import { createPinia, setActivePinia } from 'pinia';
+
+// Create a new Pinia instance for each test
+setActivePinia(createPinia());
 
 // Mock global config
 config.global.mocks = {

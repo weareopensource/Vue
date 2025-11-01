@@ -12,7 +12,7 @@
               ...style('video', setup),
             }"
           >
-            <video-player :src="item.video.file" :poster="item.video.poster" loop muted autoplay fluid />
+            <video-player :src="item.video.file" :controls="false" :poster="item.video.poster" loop muted autoplay fluid />
           </div>
           <v-img
             v-if="item.img"
@@ -33,14 +33,13 @@
 /**
  * Module dependencies.
  */
-import { VideoPlayer } from '@videojs-player/vue';
+import VideoPlayer from './utils/home.videoplayer.component.vue';
 import { style } from '../../../lib/helpers/theme';
-import 'video.js/dist/video-js.css';
 import homeTitleComponent from './utils/home.title.component.vue';
 import homeContentsTextComponent from './utils/home.content.text.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeContentsComponent',

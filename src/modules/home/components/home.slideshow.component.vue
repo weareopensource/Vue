@@ -41,22 +41,14 @@
             >
               <v-row align="center" justify="center">
                 <v-col v-if="subimg && reversed" class="px-10" cols="12" sm="12" md="6">
-                  <homeImgComponent
-                    v-if="subimg"
-                    :height="$vuetify.display.smAndDown ? img.height / 3 : img.height"
-                    :img="subimg"
-                  ></homeImgComponent>
+                  <homeImgComponent v-if="subimg" :height="$vuetify.display.smAndDown ? img.height / 3 : img.height" :img="subimg"></homeImgComponent>
                 </v-col>
                 <v-col class="text-left px-10" cols="12" sm="12" md="6">
                   <h4 v-if="subtitle" class="text-h5 text-md-h3 font-weight-bold mb-8">{{ subtitle }}</h4>
                   <VMarkdown v-if="text" :source="text" class="text-h6 text-md-h4" />
                 </v-col>
                 <v-col v-if="subimg && !reversed" class="px-10" cols="12" sm="12" md="6">
-                  <homeImgComponent
-                    v-if="subimg"
-                    :height="$vuetify.display.smAndDown ? img.height / 3 : img.height"
-                    :img="subimg"
-                  ></homeImgComponent>
+                  <homeImgComponent v-if="subimg" :height="$vuetify.display.smAndDown ? img.height / 3 : img.height" :img="subimg"></homeImgComponent>
                 </v-col>
               </v-row>
             </v-container>

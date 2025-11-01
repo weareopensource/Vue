@@ -9,7 +9,7 @@
         ...style('video', setup),
       }"
     >
-      <video-player :src="setup.file" :poster="setup.poster" loop muted autoplay fluid />
+      <video-player :src="setup.file" :poster="setup.poster" :controls="false" loop muted autoplay fluid />
     </v-container>
   </section>
 </template>
@@ -18,11 +18,11 @@
 /**
  * Module dependencies.
  */
-import { VideoPlayer } from '@videojs-player/vue';
+import VideoPlayer from './utils/home.videoplayer.component.vue';
 import { style } from '../../../lib/helpers/theme';
-import 'video.js/dist/video-js.css';
+
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeAboutsComponent',

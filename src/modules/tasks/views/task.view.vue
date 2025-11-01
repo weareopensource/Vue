@@ -38,11 +38,12 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useTasksStore } from '../stores/tasks.store';
 import taskComponent from '../components/task.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {
@@ -63,13 +64,25 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme', 'task', 'result']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    task() {
+      const tasksStore = useTasksStore();
+      return tasksStore.task;
+    },
+    result() {
+      const tasksStore = useTasksStore();
+      return tasksStore.result;
+    },
     title: {
       get() {
         return this.task.title;
       },
       set(title) {
-        this.$store.commit('task_update', { title });
+        const tasksStore = useTasksStore();
+        tasksStore.task.title = title;
       },
     },
     description: {
@@ -77,7 +90,8 @@ export default {
         return this.task.description;
       },
       set(description) {
-        this.$store.commit('task_update', { description });
+        const tasksStore = useTasksStore();
+        tasksStore.task.description = description;
       },
     },
   },
@@ -89,54 +103,57 @@ export default {
       deep: true,
     },
   },
-  created() {
+  async created() {
+    const tasksStore = useTasksStore();
     if (this.id) {
-      this.$store.commit('task_reset');
-      this.$store
-        .dispatch('getTask', { id: this.id })
-        .then(() => {
-          this.save = false;
-        })
-        .catch((err) => console.log(err));
+      tasksStore.resetTask();
+      try {
+        await tasksStore.getTask(this, { id: this.id });
+        this.save = false;
+      } catch (err) {
+        console.log(err);
+      }
     } else {
-      this.$store.commit('task_reset');
+      tasksStore.resetTask();
     }
   },
   methods: {
     async create() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        this.$store
-          .dispatch('createTask', this.task)
-          .then(() => {
-            this.save = false;
-            // this.$router.push(`/tasks/${this.task.id}`);
-            this.$router.push('/tasks');
-          })
-          .catch((err) => console.log(err));
+        const tasksStore = useTasksStore();
+        try {
+          await tasksStore.createTask(this, this.task);
+          this.save = false;
+          this.$router.push('/tasks');
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     async update() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        this.$store
-          .dispatch('updateTask', { id: this.id })
-          .then(() => {
-            this.save = false;
-            this.$router.push('/tasks');
-          })
-          .catch((err) => console.log(err));
+        const tasksStore = useTasksStore();
+        try {
+          await tasksStore.updateTask(this, { id: this.id });
+          this.save = false;
+          this.$router.push('/tasks');
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     async remove() {
       const form = await this.$refs.form.validate();
       if (form.valid) {
-        this.$store
-          .dispatch('deleteTask', { id: this.id })
-          .then(() => {
-            this.$router.push('/tasks');
-          })
-          .catch((err) => console.log(err));
+        const tasksStore = useTasksStore();
+        try {
+          await tasksStore.deleteTask(this, { id: this.id });
+          this.$router.push('/tasks');
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
   },

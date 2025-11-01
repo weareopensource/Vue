@@ -30,9 +30,9 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../stores/core.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'WaosFooter',
@@ -52,7 +52,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['theme']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
   },
   watch: {
     $route(route) {

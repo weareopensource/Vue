@@ -27,10 +27,12 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useAuthStore } from '../../auth/stores/auth.store';
+import { useTasksStore } from '../stores/tasks.store';
 import taskComponent from '../components/task.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {
@@ -49,10 +51,22 @@ export default {
     transition: 'slide-y',
   }),
   computed: {
-    ...mapGetters(['theme', 'isLoggedIn', 'tasks']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
+    tasks() {
+      const tasksStore = useTasksStore();
+      return tasksStore.tasks;
+    },
   },
   created() {
-    this.$store.dispatch('getTasks');
+    const tasksStore = useTasksStore();
+    tasksStore.getTasks();
   },
 };
 </script>

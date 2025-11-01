@@ -27,9 +27,9 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../../core/stores/core.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeDynamicIslandComponent',
@@ -63,7 +63,10 @@ export default {
     stepsArray: [],
   }),
   computed: {
-    ...mapGetters(['theme']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
     dynamicIslandStyle() {
       return {
         filter: this.theme === 'dark' ? 'brightness(1.8)' : 'brightness(0.8)',

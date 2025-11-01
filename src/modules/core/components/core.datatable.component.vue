@@ -17,7 +17,7 @@
           <td v-for="header in headers" :key="header.text">
             <span v-if="header.value">
               <span v-if="header.kind === 'date' && header.format">
-                {{ moment(new Date(lodash.get(item, header.value))).format(header.format) }}
+                {{ dayjs(new Date(lodash.get(item, header.value))).format(header.format) }}
               </span>
               <span v-else-if="header.kind === 'icon'">
                 <v-btn v-if="header.path && header.pathValue" :to="`${header.path}${lodash.get(item, header.pathValue)}`" variant="flat" icon>
@@ -107,12 +107,13 @@
 /**
  * Module dependencies.
  */
-import _ from 'lodash';
-import { mapGetters } from 'vuex';
+import { debounce } from 'lodash-es';
+import { useCoreStore } from '../stores/core.store';
+import { useUsersStore } from '../../users/stores/users.store';
 import * as tools from '../../../lib/helpers/tools';
 import userAvatarComponent from '../../users/components/user.avatar.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'CoreDatatable',
@@ -129,7 +130,7 @@ export default {
       required: true,
     },
     request: {
-      type: Object,
+      type: String,
       required: true,
     },
     title: {
@@ -155,7 +156,6 @@ export default {
   },
   data: () => ({
     refresh: false,
-    lodash: _,
     textSearch: '',
     loading: true,
     perPage: [5, 50, 100],
@@ -165,15 +165,17 @@ export default {
     },
   }),
   computed: {
-    ...mapGetters(['theme']),
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
   },
   watch: {
     options: {
-      handler(options) {
+      async handler(options) {
         this.loading = true;
-        this.$store.dispatch(this.request, tools.pageRequest(options.page, options.itemsPerPage, this.textSearch)).then(() => {
-          this.loading = false;
-        });
+        await this.callStoreAction(tools.pageRequest(options.page, options.itemsPerPage, this.textSearch));
+        this.loading = false;
       },
       deep: true,
     },
@@ -190,7 +192,7 @@ export default {
     this.gettextSearch();
     this.watchtextSearch = this.$watch(
       'textSearch',
-      _.debounce(() => {
+      debounce(() => {
         this.gettextSearch();
       }, 1000),
     );
@@ -199,7 +201,7 @@ export default {
     window.setInterval(() => {
       if (this.refresh) {
         this.loading = true;
-        this.$store.dispatch(this.request, tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
+        this.callStoreAction(tools.pageRequest(1, this.options.itemsPerPage, this.textSearch)).then(() => {
           this.loading = false;
         });
         setTimeout(() => {
@@ -212,11 +214,16 @@ export default {
     this.watchtextSearch();
   },
   methods: {
-    gettextSearch() {
+    async callStoreAction(params) {
+      const usersStore = useUsersStore();
+      if (this.request === 'getUsers') {
+        await usersStore.getUsers(params);
+      }
+    },
+    async gettextSearch() {
       this.loading = true;
-      this.$store.dispatch(this.request, tools.pageRequest(this.options.page, this.options.itemsPerPage, this.textSearch)).then(() => {
-        this.loading = false;
-      });
+      await this.callStoreAction(tools.pageRequest(this.options.page, this.options.itemsPerPage, this.textSearch));
+      this.loading = false;
     },
     switchPage(sign) {
       if (sign === '-' && this.options.page > 1) {

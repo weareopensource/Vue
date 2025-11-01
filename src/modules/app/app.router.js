@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 import { createRouter, createWebHashHistory } from 'vue-router';
-import store from './app.store';
+import { useAuthStore } from '../auth/stores/auth.store';
+import config from '../../lib/services/config';
 
 import home from '../home/router/home.router';
 import auth from '../auth/router/auth.router';
@@ -13,11 +14,9 @@ import tasks from '../tasks/router/tasks.router';
 const routes = [].concat(home, auth, users, secure, tasks);
 
 /**
- * Router configuration
+ * Router configuration.
  */
-const getRouter = (app) => {
-  app.config.globalProperties.routes = routes;
-
+const getRouter = () => {
   const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
@@ -25,12 +24,13 @@ const getRouter = (app) => {
   router.beforeEach((to, from, next) => {
     // meta
     document.title = to.name;
-    const userRoles = localStorage.getItem(`${app.config.globalProperties.config.cookie.prefix}UserRoles`)
-      ? localStorage.getItem(`${app.config.globalProperties.config.cookie.prefix}UserRoles`).split(',')
+    const userRoles = localStorage.getItem(`${config.cookie.prefix}UserRoles`)
+      ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
       : [];
     // secu
     if (to.matched.some((record) => record.meta.roles)) {
-      if (store(app).getters.isLoggedIn && to.meta.roles.some((r) => userRoles.includes(r))) {
+      const authStore = useAuthStore();
+      if (authStore.isLoggedIn && to.meta.roles.some((r) => userRoles.includes(r))) {
         next();
         return;
       }
@@ -42,4 +42,7 @@ const getRouter = (app) => {
   return router;
 };
 
+/**
+ * Exports.
+ */
 export default getRouter;

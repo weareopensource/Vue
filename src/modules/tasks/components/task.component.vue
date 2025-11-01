@@ -17,9 +17,10 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useCoreStore } from '../../core/stores/core.store';
+import { useAuthStore } from '../../auth/stores/auth.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'TaskComponent',
@@ -30,7 +31,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['isLoggedIn', 'theme']),
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
   },
 };
 </script>

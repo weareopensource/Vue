@@ -51,6 +51,6 @@ export const style = (kind, object) => {
 };
 
 /**
- * @desc default export
+ * Exports.
  */
 export default { defineTheme, isDark, style };

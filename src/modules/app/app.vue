@@ -35,13 +35,16 @@
 /**
  * Module dependencies.
  */
-import { mapGetters } from 'vuex';
+import { useHead } from '@unhead/vue';
+import { useAuthStore } from '../auth/stores/auth.store';
+import { useCoreStore } from '../core/stores/core.store';
+import { setupInterceptors } from '../../lib/services/axios';
 import waosHeader from '../core/components/core.appbar.component.vue';
 import waosNav from '../core/components/core.navigation.component.vue';
 import waosFooter from '../core/components/core.footer.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'App',
@@ -60,55 +63,33 @@ export default {
       },
     };
   },
-  head() {
-    return {
+  computed: {
+    isLoggedIn() {
+      const authStore = useAuthStore();
+      return authStore.isLoggedIn;
+    },
+    theme() {
+      const coreStore = useCoreStore();
+      return coreStore.theme;
+    },
+  },
+  created() {
+    // Configure head/meta tags
+    useHead({
       title: this.config.app.title,
       htmlAttrs: {
         lang: 'en',
-        amp: true,
       },
-      description: this.config.app.description,
       meta: [
+        { name: 'description', content: this.config.app.description },
         { name: 'keywords', content: this.config.app.keywords },
         { name: 'author', content: this.config.app.author },
       ],
-    };
-  },
-  computed: {
-    ...mapGetters(['isLoggedIn', 'theme']),
-  },
-  created() {
-    // auth
-    this.axios.interceptors.response.use(
-      (response) => {
-        if (
-          this.config.vuetify.theme.snackbar.status &&
-          response.config &&
-          this.config.vuetify.theme.snackbar.methods.indexOf(response.config.method) > -1
-        ) {
-          this.snackbar.text = `${response.data.type}: ${response.data.message}`;
-          this.snackbar.color = this.config.vuetify.theme.snackbar.sucessColor;
-          this.snackbar.status = true;
-        }
-        return response;
-      },
-      (err) =>
-        new Promise(() => {
-          if (err && err.response && err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
-            this.$store.dispatch('signout');
-            this.snackbar.text = 'Signin failed';
-            this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
-            this.snackbar.status = true;
-          }
-          if (this.config.vuetify.theme.snackbar.status && err.response && err.response.data && err.response.data.description) {
-            this.snackbar.text = err.response.data.description;
-            this.snackbar.color = this.config.vuetify.theme.snackbar.errorColor;
-            this.snackbar.status = true;
-          }
-          throw err;
-        }),
-    );
-    // set base theme
+    });
+
+    // Configure axios interceptors
+    const authStore = useAuthStore();
+    setupInterceptors(this.config, this.snackbar, () => authStore.signout());
   },
 };
 </script>
