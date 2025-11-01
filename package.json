@@ -55,7 +55,6 @@
     "video.js": "^8.23.4",
     "vite-plugin-vuetify": "^2.1.2",
     "vue": "^3.5.13",
-    "vue-loader": "^17.4.2",
     "vue-markdown": "^2.2.4",
     "vue-router": "^4.6.3",
     "vue3-gravatar": "^3.0.0",
