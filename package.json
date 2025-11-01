@@ -77,7 +77,6 @@
     "commitizen": "^4.3.1",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.4.0",
     "happy-dom": "^15.11.7",
