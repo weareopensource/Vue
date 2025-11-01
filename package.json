@@ -20,9 +20,9 @@
     "url": "https://github.com/weareopensource/Vue.git"
   },
   "scripts": {
-    "dev": "run-s generateConfig vite:dev",
-    "build": "run-s generateConfig vite:build",
-    "preview": "run-s generateConfig vite:preview",
+    "dev": "npm run generateConfig && npm run vite:dev",
+    "build": "npm run generateConfig && npm run vite:build",
+    "preview": "npm run generateConfig && npm run vite:preview",
     "vite:dev": "vite",
     "vite:build": "vite build",
     "vite:preview": "vite preview",
@@ -37,7 +37,7 @@
     "release": "standard-version",
     "release:auto": "npx semantic-release",
     "snyk-protect": "snyk protect",
-    "start": "run-s generateConfig vite:dev",
+    "start": "npm run generateConfig && npm run vite:dev",
     "test": "vitest",
     "test:lint": "./node_modules/.bin/eslint ./src"
   },
@@ -83,7 +83,6 @@
     "globals": "^16.4.0",
     "happy-dom": "^15.11.7",
     "husky": "^9.1.7",
-    "npm-run-all": "^4.1.5",
     "object-path": "^0.11.8",
     "prettier": "^3.5.1",
     "sass": "^1.85",
