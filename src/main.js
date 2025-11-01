@@ -28,7 +28,7 @@ app
   .use(plugins.lodash)
   .use(plugins.markdown)
   .use(plugins.posthog)
-  .use(plugins.moment)
+  .use(plugins.dayjs)
   .use(plugins.vuetify)
   .use(plugins.gravatar);
 

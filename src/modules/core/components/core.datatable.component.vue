@@ -17,7 +17,7 @@
           <td v-for="header in headers" :key="header.text">
             <span v-if="header.value">
               <span v-if="header.kind === 'date' && header.format">
-                {{ moment(new Date(lodash.get(item, header.value))).format(header.format) }}
+                {{ dayjs(new Date(lodash.get(item, header.value))).format(header.format) }}
               </span>
               <span v-else-if="header.kind === 'icon'">
                 <v-btn v-if="header.path && header.pathValue" :to="`${header.path}${lodash.get(item, header.pathValue)}`" variant="flat" icon>
