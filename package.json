@@ -37,8 +37,7 @@
     "release": "npx semantic-release",
     "snyk-protect": "snyk protect",
     "start": "npm run generateConfig && npm run vite:dev",
-    "test": "vitest",
-    "test:lint": "./node_modules/.bin/eslint ./src"
+    "test": "vitest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
