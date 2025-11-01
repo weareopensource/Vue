@@ -76,7 +76,7 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             'vue-vendor': ['vue', 'vue-router', 'pinia'],
             'vuetify-vendor': ['vuetify'],
-            'utils-vendor': ['axios', 'lodash', 'dayjs'],
+            'utils-vendor': ['axios', 'lodash-es', 'dayjs'],
           },
         },
       },
@@ -85,7 +85,7 @@ export default defineConfig(({ mode }) => {
     },
 
     optimizeDeps: {
-      include: ['vue', 'vue-router', 'pinia', 'vuetify', 'axios', 'lodash', 'dayjs', 'marked', 'md5', 'aos'],
+      include: ['vue', 'vue-router', 'pinia', 'vuetify', 'axios', 'lodash-es', 'dayjs', 'marked', 'aos'],
     },
   };
 });
