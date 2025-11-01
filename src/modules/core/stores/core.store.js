@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import { defineStore } from 'pinia';
-import _ from 'lodash';
+import { pickBy, orderBy } from 'lodash-es';
 import * as theme from '../../../lib/helpers/theme';
 import config from '../../../lib/services/config';
 
@@ -41,8 +41,8 @@ export const useCoreStore = defineStore('core', {
         ? localStorage.getItem(`${config.cookie.prefix}UserRoles`).split(',')
         : [];
 
-      const nav = _.orderBy(
-        _.pickBy(this.routes, (i) => {
+      const nav = orderBy(
+        pickBy(this.routes, (i) => {
           if (i.meta.display !== false) {
             // hidden item
             if (!('roles' in i.meta)) return i; // auth undefined, always displayed

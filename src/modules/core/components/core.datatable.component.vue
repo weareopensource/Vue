@@ -107,7 +107,7 @@
 /**
  * Module dependencies.
  */
-import _ from 'lodash';
+import { debounce } from 'lodash-es';
 import { useCoreStore } from '../stores/core.store';
 import { useUsersStore } from '../../users/stores/users.store';
 import * as tools from '../../../lib/helpers/tools';
@@ -156,7 +156,6 @@ export default {
   },
   data: () => ({
     refresh: false,
-    lodash: _,
     textSearch: '',
     loading: true,
     perPage: [5, 50, 100],
@@ -193,7 +192,7 @@ export default {
     this.gettextSearch();
     this.watchtextSearch = this.$watch(
       'textSearch',
-      _.debounce(() => {
+      debounce(() => {
         this.gettextSearch();
       }, 1000),
     );

@@ -82,7 +82,7 @@
 /**
  * Module dependencies.
  */
-import _ from 'lodash';
+import { cloneDeep } from 'lodash-es';
 import { useCoreStore } from '../../core/stores/core.store';
 import { useAuthStore } from '../../auth/stores/auth.store';
 import { useUsersStore } from '../stores/users.store';
@@ -182,7 +182,7 @@ export default {
         this.userRoles = roles;
         this.save = true;
         const usersStore = useUsersStore();
-        usersStore.user.roles = _.cloneDeep(this.userRoles);
+        usersStore.user.roles = cloneDeep(this.userRoles);
       },
     },
     avatar: {
@@ -209,7 +209,7 @@ export default {
       usersStore.resetUser();
       try {
         await usersStore.getUser(this, { id: this.id });
-        this.userRoles = _.cloneDeep(this.user.roles);
+        this.userRoles = cloneDeep(this.user.roles);
         this.save = false;
       } catch (err) {
         console.log(err);

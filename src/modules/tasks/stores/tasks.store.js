@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import { defineStore } from 'pinia';
-import _ from 'lodash';
+import { assign } from 'lodash-es';
 import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import model from '../../../lib/middlewares/model';
@@ -65,7 +65,7 @@ export const useTasksStore = defineStore('tasks', {
       try {
         const obj = model.clean(this.task, whitelists);
         const res = await axios.put(`${api}/${config.api.endPoints.tasks}/${params.id}`, obj);
-        _.assign(this.task, res.data.data);
+        assign(this.task, res.data.data);
       } catch (err) {
         console.log(err);
       }

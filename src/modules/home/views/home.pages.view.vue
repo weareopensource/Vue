@@ -33,7 +33,6 @@
  */
 import { useCoreStore } from '../../core/stores/core.store';
 import { useHomeStore } from '../stores/home.store';
-import _ from 'lodash';
 import { style } from '../../../lib/helpers/theme';
 import homeBannerComponent from '../components/home.banner.component.vue';
 
@@ -48,7 +47,6 @@ export default {
     return {
       page: null,
       tab: 0,
-      lodash: _,
     };
   },
   computed: {

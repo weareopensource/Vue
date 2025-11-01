@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import { defineStore } from 'pinia';
-import _ from 'lodash';
+import { sum, flatten, merge } from 'lodash-es';
 import GhostContentAPI from '@tryghost/content-api';
 import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
@@ -94,8 +94,8 @@ export const useHomeStore = defineStore('home', {
 
         if (this.statistics) {
           this.statistics[0].value = tasks.data.data;
-          this.statistics[1].value = _.sum(
-            _.flatten(
+          this.statistics[1].value = sum(
+            flatten(
               releases.data.data.map((release) => {
                 if (release.list.length > 0) {
                   return tools.releasesNumber(release.list[0].name);
@@ -116,7 +116,7 @@ export const useHomeStore = defineStore('home', {
     },
 
     updateContact(data) {
-      _.merge(this.contact, data);
+      merge(this.contact, data);
     },
   },
 });

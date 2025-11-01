@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 import { defineStore } from 'pinia';
-import _ from 'lodash';
+import { assign } from 'lodash-es';
 import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import model from '../../../lib/middlewares/model';
@@ -60,7 +60,7 @@ export const useUsersStore = defineStore('users', {
       try {
         const obj = model.clean(this.user, whitelists);
         const res = await axios.put(`${api}/${config.api.endPoints.users}/${params.id}`, obj);
-        _.assign(this.user, res.data.data);
+        assign(this.user, res.data.data);
       } catch (err) {
         console.log(err);
       }
