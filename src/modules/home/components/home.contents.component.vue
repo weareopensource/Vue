@@ -40,7 +40,7 @@ import homeTitleComponent from './utils/home.title.component.vue';
 import homeContentsTextComponent from './utils/home.content.text.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeContentsComponent',

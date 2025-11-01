@@ -19,7 +19,7 @@ import teamMemberComponent from '../components/team.member.component.vue';
 import homeBannerComponent from '../components/home.banner.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {

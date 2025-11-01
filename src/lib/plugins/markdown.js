@@ -1,4 +1,3 @@
- 
 /**
  * Module dependencies.
  */
@@ -14,7 +13,7 @@ marked.setOptions({
 });
 
 /**
- * Plugin Setup
+ * Plugin setup.
  */
 export default {
   install: (app) => {

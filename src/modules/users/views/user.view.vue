@@ -89,7 +89,7 @@ import { useUsersStore } from '../stores/users.store';
 import userAvatarComponent from '../components/user.avatar.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {

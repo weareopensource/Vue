@@ -7,8 +7,14 @@ import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import model from '../../../lib/middlewares/model';
 
+/**
+ * Whitelists.
+ */
 const whitelists = ['firstName', 'lastName', 'bio', 'position', 'email', 'avatar', 'roles'];
 
+/**
+ * Store definition.
+ */
 export const useUsersStore = defineStore('users', {
   state: () => ({
     user: {
@@ -104,4 +110,7 @@ export const useUsersStore = defineStore('users', {
   },
 });
 
+/**
+ * Exports.
+ */
 export default useUsersStore;

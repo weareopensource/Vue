@@ -1,5 +1,9 @@
 /**
- * Plugin Setup
+ * Module dependencies.
+ */
+
+/**
+ * Plugin setup.
  */
 export default {
   install: (app) => {

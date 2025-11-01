@@ -37,7 +37,7 @@ import homeTitleComponent from './utils/home.title.component.vue';
 import homeCardsTextComponent from './utils/home.card.text.component.vue';
 import homeImgComponent from './utils/home.img.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeTimelineComponent',

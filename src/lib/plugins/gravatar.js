@@ -5,7 +5,7 @@ import { h } from 'vue';
 import md5 from 'md5';
 
 /**
- * Plugin Setup
+ * Plugin setup.
  */
 export default {
   install: (app) => {

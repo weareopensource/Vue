@@ -6,7 +6,7 @@ import pages from '../views/home.pages.view.vue';
 import team from '../views/home.team.view.vue';
 
 /**
- * Router configuration
+ * Router configuration.
  */
 export default [
   {
@@ -57,3 +57,7 @@ export default [
     },
   },
 ];
+
+/**
+ * Exports.
+ */

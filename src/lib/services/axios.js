@@ -1,17 +1,20 @@
 /**
- * Axios service - Instance HTTP partagée avec interceptors
+ * Module dependencies.
  */
 import axios from 'axios';
 
+/**
+ * Axios instance configuration.
+ */
 const instance = axios.create({
   withCredentials: true,
 });
 
 /**
- * Configure les interceptors axios
- * @param {Object} config - Configuration de l'application
- * @param {Object} snackbar - Objet snackbar réactif pour les notifications
- * @param {Function} onSignout - Callback à appeler lors d'une erreur 401
+ * Setup axios interceptors.
+ * @param {Object} config - Application configuration
+ * @param {Object} snackbar - Reactive snackbar object for notifications
+ * @param {Function} onSignout - Callback to call on 401 error
  */
 export function setupInterceptors(config, snackbar, onSignout) {
   instance.interceptors.response.use(
@@ -41,4 +44,7 @@ export function setupInterceptors(config, snackbar, onSignout) {
   );
 }
 
+/**
+ * Exports.
+ */
 export default instance;

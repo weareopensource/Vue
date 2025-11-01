@@ -41,7 +41,7 @@
 import { useCoreStore } from '../../core/stores/core.store';
 import { useAuthStore } from '../stores/auth.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   data() {

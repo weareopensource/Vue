@@ -7,8 +7,14 @@ import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import model from '../../../lib/middlewares/model';
 
+/**
+ * Whitelists.
+ */
 const whitelists = ['title', 'description'];
 
+/**
+ * Store definition.
+ */
 export const useTasksStore = defineStore('tasks', {
   state: () => ({
     task: {
@@ -85,4 +91,7 @@ export const useTasksStore = defineStore('tasks', {
   },
 });
 
+/**
+ * Exports.
+ */
 export default useTasksStore;

@@ -105,7 +105,7 @@ import { useCoreStore } from '../stores/core.store';
 import { useAuthStore } from '../../auth/stores/auth.store';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'WaosNavigation',

@@ -29,7 +29,7 @@
  */
 import { useCoreStore } from '../../../core/stores/core.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeDynamicIslandComponent',

@@ -113,7 +113,7 @@ import { useUsersStore } from '../../users/stores/users.store';
 import * as tools from '../../../lib/helpers/tools';
 import userAvatarComponent from '../../users/components/user.avatar.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'CoreDatatable',

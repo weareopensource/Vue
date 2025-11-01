@@ -14,7 +14,7 @@ import tasks from '../tasks/router/tasks.router';
 const routes = [].concat(home, auth, users, secure, tasks);
 
 /**
- * Router configuration
+ * Router configuration.
  */
 const getRouter = () => {
   const router = createRouter({
@@ -42,4 +42,7 @@ const getRouter = () => {
   return router;
 };
 
+/**
+ * Exports.
+ */
 export default getRouter;

@@ -17,7 +17,7 @@ import { useUsersStore } from '../stores/users.store';
 import coreDataTableComponent from '../../core/components/core.datatable.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {

@@ -8,6 +8,9 @@ import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import * as tools from '../../../lib/helpers/tools';
 
+/**
+ * Store definition.
+ */
 export const useHomeStore = defineStore('home', {
   state: () => ({
     team: [],
@@ -118,4 +121,7 @@ export const useHomeStore = defineStore('home', {
   },
 });
 
+/**
+ * Exports.
+ */
 export default useHomeStore;

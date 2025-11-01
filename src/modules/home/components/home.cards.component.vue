@@ -17,11 +17,7 @@
           <v-carousel-item v-for="n in steps + 1" :key="n">
             <v-row align="center" justify="center" class="pa-0">
               <v-col v-for="(item, i) in content" :key="i" cols="12" :md="item.fullWidth ? 12 : setup.content.length > 1 ? 6 : 12">
-                <v-card
-                  :class="`${config.vuetify.theme.rounded}`"
-                  :flat="config.vuetify.theme.flat"
-                  :style="style('card', { style: item.style })"
-                >
+                <v-card :class="`${config.vuetify.theme.rounded}`" :flat="config.vuetify.theme.flat" :style="style('card', { style: item.style })">
                   <homeImgComponent v-if="item.img && !item.reversed" :img="item.img"></homeImgComponent>
                   <homeCardsTextComponent :item="item"></homeCardsTextComponent>
                   <homeImgComponent v-if="item.img && item.reversed" :img="item.img"></homeImgComponent>
@@ -47,7 +43,7 @@ import homeCardsTextComponent from './utils/home.card.text.component.vue';
 import homeImgComponent from './utils/home.img.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeCardsComponent',

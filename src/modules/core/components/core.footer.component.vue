@@ -32,7 +32,7 @@
  */
 import { useCoreStore } from '../stores/core.store';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'WaosFooter',

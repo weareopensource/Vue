@@ -6,7 +6,7 @@ import { useAuthStore } from '../auth/stores/auth.store';
 import { useHomeStore } from '../home/stores/home.store';
 
 /**
- * Initialize specific stores that need runtime data
+ * Initialize specific stores that need runtime data.
  */
 const initializeStores = (routes) => {
   // Initialize stores that need runtime data

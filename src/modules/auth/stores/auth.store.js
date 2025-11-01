@@ -6,6 +6,9 @@ import axios from '../../../lib/services/axios';
 import config from '../../../lib/services/config';
 import { useCoreStore } from '../../core/stores/core.store';
 
+/**
+ * Store definition.
+ */
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     cookieExpire: 0,
@@ -130,4 +133,7 @@ export const useAuthStore = defineStore('auth', {
   },
 });
 
+/**
+ * Exports.
+ */
 export default useAuthStore;

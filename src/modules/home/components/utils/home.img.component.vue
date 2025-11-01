@@ -19,7 +19,7 @@
 </template>
 <script>
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'HomeImgComponent',

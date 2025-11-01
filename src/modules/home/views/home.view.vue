@@ -39,7 +39,7 @@ import homeParallaxComponent from '../components/home.parallax.component.vue';
 import homeContactComponent from '../components/home.contact.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {

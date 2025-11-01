@@ -9,6 +9,9 @@ import config from '../../../lib/services/config';
 // Variable globale pour stocker les routes
 let routes = null;
 
+/**
+ * Store definition.
+ */
 export const useCoreStore = defineStore('core', {
   state: () => ({
     drawer: false,
@@ -59,4 +62,7 @@ export const useCoreStore = defineStore('core', {
   },
 });
 
+/**
+ * Exports.
+ */
 export default useCoreStore;

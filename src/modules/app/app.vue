@@ -44,7 +44,7 @@ import waosNav from '../core/components/core.navigation.component.vue';
 import waosFooter from '../core/components/core.footer.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'App',

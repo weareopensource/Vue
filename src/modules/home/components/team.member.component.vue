@@ -60,7 +60,7 @@ import { useAuthStore } from '../../auth/stores/auth.store';
 import userAvatarComponent from '../../users/components/user.avatar.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   name: 'TaskComponent',

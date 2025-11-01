@@ -32,7 +32,7 @@ import { useAuthStore } from '../../auth/stores/auth.store';
 import { useTasksStore } from '../stores/tasks.store';
 import taskComponent from '../components/task.component.vue';
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {

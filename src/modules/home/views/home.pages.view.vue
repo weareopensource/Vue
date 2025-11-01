@@ -38,7 +38,7 @@ import { style } from '../../../lib/helpers/theme';
 import homeBannerComponent from '../components/home.banner.component.vue';
 
 /**
- * Export default
+ * Component definition.
  */
 export default {
   components: {
