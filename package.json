@@ -96,7 +96,6 @@
         "name": "master"
       }
     ],
-    "ci": false,
     "repositoryUrl": "https://github.com/weareopensource/Vue.git",
     "plugins": [
       "@semantic-release/commit-analyzer",

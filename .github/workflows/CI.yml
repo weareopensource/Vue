@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
       - name: Run tests
         run: |
-          npm i
+          npm install
           UV_USE_IO_URING=0 npm run build
           npm run lint
           npm run test:coverage
