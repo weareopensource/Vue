@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
       - name: Run tests
         run: |
-          npm ci
+          npm install
           UV_USE_IO_URING=0 npm run build
           npm run lint
           npm run test:coverage
