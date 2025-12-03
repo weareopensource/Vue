@@ -4,6 +4,7 @@ on: pull_request
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   auto-merge:
@@ -13,4 +14,4 @@ jobs:
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
           target: minor
-          github-token: ${{ secrets.WAOS }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
