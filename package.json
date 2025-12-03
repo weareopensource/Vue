@@ -43,7 +43,7 @@
     "@tryghost/content-api": "^1.12.2",
     "@unhead/vue": "^2.0.19",
     "aos": "^2.3.4",
-    "unhead": "^1.11.18",
+    "unhead": "^2.0.19",
     "axios": "^1.13.2",
     "dayjs": "^1.11.19",
     "lodash-es": "^4.17.21",
@@ -53,7 +53,7 @@
     "video.js": "^8.23.4",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3",
-    "vuetify": "^3.11.0"
+    "vuetify": "^3.11.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
@@ -62,7 +62,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@vitejs/plugin-vue": "^6.0.2",
-    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.15",
     "@vue/test-utils": "^2.4.6",
     "@weareopensource/conventional-changelog": "^1.7.0",
     "autoprefixer": "^10.4.22",
@@ -75,14 +75,14 @@
     "happy-dom": "^20.0.11",
     "husky": "^9.1.7",
     "object-path": "^0.11.8",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "sass": "^1.94",
     "semantic-release": "^25.0.2",
     "typescript": "^5.9.3",
     "vite": "^7.2.6",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-vuetify": "^2.1.2",
-    "vitest": "^4.0.13",
+    "vitest": "^4.0.15",
     "vue-eslint-parser": "^10.2.0"
   },
   "config": {

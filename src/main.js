@@ -2,8 +2,7 @@
  * Module dependencies.
  */
 import { createApp } from 'vue';
-import { createHead } from 'unhead';
-import { VueHeadMixin } from '@unhead/vue';
+import { createHead } from '@unhead/vue/client';
 import { createPinia } from 'pinia';
 import initializeStores from './modules/app/app.store';
 import router from './modules/app/app.router';
@@ -21,7 +20,7 @@ app.config.globalProperties.config = config;
 app.config.globalProperties.routes = routes;
 
 app
-  .mixin(VueHeadMixin)
+  .use(head)
   .use(pinia)
   .use(appRouter)
   .use(plugins.aos)
@@ -32,9 +31,6 @@ app
   .use(plugins.dayjs)
   .use(plugins.vuetify)
   .use(plugins.gravatar);
-
-// Set the head instance
-app.config.globalProperties.$head = head;
 
 // Initialize stores after all plugins are loaded
 initializeStores(routes);
